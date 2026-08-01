@@ -54,6 +54,12 @@ export default async (req) => {
       page: "/journey/new-foundations",
       pdf: "/downloads/Homeward_New_Foundations_Guide.pdf",
     },
+    "Embodied Faith": {
+      title: "Embodied Faith",
+      subtitle: "Letting faith become a way of life",
+      page: "/journey/embodied-faith",
+      pdf: "/downloads/Homeward_Embodied_Faith_Guide.pdf",
+    },
   };
   const guide = guideMap[assessmentStage] || null;
   const requestOrigin = new URL(req.url).origin;
