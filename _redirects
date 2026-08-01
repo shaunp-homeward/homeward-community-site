@@ -1,34 +1,41 @@
 /api/lead /.netlify/functions/lead 200
 /m/* /.netlify/functions/redirect 200
+
 /assessment /assessment.html 200
 /circles /circles.html 200
 /practices /practices.html 200
 /connect /connect.html 200
 /vision /vision.html 200
 /about /about.html 200
-/journey/sacred-search /journey-sacred-search.html 200
+/resources /resources.html 200
+
 /journey/inherited-faith /journey-inherited-faith.html 200
 /journey/honest-questions /journey-honest-questions.html 200
+/journey/sacred-search /journey-sacred-search.html 200
 /journey/new-foundations /journey-new-foundations.html 200
-/resources/new-foundations /resources-new-foundations.html 200
-/practice-inspired-reading /practice-inspired-reading.html 200
-/guide/new-foundations /journey-new-foundations.html 200
-/resources/honest-questions /resources-honest-questions.html 200
-/practice-honest-prayer /practice-honest-prayer.html 200
-/guide/honest-questions /journey-honest-questions.html 200
-/resources/inherited-faith /resources-inherited-faith.html 200
-/practice-remembering /practice-remembering.html 200
-/guide/inherited-faith /journey-inherited-faith.html 200
-/resources/sacred-search /resources-sacred-search.html 200
-/resources /resources.html 200
-/guide/sacred-search /journey-sacred-search.html 200
-/guide-sacred-search.html /journey/sacred-search 301
-/* /404.html 404
-
 /journey/embodied-faith /journey-embodied-faith.html 200
-/resources/embodied-faith /resources-embodied-faith.html 200
-/practice-daily-reflection /practice-daily-reflection.html 200
 /journey/living-awake /journey-living-awake.html 200
+
+/resources/inherited-faith /resources-inherited-faith.html 200
+/resources/honest-questions /resources-honest-questions.html 200
+/resources/sacred-search /resources-sacred-search.html 200
+/resources/new-foundations /resources-new-foundations.html 200
+/resources/embodied-faith /resources-embodied-faith.html 200
 /resources/living-awake /resources-living-awake.html 200
+
+/practice-remembering /practice-remembering.html 200
+/practice-honest-prayer /practice-honest-prayer.html 200
+/practice-breath /practice-breath.html 200
+/practice-inspired-reading /practice-inspired-reading.html 200
+/practice-daily-reflection /practice-daily-reflection.html 200
 /practice-contemplative-presence /practice-contemplative-presence.html 200
+
+/guide/inherited-faith /journey-inherited-faith.html 200
+/guide/honest-questions /journey-honest-questions.html 200
+/guide/sacred-search /journey-sacred-search.html 200
+/guide/new-foundations /journey-new-foundations.html 200
+/guide/embodied-faith /journey-embodied-faith.html 200
 /guide/living-awake /journey-living-awake.html 200
+/guide-sacred-search.html /journey/sacred-search 301
+
+/* /404.html 404
