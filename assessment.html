@@ -224,7 +224,7 @@ var STAGES = {
   3:{num:"Stage Three",title:"Sacred Search",tag:"Seeking with open hands",guide:"Sacred Search",
      desc:"You're actively looking — reading, praying differently, exploring practices and voices you weren't handed. This is holy, generative work. The risk of this season is wandering without companions or roots. Homeward exists for exactly this: a place to search with others, grounded in the way of Jesus and the deep well of contemplative practice, so the seeking leads somewhere home.",
      res:"You might resonate with: contemplative practice, honest community, and teachers who take both faith and questions seriously.",season:"search"},
-  4:{num:"Stage Four",title:"New Foundations",tag:"Faith, rebuilt and your own",guide:"New Foundations",
+  4:{num:"Stage Four",title:"New Foundations",tag:"Rebuilding with humility and hope",guide:"New Foundations",
      desc:"You've been through the unmaking and you're rebuilding — a faith that's simpler in some ways, deeper in others, and unmistakably yours. It can hold mystery without needing to control it. What this season needs is community that can match its depth and keep it from drifting into isolation. That's the kind of table Homeward is setting.",
      res:"You might resonate with: depth over certainty, practice over performance, and friends for the long road.",season:"foundations"},
   5:{num:"Stage Five",title:"Embodied Faith",tag:"Belief becoming a way of life",guide:"Embodied Faith",
@@ -400,14 +400,14 @@ function showResult(stage,moving,intake){
   document.getElementById('rDesc').textContent=S.desc;
   document.getElementById('rResonate').textContent=S.res;
   document.getElementById('rGuideName').textContent=S.guide;
-  var guideReady=(stage===1||stage===2||stage===3);
+  var guideReady=(stage===1||stage===2||stage===3||stage===4);
   var captureTitle=document.getElementById('captureTitle');
   var captureLead=document.getElementById('captureLead');
   var captureSubnote=document.getElementById('captureSubnote');
   var submitButton=document.getElementById('rSubmit');
   if(guideReady){
     captureTitle.textContent='Want the deeper version to keep?';
-    var practiceName=stage===1?'Sacred Remembering':(stage===2?'Honest Prayer':'Breath Prayer');
+    var practiceName=stage===1?'Sacred Remembering':(stage===2?'Honest Prayer':(stage===3?'Breath Prayer':'Inspired Reading'));
     captureLead.innerHTML="We’ll email you the full <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> guide — a beautiful, printable companion with "+practiceName+" and live resource links.";
     captureSubnote.textContent='Your guide, then at most one gentle follow-up — and that’s it, unless you want more.';
     submitButton.textContent='Email me my guide';

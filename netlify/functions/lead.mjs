@@ -48,6 +48,12 @@ export default async (req) => {
       page: "/journey/sacred-search",
       pdf: "/downloads/Homeward_Sacred_Search_Guide.pdf",
     },
+    "New Foundations": {
+      title: "New Foundations",
+      subtitle: "Rebuilding with humility and hope",
+      page: "/journey/new-foundations",
+      pdf: "/downloads/Homeward_New_Foundations_Guide.pdf",
+    },
   };
   const guide = guideMap[assessmentStage] || null;
   const requestOrigin = new URL(req.url).origin;
