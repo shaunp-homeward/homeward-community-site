@@ -60,6 +60,12 @@ export default async (req) => {
       page: "/journey/embodied-faith",
       pdf: "/downloads/Homeward_Embodied_Faith_Guide.pdf",
     },
+    "Living Awake": {
+      title: "Living Awake",
+      subtitle: "Present to God, available to love",
+      page: "/journey/living-awake",
+      pdf: "/downloads/Homeward_Living_Awake_Guide.pdf",
+    },
   };
   const guide = guideMap[assessmentStage] || null;
   const requestOrigin = new URL(req.url).origin;

@@ -71,3 +71,6 @@
 
 .embodied-hero .ss-hero-copy{background:linear-gradient(145deg,#153A2E,#2C4B3F)}
 .embodied-resource-hero{background:linear-gradient(130deg,rgba(21,58,46,.96),rgba(21,58,46,.70)),url('/assets/embodied-faith/embodied-life.webp') center/cover}
+
+.awake-hero .ss-hero-copy{background:linear-gradient(145deg,#153A2E,#304E42)}
+.awake-resource-hero{background:linear-gradient(130deg,rgba(21,58,46,.96),rgba(21,58,46,.68)),url('/assets/living-awake/awakened-path.webp') center/cover}
