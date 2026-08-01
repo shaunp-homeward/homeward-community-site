@@ -273,4 +273,4 @@ const buildMeta = {
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.1 into ${dist}`);
+console.log(`Built Homeward V6.2 into ${dist}`);
