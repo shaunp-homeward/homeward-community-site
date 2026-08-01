@@ -1,12 +1,13 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: shaunp-homeward/homeward-community-site
+  branch: staging
   squash_merges: true
-
+  use_graphql: true
 local_backend: true
 publish_mode: editorial_workflow
-site_url: https://homewardcommunity.com
-display_url: https://homewardcommunity.com
+site_url: https://staging--homeward-community-dfw.netlify.app
+display_url: https://staging--homeward-community-dfw.netlify.app
 logo_url: https://homewardcommunity.com/assets/logo-forest.png
 media_folder: assets/uploads
 public_folder: /assets/uploads
