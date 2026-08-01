@@ -30,8 +30,15 @@ export default async (req) => {
   const formType = clean(data.form_type) || "interest";
   const assessmentStage = clean(data.assessment_stage);
   const guideMap = {
+    "Inherited Faith": {
+      title: "Inherited Faith",
+      subtitle: "Receiving the gift, making it your own",
+      page: "/journey/inherited-faith",
+      pdf: "/downloads/Homeward_Inherited_Faith_Guide.pdf",
+    },
     "Sacred Search": {
       title: "The Sacred Search",
+      subtitle: "Seeking with open hands",
       page: "/journey/sacred-search",
       pdf: "/downloads/Homeward_Sacred_Search_Guide.pdf",
     },
@@ -171,7 +178,7 @@ async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl }
 
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
   const subject = `Your Homeward guide: ${guide.title}`;
-  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">Seeking with open hands</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${guideUrl}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${guidePdfUrl}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${guideUrl}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${guidePdfUrl}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
   const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your ${guide.title} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
 
   try {

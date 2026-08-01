@@ -400,14 +400,15 @@ function showResult(stage,moving,intake){
   document.getElementById('rDesc').textContent=S.desc;
   document.getElementById('rResonate').textContent=S.res;
   document.getElementById('rGuideName').textContent=S.guide;
-  var guideReady=(stage===3);
+  var guideReady=(stage===1||stage===3);
   var captureTitle=document.getElementById('captureTitle');
   var captureLead=document.getElementById('captureLead');
   var captureSubnote=document.getElementById('captureSubnote');
   var submitButton=document.getElementById('rSubmit');
   if(guideReady){
     captureTitle.textContent='Want the deeper version to keep?';
-    captureLead.innerHTML="We’ll email you the full <b id='rGuideName' style='color:var(--gold)'>Sacred Search</b> guide — a beautiful, printable companion with Breath Prayer and live resource links.";
+    var practiceName=stage===1?'Sacred Remembering':'Breath Prayer';
+    captureLead.innerHTML="We’ll email you the full <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> guide — a beautiful, printable companion with "+practiceName+" and live resource links.";
     captureSubnote.textContent='Your guide, then at most one gentle follow-up — and that’s it, unless you want more.';
     submitButton.textContent='Email me my guide';
     submitButton.dataset.defaultLabel='Email me my guide';
