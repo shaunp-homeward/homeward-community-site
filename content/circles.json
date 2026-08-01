@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Homeward Circles — Honest Community and Spiritual Practice",
+    "description": "Learn how Homeward Circles gather for Christian meditation, contemplative practice, meaningful questions, Scripture, and authentic friendship."
+  },
+  "hero": {
+    "eyebrow": "Homeward Circles",
+    "heading": "A small community where faith becomes real.",
+    "lead": "Six to eight people gather regularly to share life, become present to God, explore meaningful questions, and grow through teachings and practices inspired by the life and teachings of Jesus.",
+    "primary": "I’m interested in a Circle",
+    "secondary": "See a sample session"
+  },
+  "heart": {
+    "image": "https://images.pexels.com/photos/34519967/pexels-photo-34519967/free-photo-of-group-discussion-in-cozy-living-room-gathering.jpeg?auto=compress&dpr=1&h=1200&w=1800",
+    "image_alt": "A warm, diverse group gathered in a living room for honest conversation",
+    "caption": "A consistent group. A guided rhythm. Space to be honest and known.",
+    "eyebrow": "The heart of Homeward",
+    "heading": "Unhurried. Honest. Practiced together.",
+    "lead": "A Circle is not a class where one person has all the answers. It is a stable community learning to become present to God and one another.",
+    "body": "Leaders participate rather than perform. Questions are welcomed. Silence is not awkward. Scripture is explored with curiosity. No one is asked to pretend.",
+    "urgency_heading": "Circles form as the right people connect.",
+    "urgency_text": "Tell us you are interested, and we will get to know you before helping you join a group.",
+    "primary": "Tell us you’re interested",
+    "secondary": "Start a Conversation"
+  },
+  "rhythm": {
+    "eyebrow": "The shape of a gathering",
+    "heading": "A simple rhythm with room to breathe.",
+    "intro": "The flow changes from week to week, but every gathering makes room for presence, honest conversation, and a practice to carry into everyday life.",
+    "steps": [
+      {
+        "title": "Arrive",
+        "description": "Coffee, a light meal, and time to settle."
+      },
+      {
+        "title": "Become present",
+        "description": "Christian meditation, contemplative prayer, or silence."
+      },
+      {
+        "title": "Explore",
+        "description": "Scripture and thoughtful teaching inspired by Jesus."
+      },
+      {
+        "title": "Share",
+        "description": "Honest conversation without easy answers."
+      },
+      {
+        "title": "Carry it home",
+        "description": "A simple practice for the week ahead."
+      }
+    ]
+  },
+  "sample": {
+    "eyebrow": "Season One · Finding Home",
+    "heading": "What one session might feel like.",
+    "intro": "This example shows the tone and flow—not a rigid script. Circles are guided, but always human.",
+    "week": "Week One",
+    "title": "The Longing for Home",
+    "description": "An approachable first gathering about belonging, spiritual longing, and what it means to begin honestly.",
+    "items": [
+      {
+        "time": "Arrival · 20 min",
+        "title": "Coffee, food, and connection",
+        "body": "People settle in and respond to a simple opening question: <em>Where have you felt most at home in your life?</em>"
+      },
+      {
+        "time": "Practice · 8 min",
+        "title": "Breath Prayer",
+        "body": "Breathing in: <em>I am here.</em><br>Breathing out: <em>I am held.</em>"
+      },
+      {
+        "time": "Explore · 15 min",
+        "title": "Scripture and reflection",
+        "body": "A short reading from Luke 15, followed by a reflection on our longing to be known, welcomed, and restored."
+      },
+      {
+        "time": "Conversation · 30 min",
+        "title": "Honest questions",
+        "questions": [
+          "What does “home” mean to you spiritually?",
+          "When has faith felt like home?",
+          "When has it felt like exile?",
+          "What are you hoping to find in this season?"
+        ]
+      },
+      {
+        "time": "Practice for the week · 5 min",
+        "title": "Daily Reflection",
+        "body": "Where did I feel at home today? Where did I feel disconnected? What might God be inviting me to notice?"
+      },
+      {
+        "time": "Closing · 5 min",
+        "title": "A simple blessing",
+        "body": "A reminder that no one has to have everything figured out—and that the journey will be walked together."
+      }
+    ]
+  },
+  "fit": {
+    "eyebrow": "Is this for me?",
+    "heading": "Circles are made for real people in real seasons.",
+    "fit_heading": "You may feel at home if...",
+    "fit_items": [
+      "You still long for God, even if your faith has changed.",
+      "You want depth without rigid certainty.",
+      "You are willing to listen, practice, and be known.",
+      "You want a community inspired by the life and teachings of Jesus.",
+      "You believe transformation happens in relationship."
+    ],
+    "not_heading": "You do not need to...",
+    "not_items": [
+      "Know the Bible well.",
+      "Have your beliefs fully settled.",
+      "Be comfortable with silence yet.",
+      "Leave your current church.",
+      "Commit before first getting to know us."
+    ]
+  },
+  "final": {
+    "eyebrow": "A gentle next step",
+    "heading": "Let us know a Circle interests you.",
+    "lead": "Share your information, ask a question, or start a conversation when you are ready.",
+    "primary": "I’m interested in a Circle",
+    "secondary": "Start a Conversation"
+  }
+}

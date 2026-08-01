@@ -1,0 +1,19 @@
+{
+  "hero": {
+    "eyebrow": "A simple next step",
+    "heading": "Have a short conversation about Homeward.",
+    "lead": "Share what you are looking for, ask questions, and learn whether Homeward or a Circle might be a good fit. About 30 minutes, with no pressure to join anything."
+  },
+  "expect": {
+    "eyebrow": "What to expect",
+    "heading": "A warm, unhurried conversation.",
+    "items": [
+      "About 30 minutes by video call.",
+      "Your confirmation will include the meeting link.",
+      "Share as much or as little as you choose.",
+      "Ask anything about Homeward, practices, or Circles.",
+      "Discover a next step only if it feels right."
+    ],
+    "not_ready": "Not ready to schedule? Tell us you are interested instead."
+  }
+}
