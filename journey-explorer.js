@@ -1,7 +1,7 @@
 (function(){
 const data={
 1:{title:'Inherited Faith',tag:'Receiving the gift, making it your own',summary:'Faith is received through family, church, culture, teachers, practices, and story. Its gift is belonging; its invitation is to become personally alive.',practice:'Sacred Remembering',guide:'/journey/inherited-faith',resources:'/resources/inherited-faith',ready:true},
-2:{title:'Honest Questions',tag:'Making room for what is true',summary:'Old answers begin to strain. Experience, disappointment, wonder, or pain opens questions that can no longer be ignored.',practice:'Honest Prayer and Examen',ready:false},
+2:{title:'Honest Questions',tag:'Making room for what is true',summary:'Old answers begin to strain. Experience, disappointment, wonder, suffering, or pain opens questions that can no longer be ignored.',practice:'Honest Prayer',guide:'/journey/honest-questions',resources:'/resources/honest-questions',ready:true},
 3:{title:'Sacred Search',tag:'Seeking with open hands',summary:'You explore new voices, practices, and ways of understanding God. The invitation is to seek deeply without searching alone.',practice:'Breath Prayer',guide:'/journey/sacred-search',resources:'/resources/sacred-search',ready:true},
 4:{title:'New Foundations',tag:'Rebuilding with humility and hope',summary:'A more honest and spacious faith begins to take shape - rooted in Jesus, tested by experience, and held with humility.',practice:'Lectio Divina',ready:false},
 5:{title:'Embodied Faith',tag:'Letting faith become a way of life',summary:'Faith moves from ideas into rhythms, relationships, choices, healing, service, and love.',practice:'Rule of Life and Examen',ready:false},

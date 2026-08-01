@@ -36,6 +36,12 @@ export default async (req) => {
       page: "/journey/inherited-faith",
       pdf: "/downloads/Homeward_Inherited_Faith_Guide.pdf",
     },
+    "Honest Questions": {
+      title: "Honest Questions",
+      subtitle: "Making room for what is true",
+      page: "/journey/honest-questions",
+      pdf: "/downloads/Homeward_Honest_Questions_Guide.pdf",
+    },
     "Sacred Search": {
       title: "The Sacred Search",
       subtitle: "Seeking with open hands",
