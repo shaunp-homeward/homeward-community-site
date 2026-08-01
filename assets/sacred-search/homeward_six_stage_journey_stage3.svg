@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720">
+<rect width="1600" height="720" fill="#FAF6EF"/>
+<!-- restrained spiral watermark -->
+<path d="M1170 115 C1445 125 1545 350 1430 520 C1315 690 1030 665 905 530
+         C800 415 855 245 1010 220 C1140 200 1250 285 1220 395
+         C1195 485 1080 510 1025 445 C980 392 1010 330 1060 325"
+      fill="none" stroke="#6D7D6A" stroke-width="20" opacity="0.10" stroke-linecap="round"/>
+<!-- journey line -->
+<path d="M150 360 C335 270 480 450 670 360 C850 275 1000 448 1190 360 C1300 310 1385 325 1450 360"
+      fill="none" stroke="#6D7D6A" stroke-width="5" opacity="0.70" stroke-linecap="round"/>
+<!-- group rails -->
+<path d="M95 105 H465" stroke="#6D7D6A" stroke-width="5" stroke-linecap="round"/>
+<path d="M615 105 H985" stroke="#E0A443" stroke-width="5" stroke-linecap="round"/>
+<path d="M1135 105 H1505" stroke="#153A2E" stroke-width="5" stroke-linecap="round"/>
+<text x="280" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" letter-spacing="5" fill="#6D7D6A">BELONG</text>
+<text x="800" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" letter-spacing="5" fill="#B53A2A">GROW</text>
+<text x="1320" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" letter-spacing="5" fill="#153A2E">BECOME</text>
+
+<circle cx="150" cy="360" r="55" fill="#FAF6EF" stroke="#153A2E" stroke-width="4"/>
+<text x="150" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="650" fill="#153A2E">1</text>
+<text x="150" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">INHERITED</text>
+<text x="150" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">FAITH</text>
+<circle cx="410" cy="360" r="55" fill="#FAF6EF" stroke="#153A2E" stroke-width="4"/>
+<text x="410" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="650" fill="#153A2E">2</text>
+<text x="410" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">HONEST</text>
+<text x="410" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">QUESTIONS</text>
+<circle cx="670" cy="360" r="59" fill="#153A2E"/>
+<circle cx="670" cy="360" r="70" fill="none" stroke="#E0A443" stroke-width="8"/>
+<text x="670" y="373" text-anchor="middle" font-family="Inter, sans-serif" font-size="42" font-weight="700" fill="#FAF6EF">3</text>
+<text x="670" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">SACRED</text>
+<text x="670" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">SEARCH</text>
+<circle cx="930" cy="360" r="55" fill="#FAF6EF" stroke="#153A2E" stroke-width="4"/>
+<text x="930" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="650" fill="#153A2E">4</text>
+<text x="930" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">NEW</text>
+<text x="930" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">FOUNDATIONS</text>
+<circle cx="1190" cy="360" r="55" fill="#FAF6EF" stroke="#153A2E" stroke-width="4"/>
+<text x="1190" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="650" fill="#153A2E">5</text>
+<text x="1190" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">EMBODIED</text>
+<text x="1190" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">FAITH</text>
+<circle cx="1450" cy="360" r="55" fill="#FAF6EF" stroke="#153A2E" stroke-width="4"/>
+<text x="1450" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="38" font-weight="650" fill="#153A2E">6</text>
+<text x="1450" y="485" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">LIVING</text>
+<text x="1450" y="516" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="1.7" fill="#333333">AWAKE</text>
+<text x="800" y="625" text-anchor="middle" font-family="Inter, sans-serif" font-size="23" font-style="italic" fill="#153A2E">A spiral, not a ladder. We revisit familiar questions from deeper places.</text>
+</svg>

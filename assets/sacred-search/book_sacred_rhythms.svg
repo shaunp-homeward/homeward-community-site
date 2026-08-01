@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1350" viewBox="0 0 900 1350">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8F2E6"/><stop offset="1" stop-color="#F6D7A8"/></linearGradient>
+ <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6D8C91"/><stop offset="1" stop-color="#2D5F67"/></linearGradient>
+ <linearGradient id="sand" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9784A"/><stop offset="1" stop-color="#E0A443"/></linearGradient>
+</defs>
+<rect width="900" height="1350" rx="14" fill="url(#sky)"/>
+<rect y="790" width="900" height="560" fill="url(#sea)"/>
+<path d="M0 975 C180 900 305 915 470 955 C625 992 745 960 900 875 V1350 H0Z" fill="url(#sand)" opacity=".95"/>
+<g fill="none" stroke="#F8E6C8" stroke-width="7" opacity=".72">
+ <path d="M0 875 C180 830 305 865 450 845 C610 820 730 835 900 790"/>
+ <path d="M0 930 C210 880 360 925 520 895 C670 867 760 887 900 850"/>
+ <path d="M0 1000 C155 960 310 1005 460 980 C610 950 745 975 900 920"/>
+ <path d="M0 1080 C180 1040 330 1088 520 1050 C690 1018 800 1040 900 1005"/>
+</g>
+<text x="450" y="150" text-anchor="middle" font-family="Inter, Arial" font-size="31" letter-spacing="5" fill="#333333">RUTH HALEY BARTON</text>
+<text x="450" y="360" text-anchor="middle" font-family="Playfair Display, Georgia" font-size="96" fill="#153A2E">Sacred</text>
+<text x="450" y="475" text-anchor="middle" font-family="Playfair Display, Georgia" font-size="96" fill="#153A2E">Rhythms</text>
+<text x="450" y="615" text-anchor="middle" font-family="Inter, Arial" font-size="27" letter-spacing="3" fill="#6D7D6A">ARRANGING OUR LIVES FOR</text>
+<text x="450" y="660" text-anchor="middle" font-family="Inter, Arial" font-size="27" letter-spacing="3" fill="#6D7D6A">SPIRITUAL TRANSFORMATION</text>
+</svg>

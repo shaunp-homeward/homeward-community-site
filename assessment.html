@@ -109,6 +109,8 @@
   .capture-done{display:none;text-align:center}
   .capture-done h3{margin-bottom:6px}
   .result-actions{padding:2px 40px 30px;text-align:center}
+  .capture-links{display:none;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.capture-links .btn{margin:0}.capture-links .ghost{background:transparent;color:var(--ivory);border-color:rgba(250,246,239,.42)}
+
   .result-actions .btn{margin:6px}
   .share{padding:0 40px 6px;text-align:center}
   .share a{color:var(--copper);font-weight:600;text-decoration:none;font-size:.95rem}
@@ -170,15 +172,15 @@
         <p style="text-align:center;font-size:.9rem;color:var(--taupe);margin-top:6px">The journey of faith — you're somewhere on this spiral, and you'll travel it more than once.</p>
 
         <div class="capture" id="capture">
-          <h3>Want the deeper version to keep?</h3>
-          <p class="lead">We'll send you the full <b id="rGuideName" style="color:var(--gold)"></b> guide — a beautiful, printable companion for your season, with practices to try, and books, podcasts, and articles worth your time.</p>
+          <h3 id="captureTitle">Want the deeper version to keep?</h3>
+          <p class="lead" id="captureLead">We'll send you the full <b id="rGuideName" style="color:var(--gold)"></b> guide — a beautiful, printable companion for your season, with practices to try, and books, podcasts, and resources worth your time.</p>
           <form id="captureForm" data-endpoint="/api/lead">
             <div class="fields">
               <input type="text" id="rFirst" name="firstName" placeholder="First name (optional)" autocomplete="given-name" />
               <input type="email" id="rEmail" name="email" placeholder="you@email.com" required aria-label="Email" />
             </div>
             <p class="nospam"><span>We will not spam you.</span></p>
-            <p class="subnote">Your guide, then at most one gentle follow-up — and that's it, unless you want more.</p>
+            <p class="subnote" id="captureSubnote">Your guide, then at most one gentle follow-up — and that's it, unless you want more.</p>
             <label class="news"><input type="checkbox" id="rNews" name="newsletter" value="yes" /> <span>Also send me the occasional Homeward note — reflections and what's forming in DFW. (You can opt out anytime.)</span></label>
             <input type="hidden" name="form_type" value="assessment" />
             <input type="hidden" id="hStage" name="assessment_stage" />
@@ -191,8 +193,9 @@
             <button class="btn" type="submit" id="rSubmit">Email me my guide</button>
           </form>
           <div class="capture-done" id="captureDone">
-            <h3>It's on its way. 🌿</h3>
-            <p style="margin-bottom:0">Check your inbox in a few minutes for your guide. Thank you for reflecting honestly — we're glad you're here.</p>
+            <h3 id="captureDoneTitle">Your guide is ready. 🌿</h3>
+            <p id="captureDoneText" style="margin-bottom:0">Thank you for reflecting honestly — we're glad you're here.</p>
+            <div class="capture-links" id="captureLinks"><a class="btn" id="guideOpenBtn" href="/journey/sacred-search">Read the guide online</a><a class="btn ghost" id="guidePdfBtn" href="/downloads/Homeward_Sacred_Search_Guide.pdf">Download the PDF</a></div>
           </div>
         </div>
       </div>
@@ -397,6 +400,24 @@ function showResult(stage,moving,intake){
   document.getElementById('rDesc').textContent=S.desc;
   document.getElementById('rResonate').textContent=S.res;
   document.getElementById('rGuideName').textContent=S.guide;
+  var guideReady=(stage===3);
+  var captureTitle=document.getElementById('captureTitle');
+  var captureLead=document.getElementById('captureLead');
+  var captureSubnote=document.getElementById('captureSubnote');
+  var submitButton=document.getElementById('rSubmit');
+  if(guideReady){
+    captureTitle.textContent='Want the deeper version to keep?';
+    captureLead.innerHTML="We’ll email you the full <b id='rGuideName' style='color:var(--gold)'>Sacred Search</b> guide — a beautiful, printable companion with Breath Prayer and live resource links.";
+    captureSubnote.textContent='Your guide, then at most one gentle follow-up — and that’s it, unless you want more.';
+    submitButton.textContent='Email me my guide';
+    submitButton.dataset.defaultLabel='Email me my guide';
+  }else{
+    captureTitle.textContent='Want the deeper version when it is ready?';
+    captureLead.innerHTML="We’re building the full <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> guide now. Share your email and we’ll send it as soon as this stage is completed.";
+    captureSubnote.textContent='One guide, then at most one gentle follow-up — and that’s it, unless you want more.';
+    submitButton.textContent='Send it when it is ready';
+    submitButton.dataset.defaultLabel='Send it when it is ready';
+  }
   var mp=document.getElementById('rMoving');
   if(moving){ document.getElementById('rMovingName').textContent=STAGES[moving].title; mp.style.display='inline-flex'; }
   else mp.style.display='none';
@@ -440,8 +461,28 @@ document.getElementById('captureForm').addEventListener('submit',function(e){
   e.preventDefault();
   var form=e.target, endpoint=form.getAttribute('data-endpoint');
   var btn=document.getElementById('rSubmit'); btn.disabled=true; btn.textContent='Sending…';
-  var done=function(){ form.style.display='none'; document.getElementById('captureDone').style.display='block'; if(typeof gtag==='function'){gtag('event','journey_reflection_complete',{assessment_stage:document.getElementById('hStage').value||''});} };
-  var fail=function(){ btn.disabled=false; btn.textContent='Email me my guide'; var note=form.querySelector('.subnote'); if(note){note.textContent='We could not send this just now. Please try again in a moment.';note.style.color='#B35A2A';} };
+  var done=function(body){
+    form.style.display='none';
+    document.getElementById('captureDone').style.display='block';
+    var title=document.getElementById('captureDoneTitle');
+    var text=document.getElementById('captureDoneText');
+    var links=document.getElementById('captureLinks');
+    var openBtn=document.getElementById('guideOpenBtn');
+    var pdfBtn=document.getElementById('guidePdfBtn');
+    if(body&&body.guideUrl){
+      openBtn.href=body.guideUrl;
+      if(body.guidePdfUrl)pdfBtn.href=body.guidePdfUrl;
+      links.style.display='flex';
+      if(body.emailSent){title.textContent='It is on its way. 🌿';text.textContent='Check your inbox for the guide. You can also open it now below.';}
+      else{title.textContent='Your guide is ready. 🌿';text.textContent='We saved your request. Open the guide now; email delivery can also be enabled for the live site.';}
+    }else{
+      links.style.display='none';
+      title.textContent='You are on the list. 🌿';
+      text.textContent='We saved your request and will send the guide for your stage as soon as it is completed.';
+    }
+    if(typeof gtag==='function'){gtag('event','journey_reflection_complete',{assessment_stage:document.getElementById('hStage').value||''});}
+  };
+  var fail=function(){ btn.disabled=false; btn.textContent=btn.dataset.defaultLabel||'Send my guide'; var note=form.querySelector('.subnote'); if(note){note.textContent='We could not send this just now. Please try again in a moment.';note.style.color='#B35A2A';} };
   if(endpoint){
     var data=new FormData(form);
     var params=new URLSearchParams(window.location.search);
@@ -450,7 +491,7 @@ document.getElementById('captureForm').addEventListener('submit',function(e){
     data.append('referrer',document.referrer||'');
     fetch(endpoint,{method:'POST',body:data,headers:{'Accept':'application/json'}})
       .then(function(resp){return resp.json().catch(function(){return {};}).then(function(body){if(!resp.ok||body.ok!==true)throw new Error(body.error||'send-failed');return body;});})
-      .then(done).catch(fail);
+      .then(function(body){done(body);}).catch(fail);
   } else fail();
 });
 

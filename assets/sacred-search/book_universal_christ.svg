@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1350" viewBox="0 0 900 1350">
+<defs><linearGradient id="u" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3B17D"/><stop offset=".46" stop-color="#E66B41"/><stop offset="1" stop-color="#7B2E26"/></linearGradient></defs>
+<rect width="900" height="1350" rx="14" fill="url(#u)"/>
+<circle cx="450" cy="510" r="310" fill="none" stroke="white" stroke-width="2" opacity=".17"/>
+<circle cx="450" cy="510" r="215" fill="none" stroke="white" stroke-width="2" opacity=".15"/>
+<text x="450" y="170" text-anchor="middle" font-family="Inter, Arial" font-size="27" letter-spacing="5" fill="#FFF8EF">A CONTEMPLATIVE VISION</text>
+<text x="450" y="355" text-anchor="middle" font-family="Inter, Arial" font-size="73" letter-spacing="6" fill="white">THE</text>
+<text x="450" y="475" text-anchor="middle" font-family="Inter, Arial" font-size="73" letter-spacing="5" fill="white">UNIVERSAL</text>
+<text x="450" y="595" text-anchor="middle" font-family="Inter, Arial" font-size="73" letter-spacing="6" fill="white">CHRIST</text>
+<text x="450" y="770" text-anchor="middle" font-family="Inter, Arial" font-size="27" letter-spacing="4" fill="#FFF8EF">HOW A FORGOTTEN REALITY</text>
+<text x="450" y="815" text-anchor="middle" font-family="Inter, Arial" font-size="27" letter-spacing="4" fill="#FFF8EF">CHANGES WHAT WE SEE</text>
+<text x="450" y="1125" text-anchor="middle" font-family="Playfair Display, Georgia" font-size="73" fill="white">Richard Rohr</text>
+</svg>
