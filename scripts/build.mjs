@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
 const content = JSON.parse(await fs.readFile(path.join(root, 'content', 'home.json'), 'utf8'));
+const readJson = async (name) => JSON.parse(await fs.readFile(path.join(root, 'content', `${name}.json`), 'utf8'));
 const template = await fs.readFile(path.join(root, 'src', 'index.template.html'), 'utf8');
 
 const escapeHtml = (value = '') => String(value)
@@ -78,9 +79,38 @@ const journeyStagesHtml = content.journey.stages.map((stage, index) => `
 
 const rememberingItemsHtml = content.remembering.items.map((item, index) => {
   const symbols = ['◌', '✦', '○', '◇', '♡', '∞'];
+  const safe = escapeHtml(item);
+  const prefix = 'Remembering';
+  const formatted = safe.startsWith(prefix)
+    ? `<p><strong>${prefix}</strong>${safe.slice(prefix.length)}</p>`
+    : `<p>${safe}</p>`;
   return `
-         <li><span aria-hidden="true">${symbols[index] || '•'}</span><strong>${escapeHtml(item)}</strong></li>`;
+         <li><span aria-hidden="true">${symbols[index] || '•'}</span>${formatted}</li>`;
 }).join('');
+
+async function embeddableAsset(value = '') {
+  const source = String(value || '');
+  if (!source || source.startsWith('data:') || /^https?:\/\//i.test(source)) return attr(source);
+  const relativePath = source.replace(/^\/+/, '');
+  const filePath = path.join(root, relativePath);
+  try {
+    const bytes = await fs.readFile(filePath);
+    const extension = path.extname(filePath).toLowerCase();
+    const mimeTypes = {
+      '.webp': 'image/webp',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.png': 'image/png',
+      '.svg': 'image/svg+xml',
+    };
+    const mime = mimeTypes[extension] || 'application/octet-stream';
+    return `data:${mime};base64,${bytes.toString('base64')}`;
+  } catch {
+    return attr(source.startsWith('/') ? source : `/${source}`);
+  }
+}
+
+const rememberingCommunityImage = await embeddableAsset(content.remembering.community_image);
 
 const replacements = {
   ANALYTICS_TAG: analyticsTag,
@@ -129,7 +159,7 @@ const replacements = {
   REMEMBERING_INTRO1: escapeHtml(content.remembering.intro1),
   REMEMBERING_INTRO2_HTML: escapeHtml(content.remembering.intro2).replace('remember what matters most', '<strong>remember what matters most</strong>'),
   REMEMBERING_ITEMS_HTML: rememberingItemsHtml,
-  REMEMBERING_COMMUNITY_IMAGE: attr(content.remembering.community_image),
+  REMEMBERING_COMMUNITY_IMAGE: rememberingCommunityImage,
   REMEMBERING_WONDER_IMAGE: attr(content.remembering.wonder_image),
   REMEMBERING_WHY_HEADING: escapeHtml(content.remembering.why_heading),
   REMEMBERING_WHY_TEXT: escapeHtml(content.remembering.why_text),
@@ -192,10 +222,61 @@ let homeHtml = applyReplacements(template, replacements);
 homeHtml = injectIdentityRedirect(homeHtml);
 await fs.writeFile(path.join(dist, 'index.html'), homeHtml);
 
+
+const listItems = (items = []) => items.map((item) => `<li>${item}</li>`).join('');
+const pageData = {
+  circles: await readJson('circles'),
+  practices: await readJson('practices'),
+  about: await readJson('about'),
+  connect: await readJson('connect'),
+  vision: await readJson('vision'),
+};
+
+const pageReplacementMaps = {
+  circles: (d) => ({
+    META_TITLE: escapeHtml(d.meta.title), META_DESCRIPTION: attr(d.meta.description),
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), HERO_PRIMARY: escapeHtml(d.hero.primary), HERO_SECONDARY: escapeHtml(d.hero.secondary),
+    HEART_IMAGE: attr(d.heart.image), HEART_IMAGE_ALT: attr(d.heart.image_alt), HEART_CAPTION: escapeHtml(d.heart.caption), HEART_EYEBROW: escapeHtml(d.heart.eyebrow), HEART_HEADING: escapeHtml(d.heart.heading), HEART_LEAD: escapeHtml(d.heart.lead), HEART_BODY: escapeHtml(d.heart.body), HEART_URGENCY_HEADING: escapeHtml(d.heart.urgency_heading), HEART_URGENCY_TEXT: escapeHtml(d.heart.urgency_text), HEART_PRIMARY: escapeHtml(d.heart.primary), HEART_SECONDARY: escapeHtml(d.heart.secondary),
+    RHYTHM_EYEBROW: escapeHtml(d.rhythm.eyebrow), RHYTHM_HEADING: escapeHtml(d.rhythm.heading), RHYTHM_INTRO: escapeHtml(d.rhythm.intro), RHYTHM_HTML: d.rhythm.steps.map((x,i)=>`<div class="rhythm-card"><span>${String(i+1).padStart(2,'0')}</span><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.description)}</p></div>`).join(''),
+    SAMPLE_EYEBROW: escapeHtml(d.sample.eyebrow), SAMPLE_HEADING: escapeHtml(d.sample.heading), SAMPLE_INTRO: escapeHtml(d.sample.intro), SAMPLE_WEEK: escapeHtml(d.sample.week), SAMPLE_TITLE: escapeHtml(d.sample.title), SAMPLE_DESCRIPTION: escapeHtml(d.sample.description), SESSION_HTML: d.sample.items.map(x=>`<div class="session-time">${escapeHtml(x.time)}</div><div class="session-content"><h4>${escapeHtml(x.title)}</h4>${x.questions?`<ul>${listItems(x.questions.map(escapeHtml))}</ul>`:`<p>${x.body}</p>`}</div>`).join(''),
+    FIT_EYEBROW: escapeHtml(d.fit.eyebrow), FIT_HEADING: escapeHtml(d.fit.heading), FIT_CARD_HEADING: escapeHtml(d.fit.fit_heading), FIT_ITEMS_HTML: listItems(d.fit.fit_items.map(escapeHtml)), NOT_CARD_HEADING: escapeHtml(d.fit.not_heading), NOT_ITEMS_HTML: listItems(d.fit.not_items.map(escapeHtml)),
+    FINAL_EYEBROW: escapeHtml(d.final.eyebrow), FINAL_HEADING: escapeHtml(d.final.heading), FINAL_LEAD: escapeHtml(d.final.lead), FINAL_PRIMARY: escapeHtml(d.final.primary), FINAL_SECONDARY: escapeHtml(d.final.secondary),
+  }),
+  practices: (d) => ({
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), HERO_PRIMARY: escapeHtml(d.hero.primary), HERO_SECONDARY: escapeHtml(d.hero.secondary),
+    INTRO_EYEBROW: escapeHtml(d.intro.eyebrow), INTRO_HEADING: escapeHtml(d.intro.heading), INTRO_LEAD: escapeHtml(d.intro.lead),
+    PRACTICES_HTML: d.items.map(x=>`<article class="practice-detail reveal" id="${attr(x.id)}"><div class="tradition">${escapeHtml(x.tradition)}</div><h3>${escapeHtml(x.title)}</h3><p>${x.description}</p><ol class="practice-steps">${listItems(x.steps)}</ol>${x.button?`<a class="button" href="practice-breath.html" data-event="practice_start">${escapeHtml(x.button)}</a>`:''}</article>`).join(''),
+    COMMUNITY_EYEBROW: escapeHtml(d.community.eyebrow), COMMUNITY_HEADING: escapeHtml(d.community.heading), COMMUNITY_LEAD: escapeHtml(d.community.lead), COMMUNITY_PRIMARY: escapeHtml(d.community.primary), COMMUNITY_SECONDARY: escapeHtml(d.community.secondary),
+  }),
+  about: (d) => ({
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead),
+    ORIGIN_IMAGE: attr(d.origin.image), ORIGIN_IMAGE_ALT: attr(d.origin.image_alt), ORIGIN_CAPTION: escapeHtml(d.origin.caption), ORIGIN_EYEBROW: escapeHtml(d.origin.eyebrow), ORIGIN_HEADING: escapeHtml(d.origin.heading), ORIGIN_LEAD: escapeHtml(d.origin.lead), ORIGIN_PARAGRAPHS_HTML: d.origin.paragraphs.map(x=>`<p>${escapeHtml(x)}</p>`).join(''),
+    FORMATION_EYEBROW: escapeHtml(d.formation.eyebrow), FORMATION_HEADING: escapeHtml(d.formation.heading), FORMATION_LEAD: escapeHtml(d.formation.lead), FORMATION_CARDS_HTML: d.formation.cards.map(c=>`<div class="compare-card reveal"><h3>${escapeHtml(c.title)}</h3><ul class="check-list">${listItems(c.items.map(escapeHtml))}</ul></div>`).join(''),
+    COMMUNITY_EYEBROW: escapeHtml(d.community.eyebrow), COMMUNITY_HEADING: escapeHtml(d.community.heading), COMMUNITY_LEAD: escapeHtml(d.community.lead), COMMUNITY_BUTTON: escapeHtml(d.community.button),
+  }),
+  connect: (d) => ({
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), EXPECT_EYEBROW: escapeHtml(d.expect.eyebrow), EXPECT_HEADING: escapeHtml(d.expect.heading), EXPECT_ITEMS_HTML: listItems(d.expect.items.map(escapeHtml)), EXPECT_NOT_READY_HTML: `${escapeHtml(d.expect.not_ready.replace('Tell us you are interested instead.',''))}<a href="index.html#interest" style="color:var(--copper);font-weight:700">Tell us you are interested instead.</a>`,
+  }),
+  vision: (d) => ({
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), VISION_ITEMS_HTML: d.items.map(x=>`<article class="vision-page-item reveal"><button class="vision-image-button vision-page-image" type="button" data-lightbox="${attr(x.image)}" data-title="${attr(x.lightbox_title)}"><img src="${attr(x.image)}" alt="${attr(x.alt)}"><span class="image-expand">Enlarge image ↗</span></button><div><p class="eyebrow">${escapeHtml(x.eyebrow)}</p><h2>${escapeHtml(x.heading)}</h2><p class="lead">${escapeHtml(x.lead)}</p></div></article>`).join(''), VISION_NOTE: escapeHtml(d.note),
+  }),
+};
+
+const generatedPages = new Set();
+for (const [name, data] of Object.entries(pageData)) {
+  const source = await fs.readFile(path.join(root, 'src', 'pages', `${name}.template.html`), 'utf8');
+  let html = applyReplacements(source, pageReplacementMaps[name](data));
+  html = stripAnalytics(html);
+  html = injectHead(html, analyticsTag);
+  html = injectIdentityRedirect(html);
+  await fs.writeFile(path.join(dist, `${name}.html`), html);
+  generatedPages.add(`${name}.html`);
+}
+
 const rootFiles = await fs.readdir(root, { withFileTypes: true });
 const skipNames = new Set(['dist', 'src', 'content', 'scripts', 'netlify', 'node_modules', '.git', '.gitignore', 'index.html', 'index.pretty.html', 'package.json', 'netlify.toml']);
 for (const entry of rootFiles) {
-  if (skipNames.has(entry.name)) continue;
+  if (skipNames.has(entry.name) || generatedPages.has(entry.name)) continue;
   const source = path.join(root, entry.name);
   const destination = path.join(dist, entry.name);
   if (entry.name.endsWith('.md')) continue;
@@ -215,10 +296,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.0',
+  version: '6.2.3',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6 into ${dist}`);
+console.log(`Built Homeward V6.2.3 into ${dist}`);

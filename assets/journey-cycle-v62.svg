@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" role="img" aria-labelledby="title desc">
+<title id="title">The lifelong Journey of Faith</title>
+<desc id="desc">A circular journey through six recurring seasons of faith: inherited faith, honest questions, sacred search, new foundations, embodied faith, and living awake.</desc>
+<defs>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#061b14" flood-opacity=".22"/></filter>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 9 4.5 0 9Z" fill="#e0a443"/></marker>
+</defs>
+<rect width="760" height="760" rx="34" fill="#21483b"/>
+<text x="380" y="68" text-anchor="middle" fill="#e0a443" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">A LIFELONG MOVEMENT</text>
+<text x="380" y="108" text-anchor="middle" fill="#faf6ef" font-family="Georgia,serif" font-size="31" font-weight="700">A spiral, not a ladder.</text>
+<circle cx="380" cy="392" r="245" fill="none" stroke="#e0a443" stroke-width="7" stroke-linecap="round" stroke-dasharray="305 26" marker-end="url(#arrow)" filter="url(#soft)"/>
+<circle cx="380" cy="392" r="104" fill="#153a2e" stroke="#8da095" stroke-width="2"/>
+<text x="380" y="374" text-anchor="middle" fill="#faf6ef" font-family="Georgia,serif" font-size="31" font-weight="700">Journeying</text>
+<text x="380" y="412" text-anchor="middle" fill="#faf6ef" font-family="Georgia,serif" font-size="31" font-weight="700">Homeward</text>
+<text x="380" y="445" text-anchor="middle" fill="#e0a443" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2">AGAIN AND AGAIN</text>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+  <g transform="translate(380 145)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">1</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">Inherited Faith</text></g>
+  <g transform="translate(594 268)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">2</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">Honest Questions</text></g>
+  <g transform="translate(594 516)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">3</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">Sacred Search</text></g>
+  <g transform="translate(380 638)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">4</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">New Foundations</text></g>
+  <g transform="translate(166 516)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">5</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">Embodied Faith</text></g>
+  <g transform="translate(166 268)"><circle r="29" fill="#faf6ef" stroke="#b35a2a" stroke-width="4"/><text y="7" font-size="19" font-weight="800" fill="#153a2e">6</text><text y="58" fill="#faf6ef" font-size="18" font-weight="700">Living Awake</text></g>
+</g>
+<text x="380" y="735" text-anchor="middle" fill="#dce6df" font-family="Arial,sans-serif" font-size="15">We revisit these seasons as life changes and faith deepens.</text>
+</svg>

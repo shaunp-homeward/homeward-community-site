@@ -1,12 +1,14 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: shaunp-homeward/homeward-community-site
+  branch: staging
   squash_merges: true
+  use_graphql: true
 
 local_backend: true
 publish_mode: editorial_workflow
-site_url: https://homewardcommunity.com
-display_url: https://homewardcommunity.com
+site_url: https://staging--homeward-community-dfw.netlify.app
+display_url: https://staging--homeward-community-dfw.netlify.app
 logo_url: https://homewardcommunity.com/assets/logo-forest.png
 media_folder: assets/uploads
 public_folder: /assets/uploads
@@ -176,3 +178,243 @@ collections:
               - { label: Small heading, name: eyebrow, widget: string }
               - { label: Heading, name: heading, widget: string }
               - { label: Description, name: description, widget: text }
+
+
+      - name: circles
+        label: Circles Page
+        file: content/circles.json
+        format: json
+        fields:
+          - label: Page Metadata
+            name: meta
+            widget: object
+            fields:
+              - { label: Browser title, name: title, widget: string }
+              - { label: Search description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Primary button, name: primary, widget: string }
+              - { label: Secondary button, name: secondary, widget: string }
+          - label: The Heart of Homeward
+            name: heart
+            widget: object
+            fields:
+              - { label: Main image, name: image, widget: image }
+              - { label: Image description, name: image_alt, widget: string }
+              - { label: Image caption, name: caption, widget: text }
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Body paragraph, name: body, widget: text }
+              - { label: Highlight heading, name: urgency_heading, widget: string }
+              - { label: Highlight text, name: urgency_text, widget: text }
+              - { label: Primary button, name: primary, widget: string }
+              - { label: Secondary button, name: secondary, widget: string }
+          - label: Gathering Rhythm
+            name: rhythm
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+          - label: Sample Session
+            name: sample
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - { label: Week label, name: week, widget: string }
+              - { label: Session title, name: title, widget: string }
+              - { label: Session description, name: description, widget: text }
+              - label: Session flow
+                name: items
+                widget: list
+                fields:
+                  - { label: Time label, name: time, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text, required: false }
+                  - label: Questions
+                    name: questions
+                    widget: list
+                    required: false
+                    field: { label: Question, name: question, widget: string }
+          - label: Who Circles Are For
+            name: fit
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Positive column heading, name: fit_heading, widget: string }
+              - label: Positive items
+                name: fit_items
+                widget: list
+                field: { label: Item, name: item, widget: string }
+              - { label: Reassurance column heading, name: not_heading, widget: string }
+              - label: Reassurance items
+                name: not_items
+                widget: list
+                field: { label: Item, name: item, widget: string }
+          - label: Final Invitation
+            name: final
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Primary button, name: primary, widget: string }
+              - { label: Secondary button, name: secondary, widget: string }
+
+      - name: practices
+        label: Practices Page
+        file: content/practices.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Primary button, name: primary, widget: string }
+              - { label: Secondary button, name: secondary, widget: string }
+          - label: Practice Introduction
+            name: intro
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+          - label: Practices
+            name: items
+            widget: list
+            fields:
+              - { label: Anchor ID, name: id, widget: string }
+              - { label: Tradition label, name: tradition, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - label: Steps
+                name: steps
+                widget: list
+                field: { label: Step, name: step, widget: text }
+              - { label: Optional button, name: button, widget: string, required: false }
+          - label: Practice in Community
+            name: community
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Primary button, name: primary, widget: string }
+              - { label: Secondary button, name: secondary, widget: string }
+
+      - name: about
+        label: Our Story Page
+        file: content/about.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+          - label: Why Homeward Began
+            name: origin
+            widget: object
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Image description, name: image_alt, widget: string }
+              - { label: Image caption, name: caption, widget: text }
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - label: Additional paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Formation and Experience
+            name: formation
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - label: Cards
+                name: cards
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - label: Items
+                    name: items
+                    widget: list
+                    field: { label: Item, name: item, widget: text }
+          - label: Community Section
+            name: community
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+              - { label: Button, name: button, widget: string }
+
+      - name: connect
+        label: Conversation Page
+        file: content/connect.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+          - label: What to Expect
+            name: expect
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                field: { label: Item, name: item, widget: text }
+              - { label: Not-ready line, name: not_ready, widget: text }
+
+      - name: vision
+        label: Future Vision Page
+        file: content/vision.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Intro, name: lead, widget: text }
+          - label: Vision Areas
+            name: items
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Image description, name: alt, widget: string }
+              - { label: Lightbox title, name: lightbox_title, widget: string }
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: lead, widget: text }
+          - { label: Concept note, name: note, widget: text }

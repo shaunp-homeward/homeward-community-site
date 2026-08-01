@@ -276,53 +276,23 @@
    </section>
    <section class="section remembering-section" id="remembering">
     <div class="container">
-     <div class="remembering-card remembering-v6 reveal">
-      <div class="remembering-main">
+     <div class="remembering-card remembering-v61 reveal">
+      <div class="remembering-v61-grid">
        <div class="remembering-intro">
-        <p class="eyebrow">
-         {{REMEMBERING_EYEBROW}}
-        </p>
-        <h2>
-         {{REMEMBERING_HEADING_HTML}}
-        </h2>
-        <p>
-         {{REMEMBERING_INTRO1}}
-        </p>
-        <p>
-         {{REMEMBERING_INTRO2_HTML}}
-        </p>
+        <p class="eyebrow">{{REMEMBERING_EYEBROW}}</p>
+        <h2>{{REMEMBERING_HEADING_HTML}}</h2>
+        <p>{{REMEMBERING_INTRO1}}</p>
+        <p>{{REMEMBERING_INTRO2_HTML}}</p>
        </div>
-       <ul aria-label="What we help one another remember" class="remembering-list">
-        {{REMEMBERING_ITEMS_HTML}}
-       </ul>
-       <div class="remembering-collage">
-        <figure class="remembering-photo remembering-photo-community">
-         <img alt="Friends sharing a meal and meaningful conversation" src="{{REMEMBERING_COMMUNITY_IMAGE}}"/>
-        </figure>
-        <figure class="remembering-photo remembering-photo-wonder">
-         <img alt="People walking together through a sunlit forest" src="{{REMEMBERING_WONDER_IMAGE}}"/>
-        </figure>
-       </div>
+       <ul aria-label="What we help one another remember" class="remembering-list">{{REMEMBERING_ITEMS_HTML}}</ul>
+       <figure class="remembering-v61-image"><img alt="Friends sharing a meal and meaningful conversation" src="{{REMEMBERING_COMMUNITY_IMAGE}}"/></figure>
+       <aside class="remembering-why remembering-why-v61"><h3>{{REMEMBERING_WHY_HEADING}}</h3><p>{{REMEMBERING_WHY_TEXT}}</p></aside>
       </div>
-      <aside class="remembering-why remembering-why-wide">
-       <h3>
-        {{REMEMBERING_WHY_HEADING}}
-       </h3>
-       <p>
-        {{REMEMBERING_WHY_TEXT}}
-       </p>
-      </aside>
       <div class="remembering-footer">
-       <p>
-        {{REMEMBERING_FOOTER_TEXT}}
-       </p>
+       <p>{{REMEMBERING_FOOTER_TEXT}}</p>
        <div class="remembering-actions">
-        <a class="button" data-event="remembering_conversation_click" data-set-interest="I'd like to talk about Homeward or a Circle" href="#interest">
-         {{REMEMBERING_PRIMARY_LABEL}}
-        </a>
-        <a class="button button-light-outline" data-event="remembering_circle_click" href="circles.html">
-         {{REMEMBERING_SECONDARY_LABEL}}
-        </a>
+        <a class="button" data-event="remembering_conversation_click" data-set-interest="I'd like to talk about Homeward or a Circle" href="#interest">{{REMEMBERING_PRIMARY_LABEL}}</a>
+        <a class="button button-light-outline" data-event="remembering_circle_click" href="circles.html">{{REMEMBERING_SECONDARY_LABEL}}</a>
        </div>
       </div>
      </div>

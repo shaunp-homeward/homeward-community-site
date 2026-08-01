@@ -29,8 +29,8 @@
     "heading_line2": "Go deeper together.",
     "badge": "Registration is open for upcoming Circles.",
     "description": "Homeward Circles are eight-week guided experiences for 6–8 people who want deeper faith, real friendship, and room for honest questions. Each gathering combines coffee or a shared meal, Christian meditation, thoughtful teaching inspired by Jesus, and conversation that connects it all to everyday life. No expertise, polished answers, or prior meditation experience is required.",
-    "quote": "You do not need the right answers. You need a place to be honest, become present, and grow with people walking the same road.",
-    "image": "assets/circle-community-v6.webp",
+    "quote": "A Circle is a place to become present, known, and formed together—one honest gathering at a time.",
+    "image": "assets/circles-home-v62.webp",
     "steps": [
       {
         "title": "Arrive",
@@ -123,8 +123,8 @@
   "journey": {
     "eyebrow": "The Journey of Faith",
     "heading": "Faith grows through seasons—and questions can deepen it.",
-    "description": "Faith rarely develops in a straight line. We inherit beliefs, encounter questions, search, rebuild, embody, and awaken—often revisiting each season with greater honesty and depth. Doubt is not always the end of faith; it can become the doorway to a faith that is more resilient, alive, and truly your own.",
-    "image": "assets/journey-spiral-v6.svg",
+    "description": "Faith rarely develops in a straight line. We inherit beliefs, encounter questions, search, rebuild, embody, and awaken—often revisiting each season with greater honesty and depth. Questions do not have to weaken faith; they can lead us toward a faith that is more resilient, alive, and truly our own.",
+    "image": "assets/journey-cycle-v62.svg",
     "stages": [
       {
         "title": "Inherited Faith",
@@ -169,12 +169,12 @@
       "Remembering to choose love.",
       "Remembering that we do not have to make the journey alone."
     ],
-    "community_image": "assets/remembering-table-v6.webp",
+    "community_image": "assets/remembering-community-v62.webp",
     "wonder_image": "assets/remembering-wonder-v6.webp",
     "why_heading": "Why remembering matters.",
     "why_text": "Remembering helps us return to God more deeply and more often. As we return, we become more open to the joy, love, compassion, peace, awe, and wonder that make life truly come alive.",
     "footer_text": "Maybe you have been looking for your people, too.",
-    "primary_label": "I'd Like to Talk About Homeward",
+    "primary_label": "I'm Interested in Homeward",
     "secondary_label": "See How Circles Work"
   },
   "interest": {

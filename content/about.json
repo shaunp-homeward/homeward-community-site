@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "Our Story",
+    "heading": "A community born from a shared longing.",
+    "lead": "Homeward began with people who love God, remain drawn to the life and teachings of Jesus, and want room for honest questions, deeper practice, and real friendship."
+  },
+  "origin": {
+    "image": "assets/formation-archive.jpg",
+    "image_alt": "Friends and teachers gathered during a season of spiritual formation",
+    "caption": "A long spiritual search helped shape the questions behind Homeward.",
+    "eyebrow": "Why Homeward began",
+    "heading": "Many of us were looking for the same thing.",
+    "lead": "A faith deep enough for our questions. Practices that help us experience God—not only think about God. Friendships where we can be honest, grow, laugh, and become more loving together.",
+    "paragraphs": [
+      "Homeward is being built as a place where Christian meditation, contemplative prayer, Scripture, meaningful conversation, and shared life can belong together.",
+      "Wherever you are in your understanding of God, you are welcome to begin honestly."
+    ]
+  },
+  "formation": {
+    "eyebrow": "How the work is being built",
+    "heading": "Practical experience. Contemplative formation.",
+    "lead": "Homeward was initiated by Shaun Pennington, whose background brings together organizational leadership and decades of contemplative practice. That experience helps make the vision both spiritually grounded and practically buildable.",
+    "cards": [
+      {
+        "title": "Building something durable",
+        "items": [
+          "Twenty-five years helping lead a fourth-generation manufacturing company.",
+          "Experience building culture, teams, systems, and sustainable economics.",
+          "A commitment to develop leaders and build beyond any one personality."
+        ]
+      },
+      {
+        "title": "Making room for transformation",
+        "items": [
+          "Thirty years of contemplative study, retreat, and practice.",
+          "Formation across Christian and Buddhist contemplative traditions.",
+          "A return to a deeper life rooted in the teachings and way of Jesus."
+        ]
+      }
+    ]
+  },
+  "community": {
+    "eyebrow": "The community comes first",
+    "heading": "Homeward is meant to develop many voices.",
+    "lead": "Participants become contributors. Leaders are developed. People help one another remember what matters, grow in love, and carry that life into the world.",
+    "button": "Start a Conversation"
+  }
+}

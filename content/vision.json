@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Future Vision",
+    "heading": "A place designed for belonging.",
+    "lead": "Homeward begins with conversations and Circles. These concept images show what a future community campus might make possible."
+  },
+  "items": [
+    {
+      "image": "assets/vision-campus-exterior.jpg",
+      "alt": "Concept rendering of a future Homeward community campus",
+      "lightbox_title": "A future Homeward community campus",
+      "eyebrow": "Community Campus",
+      "heading": "A place for shared life.",
+      "lead": "A walkable home for gatherings, families, coffee, spiritual formation, quiet, friendship, and service throughout the week."
+    },
+    {
+      "image": "assets/vision-coffeehouse-render.jpg",
+      "alt": "Concept rendering of a future Coffeehouse Commons",
+      "lightbox_title": "The Coffeehouse Commons",
+      "eyebrow": "Coffeehouse Commons",
+      "heading": "A place to linger.",
+      "lead": "Shared tables, coffee, honest conversation, coworking, and the relationships that allow a gathering to become a real community."
+    },
+    {
+      "image": "assets/vision-still-point-render.jpg",
+      "alt": "Concept rendering of a future Still Point meditation room",
+      "lightbox_title": "The Still Point",
+      "eyebrow": "The Still Point",
+      "heading": "Be still—and know.",
+      "lead": "A room for Christian meditation, contemplative prayer, silence, spiritual direction, and returning to the presence of God."
+    }
+  ],
+  "note": "These are concept visualizations, not a promise of a building tomorrow. The first Homeward experience begins much more simply: people gathering around real tables."
+}

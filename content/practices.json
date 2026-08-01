@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "eyebrow": "Homeward Practices",
+    "heading": "Practices for becoming present.",
+    "lead": "Christian meditation, contemplative prayer, and silent presence help us slow down, pay attention, and open our lives to God.",
+    "primary": "Try a 5-minute practice",
+    "secondary": "Explore the practices"
+  },
+  "intro": {
+    "eyebrow": "Nothing to perform",
+    "heading": "Practice is not about doing it perfectly.",
+    "lead": "These practices are invitations. Thoughts will wander. Silence may feel unfamiliar. You begin by gently returning—again and again—to breath, prayer, Scripture, gratitude, or the presence of God."
+  },
+  "items": [
+    {
+      "id": "light",
+      "tradition": "Guided Christian meditation",
+      "title": "Light of Christ",
+      "description": "Receive the loving light of Christ, rest in that presence, and allow the light to radiate toward those you love, the wider world, and all creation.",
+      "steps": [
+        "Settle your body and become aware of your breathing.",
+        "Imagine the gentle light of Christ surrounding and entering you.",
+        "Rest in the words: <em>You are loved beyond measure.</em>",
+        "Let that light extend toward someone you love.",
+        "Allow it to widen toward your community and the world."
+      ]
+    },
+    {
+      "id": "breath",
+      "tradition": "Prayer joined to breathing",
+      "title": "Breath Prayer",
+      "description": "Join simple words to the natural rhythm of your breathing as a way of returning to peace, love, and the presence of God.",
+      "steps": [
+        "Breathe naturally rather than forcing the breath.",
+        "Breathing in: <em>I receive peace.</em>",
+        "Breathing out: <em>I offer love.</em>",
+        "When attention wanders, return gently to the next breath."
+      ],
+      "button": "Begin a 5-minute Breath Prayer"
+    },
+    {
+      "id": "maranatha",
+      "tradition": "Christian meditation",
+      "title": "Maranatha Prayer",
+      "description": "Silently repeat <em>Maranatha—Come, Lord Jesus</em> as a way of gathering the mind, releasing distraction, and welcoming God.",
+      "steps": [
+        "Sit upright and relaxed.",
+        "Silently sound the four syllables: Ma-ra-na-tha.",
+        "Do not analyze the word; give it your gentle attention.",
+        "When distracted, begin the word again without judgment."
+      ]
+    },
+    {
+      "id": "reading",
+      "tradition": "Time-honored Scripture practice",
+      "title": "Inspired Reading",
+      "description": "A time-honored method and practice for reading Scripture and listening for the words, images, or invitations that speak to your life.",
+      "steps": [
+        "Read a short passage slowly.",
+        "Notice a word, phrase, or image that draws your attention.",
+        "Read again and listen for how it meets your life.",
+        "Respond honestly in prayer or silence.",
+        "Rest without needing to solve the passage."
+      ]
+    },
+    {
+      "id": "reflection",
+      "tradition": "Noticing God in your day",
+      "title": "Daily Reflection",
+      "description": "A five-step process for reviewing your day with gratitude and honesty, noticing where you felt alive, distant, loved, or invited to grow.",
+      "steps": [
+        "Become still and ask for light.",
+        "Give thanks for one gift from the day.",
+        "Review the day without judging it.",
+        "Notice where you felt close, distant, alive, or closed.",
+        "Ask what love may invite tomorrow."
+      ]
+    },
+    {
+      "id": "gratitude",
+      "tradition": "Prayerful remembering",
+      "title": "Prayer of Gratitude",
+      "description": "A gentle practice of remembering the gifts, people, and moments that have sustained us—and allowing gratitude to widen our awareness of God’s goodness.",
+      "steps": [
+        "Bring one person, gift, or moment to mind.",
+        "Notice where gratitude is felt in the body.",
+        "Give thanks without needing to explain or improve the moment.",
+        "Let gratitude widen to include something ordinary.",
+        "Close by asking how you might become a gift to someone else."
+      ]
+    }
+  ],
+  "community": {
+    "eyebrow": "Practice with others",
+    "heading": "Silence feels different in community.",
+    "lead": "Homeward Circles introduce these practices gently, with explanation, guidance, and room to talk about the experience afterward.",
+    "primary": "Explore Homeward Circles",
+    "secondary": "Tell us you’re interested"
+  }
+}
