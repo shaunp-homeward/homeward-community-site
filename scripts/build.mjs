@@ -79,9 +79,38 @@ const journeyStagesHtml = content.journey.stages.map((stage, index) => `
 
 const rememberingItemsHtml = content.remembering.items.map((item, index) => {
   const symbols = ['◌', '✦', '○', '◇', '♡', '∞'];
+  const safe = escapeHtml(item);
+  const prefix = 'Remembering';
+  const formatted = safe.startsWith(prefix)
+    ? `<p><strong>${prefix}</strong>${safe.slice(prefix.length)}</p>`
+    : `<p>${safe}</p>`;
   return `
-         <li><span aria-hidden="true">${symbols[index] || '•'}</span><strong>${escapeHtml(item)}</strong></li>`;
+         <li><span aria-hidden="true">${symbols[index] || '•'}</span>${formatted}</li>`;
 }).join('');
+
+async function embeddableAsset(value = '') {
+  const source = String(value || '');
+  if (!source || source.startsWith('data:') || /^https?:\/\//i.test(source)) return attr(source);
+  const relativePath = source.replace(/^\/+/, '');
+  const filePath = path.join(root, relativePath);
+  try {
+    const bytes = await fs.readFile(filePath);
+    const extension = path.extname(filePath).toLowerCase();
+    const mimeTypes = {
+      '.webp': 'image/webp',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.png': 'image/png',
+      '.svg': 'image/svg+xml',
+    };
+    const mime = mimeTypes[extension] || 'application/octet-stream';
+    return `data:${mime};base64,${bytes.toString('base64')}`;
+  } catch {
+    return attr(source.startsWith('/') ? source : `/${source}`);
+  }
+}
+
+const rememberingCommunityImage = await embeddableAsset(content.remembering.community_image);
 
 const replacements = {
   ANALYTICS_TAG: analyticsTag,
@@ -130,7 +159,7 @@ const replacements = {
   REMEMBERING_INTRO1: escapeHtml(content.remembering.intro1),
   REMEMBERING_INTRO2_HTML: escapeHtml(content.remembering.intro2).replace('remember what matters most', '<strong>remember what matters most</strong>'),
   REMEMBERING_ITEMS_HTML: rememberingItemsHtml,
-  REMEMBERING_COMMUNITY_IMAGE: attr(content.remembering.community_image),
+  REMEMBERING_COMMUNITY_IMAGE: rememberingCommunityImage,
   REMEMBERING_WONDER_IMAGE: attr(content.remembering.wonder_image),
   REMEMBERING_WHY_HEADING: escapeHtml(content.remembering.why_heading),
   REMEMBERING_WHY_TEXT: escapeHtml(content.remembering.why_text),
@@ -267,10 +296,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.1',
+  version: '6.2.1',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2 into ${dist}`);
+console.log(`Built Homeward V6.2.1 into ${dist}`);
