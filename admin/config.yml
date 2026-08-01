@@ -1,0 +1,178 @@
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+local_backend: true
+publish_mode: editorial_workflow
+site_url: https://homewardcommunity.com
+display_url: https://homewardcommunity.com
+logo_url: https://homewardcommunity.com/assets/logo-forest.png
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+editor:
+  preview: false
+
+collections:
+  - name: site_pages
+    label: Website Pages
+    delete: false
+    files:
+      - name: home
+        label: Homepage
+        file: content/home.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Headline, name: headline, widget: string }
+              - { label: Emphasized word or line, name: emphasis, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Primary button label, name: primary_label, widget: string }
+              - { label: Primary button URL, name: primary_url, widget: string }
+              - { label: Secondary button label, name: secondary_label, widget: string }
+              - { label: Secondary button URL, name: secondary_url, widget: string }
+
+          - { label: Rooted in Jesus welcome line, name: rooted_line, widget: text }
+
+          - label: Recognition Questions
+            name: recognition
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Questions
+                name: questions
+                widget: list
+                field: { label: Question, name: question, widget: text }
+              - { label: Honest beginning line, name: honest_line, widget: text }
+
+          - label: Homeward Circles
+            name: circles
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading line 1, name: heading_line1, widget: string }
+              - { label: Heading line 2, name: heading_line2, widget: string }
+              - { label: Availability badge, name: badge, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Image quote, name: quote, widget: text }
+              - { label: Circle image, name: image, widget: image }
+              - label: Gathering flow
+                name: steps
+                widget: list
+                fields:
+                  - { label: Step title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - { label: Primary button label, name: primary_label, widget: string }
+              - { label: Secondary button label, name: secondary_label, widget: string }
+
+          - label: Belong · Grow · Become
+            name: values
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: text }
+              - { label: Intro, name: intro, widget: text }
+              - label: Three values
+                name: items
+                widget: list
+                min: 3
+                max: 3
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+          - label: Practices
+            name: practices
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Practices
+                name: items
+                widget: list
+                fields:
+                  - label: Icon key
+                    name: key
+                    widget: select
+                    options: [light, breath, maranatha, reading, reflection, gratitude]
+                  - { label: Title, name: title, widget: string }
+                  - { label: Subtitle, name: subtitle, widget: string, required: false }
+                  - { label: Description, name: description, widget: text }
+              - { label: Primary button label, name: primary_label, widget: string }
+              - { label: Secondary button label, name: secondary_label, widget: string }
+
+          - label: Journey of Faith
+            name: journey
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Journey image or infographic, name: image, widget: image }
+              - label: Stages
+                name: stages
+                widget: list
+                min: 6
+                max: 6
+                fields:
+                  - { label: Stage title, name: title, widget: string }
+                  - { label: Stage description, name: description, widget: text }
+              - { label: Benefit box heading, name: benefit_heading, widget: string }
+              - { label: Benefit box text, name: benefit_text, widget: text }
+              - { label: Button label, name: cta_label, widget: string }
+
+          - label: We Gather to Remember
+            name: remembering
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Main heading, name: heading, widget: string }
+              - { label: Emphasized heading line, name: emphasis, widget: string }
+              - { label: Intro paragraph, name: intro1, widget: text }
+              - { label: Intro closing line, name: intro2, widget: text }
+              - label: Remembering statements
+                name: items
+                widget: list
+                field: { label: Statement, name: statement, widget: string }
+              - { label: Community image, name: community_image, widget: image }
+              - { label: Awe and wonder image, name: wonder_image, widget: image }
+              - { label: Why remembering matters heading, name: why_heading, widget: string }
+              - { label: Why remembering matters text, name: why_text, widget: text }
+              - { label: Footer invitation, name: footer_text, widget: text }
+              - { label: Primary button label, name: primary_label, widget: string }
+              - { label: Secondary button label, name: secondary_label, widget: string }
+
+          - label: Interest Form Section
+            name: interest
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Calendar box heading, name: calendar_heading, widget: string }
+              - { label: Calendar box text, name: calendar_text, widget: text }
+              - { label: Calendar button label, name: calendar_button, widget: string }
+
+          - label: Final Invitation
+            name: final
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }

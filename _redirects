@@ -1,0 +1,9 @@
+/api/lead /.netlify/functions/lead 200
+/m/* /.netlify/functions/redirect 200
+/assessment /assessment.html 200
+/circles /circles.html 200
+/practices /practices.html 200
+/connect /connect.html 200
+/vision /vision.html 200
+/about /about.html 200
+/* /404.html 404

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Where Am I on the Journey? — A Homeward Reflection</title>
+<meta name="description" content="A gentle, five-minute reflection to name where you are on the journey of faith. No right answers, no email required to see your result. From Homeward, a community walking the way of Jesus in DFW." />
+<meta property="og:title" content="Where Am I on the Journey? — A Homeward Reflection" />
+<meta property="og:description" content="A five-minute reflection on where you are with God. No right answers." />
+<meta name="theme-color" content="#153A2E" />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --forest:#153A2E; --copper:#B35A2A; --sage:#6D7D6A; --gold:#E0A443;
+    --ivory:#FAF6EF; --stone:#ADA18C; --taupe:#8E8271; --charcoal:#2C2C2C; --soft-black:#111111;
+    --ivory-2:#F3ECE0;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --accent:'Playfair Display',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--charcoal);background:var(--ivory);line-height:1.65;min-height:100vh;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:var(--serif);color:var(--forest);font-weight:600;line-height:1.18;letter-spacing:-0.01em}
+  a{color:inherit}
+  .eyebrow{font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--copper)}
+  .eyebrow.light{color:var(--gold)}
+  .btn{display:inline-block;background:var(--copper);color:var(--ivory);padding:14px 30px;border-radius:2px;font-weight:600;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:transform .15s ease,background .2s ease}
+  .btn:hover{background:#9c4d22;transform:translateY(-1px)}
+  .btn:disabled{background:var(--stone);cursor:not-allowed;transform:none}
+  .btn.ghost{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}
+  .btn.ghost:hover{background:var(--forest);color:var(--ivory)}
+  .btn.ghost-light{background:transparent;border:1.5px solid rgba(250,246,239,.6);color:var(--ivory)}
+  .btn.ghost-light:hover{background:var(--ivory);color:var(--forest)}
+  .linkback{position:fixed;top:18px;left:22px;font-size:.85rem;text-decoration:none;color:var(--forest);font-weight:500;z-index:20;background:rgba(250,246,239,.85);padding:6px 12px;border-radius:20px;backdrop-filter:blur(6px)}
+  .linkback:hover{color:var(--copper)}
+
+  .stage-shell{max-width:680px;margin:0 auto;padding:96px 24px 80px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+
+  /* INTRO */
+  #intro h1{font-size:clamp(2rem,5vw,3rem);text-align:center;margin-top:28px}
+  #intro p.sub{font-size:1.2rem;color:#3a3c37;text-align:center;max-width:52ch;margin:20px auto 0}
+  #intro .meta{margin-top:14px;font-size:.9rem;color:var(--taupe);text-align:center}
+  #intro .start{text-align:center;margin-top:38px}
+
+  /* PROGRESS */
+  .progress-wrap{position:fixed;top:0;left:0;right:0;height:5px;background:var(--ivory-2);z-index:15}
+  .progress-bar{height:100%;background:linear-gradient(90deg,var(--copper),var(--gold));width:0;transition:width .4s ease}
+  .qcount{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-align:center}
+
+  /* QUESTION */
+  #quiz{display:none}
+  .qtext{font-family:var(--serif);font-size:clamp(1.4rem,3.4vw,2rem);color:var(--forest);text-align:center;margin:16px auto 8px;max-width:100%}
+  .qhint{text-align:center;color:#495247;font-family:var(--accent);font-style:italic;font-size:1.18rem;margin:0 auto 28px;max-width:52ch;line-height:1.4}
+  .options{display:flex;flex-direction:column;gap:12px}
+  .opt{background:#fff;border:1.5px solid rgba(21,58,46,.14);border-radius:5px;padding:16px 20px;cursor:pointer;font-size:1.02rem;color:#3a3c37;transition:border-color .15s ease,background .15s ease;text-align:left;display:flex;align-items:center;gap:12px}
+  .opt:hover{border-color:var(--copper);background:#fffdf9}
+  .opt.selected{border-color:var(--copper);background:#fbf3ea;box-shadow:0 0 0 3px rgba(179,90,42,.12)}
+  .opt .check{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--stone);flex:0 0 auto;display:none;align-items:center;justify-content:center}
+  .opt.multi .check{display:inline-flex}
+  .opt.selected .check{border-color:var(--copper);background:var(--copper)}
+  .opt.selected .check::after{content:"✓";color:#fff;font-size:.72rem}
+  textarea{width:100%;font-family:var(--sans);font-size:1rem;padding:14px 16px;border:1.5px solid rgba(21,58,46,.2);border-radius:5px;background:#fff;color:var(--charcoal);min-height:110px;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(179,90,42,.12)}
+  .qnav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:14px}
+  .back{background:none;border:none;color:var(--taupe);cursor:pointer;font-size:.92rem;font-weight:500;font-family:var(--sans)}
+  .back:hover{color:var(--forest)}
+  .back:disabled{opacity:.3;cursor:not-allowed}
+  .continue{margin-left:auto}
+
+  /* RESULT */
+  #result{display:none}
+  .result-card{background:#fff;border-radius:8px;border:1px solid rgba(21,58,46,.1);box-shadow:0 20px 60px rgba(21,58,46,.1);overflow:hidden}
+  .result-top{background:linear-gradient(135deg,#1d4a3b,#153A2E);color:var(--ivory);padding:44px 40px 40px;text-align:center;position:relative;overflow:hidden}
+  .result-top::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 12%,rgba(224,164,67,.2),transparent 55%)}
+  .result-top>*{position:relative;z-index:2}
+  .result-top .stagenum{font-family:var(--accent);font-style:italic;color:var(--gold);font-size:1.2rem;letter-spacing:.04em}
+  .result-top h2{color:var(--ivory);font-size:clamp(2rem,5.2vw,2.9rem);margin:4px 0 6px;line-height:1.05}
+  .result-top .tagline{font-family:var(--accent);font-style:italic;font-size:1.3rem;color:rgba(250,246,239,.92)}
+  .movingpill{display:none;align-items:center;gap:8px;margin:20px auto 0;padding:9px 18px;border:1px solid rgba(224,164,67,.5);border-radius:40px;background:rgba(224,164,67,.12);font-size:.9rem;color:var(--gold);width:max-content;max-width:90%}
+  .movingpill .arrow{opacity:.8}
+  .movingpill b{color:#f2d9a6;font-weight:600}
+  .result-body{padding:36px 40px}
+  .result-body p{font-size:1.08rem;color:#41433f;margin-bottom:16px}
+  .result-body .resonate{background:var(--ivory-2);border-left:3px solid var(--copper);padding:16px 20px;border-radius:0 4px 4px 0;font-size:1rem;color:#43453f;margin:8px 0 4px}
+  .spiral{display:flex;gap:6px;justify-content:center;margin:26px 0 6px;flex-wrap:wrap}
+  .spiral .dot{display:flex;flex-direction:column;align-items:center;gap:6px;width:74px}
+  .spiral .dot .c{width:14px;height:14px;border-radius:50%;background:rgba(21,58,46,.16);transition:all .2s}
+  .spiral .dot.on .c{background:var(--copper);box-shadow:0 0 0 4px rgba(179,90,42,.16)}
+  .spiral .dot.next .c{background:transparent;border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(224,164,67,.14)}
+  .spiral .dot .lab{font-size:.62rem;line-height:1.2;color:var(--taupe);text-align:center;letter-spacing:.02em}
+  .spiral .dot.on .lab{color:var(--forest);font-weight:700}
+  .spiral .dot.next .lab{color:var(--copper);font-weight:600}
+
+  .capture{margin-top:14px;background:var(--forest);border-radius:6px;padding:30px 32px;color:var(--ivory)}
+  .capture h3{color:var(--ivory);font-size:1.35rem;margin-bottom:8px}
+  .capture p.lead{color:rgba(250,246,239,.86);font-size:.98rem;margin-bottom:18px}
+  .capture .fields{display:flex;flex-direction:column;gap:10px}
+  .capture input[type=text],.capture input[type=email]{width:100%;font-family:var(--sans);font-size:1rem;padding:12px 14px;border:none;border-radius:3px;background:var(--ivory);color:var(--charcoal)}
+  .capture input:focus{outline:none;box-shadow:0 0 0 3px rgba(224,164,67,.4)}
+  .capture .nospam{margin:16px 0 6px;font-size:1rem;color:#fff;font-weight:700}
+  .capture .nospam span{color:var(--gold)}
+  .capture .subnote{font-size:.85rem;color:rgba(250,246,239,.7);margin-bottom:16px}
+  .capture .news{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:rgba(250,246,239,.85);margin:2px 0 18px;cursor:pointer;line-height:1.4}
+  .capture .news input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--gold)}
+  .capture .btn{width:100%;background:var(--copper)}
+  .capture-done{display:none;text-align:center}
+  .capture-done h3{margin-bottom:6px}
+  .result-actions{padding:2px 40px 30px;text-align:center}
+  .result-actions .btn{margin:6px}
+  .share{padding:0 40px 6px;text-align:center}
+  .share a{color:var(--copper);font-weight:600;text-decoration:none;font-size:.95rem}
+  .restart{background:none;border:none;color:var(--taupe);cursor:pointer;font-size:.88rem;text-decoration:underline;font-family:var(--sans);display:block;margin:16px auto 0}
+  .restart:hover{color:var(--forest)}
+  .retake-note{text-align:center;font-size:.85rem;color:var(--taupe);padding:0 40px 34px;font-style:italic;font-family:var(--accent)}
+
+  @media(max-width:560px){
+    .stage-shell{padding:80px 18px 60px}
+    .result-body,.result-top{padding:30px 22px}
+    .result-actions,.share,.retake-note{padding-left:22px;padding-right:22px}
+    .spiral .dot{width:52px}
+    .capture{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+
+<a class="linkback" href="index.html">&larr; Homeward</a>
+<div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
+
+<div class="stage-shell">
+
+  <!-- INTRO -->
+  <div id="intro">
+    <img src="img/logo-forest.png" alt="Homeward — A Spiritual Community" style="height:112px;width:auto;margin:0 auto;display:block" />
+    <p class="eyebrow" style="text-align:center;margin-top:30px">A Reflection</p>
+    <h1>Where am I on the journey?</h1>
+    <p class="sub">Faith isn't a straight line — it's a spiral we travel, revisit, and deepen over a lifetime. This is a gentle mirror, not a test. Eleven honest questions, about five minutes.</p>
+    <p class="meta">No right answers · No email required to see your result</p>
+    <div class="start"><button class="btn" onclick="startQuiz()">Begin the reflection</button></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz">
+    <p class="qcount" id="qcount"></p>
+    <h2 class="qtext" id="qtext"></h2>
+    <p class="qhint" id="qhint"></p>
+    <div class="options" id="options"></div>
+    <div class="qnav">
+      <button class="back" id="backBtn" onclick="goBack()">&larr; Back</button>
+      <button class="btn continue" id="continueBtn" style="display:none" onclick="continueNext()">Continue</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="result-card">
+      <div class="result-top">
+        <div class="stagenum" id="rNum"></div>
+        <h2 id="rTitle"></h2>
+        <div class="tagline" id="rTag"></div>
+        <div class="movingpill" id="rMoving"><span class="arrow">You seem to be moving toward</span> <b id="rMovingName"></b></div>
+      </div>
+      <div class="result-body">
+        <p id="rDesc"></p>
+        <div class="resonate" id="rResonate"></div>
+        <div class="spiral" id="spiral"></div>
+        <p style="text-align:center;font-size:.9rem;color:var(--taupe);margin-top:6px">The journey of faith — you're somewhere on this spiral, and you'll travel it more than once.</p>
+
+        <div class="capture" id="capture">
+          <h3>Want the deeper version to keep?</h3>
+          <p class="lead">We'll send you the full <b id="rGuideName" style="color:var(--gold)"></b> guide — a beautiful, printable companion for your season, with practices to try, and books, podcasts, and articles worth your time.</p>
+          <form id="captureForm" data-endpoint="/api/lead">
+            <div class="fields">
+              <input type="text" id="rFirst" name="firstName" placeholder="First name (optional)" autocomplete="given-name" />
+              <input type="email" id="rEmail" name="email" placeholder="you@email.com" required aria-label="Email" />
+            </div>
+            <p class="nospam"><span>We will not spam you.</span></p>
+            <p class="subnote">Your guide, then at most one gentle follow-up — and that's it, unless you want more.</p>
+            <label class="news"><input type="checkbox" id="rNews" name="newsletter" value="yes" /> <span>Also send me the occasional Homeward note — reflections and what's forming in DFW. (You can opt out anytime.)</span></label>
+            <input type="hidden" name="form_type" value="assessment" />
+            <input type="hidden" id="hStage" name="assessment_stage" />
+            <input type="hidden" id="hMoving" name="moving_toward" />
+            <input type="hidden" id="hSeason" name="season" />
+            <input type="hidden" id="hGathering" name="gathering" />
+            <input type="hidden" id="hIntent" name="intent" />
+            <input type="hidden" id="hLongings" name="longings" />
+            <input type="hidden" id="hNote" name="open_note" />
+            <button class="btn" type="submit" id="rSubmit">Email me my guide</button>
+          </form>
+          <div class="capture-done" id="captureDone">
+            <h3>It's on its way. 🌿</h3>
+            <p style="margin-bottom:0">Check your inbox in a few minutes for your guide. Thank you for reflecting honestly — we're glad you're here.</p>
+          </div>
+        </div>
+      </div>
+      <div class="share">
+        <a href="#" id="shareBtn" onclick="shareResult(event)">Share “which season are you in?” &rarr;</a>
+      </div>
+      <div class="result-actions">
+        <a class="btn" id="joinBtn" href="index.html#interest">Tell us you're interested</a>
+        <a class="btn ghost" href="about.html">Learn more about Homeward</a>
+      </div>
+      <div class="retake-note">Faith is a spiral — come back in a few months and see how you've moved.<button class="restart" onclick="restart()">Take the reflection again</button></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ---------- Journey of Faith: 6 stages ---------- */
+var STAGES = {
+  1:{num:"Stage One",title:"Inherited Faith",tag:"A place to begin",guide:"Inherited Faith",
+     desc:"You're carrying a faith that was largely handed to you — by family, church, or culture. There's real gift in that inheritance: roots, belonging, a sense of the sacred. Right now it may feel settled and mostly unquestioned, and that's a genuine place to stand. Homeward isn't here to shake it loose — it's here to help it become deeply, personally yours.",
+     res:"You might resonate with: honoring where you came from while staying open to what's next.",season:"inherited"},
+  2:{num:"Stage Two",title:"Honest Questions",tag:"The cracks that let the light in",guide:"Honest Questions",
+     desc:"Questions have arrived that you can't un-ask. Maybe the old answers stopped fitting, or something happened the tidy version of faith couldn't hold. This can feel lonely — but here's the heart of Homeward: your doubt isn't a betrayal of faith. It's often love, refusing to settle for something too small. Questions are holy, and you don't have to carry them alone.",
+     res:"You might resonate with: “doubt born of love, not grievance” — questions that lead toward a bigger faith, not out the door.",season:"questions"},
+  3:{num:"Stage Three",title:"Sacred Search",tag:"Seeking with open hands",guide:"Sacred Search",
+     desc:"You're actively looking — reading, praying differently, exploring practices and voices you weren't handed. This is holy, generative work. The risk of this season is wandering without companions or roots. Homeward exists for exactly this: a place to search with others, grounded in the way of Jesus and the deep well of contemplative practice, so the seeking leads somewhere home.",
+     res:"You might resonate with: contemplative practice, honest community, and teachers who take both faith and questions seriously.",season:"search"},
+  4:{num:"Stage Four",title:"New Foundations",tag:"Faith, rebuilt and your own",guide:"New Foundations",
+     desc:"You've been through the unmaking and you're rebuilding — a faith that's simpler in some ways, deeper in others, and unmistakably yours. It can hold mystery without needing to control it. What this season needs is community that can match its depth and keep it from drifting into isolation. That's the kind of table Homeward is setting.",
+     res:"You might resonate with: depth over certainty, practice over performance, and friends for the long road.",season:"foundations"},
+  5:{num:"Stage Five",title:"Embodied Faith",tag:"Belief becoming a way of life",guide:"Embodied Faith",
+     desc:"Faith for you is no longer mostly about believing the right things — it's a whole-person way of being. Prayer, presence, justice, and love are becoming the texture of ordinary days. You may find yourself wanting to help others find this too. Homeward would love to walk with you — and, quite possibly, to have you help shape and lead.",
+     res:"You might resonate with: a rule of life, spiritual practice, and helping build something real for others.",season:"embodied"},
+  6:{num:"Stage Six",title:"Living Awake",tag:"Awake to God in everything",guide:"Living Awake",
+     desc:"You've come round the spiral to a kind of second simplicity — awake to God in the ordinary, holding paradox with peace, and drawn to pour love outward. This isn't an arrival; it's a way of continuing to journey while helping carry others home. If you sense a call to help form and lead a community like this, we'd genuinely love to talk.",
+     res:"You might resonate with: contemplation-in-action, mentoring others, and co-creating community.",season:"awake"}
+};
+var LABELS={1:"Inherited",2:"Questions",3:"Search",4:"New Ground",5:"Embodied",6:"Awake"};
+var ANGLE={1:"broad",2:"perplexity",3:"perplexity",4:"transition",5:"harmony",6:"harmony"};
+
+/* ---------- v2 questions ---------- */
+var Q = [
+ {type:'single',q:"Which feels most true about where you are with God right now?",hint:"Choose the one that fits best today.",opts:[
+   {t:"The faith I grew up with still fits — I feel settled and at peace.",w:{1:3}},
+   {t:"I still believe, but I'm carrying real questions I can't shake.",w:{2:3}},
+   {t:"I'm searching — exploring what I actually believe and where God is in it.",w:{3:3}},
+   {t:"I've been actively rebuilding my faith into something more honestly my own.",w:{4:3}},
+   {t:"Faith has become a whole way of living for me, not just what I believe.",w:{5:3}},
+   {t:"I feel deeply at home with God — and I want to help others find that.",w:{6:3}} ]},
+ {type:'single',q:"Have you ever gone through a season of really wrestling with what you believe?",hint:"There's no better answer here — steadiness and struggle can both be signs of a living faith.",opts:[
+   {t:"Yes — deeply.",w:{3:1,4:1,5:1}},
+   {t:"A little, here and there.",w:{2:1,3:1}},
+   {t:"Not really — it's felt steady.",w:{1:2}} ]},
+ {type:'single',q:"When questions or doubts come, where do they usually lead you?",hint:"",opts:[
+   {t:"Deeper — they've grown my faith bigger.",w:{5:3,6:2,4:1}},
+   {t:"Into rebuilding — I'm putting something new together.",w:{4:3,5:1}},
+   {t:"Into searching — I've stepped back and I'm still looking.",w:{3:3,2:1}},
+   {t:"Further out — I've drifted from faith for now.",w:{3:2,2:2}},
+   {t:"They don't come up much — I'm content where I am.",w:{1:2,6:1}} ]},
+ {type:'single',q:"How would you describe your relationship with church right now?",hint:"",opts:[
+   {t:"I'm in it, and it feels like home.",w:{1:1,6:1}},
+   {t:"I'm there, but something feels off.",w:{2:2}},
+   {t:"I've stepped back, but I'm still open.",w:{3:2}},
+   {t:"I'm away from it right now.",w:{3:1,2:1}},
+   {t:"It's never really been part of my life.",w:{3:1}} ]},
+ {type:'single',q:"When it comes to God and other paths, which comes closest to what you believe?",hint:"Answer honestly — questions are welcome here, and there's no “right” answer to score.",opts:[
+   {t:"Jesus is the one way to God.",w:{1:2}},
+   {t:"Jesus is my way to God — and I trust God can meet others in ways I don't fully understand.",w:{4:1,5:2}},
+   {t:"I believe many paths hold real truth about God.",w:{5:1,6:2}},
+   {t:"I'm honestly still working that out.",w:{2:2,3:1}} ]},
+ {type:'single',q:"How do you relate to contemplative practice?",hint:"Contemplative practice — silence, stillness, visualization, and prayer that's more about embodiment and listening than talking — is how many people learn to notice God's presence in everyday life.",opts:[
+   {t:"It's new to me — I haven't really explored it.",w:{1:2}},
+   {t:"I'm curious, and I'd like to learn.",w:{2:1,3:1}},
+   {t:"I practice it now and then.",w:{4:2}},
+   {t:"It's becoming central to how I live.",w:{5:2,6:1}} ]},
+ {type:'single',q:"Which sounds most like you?",hint:"",opts:[
+   {t:"I find real peace in clear answers and a faith I can stand on.",w:{1:3}},
+   {t:"I'm learning to be at peace with questions and mystery.",w:{2:2,3:1}},
+   {t:"I care more about growing than about being right.",w:{4:2,5:1}},
+   {t:"I can hold deep conviction and real openness at the same time.",w:{6:3,5:1}} ]},
+ {type:'multi',max:2,q:"What are you most longing for in this season of life?",hint:"Choose up to two.",opts:[
+   {t:"A place to truly belong",w:{1:1},val:"Belonging"},
+   {t:"To grow spiritually",w:{4:1},val:"Spiritual growth"},
+   {t:"Room for honest questions",w:{2:1},val:"Honest questions"},
+   {t:"A deeper sense of God's presence",w:{5:1},val:"God's presence"},
+   {t:"Meaning and purpose",w:{3:1},val:"Meaning & purpose"},
+   {t:"Real friendships with likeminded people",w:{1:1},val:"Friendship"} ]},
+ {type:'single',q:"Where are you, and how might you connect — if you ever wanted to?",hint:"This isn't asking whether you're interested — only what would fit your life. The next question covers interest.",intake:'gathering',opts:[
+   {t:"DFW area — I'd be open to meeting in person",val:"DFW — open to in person"},
+   {t:"DFW area — online would suit me better",val:"DFW — prefer online"},
+   {t:"Outside DFW — online only",val:"Outside DFW — online"},
+   {t:"Not sure / just here to reflect",val:"Just reflecting"} ]},
+ {type:'single',q:"Is there anything you'd like from Homeward?",hint:"No pressure at all — this just helps us know how to care for you.",intake:'intent',opts:[
+   {t:"I'd love to explore joining a Circle",val:"Join a Circle"},
+   {t:"I'd try something online",val:"Try online"},
+   {t:"Just keep me posted for now",val:"Just keep posted"},
+   {t:"I might want to help build this",val:"Might help build"},
+   {t:"Nothing right now — thank you",val:"Nothing right now"} ]},
+ {type:'text',q:"Anything you'd like us to know — comments, suggestions, or a question you're carrying?",hint:"Optional — a sentence is plenty.",intake:'note'}
+];
+
+var current=0, answers=[];
+
+function startQuiz(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  current=0; answers=[];
+  renderQuestion();
+}
+function renderQuestion(){
+  var q=Q[current];
+  document.getElementById('qcount').textContent='Question '+(current+1)+' of '+Q.length;
+  document.getElementById('qtext').textContent=q.q;
+  document.getElementById('qhint').textContent=q.hint||'';
+  var wrap=document.getElementById('options'); wrap.innerHTML='';
+  var cont=document.getElementById('continueBtn');
+
+  if(q.type==='text'){
+    var ta=document.createElement('textarea');
+    ta.id='textInput'; ta.placeholder='Type here…';
+    if(typeof answers[current]==='string') ta.value=answers[current];
+    wrap.appendChild(ta);
+    cont.style.display='inline-block'; cont.textContent='Continue';
+  } else if(q.type==='multi'){
+    var sel=Array.isArray(answers[current])?answers[current]:[];
+    q.opts.forEach(function(o,i){
+      var b=document.createElement('button');
+      b.className='opt multi'+(sel.indexOf(i)>-1?' selected':'');
+      b.innerHTML='<span class="check"></span><span>'+o.t+'</span>';
+      b.onclick=function(){ toggleMulti(i,q.max); };
+      wrap.appendChild(b);
+    });
+    cont.style.display='inline-block'; cont.textContent='Continue';
+  } else {
+    q.opts.forEach(function(o,i){
+      var b=document.createElement('button');
+      b.className='opt'+(answers[current]===i?' selected':'');
+      b.innerHTML='<span>'+o.t+'</span>';
+      b.onclick=function(){ answers[current]=i; markSel(i); setTimeout(next,240); };
+      wrap.appendChild(b);
+    });
+    cont.style.display='none';
+  }
+  document.getElementById('backBtn').disabled = current===0;
+  document.getElementById('bar').style.width=(current/Q.length*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function markSel(i){var o=document.querySelectorAll('#options .opt');o.forEach(function(el,idx){el.classList.toggle('selected',idx===i);});}
+function toggleMulti(i,max){
+  var sel=Array.isArray(answers[current])?answers[current].slice():[];
+  var pos=sel.indexOf(i);
+  if(pos>-1) sel.splice(pos,1);
+  else { if(sel.length>=max) sel.shift(); sel.push(i); }
+  answers[current]=sel;
+  var els=document.querySelectorAll('#options .opt');
+  els.forEach(function(el,idx){el.classList.toggle('selected',sel.indexOf(idx)>-1);});
+}
+function continueNext(){
+  var q=Q[current];
+  if(q.type==='text'){ answers[current]=(document.getElementById('textInput')||{}).value||''; }
+  next();
+}
+function next(){ if(current<Q.length-1){current++;renderQuestion();} else finish(); }
+function goBack(){ if(current>0){current--;renderQuestion();} }
+
+function finish(){
+  var meters={1:0,2:0,3:0,4:0,5:0,6:0};
+  var intake={gathering:'',intent:'',note:'',longings:[]};
+  answers.forEach(function(ans,qi){
+    var q=Q[qi];
+    if(q.type==='multi'){
+      (Array.isArray(ans)?ans:[]).forEach(function(oi){
+        var o=q.opts[oi]; if(o.w) for(var s in o.w) meters[s]+=o.w[s];
+        if(o.val) intake.longings.push(o.val);
+      });
+    } else if(q.type==='text'){
+      if(q.intake) intake[q.intake]=ans||'';
+    } else if(typeof ans==='number'){
+      var o=q.opts[ans];
+      if(o.w) for(var s in o.w) meters[s]+=o.w[s];
+      if(q.intake && o.val) intake[q.intake]=o.val;
+    }
+  });
+  // primary = highest meter (first on tie)
+  var best=1,bestVal=-1;
+  for(var s=1;s<=6;s++){ if(meters[s]>bestVal){bestVal=meters[s];best=s;} }
+  // moving toward = next stage if it's within reach
+  var moving=null;
+  if(best<6 && meters[best+1]>0 && meters[best+1]>=meters[best]*0.7) moving=best+1;
+  document.getElementById('bar').style.width='100%';
+  showResult(best,moving,intake);
+}
+
+function showResult(stage,moving,intake){
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('result').style.display='block';
+  var S=STAGES[stage];
+  document.getElementById('rNum').textContent=S.num;
+  document.getElementById('rTitle').textContent=S.title;
+  document.getElementById('rTag').textContent=S.tag;
+  document.getElementById('rDesc').textContent=S.desc;
+  document.getElementById('rResonate').textContent=S.res;
+  document.getElementById('rGuideName').textContent=S.guide;
+  var mp=document.getElementById('rMoving');
+  if(moving){ document.getElementById('rMovingName').textContent=STAGES[moving].title; mp.style.display='inline-flex'; }
+  else mp.style.display='none';
+  // spiral
+  var sp=document.getElementById('spiral'); sp.innerHTML='';
+  for(var i=1;i<=6;i++){
+    var cls='dot'+(i===stage?' on':'')+(i===moving?' next':'');
+    var d=document.createElement('div'); d.className=cls;
+    d.innerHTML='<span class="c"></span><span class="lab">'+LABELS[i]+'</span>';
+    sp.appendChild(d);
+  }
+  // hidden fields for CRM
+  document.getElementById('hStage').value=S.title;
+  document.getElementById('hMoving').value=moving?STAGES[moving].title:'';
+  document.getElementById('hSeason').value=S.season;
+  document.getElementById('hGathering').value=intake.gathering||'';
+  document.getElementById('hIntent').value=intake.intent||'';
+  document.getElementById('hLongings').value=(intake.longings||[]).join(', ');
+  document.getElementById('hNote').value=intake.note||'';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restart(){
+  document.getElementById('result').style.display='none';
+  document.getElementById('captureForm').style.display='block';
+  document.getElementById('captureDone').style.display='none';
+  document.getElementById('bar').style.width='0%';
+  document.getElementById('intro').style.display='block';
+}
+function shareResult(e){
+  e.preventDefault();
+  var title=document.getElementById('rTitle').textContent;
+  var url=window.location.href.split('?')[0];
+  var text="I'm in a season of “"+title+"” on the Homeward journey of faith. Where are you? "+url;
+  if(navigator.share){ navigator.share({title:'Where am I on the journey?',text:text,url:url}).catch(function(){}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(text); e.target.textContent='Copied to share ✓'; }
+}
+
+/* email capture -> /api/lead */
+document.getElementById('captureForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=e.target, endpoint=form.getAttribute('data-endpoint');
+  var btn=document.getElementById('rSubmit'); btn.disabled=true; btn.textContent='Sending…';
+  var done=function(){ form.style.display='none'; document.getElementById('captureDone').style.display='block'; if(typeof gtag==='function'){gtag('event','journey_reflection_complete',{assessment_stage:document.getElementById('hStage').value||''});} };
+  var fail=function(){ btn.disabled=false; btn.textContent='Email me my guide'; var note=form.querySelector('.subnote'); if(note){note.textContent='We could not send this just now. Please try again in a moment.';note.style.color='#B35A2A';} };
+  if(endpoint){
+    var data=new FormData(form);
+    var params=new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function(k){ if(params.get(k)) data.append(k,params.get(k)); });
+    data.append('landing_page',window.location.href);
+    data.append('referrer',document.referrer||'');
+    fetch(endpoint,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(resp){return resp.json().catch(function(){return {};}).then(function(body){if(!resp.ok||body.ok!==true)throw new Error(body.error||'send-failed');return body;});})
+      .then(done).catch(fail);
+  } else fail();
+});
+
+/* carry utm to Join link */
+(function(){
+  var utm=(window.location.search||'').replace(/^\?/,'').split('&').filter(function(kv){return /^utm_/.test(kv);}).join('&');
+  if(utm){var a=document.getElementById('joinBtn'); if(a) a.href=a.href+(a.href.indexOf('?')===-1?'?':'&')+utm;}
+})();
+</script>
+<script src="edit-mode.js" defer></script>
+</body>
+</html>

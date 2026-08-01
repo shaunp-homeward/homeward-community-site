@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  {{ANALYTICS_TAG}}
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Homeward — Journey Toward God. Together.
+  </title>
+  <meta content="Homeward is a spiritual community for deeper faith, authentic friendship, Christian meditation, contemplative prayer, and honest community in Dallas–Fort Worth." name="description"/>
+  <meta content="Homeward — Journey Toward God. Together." property="og:title"/>
+  <meta content="Homeward is a spiritual community for deeper faith, authentic friendship, Christian meditation, contemplative prayer, and honest community in Dallas–Fort Worth." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="assets/hero-community.jpg" property="og:image"/>
+  <meta content="#153A2E" name="theme-color"/>
+  <link href="assets/mark-forest.png" rel="icon"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <!-- Meta Pixel: add the verified Pixel ID only after consent settings are configured. See TRACKING_SETUP.md. -->
+  <meta content="6.0" name="homeward-version"/>
+ </head>
+ <body>
+  <header class="site-header">
+   <div class="container header-inner">
+    <a aria-label="Homeward home" class="brand" href="index.html">
+     <img alt="" class="brand-mark" src="assets/mark-forest.png"/>
+     <span class="brand-copy">
+      <strong>
+       HOMEWARD
+      </strong>
+      <small>
+       A SPIRITUAL COMMUNITY
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Primary navigation" class="desktop-nav">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="circles.html">
+      Circles
+     </a>
+     <a href="practices.html">
+      Practices
+     </a>
+     <a href="index.html#journey">
+      Journey
+     </a>
+     <a href="about.html">
+      Our Story
+     </a>
+     <a class="header-interest" href="index.html#interest">
+      I'm Interested
+     </a>
+     <button class="button button-sm" data-calendar-open="" data-event="start_conversation_click" type="button">
+      Start a Conversation
+     </button>
+    </nav>
+    <button aria-expanded="false" aria-label="Open navigation" class="mobile-toggle">
+     ☰
+    </button>
+   </div>
+   <nav aria-label="Mobile navigation" class="mobile-menu">
+    <a href="index.html">
+     Home
+    </a>
+    <a href="circles.html">
+     Circles
+    </a>
+    <a href="practices.html">
+     Practices
+    </a>
+    <a href="index.html#journey">
+     Journey
+    </a>
+    <a href="about.html">
+     Our Story
+    </a>
+    <a href="index.html#interest">
+     I'm Interested
+    </a>
+    <button class="button" data-calendar-open="" data-event="start_conversation_click" type="button">
+     Start a Conversation
+    </button>
+   </nav>
+  </header>
+  <main>
+   <section class="hero hero-v4">
+    <div aria-hidden="true" class="hero-bg">
+    </div>
+    <div class="container">
+     <div class="hero-content reveal">
+      <h1>
+       {{HERO_HEADLINE}}
+       <em>
+        {{HERO_EMPHASIS}}
+       </em>
+      </h1>
+      <p class="hero-copy">
+       {{HERO_DESCRIPTION}}
+      </p>
+      <div class="hero-actions">
+       <a class="button" data-event="circle_details_view" href="{{HERO_PRIMARY_URL}}">
+        {{HERO_PRIMARY_LABEL}}
+       </a>
+       <a class="button button-ghost-light" data-event="journey_reflection_start" href="{{HERO_SECONDARY_URL}}">
+        {{HERO_SECONDARY_LABEL}}
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="rooted-line">
+    <div class="container">
+     <p>
+      {{ROOTED_LINE}}
+     </p>
+    </div>
+   </section>
+   <section class="recognition" id="invitation">
+    <div class="container">
+     <div class="center reveal">
+      <p class="eyebrow">
+       {{RECOGNITION_EYEBROW}}
+      </p>
+      <h2>
+       {{RECOGNITION_HEADING}}
+      </h2>
+      <p class="lead" style="margin:20px auto 0;max-width:800px">
+       {{RECOGNITION_INTRO}}
+      </p>
+     </div>
+     <div class="question-grid-v4 reveal">
+      {{RECOGNITION_QUESTIONS_HTML}}
+     </div>
+     <div class="honest-beginning reveal">
+      {{RECOGNITION_HONEST_LINE}}
+     </div>
+    </div>
+   </section>
+   <section class="section section-white circles-feature" id="circles">
+    <div class="container circle-home-layout">
+     <div class="circle-home-photo reveal">
+      <img alt="A diverse group of adults sharing an engaged conversation around a table" src="{{CIRCLES_IMAGE}}"/>
+      <blockquote>
+       {{CIRCLES_QUOTE}}
+      </blockquote>
+     </div>
+     <div class="reveal circle-home-copy">
+      <p class="eyebrow">
+       {{CIRCLES_EYEBROW}}
+      </p>
+      <h2>
+       {{CIRCLES_HEADING_HTML}}
+      </h2>
+      <div class="circle-open-badge">
+       {{CIRCLES_BADGE_HTML}}
+      </div>
+      <p class="lead">
+       {{CIRCLES_DESCRIPTION}}
+      </p>
+      <div class="circle-rhythm">
+       {{CIRCLES_STEPS_HTML}}
+      </div>
+      <div class="section-actions circle-actions">
+       <a class="button" data-event="circle_interest_click" data-set-interest="I'm interested in joining a Circle" href="#interest">
+        {{CIRCLES_PRIMARY_LABEL}}
+       </a>
+       <a class="button button-secondary" data-event="circle_details_view" href="circles.html">
+        {{CIRCLES_SECONDARY_LABEL}}
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- VIDEO MODULE READY FOR THE FUTURE HOMEWARD INVITATION VIDEO. Remove hidden and add the video URL when ready. -->
+   <section class="section video-module" hidden="" id="video-invitation">
+    <div class="container split">
+     <div>
+      <p class="eyebrow">
+       Why we are building Homeward
+      </p>
+      <h2>
+       A brief invitation into the vision.
+      </h2>
+      <p class="lead">
+       A short video about the longing behind Homeward, who it is for, and why community helps us remember what matters most.
+      </p>
+     </div>
+     <div class="video-frame">
+      <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" src="" title="Why we are building Homeward">
+      </iframe>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="what-is-homeward">
+    <div class="container">
+     <div class="center reveal">
+      <p class="eyebrow">
+       {{VALUES_EYEBROW}}
+      </p>
+      <h2>
+       {{VALUES_HEADING_HTML}}
+      </h2>
+      <p class="lead" style="margin:22px auto 0;max-width:780px">
+       {{VALUES_INTRO}}
+      </p>
+     </div>
+     <div class="three-grid">
+      {{VALUES_HTML}}
+     </div>
+    </div>
+   </section>
+   <section class="section practice-section" id="practices">
+    <div class="container">
+     <div class="center reveal">
+      <p class="eyebrow">
+       {{PRACTICES_EYEBROW}}
+      </p>
+      <h2>
+       {{PRACTICES_HEADING}}
+      </h2>
+      <p class="lead practice-intro">
+       {{PRACTICES_INTRO}}
+      </p>
+     </div>
+     <div class="practice-grid">
+      {{PRACTICES_HTML}}
+     </div>
+     <div class="practice-actions reveal">
+      <a class="button" data-event="practice_start" href="practice-breath.html">
+       {{PRACTICES_PRIMARY_LABEL}}
+      </a>
+      <a class="button button-secondary" data-event="practice_view" href="practices.html">
+       {{PRACTICES_SECONDARY_LABEL}}
+      </a>
+     </div>
+    </div>
+   </section>
+   <section class="section journey-section" id="journey">
+    <div class="container">
+     <div class="journey-panel reveal">
+      <div class="journey-layout">
+       <div class="journey-visual-panel">
+        <img alt="A six-stage spiral showing the lifelong Homeward Journey of Faith" src="{{JOURNEY_IMAGE}}"/>
+       </div>
+       <div class="journey-content">
+        <p class="eyebrow">
+         {{JOURNEY_EYEBROW}}
+        </p>
+        <h2>
+         {{JOURNEY_HEADING}}
+        </h2>
+        <p class="lead">
+         {{JOURNEY_DESCRIPTION}}
+        </p>
+        <div class="journey-stages">
+         {{JOURNEY_STAGES_HTML}}
+        </div>
+        <aside class="journey-benefit">
+         <h3>
+          {{JOURNEY_BENEFIT_HEADING}}
+         </h3>
+         <p>
+          {{JOURNEY_BENEFIT_TEXT}}
+         </p>
+        </aside>
+        <div class="page-actions">
+         <a class="button button-light" data-event="journey_reflection_start" href="assessment.html">
+          {{JOURNEY_CTA_LABEL}}
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section remembering-section" id="remembering">
+    <div class="container">
+     <div class="remembering-card remembering-v6 reveal">
+      <div class="remembering-main">
+       <div class="remembering-intro">
+        <p class="eyebrow">
+         {{REMEMBERING_EYEBROW}}
+        </p>
+        <h2>
+         {{REMEMBERING_HEADING_HTML}}
+        </h2>
+        <p>
+         {{REMEMBERING_INTRO1}}
+        </p>
+        <p>
+         {{REMEMBERING_INTRO2_HTML}}
+        </p>
+       </div>
+       <ul aria-label="What we help one another remember" class="remembering-list">
+        {{REMEMBERING_ITEMS_HTML}}
+       </ul>
+       <div class="remembering-collage">
+        <figure class="remembering-photo remembering-photo-community">
+         <img alt="Friends sharing a meal and meaningful conversation" src="{{REMEMBERING_COMMUNITY_IMAGE}}"/>
+        </figure>
+        <figure class="remembering-photo remembering-photo-wonder">
+         <img alt="People walking together through a sunlit forest" src="{{REMEMBERING_WONDER_IMAGE}}"/>
+        </figure>
+       </div>
+      </div>
+      <aside class="remembering-why remembering-why-wide">
+       <h3>
+        {{REMEMBERING_WHY_HEADING}}
+       </h3>
+       <p>
+        {{REMEMBERING_WHY_TEXT}}
+       </p>
+      </aside>
+      <div class="remembering-footer">
+       <p>
+        {{REMEMBERING_FOOTER_TEXT}}
+       </p>
+       <div class="remembering-actions">
+        <a class="button" data-event="remembering_conversation_click" data-set-interest="I'd like to talk about Homeward or a Circle" href="#interest">
+         {{REMEMBERING_PRIMARY_LABEL}}
+        </a>
+        <a class="button button-light-outline" data-event="remembering_circle_click" href="circles.html">
+         {{REMEMBERING_SECONDARY_LABEL}}
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section interest-section" id="interest">
+    <div class="container interest-layout">
+     <div class="interest-copy reveal">
+      <p class="eyebrow">
+       {{INTEREST_EYEBROW}}
+      </p>
+      <h2>
+       {{INTEREST_HEADING}}
+      </h2>
+      <p class="lead">
+       {{INTEREST_DESCRIPTION}}
+      </p>
+      <div class="urgency">
+       {{INTEREST_CALENDAR_HTML}}
+      </div>
+      <button class="button button-secondary" data-calendar-open="" data-event="start_conversation_click" type="button">
+       {{INTEREST_CALENDAR_BUTTON}}
+      </button>
+     </div>
+     <div class="form-card-v4 reveal">
+      <form data-endpoint="/api/lead" id="interestForm" novalidate="">
+       <input name="form_type" type="hidden" value="interest"/>
+       <div class="form-grid-v4">
+        <div class="form-field">
+         <label for="firstName">
+          First name
+         </label>
+         <input autocomplete="given-name" id="firstName" name="firstName" required="" type="text"/>
+        </div>
+        <div class="form-field">
+         <label for="lastName">
+          Last name
+         </label>
+         <input autocomplete="family-name" id="lastName" name="lastName" type="text"/>
+        </div>
+        <div class="form-field full">
+         <label for="email">
+          Email
+         </label>
+         <input autocomplete="email" id="email" name="email" required="" type="email"/>
+        </div>
+        <div class="form-field full">
+         <label for="city">
+          City / area
+         </label>
+         <input autocomplete="address-level2" id="city" name="city" placeholder="e.g. Dallas, Fort Worth, Plano…" type="text"/>
+        </div>
+        <div class="form-field full">
+         <label for="interestChoice">
+          What interests you most?
+         </label>
+         <select id="interestChoice" name="interest" required="">
+          <option value="">
+           Choose one…
+          </option>
+          <option>
+           I'm interested in joining a Circle
+          </option>
+          <option>
+           I'd like to talk about Homeward or a Circle
+          </option>
+          <option>
+           I want to learn more about Homeward
+          </option>
+          <option>
+           I'm interested in Christian meditation and practices
+          </option>
+          <option>
+           Just keep me informed for now
+          </option>
+         </select>
+        </div>
+        <div class="form-field full">
+         <label for="draw">
+          What are you hoping to find?
+          <span class="muted">
+           (optional)
+          </span>
+         </label>
+         <textarea id="draw" name="draw" placeholder="A sentence or two is plenty."></textarea>
+        </div>
+        <div class="form-field full">
+         <div class="check-row">
+          <input id="newsletter" name="newsletter" type="checkbox" value="yes"/>
+          <label for="newsletter">
+           Keep me informed about new Circles, practices, and Homeward gatherings.
+          </label>
+         </div>
+        </div>
+       </div>
+       <input name="utm_source" type="hidden"/>
+       <input name="utm_medium" type="hidden"/>
+       <input name="utm_campaign" type="hidden"/>
+       <input name="utm_term" type="hidden"/>
+       <input name="utm_content" type="hidden"/>
+       <input name="gclid" type="hidden"/>
+       <input name="fbclid" type="hidden"/>
+       <input name="landing_page" type="hidden"/>
+       <input name="referrer" type="hidden"/>
+       <button class="button" style="width:100%;margin-top:22px" type="submit">
+        Send my interest
+       </button>
+       <p class="small muted" style="margin:14px 0 0">
+        A real person will follow up. We will not sell or share your information.
+       </p>
+       <div class="form-status" id="formStatus" role="status">
+       </div>
+      </form>
+      <div class="form-success-panel" id="formSuccess">
+       <h3>
+        Thank you. We're glad you found Homeward.
+       </h3>
+       <p>
+        We received your information and will follow up personally.
+       </p>
+       <div class="form-success-actions">
+        <button class="button" data-calendar-open="" type="button">
+         Choose a time to talk
+        </button>
+        <a class="button button-secondary" href="practice-breath.html">
+         Try a 5-minute practice
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="vision" id="vision">
+    <div class="container">
+     <div class="vision-heading center reveal">
+      <p class="eyebrow">
+       A glimpse of what is ahead
+      </p>
+      <h2>
+       Start with Circles. Build toward belonging.
+      </h2>
+      <p class="lead">
+       Homeward begins simply—with people, practices, and honest conversation. The longer vision is a place where community can deepen throughout the week.
+      </p>
+     </div>
+     <div class="vision-gallery">
+      <article class="vision-feature vision-feature-wide reveal">
+       <button class="vision-image-button" data-lightbox="assets/vision-campus-exterior.jpg" data-title="A future Homeward community campus" type="button">
+        <img alt="Concept rendering of a future Homeward community campus at sunset" src="assets/vision-campus-exterior.jpg"/>
+        <span class="image-expand">
+         Enlarge image ↗
+        </span>
+       </button>
+       <div class="vision-feature-copy">
+        <span>
+         Future Community Campus
+        </span>
+        <h3>
+         A place of belonging throughout the week.
+        </h3>
+        <p>
+         A walkable home for gathering, coffee, quiet, formation, children, friendship, and shared life.
+        </p>
+       </div>
+      </article>
+      <div class="vision-pair">
+       <article class="vision-feature reveal">
+        <button class="vision-image-button" data-lightbox="assets/vision-coffeehouse-render.jpg" data-title="The Coffeehouse Commons" type="button">
+         <img alt="Concept rendering of the Homeward Coffeehouse Commons" src="assets/vision-coffeehouse-render.jpg"/>
+         <span class="image-expand">
+          Enlarge image ↗
+         </span>
+        </button>
+        <div class="vision-feature-copy">
+         <span>
+          Coffeehouse Commons
+         </span>
+         <h3>
+          A place designed for lingering.
+         </h3>
+         <p>
+          Coffee, shared tables, conversation, coworking, and everyday relationships.
+         </p>
+        </div>
+       </article>
+       <article class="vision-feature reveal">
+        <button class="vision-image-button" data-lightbox="assets/vision-still-point-render.jpg" data-title="The Still Point" type="button">
+         <img alt="Concept rendering of the Homeward Still Point room" src="assets/vision-still-point-render.jpg"/>
+         <span class="image-expand">
+          Enlarge image ↗
+         </span>
+        </button>
+        <div class="vision-feature-copy">
+         <span>
+          The Still Point
+         </span>
+         <h3>
+          Be still—and know.
+         </h3>
+         <p>
+          A serene room for silence, Christian meditation, contemplative prayer, and returning to God.
+         </p>
+        </div>
+       </article>
+      </div>
+     </div>
+     <div class="vision-actions reveal">
+      <a class="button button-light" href="vision.html">
+       Explore the larger vision
+      </a>
+      <span>
+       Click any image to view it full screen.
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="faq">
+    <div class="narrow">
+     <div class="center reveal">
+      <p class="eyebrow">
+       Common questions
+      </p>
+      <h2>
+       You do not have to know before you come.
+      </h2>
+     </div>
+     <div class="faq-list reveal">
+      <div class="faq-item">
+       <button aria-expanded="false" class="faq-question">
+        What do you mean by “rooted in Jesus”?
+        <span class="faq-symbol">
+         +
+        </span>
+       </button>
+       <div class="faq-answer">
+        We return continually to the life and teachings of Jesus as inspiration for our shared journey. That does not mean everyone has or needs to have the same beliefs. Questions are welcomed, belonging is not conditioned on certainty, and no one is asked to pretend.
+       </div>
+      </div>
+      <div class="faq-item">
+       <button aria-expanded="false" class="faq-question">
+        What if I am unsure what I believe?
+        <span class="faq-symbol">
+         +
+        </span>
+       </button>
+       <div class="faq-answer">
+        Wherever you are in your understanding of God, you are welcome to begin honestly. Homeward makes room for faith, questions, doubt, hope, and change.
+       </div>
+      </div>
+      <div class="faq-item">
+       <button aria-expanded="false" class="faq-question">
+        What are Christian meditation and contemplative prayer?
+        <span class="faq-symbol">
+         +
+        </span>
+       </button>
+       <div class="faq-answer">
+        They are time-tested ways of becoming quiet, attentive, and open to God. Practices may use the breath, a prayer word, Scripture, reflection, or silent presence. No prior experience is needed.
+       </div>
+      </div>
+      <div class="faq-item">
+       <button aria-expanded="false" class="faq-question">
+        Is Homeward a church?
+        <span class="faq-symbol">
+         +
+        </span>
+       </button>
+       <div class="faq-answer">
+        Homeward is forming as a spiritual community rooted in Jesus, beginning with Circles. You do not need to leave an existing church, and you do not need previous church involvement to participate.
+       </div>
+      </div>
+      <div class="faq-item">
+       <button aria-expanded="false" class="faq-question">
+        Do I have to schedule a conversation?
+        <span class="faq-symbol">
+         +
+        </span>
+       </button>
+       <div class="faq-answer">
+        No. You can take the Journey Reflection, try a practice, explore how Circles work, or simply tell us you are interested. A conversation is available whenever you feel ready.
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="final-cta">
+    <div class="container reveal">
+     <p class="eyebrow">
+      {{FINAL_EYEBROW}}
+     </p>
+     <h2>
+      {{FINAL_HEADING}}
+     </h2>
+     <p class="lead">
+      {{FINAL_DESCRIPTION}}
+     </p>
+     <div class="final-actions">
+      <a class="button" data-event="journey_reflection_start" href="assessment.html">
+       Take the Journey Reflection
+      </a>
+      <a class="button button-secondary" data-event="practice_start" href="practice-breath.html">
+       Try a Practice
+      </a>
+      <a class="button button-secondary" href="#interest">
+       I'm Interested
+      </a>
+      <button class="button button-secondary" data-calendar-open="" data-event="start_conversation_click" type="button">
+       Have a Short Conversation
+      </button>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-grid">
+     <div class="footer-brand">
+      <a class="brand brand-footer" href="index.html">
+       <img alt="" class="brand-mark" src="assets/mark-ivory.png"/>
+       <span class="brand-copy">
+        <strong>
+         HOMEWARD
+        </strong>
+        <small>
+         A SPIRITUAL COMMUNITY
+        </small>
+       </span>
+      </a>
+      <p>
+       Rooted in the life and way of Jesus, Homeward is open to all who genuinely seek God in love. We welcome faith, questions, hope, doubt, and uncertainty.
+      </p>
+      <strong style="color:var(--ivory)">
+       Journeying Toward God. Together.
+      </strong>
+     </div>
+     <nav class="footer-nav">
+      <strong>
+       Explore
+      </strong>
+      <a href="circles.html">
+       Homeward Circles
+      </a>
+      <a href="practices.html">
+       Practices
+      </a>
+      <a href="assessment.html">
+       Journey Reflection
+      </a>
+      <a href="about.html">
+       Our Story
+      </a>
+      <a href="vision.html">
+       Future Vision
+      </a>
+     </nav>
+     <nav class="footer-nav">
+      <strong>
+       Connect
+      </strong>
+      <a href="index.html#interest">
+       Tell Us You're Interested
+      </a>
+      <button class="footer-button-link" data-calendar-open="" data-event="start_conversation_click" type="button">
+       Have a Short Conversation
+      </button>
+      <a href="connect.html">
+       Conversation Details
+      </a>
+      <a href="privacy.html">
+       Privacy
+      </a>
+     </nav>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      © 2026 Homeward Community · Belong. Grow. Become.
+     </span>
+     <span>
+      Journeying Toward God. Together.
+     </span>
+    </div>
+   </div>
+  </footer>
+  <aside aria-label="Homeward interest invitation" aria-live="polite" class="interest-prompt" id="interestPrompt">
+   <button aria-label="Dismiss" class="interest-prompt-close" type="button">
+    ×
+   </button>
+   <h3>
+    Does Homeward resonate with you?
+   </h3>
+   <p>
+    Let us know what interests you. No commitment required.
+   </p>
+   <div class="interest-prompt-actions">
+    <a class="button" data-event="interest_prompt_click" href="index.html#interest">
+     I'm Interested
+    </a>
+    <button class="button button-secondary" data-calendar-open="" data-event="start_conversation_click" type="button">
+     Have a Conversation
+    </button>
+   </div>
+  </aside>
+  <div aria-hidden="true" aria-label="Schedule a short Homeward conversation" aria-modal="true" class="calendar-modal" id="calendarModal" role="dialog">
+   <div class="calendar-dialog">
+    <button aria-label="Close calendar" class="calendar-close" type="button">
+     ×
+    </button>
+    <iframe data-src="https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&amp;embed_type=Inline&amp;hide_event_type_details=1&amp;background_color=faf6ef&amp;text_color=153a2e&amp;primary_color=b35a2a" title="Schedule a short Homeward conversation">
+    </iframe>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-label="Future vision image viewer" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+   <div class="lightbox-dialog">
+    <button aria-label="Close image" class="lightbox-close" type="button">
+     ×
+    </button>
+    <button aria-label="Previous image" class="lightbox-prev" type="button">
+     ‹
+    </button>
+    <img alt="" class="lightbox-image" src=""/>
+    <button aria-label="Next image" class="lightbox-next" type="button">
+     ›
+    </button>
+    <div class="lightbox-caption">
+    </div>
+   </div>
+  </div>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
