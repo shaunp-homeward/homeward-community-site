@@ -17,6 +17,11 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll("'", '&#039;');
 
 const richText = (value = '') => escapeHtml(value).replaceAll('\n', '<br/>');
+const inlineRichText = (value = '') => escapeHtml(value)
+  .replaceAll('&lt;em&gt;', '<em>')
+  .replaceAll('&lt;/em&gt;', '</em>')
+  .replaceAll('&lt;br&gt;', '<br>')
+  .replaceAll('&lt;br/&gt;', '<br/>');
 const attr = (value = '') => escapeHtml(value);
 
 const analyticsTag = (() => {
@@ -238,7 +243,7 @@ const pageReplacementMaps = {
     HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), HERO_PRIMARY: escapeHtml(d.hero.primary), HERO_SECONDARY: escapeHtml(d.hero.secondary),
     HEART_IMAGE: attr(d.heart.image), HEART_IMAGE_ALT: attr(d.heart.image_alt), HEART_CAPTION: escapeHtml(d.heart.caption), HEART_EYEBROW: escapeHtml(d.heart.eyebrow), HEART_HEADING: escapeHtml(d.heart.heading), HEART_LEAD: escapeHtml(d.heart.lead), HEART_BODY: escapeHtml(d.heart.body), HEART_URGENCY_HEADING: escapeHtml(d.heart.urgency_heading), HEART_URGENCY_TEXT: escapeHtml(d.heart.urgency_text), HEART_PRIMARY: escapeHtml(d.heart.primary), HEART_SECONDARY: escapeHtml(d.heart.secondary),
     RHYTHM_EYEBROW: escapeHtml(d.rhythm.eyebrow), RHYTHM_HEADING: escapeHtml(d.rhythm.heading), RHYTHM_INTRO: escapeHtml(d.rhythm.intro), RHYTHM_HTML: d.rhythm.steps.map((x,i)=>`<div class="rhythm-card"><span>${String(i+1).padStart(2,'0')}</span><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.description)}</p></div>`).join(''),
-    SAMPLE_EYEBROW: escapeHtml(d.sample.eyebrow), SAMPLE_HEADING: escapeHtml(d.sample.heading), SAMPLE_INTRO: escapeHtml(d.sample.intro), SAMPLE_WEEK: escapeHtml(d.sample.week), SAMPLE_TITLE: escapeHtml(d.sample.title), SAMPLE_DESCRIPTION: escapeHtml(d.sample.description), SESSION_HTML: d.sample.items.map(x=>`<div class="session-time">${escapeHtml(x.time)}</div><div class="session-content"><h4>${escapeHtml(x.title)}</h4>${x.questions?`<ul>${listItems(x.questions.map(escapeHtml))}</ul>`:`<p>${x.body}</p>`}</div>`).join(''),
+    SAMPLE_EYEBROW: escapeHtml(d.sample.eyebrow), SAMPLE_HEADING: escapeHtml(d.sample.heading), SAMPLE_INTRO: escapeHtml(d.sample.intro), SAMPLE_WEEK: escapeHtml(d.sample.week), SAMPLE_TITLE: escapeHtml(d.sample.title), SAMPLE_DESCRIPTION: escapeHtml(d.sample.description), SESSION_HTML: d.sample.items.map(x=>`<div class="session-time">${escapeHtml(x.time)}</div><div class="session-content"><h4>${escapeHtml(x.title)}</h4>${x.questions?`<ul>${listItems(x.questions.map(inlineRichText))}</ul>`:`<p>${inlineRichText(x.body)}</p>`}</div>`).join(''),
     FIT_EYEBROW: escapeHtml(d.fit.eyebrow), FIT_HEADING: escapeHtml(d.fit.heading), FIT_CARD_HEADING: escapeHtml(d.fit.fit_heading), FIT_ITEMS_HTML: listItems(d.fit.fit_items.map(escapeHtml)), NOT_CARD_HEADING: escapeHtml(d.fit.not_heading), NOT_ITEMS_HTML: listItems(d.fit.not_items.map(escapeHtml)),
     FINAL_EYEBROW: escapeHtml(d.final.eyebrow), FINAL_HEADING: escapeHtml(d.final.heading), FINAL_LEAD: escapeHtml(d.final.lead), FINAL_PRIMARY: escapeHtml(d.final.primary), FINAL_SECONDARY: escapeHtml(d.final.secondary),
   }),
@@ -296,10 +301,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.2.11',
+  version: '6.2.12',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2.11 into ${dist}`);
+console.log(`Built Homeward V6.2.12 into ${dist}`);
