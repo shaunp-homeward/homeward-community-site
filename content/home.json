@@ -1,60 +1,38 @@
 {
-  "hero": {
-    "headline": "Journey Toward God.",
-    "emphasis": "Together.",
-    "description": "Homeward is a spiritual community for people longing for deeper faith, authentic friendship, and time-tested practices—like Christian meditation, contemplative prayer, and silent presence—that help us experience God more deeply and carry that life into the world through love.",
-    "primary_label": "Have a Conversation",
-    "primary_url": "#circles",
-    "secondary_label": "Take the 5-Minute Spiritual Journey Reflection",
-    "secondary_url": "assessment.html"
-  },
-  "rooted_line": "Rooted in the life and way of Jesus, Homeward is open to all who genuinely seek God in love. We welcome faith, questions, hope, doubt, and uncertainty.",
-  "recognition": {
-    "eyebrow": "The invitation",
-    "heading": "Does any of this feel familiar?",
-    "intro": "Homeward began with questions many people carry quietly—and the hope that faith can still become deeper, more honest, and more alive.",
-    "questions": [
-      "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?",
-      "You long for a deeper experience of God—not just more religious information?",
-      "You want spiritual practices that help you become calmer, more present, and more loving?",
-      "You are looking for a community that welcomes questions without demanding easy answers?",
-      "You want meaningful friendships where you can speak honestly about faith and life?",
-      "You believe faith should change how we live, relate, and care for the world?"
-    ],
-    "honest_line": "Wherever you are in your understanding of God, you are welcome to begin honestly."
-  },
-  "circles": {
-    "eyebrow": "Homeward Circles",
-    "heading_line1": "Find your people.",
-    "heading_line2": "Go deeper together.",
-    "badge": "Registration is open · Space is limited",
-    "description": "Homeward Circles are eight-week guided experiences for 6–8 people who want deeper faith, real friendship, and room for honest questions. Each gathering combines coffee or a shared meal, Christian meditation, thoughtful teaching inspired by Jesus, and conversation that connects it all to everyday life. No expertise, polished answers, or prior meditation experience is required.",
-    "quote": "A Circle is a place to become present, known, and formed together—one honest gathering at a time.",
-    "image": "assets/circles-home-v62.webp",
-    "steps": [
+  "journey": {
+    "eyebrow": "The Journey of Faith",
+    "heading": "Faith grows through seasons—and questions can deepen it.",
+    "description": "Faith rarely develops in a straight line. We inherit beliefs, encounter questions, search, rebuild, embody, and awaken—often revisiting each season with greater honesty and depth. Questions do not have to weaken faith; they can lead us toward a faith that is more resilient, alive, and truly our own.",
+    "image": "assets/journey-cycle-v62.svg",
+    "stages": [
       {
-        "title": "Arrive",
-        "description": "Coffee, food, and unhurried connection."
+        "title": "Inherited Faith",
+        "description": "The faith you were given."
       },
       {
-        "title": "Become present",
-        "description": "A brief meditation, prayer, or spiritual practice."
+        "title": "Honest Questions",
+        "description": "Questions and doubt open the journey."
       },
       {
-        "title": "Explore",
-        "description": "Scripture and thoughtful teaching inspired by Jesus."
+        "title": "Sacred Search",
+        "description": "You seek with open hands."
       },
       {
-        "title": "Share",
-        "description": "Honest conversation without pressure for the right answer."
+        "title": "New Foundations",
+        "description": "Faith becomes deeper and your own."
       },
       {
-        "title": "Carry it home",
-        "description": "A simple practice or invitation for the week."
+        "title": "Embodied Faith",
+        "description": "Belief becomes a way of living."
+      },
+      {
+        "title": "Living Awake",
+        "description": "Love moves outward into life."
       }
     ],
-    "primary_label": "I'm Interested in a Circle",
-    "secondary_label": "See How Circles Work"
+    "benefit_heading": "A reflection that gives you something useful.",
+    "benefit_text": "In about five minutes, you will receive a personal stage reflection with books, videos, practices, and insights selected to support your next step. There are no scores, labels, or right answers.",
+    "cta_label": "Take the 5-Minute Spiritual Journey Reflection"
   },
   "values": {
     "eyebrow": "What is Homeward?",
@@ -74,6 +52,89 @@
         "description": "Spiritual formation becomes a lived way of being—more present, compassionate, courageous, and loving in the world."
       }
     ]
+  },
+  "circles": {
+    "heading_line1": "Find your people.",
+    "heading_line2": "Go deeper together.",
+    "badge": "Registration is open · Space is limited",
+    "steps": [
+      {
+        "title": "Arrive",
+        "description": "Coffee, tea, snacks, and unhurried connection."
+      },
+      {
+        "title": "Become present",
+        "description": "A brief meditation, prayer, or spiritual practice."
+      },
+      {
+        "title": "Explore",
+        "description": "Scripture and thoughtful teaching inspired by Jesus."
+      },
+      {
+        "title": "Share",
+        "description": "Honest conversation without pressure for the right answer."
+      },
+      {
+        "title": "Carry it home",
+        "description": "A simple practice or invitation for the week."
+      }
+    ],
+    "secondary_label": "See How Circles Work",
+    "eyebrow": "Homeward Circles",
+    "primary_label": "I'm Interested in a Circle",
+    "image": "assets/circles-home-v62.webp",
+    "quote": "A Circle is a place to become present, known, and formed together—one honest gathering at a time.",
+    "description": "Homeward Circles are leader-facilitated 8-week guided experiences for 6–8 people who want deeper faith, meaningful friendship, and room for honest questions & discussion. Each gathering combines hospitality (coffee, tea & snacks), Christian meditation, thoughtful teaching inspired by Jesus, and conversation that connects it all to everyday life. \n\nNo expertise, polished answers, or prior meditation experience is required. At the end of 8 weeks, you decide whether to continue. There's no ongoing commitment."
+  },
+  "interest": {
+    "eyebrow": "A gentle next step",
+    "heading": "Tell us what interests you.",
+    "description": "You do not have to schedule anything yet. Share what is drawing you toward Homeward, and someone from the community will follow up personally.",
+    "calendar_heading": "Ready to talk now?",
+    "calendar_text": "Open the conversation calendar directly—or choose “I’d like to talk about Homeward or a Circle” in the form and the calendar will open after your information is received.",
+    "calendar_button": "Open the Conversation Calendar"
+  },
+  "rooted_line": "Rooted in the life and way of Jesus, Homeward is open to all who genuinely seek God in love. We welcome faith, questions, hope, doubt, and uncertainty.",
+  "remembering": {
+    "items": [
+      "Remembering to slow down.",
+      "Remembering that God is near.",
+      "Remembering what matters most.",
+      "Remembering who we are becoming.",
+      "Remembering to choose love.",
+      "Remembering that we do not have to make the journey alone."
+    ],
+    "heading": "We gather",
+    "why_text": "Remembering helps us return to God more deeply and more often. As we return, we become more open to the joy, love, compassion, peace, awe, and wonder that make life truly come alive.",
+    "community_image": "assets/remembering-community-v62.webp",
+    "intro1": "Homeward began because many people longed for more—more presence, more meaning, and a community where love for God, a connection to the life and teachings of Jesus, and honest questions could live together.",
+    "intro2": "We come together to help one another remember what matters most.",
+    "secondary_label": "See How Circles Work",
+    "eyebrow": "Why Homeward began",
+    "why_heading": "Why remembering matters.",
+    "footer_text": "Maybe you have been looking for your people, too.",
+    "primary_label": "I'm Interested in Homeward",
+    "wonder_image": "assets/remembering-wonder-v6.webp",
+    "emphasis": "to remember."
+  },
+  "final": {
+    "eyebrow": "Choose your next step",
+    "heading": "Begin in the way that feels honest.",
+    "description": "Take the five-minute spiritual journey reflection privately, or have a conversation about Homeward when you are ready."
+  },
+  "recognition": {
+    "eyebrow": "The invitation",
+    "heading": "Does any of this feel familiar?",
+    "intro": "Homeward began with questions many people carry quietly—and the hope that faith can still become deeper, more honest, and more alive.",
+    "questions": [
+      "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?",
+      "You long for a deeper experience of God—not just more religious information?",
+      "You want spiritual practices that help you become calmer, more present, and more loving?",
+      "You are looking for a community that welcomes questions without demanding easy answers?",
+      "You want meaningful friendships where you can speak honestly about faith and life?",
+      "You believe faith should change how we live, relate, and care for the world?"
+    ],
+    "honest_line": "Wherever you are in your understanding of God, you are welcome to begin honestly."
   },
   "practices": {
     "eyebrow": "Practices for becoming present",
@@ -120,74 +181,13 @@
     "primary_label": "Try a 5-Minute Breath Prayer",
     "secondary_label": "Explore All Practices"
   },
-  "journey": {
-    "eyebrow": "The Journey of Faith",
-    "heading": "Faith grows through seasons—and questions can deepen it.",
-    "description": "Faith rarely develops in a straight line. We inherit beliefs, encounter questions, search, rebuild, embody, and awaken—often revisiting each season with greater honesty and depth. Questions do not have to weaken faith; they can lead us toward a faith that is more resilient, alive, and truly our own.",
-    "image": "assets/journey-cycle-v62.svg",
-    "stages": [
-      {
-        "title": "Inherited Faith",
-        "description": "The faith you were given."
-      },
-      {
-        "title": "Honest Questions",
-        "description": "Questions and doubt open the journey."
-      },
-      {
-        "title": "Sacred Search",
-        "description": "You seek with open hands."
-      },
-      {
-        "title": "New Foundations",
-        "description": "Faith becomes deeper and your own."
-      },
-      {
-        "title": "Embodied Faith",
-        "description": "Belief becomes a way of living."
-      },
-      {
-        "title": "Living Awake",
-        "description": "Love moves outward into life."
-      }
-    ],
-    "benefit_heading": "A reflection that gives you something useful.",
-    "benefit_text": "In about five minutes, you will receive a personal stage reflection with books, videos, practices, and insights selected to support your next step. There are no scores, labels, or right answers.",
-    "cta_label": "Take the 5-Minute Spiritual Journey Reflection"
-  },
-  "remembering": {
-    "eyebrow": "Why Homeward began",
-    "heading": "We gather",
-    "emphasis": "to remember.",
-    "intro1": "Homeward began because many people longed for more—more presence, more meaning, and a community where love for God, a connection to the life and teachings of Jesus, and honest questions could live together.",
-    "intro2": "We come together to help one another remember what matters most.",
-    "items": [
-      "Remembering to slow down.",
-      "Remembering that God is near.",
-      "Remembering what matters most.",
-      "Remembering who we are becoming.",
-      "Remembering to choose love.",
-      "Remembering that we do not have to make the journey alone."
-    ],
-    "community_image": "assets/remembering-community-v62.webp",
-    "wonder_image": "assets/remembering-wonder-v6.webp",
-    "why_heading": "Why remembering matters.",
-    "why_text": "Remembering helps us return to God more deeply and more often. As we return, we become more open to the joy, love, compassion, peace, awe, and wonder that make life truly come alive.",
-    "footer_text": "Maybe you have been looking for your people, too.",
-    "primary_label": "I'm Interested in Homeward",
-    "secondary_label": "See How Circles Work"
-  },
-  "interest": {
-    "eyebrow": "A gentle next step",
-    "heading": "Tell us what interests you.",
-    "description": "You do not have to schedule anything yet. Share what is drawing you toward Homeward, and someone from the community will follow up personally.",
-    "calendar_heading": "Ready to talk now?",
-    "calendar_text": "Open the conversation calendar directly—or choose “I’d like to talk about Homeward or a Circle” in the form and the calendar will open after your information is received.",
-    "calendar_button": "Open the Conversation Calendar"
-  },
-  "final": {
-    "eyebrow": "Choose your next step",
-    "heading": "Begin in the way that feels honest.",
-    "description": "Take the five-minute reflection privately, or have a conversation about Homeward when you are ready."
+  "hero": {
+    "headline": "Journey Toward God.",
+    "emphasis": "Together.",
+    "description": "Homeward is a spiritual community for people longing for deeper faith, authentic friendship, and time-tested practices—like Christian meditation, contemplative prayer, and silent presence—that help us experience God more deeply and carry that life into the world through love.",
+    "primary_label": "Have a Conversation",
+    "primary_url": "#circles",
+    "secondary_label": "Take the 5-Minute Spiritual Journey Reflection",
+    "secondary_url": "assessment.html"
   }
 }
