@@ -1309,9 +1309,9 @@ body.modal-open{overflow:hidden}
 
 
 /* =========================================================
-   HOMEWARD V6.2.15 — Mobile logo lockup refinement
-   Slightly enlarges the complete lockup and restores the
-   A SPIRITUAL COMMUNITY line to the full wordmark width.
+   HOMEWARD V6.2.16 — Mobile subtitle spacing correction
+   Keeps the V6.2.15 HOMEWARD wordmark size and corrects
+   only the A SPIRITUAL COMMUNITY subtitle spacing.
    ========================================================= */
 .conversation-label-mobile{display:none}
 
@@ -1348,14 +1348,15 @@ body.modal-open{overflow:hidden}
   }
   .brand-copy small{
     display:block;
-    width:100%;
+    width:max-content;
+    max-width:100%;
     overflow:hidden;
     white-space:nowrap;
-    font-size:.43rem;
-    letter-spacing:.13em;
+    font-size:.555rem;
+    letter-spacing:.12em;
     margin-top:5px;
-    text-align:justify;
-    text-align-last:justify;
+    text-align:left;
+    text-align-last:auto;
   }
   .mobile-header-actions{
     min-width:0;
@@ -1387,7 +1388,7 @@ body.modal-open{overflow:hidden}
   .brand-mark{width:45px;height:45px}
   .brand-copy{width:126px}
   .brand-copy strong{font-size:1.07rem;letter-spacing:.115em}
-  .brand-copy small{font-size:.39rem;letter-spacing:.105em;margin-top:4px}
+  .brand-copy small{font-size:.5rem;letter-spacing:.095em;margin-top:4px}
   .mobile-header-actions{gap:4px}
   .mobile-header-conversation{padding:9px 11px;font-size:.74rem}
   .mobile-toggle{width:36px;height:36px;font-size:1.35rem}

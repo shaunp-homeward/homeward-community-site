@@ -1,5 +1,5 @@
-# Homeward V6.2.15
+# Homeward V6.2.16
 
-A narrowly scoped mobile-header refinement on top of V6.2.14.
+A narrow mobile-header typography correction. It preserves the V6.2.15 HOMEWARD size and fixes only the over-spread “A SPIRITUAL COMMUNITY” subtitle.
 
-Use the targeted update for staging. It slightly enlarges the mobile Homeward lockup and restores the full-width “A SPIRITUAL COMMUNITY” subline while retaining the no-overflow header fix.
+Use the targeted update over V6.2.15 for staging.

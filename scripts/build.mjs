@@ -301,10 +301,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.2.15',
+  version: '6.2.16',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2.15 into ${dist}`);
+console.log(`Built Homeward V6.2.16 into ${dist}`);
