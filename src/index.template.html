@@ -16,7 +16,7 @@
   <link href="assets/mark-forest.png" rel="icon"/>
   <link href="styles.css" rel="stylesheet"/>
   <!-- Meta Pixel: add the verified Pixel ID only after consent settings are configured. See TRACKING_SETUP.md. -->
-  <meta content="6.2.11" name="homeward-version"/>
+  <meta content="6.2.13" name="homeward-version"/>
  </head>
  <body>
   <header class="site-header">
@@ -56,8 +56,9 @@
      </button>
     </nav>
     <div class="mobile-header-actions">
-     <button class="button mobile-header-conversation" data-calendar-open="" data-event="start_conversation_click" type="button">
-      Have a Conversation
+     <button class="button mobile-header-conversation" data-calendar-open="" data-event="start_conversation_click" type="button" aria-label="Have a Conversation">
+      <span class="conversation-label-desktop">Have a Conversation</span>
+      <span class="conversation-label-mobile">Let’s Talk</span>
      </button>
      <button aria-expanded="false" aria-label="Open navigation" class="mobile-toggle">
       ☰
