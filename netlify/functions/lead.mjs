@@ -29,6 +29,48 @@ export default async (req) => {
   const draw = clean(data.draw);
   const formType = clean(data.form_type) || "interest";
   const assessmentStage = clean(data.assessment_stage);
+  const guideMap = {
+    "Inherited Faith": {
+      title: "Inherited Faith",
+      subtitle: "Receiving the gift, making it your own",
+      page: "/journey/inherited-faith",
+      pdf: "/downloads/Homeward_Inherited_Faith_Guide.pdf",
+    },
+    "Honest Questions": {
+      title: "Honest Questions",
+      subtitle: "Making room for what is true",
+      page: "/journey/honest-questions",
+      pdf: "/downloads/Homeward_Honest_Questions_Guide.pdf",
+    },
+    "Sacred Search": {
+      title: "The Sacred Search",
+      subtitle: "Seeking with open hands",
+      page: "/journey/sacred-search",
+      pdf: "/downloads/Homeward_Sacred_Search_Guide.pdf",
+    },
+    "New Foundations": {
+      title: "New Foundations",
+      subtitle: "Rebuilding with humility and hope",
+      page: "/journey/new-foundations",
+      pdf: "/downloads/Homeward_New_Foundations_Guide.pdf",
+    },
+    "Embodied Faith": {
+      title: "Embodied Faith",
+      subtitle: "Letting faith become a way of life",
+      page: "/journey/embodied-faith",
+      pdf: "/downloads/Homeward_Embodied_Faith_Guide.pdf",
+    },
+    "Living Awake": {
+      title: "Living Awake",
+      subtitle: "Present to God, available to love",
+      page: "/journey/living-awake",
+      pdf: "/downloads/Homeward_Living_Awake_Guide.pdf",
+    },
+  };
+  const guide = guideMap[assessmentStage] || null;
+  const requestOrigin = new URL(req.url).origin;
+  const guideUrl = guide ? new URL(guide.page, requestOrigin).href : "";
+  const guidePdfUrl = guide ? new URL(guide.pdf, requestOrigin).href : "";
   const season = clean(data.season);
   const movingToward = clean(data.moving_toward);
   const gathering = clean(data.gathering);
@@ -116,7 +158,7 @@ export default async (req) => {
 
   if (isPreview && !allowPreviewWrite) {
     console.log("Homeward preview lead captured without Airtable write", { formType, interestChoice, conversationRequested });
-    return json({ ok: true, preview: true, conversationRequested }, 200);
+    return json({ ok: true, preview: true, conversationRequested, guideUrl, guidePdfUrl, emailSent: false }, 200);
   }
 
   const token = Netlify.env.get("AIRTABLE_TOKEN");
@@ -135,12 +177,61 @@ export default async (req) => {
       console.error("Airtable error", response.status, detail);
       return json({ ok: false, error: "airtable-write-failed" }, 502);
     }
-    return json({ ok: true, conversationRequested }, 200);
+    let emailSent = false;
+    if (formType === "assessment" && guide && email) {
+      emailSent = await sendGuideEmail({
+        email,
+        firstName: first,
+        guide,
+        guideUrl,
+        guidePdfUrl,
+      });
+    }
+    return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent }, 200);
   } catch (error) {
     console.error("Airtable fetch failed", error);
     return json({ ok: false, error: "airtable-fetch-failed" }, 502);
   }
 };
+
+async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl }) {
+  const apiKey = String(Netlify.env.get("RESEND_API_KEY") || "").trim();
+  const from = String(Netlify.env.get("ASSESSMENT_FROM_EMAIL") || "").trim();
+  const replyTo = String(Netlify.env.get("ASSESSMENT_REPLY_TO") || "").trim();
+  if (!apiKey || !from) return false;
+
+  const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
+  const subject = `Your Homeward guide: ${guide.title}`;
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${guideUrl}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${guidePdfUrl}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
+  const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your ${guide.title} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
+
+  try {
+    const payload = { from, to: [email], subject, html, text };
+    if (replyTo) payload.reply_to = replyTo;
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      console.error("Guide email failed", response.status, await response.text());
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("Guide email exception", error);
+    return false;
+  }
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
 
 function json(payload, status) {
   return new Response(JSON.stringify(payload), {
