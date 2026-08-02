@@ -1,16 +1,7 @@
-# Homeward V6.2.13
+# Homeward V6.2.14
 
-This is a narrow mobile-header hotfix built on V6.2.12.
+This is a narrow mobile-header refinement built on V6.2.13.
 
-## Recommended deployment
+Use the targeted update on the current V6.2.13 staging branch. It enlarges the mobile Homeward logo while preserving the compact **Let’s Talk** CTA and the overflow fix.
 
-Upload the contents of `Homeward_Website_V6_2_13_Targeted_Update.zip` to the current staging branch, preserving folder structure. Netlify should run the existing build command automatically.
-
-The patch changes only:
-
-- `src/index.template.html`
-- `styles.css`
-- `package.json`
-- V6.2.13 documentation
-
-Desktop continues to show **Have a Conversation**. The compact mobile homepage header shows **Let’s Talk** and has corrected sizing to prevent horizontal overflow.
+No content, forms, routes, or desktop layouts were changed.
