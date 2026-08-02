@@ -1,7 +1,5 @@
-# Homeward V6.2.14
+# Homeward V6.2.15
 
-This is a narrow mobile-header refinement built on V6.2.13.
+A narrowly scoped mobile-header refinement on top of V6.2.14.
 
-Use the targeted update on the current V6.2.13 staging branch. It enlarges the mobile Homeward logo while preserving the compact **Let’s Talk** CTA and the overflow fix.
-
-No content, forms, routes, or desktop layouts were changed.
+Use the targeted update for staging. It slightly enlarges the mobile Homeward lockup and restores the full-width “A SPIRITUAL COMMUNITY” subline while retaining the no-overflow header fix.
