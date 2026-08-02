@@ -3,7 +3,7 @@
     "headline": "Journey Toward God.",
     "emphasis": "Together.",
     "description": "Homeward is a spiritual community for people longing for deeper faith, authentic friendship, and time-tested practices—like Christian meditation, contemplative prayer, and silent presence—that help us experience God more deeply and carry that life into the world through love.",
-    "primary_label": "Explore Homeward Circles",
+    "primary_label": "Have a Conversation",
     "primary_url": "#circles",
     "secondary_label": "Take the 5-Minute Spiritual Journey Reflection",
     "secondary_url": "assessment.html"
@@ -27,7 +27,7 @@
     "eyebrow": "Homeward Circles",
     "heading_line1": "Find your people.",
     "heading_line2": "Go deeper together.",
-    "badge": "Registration is open for upcoming Circles.",
+    "badge": "Registration is open · Space is limited",
     "description": "Homeward Circles are eight-week guided experiences for 6–8 people who want deeper faith, real friendship, and room for honest questions. Each gathering combines coffee or a shared meal, Christian meditation, thoughtful teaching inspired by Jesus, and conversation that connects it all to everyday life. No expertise, polished answers, or prior meditation experience is required.",
     "quote": "A Circle is a place to become present, known, and formed together—one honest gathering at a time.",
     "image": "assets/circles-home-v62.webp",
@@ -188,6 +188,6 @@
   "final": {
     "eyebrow": "Choose your next step",
     "heading": "Begin in the way that feels honest.",
-    "description": "Reflect privately, experience a practice, explore a Circle, tell us you are interested, or have a short conversation about Homeward."
+    "description": "Take the five-minute reflection privately, or have a conversation about Homeward when you are ready."
   }
 }

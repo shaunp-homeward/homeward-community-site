@@ -1,40 +1,51 @@
-# Homeward Website V6.2.5 — Stage One + Journey Explorer
+# Homeward V6.2.11 — Staging handoff
 
-## Recommended upload
+This update applies the requested homepage polish to the corrected V6.2.10 full source.
 
-Use `Homeward_Website_V6_2_5_Targeted_Update.zip` against the existing V6.2.4 staging branch. Preserve the included folder structure and allow Netlify to run the existing `npm run build` process.
+## Recommended deployment
 
-The targeted package does not replace the rest of the site. It adds or updates only the files required for Stage One, the shared Journey explorer, the expanded Resources page, and the assessment delivery flow.
+Use `Homeward_Website_V6_2_11_Targeted_Update.zip` against the current V6.2.10 staging branch, preserving the folder structure. Netlify should run the existing:
 
-## New routes
+```bash
+npm run build
+```
 
-- `/journey/inherited-faith`
-- `/resources/inherited-faith`
-- `/practice-remembering`
-- `/guide/inherited-faith` redirects to the Stage One guide
-- `/downloads/Homeward_Inherited_Faith_Guide.pdf`
+The build has already been run locally and passed.
 
-## Updated routes
+## Changes included
 
-- `/journey/sacred-search` — now includes the interactive six-stage explorer
-- `/resources` — now shows all available books, podcasts, videos, and practices inline
-- `/assessment` — Stage One and Stage Three now receive online-guide and PDF links
+- Hero copper CTA: **Have a Conversation**, opening the existing calendar.
+- New Deep Forest **Let's talk** strip below the six recognition questions.
+- Circle badge: **Registration is open · Space is limited**.
+- Added the optional 6–8 person capacity note.
+- Added a compact **Meet Shaun** founder note after “We gather to remember.”
+- FAQ moved before Future Vision.
+- Final CTA reduced to two buttons.
+- Homepage nav, mobile menu, mobile header, and footer conversation labels standardized.
+- Supplied founder portrait optimized for the website.
 
-## Test after staging deploy
+## Files changed
 
-1. Take the assessment and force/check an Inherited Faith result.
-2. Submit an email and confirm the response contains:
-   - `/journey/inherited-faith`
-   - `/downloads/Homeward_Inherited_Faith_Guide.pdf`
-3. Open `/journey/inherited-faith` and click all six stage tabs.
-4. Open `/journey/sacred-search` and confirm the same explorer works with Stage Three selected.
-5. Open `/resources` and confirm both complete shelves are visible without another click.
-6. Test every external book, podcast, and video link.
-7. Test `/practice-remembering` on desktop and mobile.
-8. Confirm existing Calendly, Airtable capture, navigation, and other pages still work.
+- `content/home.json`
+- `src/index.template.html`
+- `styles.css`
+- `assets/founder-headshot.jpg`
+- `index.html` (built homepage copy for direct preview only)
+- `package.json`
+- `scripts/build.mjs`
+- `V6_2_11_CHANGELOG.md`
+- `V6_2_11_STAGING_UPLOAD.md`
 
-## Important behavior
+## QA completed
 
-- Stage One and Stage Three result pages remain hidden from the main navigation and use `noindex,follow`.
-- The global Resources page remains public.
-- Stages Two, Four, Five, and Six are explorable in the interactive component, but their full guides remain labeled as in development.
+- `npm run build` passed.
+- All six existing recognition questions remain unchanged.
+- Both existing Circle buttons remain unchanged.
+- FAQ is before Vision.
+- Final CTA contains exactly two buttons.
+- All local homepage assets and links resolve in the built output.
+- No template markers remain unresolved.
+
+## Important
+
+The targeted update is intended for the GitHub staging branch. The static preview ZIP can be used for visual review, but it does not replace the source-based Netlify deployment workflow.
