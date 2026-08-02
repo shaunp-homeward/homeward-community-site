@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Homeward Circles",
     "heading": "A small community where faith becomes real.",
-    "lead": "Six to eight people gather regularly to share life, become present to God, explore meaningful questions, and grow through teachings and practices inspired by the life and teachings of Jesus.",
+    "lead": "A Homeward Circle is a leader-facilitated group of six to eight people who meet for eight weeks — to share life, become present to God, explore honest questions, and practice the rhythms of faith inspired by Jesus. At the end, you decide whether to continue. There's no ongoing commitment.",
     "primary": "I’m interested in a Circle",
     "secondary": "See a sample session"
   },
@@ -16,82 +16,81 @@
     "caption": "A consistent group. A guided rhythm. Space to be honest and known.",
     "eyebrow": "The heart of Homeward",
     "heading": "Unhurried. Honest. Practiced together.",
-    "lead": "A Circle is not a class where one person has all the answers. It is a stable community learning to become present to God and one another.",
+    "lead": "A Circle is not a class where one person has all the answers. It's a consistent group — the same people each week — learning to become present to God and one another.",
     "body": "Leaders participate rather than perform. Questions are welcomed. Silence is not awkward. Scripture is explored with curiosity. No one is asked to pretend.",
     "urgency_heading": "Circles form as the right people connect.",
     "urgency_text": "Tell us you are interested, and we will get to know you before helping you join a group.",
     "primary": "Tell us you’re interested",
-    "secondary": "Start a Conversation"
+    "secondary": "Have a Conversation"
   },
   "rhythm": {
     "eyebrow": "The shape of a gathering",
     "heading": "A simple rhythm with room to breathe.",
-    "intro": "The flow changes from week to week, but every gathering makes room for presence, honest conversation, and a practice to carry into everyday life.",
+    "intro": "The flow shifts from week to week, but every gathering makes room for presence, honest conversation, and a practice to carry into everyday life.",
     "steps": [
       {
         "title": "Arrive",
-        "description": "Coffee, a light meal, and time to settle."
+        "description": "Settle in and reconnect over coffee, tea, and snacks — no rush."
       },
       {
         "title": "Become present",
-        "description": "Christian meditation, contemplative prayer, or silence."
+        "description": "A short guided practice — breath prayer, Christian meditation, or silence."
       },
       {
         "title": "Explore",
-        "description": "Scripture and thoughtful teaching inspired by Jesus."
+        "description": "A short story or teaching inspired by Jesus, explored with curiosity."
       },
       {
         "title": "Share",
-        "description": "Honest conversation without easy answers."
+        "description": "Honest conversation — share what's alive for you, or simply listen. No pressure."
       },
       {
         "title": "Carry it home",
-        "description": "A simple practice for the week ahead."
+        "description": "A simple practice to carry into the week."
       }
     ]
   },
   "sample": {
     "eyebrow": "Season One · Finding Home",
     "heading": "What one session might feel like.",
-    "intro": "This example shows the tone and flow—not a rigid script. Circles are guided, but always human.",
+    "intro": "This shows the tone and flow — not a rigid script. A gathering runs about 90 minutes. Week one is about getting to know each other and feeling welcome: everyone's invited to share, and anyone can pass. There's no pressure to perform.",
     "week": "Week One",
-    "title": "The Longing for Home",
+    "title": "The Invitation Home",
     "description": "An approachable first gathering about belonging, spiritual longing, and what it means to begin honestly.",
     "items": [
       {
-        "time": "Arrival · 20 min",
-        "title": "Coffee, food, and connection",
-        "body": "People settle in and respond to a simple opening question: <em>Where have you felt most at home in your life?</em>"
+        "time": "Welcome · ~20 min",
+        "title": "Settling in and getting to know each other",
+        "body": "We settle in over coffee, tea, and snacks — no rush — then begin with a simple question: <em>What drew you here?</em> Everyone's welcome to share, or to pass."
       },
       {
-        "time": "Practice · 8 min",
-        "title": "Breath Prayer",
-        "body": "Breathing in: <em>I am here.</em><br>Breathing out: <em>I am held.</em>"
+        "time": "Practice · ~8 min",
+        "title": "A guided breath prayer",
+        "body": "A simple practice that calms the body, steadies the mind, and helps us become present to the presence of God — with us and within us. As we breathe, we grow more grounded, open, and loving.<br>Breathing in: <em>Here I am.</em><br>Breathing out: <em>You are here.</em>"
       },
       {
-        "time": "Explore · 15 min",
-        "title": "Scripture and reflection",
-        "body": "A short reading from Luke 15, followed by a reflection on our longing to be known, welcomed, and restored."
+        "time": "Explore · ~15 min",
+        "title": "A story and reflection",
+        "body": "A short, familiar story Jesus told — the son who comes home to a father running to meet him — and an open, honest conversation about God, grace, and how each of us hears it."
       },
       {
-        "time": "Conversation · 30 min",
-        "title": "Honest questions",
+        "time": "Conversation · ~30 min",
+        "title": "Honest conversation",
         "questions": [
-          "What does “home” mean to you spiritually?",
-          "When has faith felt like home?",
-          "When has it felt like exile?",
-          "What are you hoping to find in this season?"
+          "When you hear the word <em>home</em>, what image or longing comes to mind?",
+          "Where do you most long to experience welcome or belonging?",
+          "What do you make of a love that runs to meet us before we've figured it all out?"
         ]
       },
       {
-        "time": "Practice for the week · 5 min",
-        "title": "Daily Reflection",
-        "body": "Where did I feel at home today? Where did I feel disconnected? What might God be inviting me to notice?"
+        "time": "For the week · ~5 min",
+        "title": "A practice to carry home",
+        "body": "A few minutes of breath prayer on a few days this week, using the same words: <em>Here I am. You are here.</em>"
       },
       {
-        "time": "Closing · 5 min",
+        "time": "Blessing · ~5 min",
         "title": "A simple blessing",
-        "body": "A reminder that no one has to have everything figured out—and that the journey will be walked together."
+        "body": "We each offer a word for how we're leaving, and close with a blessing: <em>May you know you are received before you have everything figured out — and may you notice the presence of God on the road ahead.</em>"
       }
     ]
   },
@@ -112,7 +111,8 @@
       "Have your beliefs fully settled.",
       "Be comfortable with silence yet.",
       "Leave your current church.",
-      "Commit before first getting to know us."
+      "Commit before first getting to know us.",
+      "Commit beyond eight weeks — you choose whether to continue."
     ]
   },
   "final": {
@@ -120,6 +120,6 @@
     "heading": "Let us know a Circle interests you.",
     "lead": "Share your information, ask a question, or start a conversation when you are ready.",
     "primary": "I’m interested in a Circle",
-    "secondary": "Start a Conversation"
+    "secondary": "Have a Conversation"
   }
 }
