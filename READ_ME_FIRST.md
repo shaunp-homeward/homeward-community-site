@@ -1,5 +1,3 @@
-# Homeward V6.2.16
+# Homeward V6.2.17
 
-A narrow mobile-header typography correction. It preserves the V6.2.15 HOMEWARD size and fixes only the over-spread “A SPIRITUAL COMMUNITY” subtitle.
-
-Use the targeted update over V6.2.15 for staging.
+Use the targeted ZIP over V6.2.16 for staging. This update changes only the mobile subtitle sizing/tracking and version metadata. See `V6_2_17_STAGING_UPLOAD.md`.
