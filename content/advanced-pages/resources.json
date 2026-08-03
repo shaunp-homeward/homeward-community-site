@@ -1,0 +1,1046 @@
+{
+  "title": "Resources for the Journey - Homeward",
+  "source": "resources.html",
+  "blocks": [
+    {
+      "key": "resources-001",
+      "label": "Text: A Homeward Library",
+      "value": "A Homeward Library"
+    },
+    {
+      "key": "resources-002",
+      "label": "Heading: Resources for the Journey",
+      "value": "Resources for the Journey"
+    },
+    {
+      "key": "resources-003",
+      "label": "Text: Books, podcasts, videos, and practices chosen for depth, honesty, and sp…",
+      "value": "Books, podcasts, videos, and practices chosen for depth, honesty, and spiritual formation - not volume."
+    },
+    {
+      "key": "resources-004",
+      "label": "Button / link: Inherited Faith",
+      "value": "Inherited Faith",
+      "url": "#inherited-faith"
+    },
+    {
+      "key": "resources-005",
+      "label": "Button / link: Honest Questions",
+      "value": "Honest Questions",
+      "url": "#honest-questions"
+    },
+    {
+      "key": "resources-006",
+      "label": "Button / link: Sacred Search",
+      "value": "Sacred Search",
+      "url": "#sacred-search"
+    },
+    {
+      "key": "resources-007",
+      "label": "Button / link: New Foundations",
+      "value": "New Foundations",
+      "url": "#new-foundations"
+    },
+    {
+      "key": "resources-008",
+      "label": "Button / link: Embodied Faith",
+      "value": "Embodied Faith",
+      "url": "#embodied-faith"
+    },
+    {
+      "key": "resources-009",
+      "label": "Button / link: Living Awake",
+      "value": "Living Awake",
+      "url": "#living-awake"
+    },
+    {
+      "key": "resources-010",
+      "label": "Text: Stage One",
+      "value": "Stage One"
+    },
+    {
+      "key": "resources-011",
+      "label": "Heading: Inherited Faith",
+      "value": "Inherited Faith"
+    },
+    {
+      "key": "resources-012",
+      "label": "Text: Receive the gift. Make it your own.",
+      "value": "Receive the gift. Make it your own."
+    },
+    {
+      "key": "resources-013",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-014",
+      "label": "Heading: The Good and Beautiful God",
+      "value": "The Good and Beautiful God"
+    },
+    {
+      "key": "resources-015",
+      "label": "Text: James Bryan Smith",
+      "value": "James Bryan Smith"
+    },
+    {
+      "key": "resources-016",
+      "label": "Text: Examine the stories you carry about God and learn the God Jesus knows.",
+      "value": "Examine the stories you carry about God and learn the God Jesus knows."
+    },
+    {
+      "key": "resources-017",
+      "label": "Text: MAKE IT YOUR OWN",
+      "value": "MAKE IT YOUR OWN"
+    },
+    {
+      "key": "resources-018",
+      "label": "Heading: Sacred Pathways",
+      "value": "Sacred Pathways"
+    },
+    {
+      "key": "resources-019",
+      "label": "Text: Gary Thomas",
+      "value": "Gary Thomas"
+    },
+    {
+      "key": "resources-020",
+      "label": "Text: Discover the different ways people naturally connect with God.",
+      "value": "Discover the different ways people naturally connect with God."
+    },
+    {
+      "key": "resources-021",
+      "label": "Text: BELONG AS THE BELOVED",
+      "value": "BELONG AS THE BELOVED"
+    },
+    {
+      "key": "resources-022",
+      "label": "Heading: The Return of the Prodigal Son",
+      "value": "The Return of the Prodigal Son"
+    },
+    {
+      "key": "resources-023",
+      "label": "Text: Henri J. M. Nouwen",
+      "value": "Henri J. M. Nouwen"
+    },
+    {
+      "key": "resources-024",
+      "label": "Text: A meditation on homecoming, belonging, and receiving the Father's love.",
+      "value": "A meditation on homecoming, belonging, and receiving the Father's love."
+    },
+    {
+      "key": "resources-025",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-026",
+      "label": "Heading: Things Above",
+      "value": "Things Above"
+    },
+    {
+      "key": "resources-027",
+      "label": "Text: Good, beautiful, and true thoughts for the mind of Christ.",
+      "value": "Good, beautiful, and true thoughts for the mind of Christ."
+    },
+    {
+      "key": "resources-028",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-029",
+      "label": "Heading: Life with God",
+      "value": "Life with God"
+    },
+    {
+      "key": "resources-030",
+      "label": "Text: Conversations about living the way of Jesus.",
+      "value": "Conversations about living the way of Jesus."
+    },
+    {
+      "key": "resources-031",
+      "label": "Text: VIDEO SERIES",
+      "value": "VIDEO SERIES"
+    },
+    {
+      "key": "resources-032",
+      "label": "Heading: How to Read the Bible",
+      "value": "How to Read the Bible"
+    },
+    {
+      "key": "resources-033",
+      "label": "Text: Scripture as a unified story that leads to Jesus.",
+      "value": "Scripture as a unified story that leads to Jesus."
+    },
+    {
+      "key": "resources-034",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-035",
+      "label": "Heading: Being the Beloved",
+      "value": "Being the Beloved"
+    },
+    {
+      "key": "resources-036",
+      "label": "Text: Henri Nouwen on our deepest identity.",
+      "value": "Henri Nouwen on our deepest identity."
+    },
+    {
+      "key": "resources-037",
+      "label": "Heading: Sacred Remembering",
+      "value": "Sacred Remembering"
+    },
+    {
+      "key": "resources-038",
+      "label": "Text: A guided practice for receiving what gave life and choosing what to carr…",
+      "value": "A guided practice for receiving what gave life and choosing what to carry forward."
+    },
+    {
+      "key": "resources-039",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-remembering"
+    },
+    {
+      "key": "resources-040",
+      "label": "Button / link: Read the Inherited Faith guide",
+      "value": "Read the Inherited Faith guide",
+      "url": "/journey/inherited-faith"
+    },
+    {
+      "key": "resources-041",
+      "label": "Text: Stage Two",
+      "value": "Stage Two"
+    },
+    {
+      "key": "resources-042",
+      "label": "Heading: Honest Questions",
+      "value": "Honest Questions"
+    },
+    {
+      "key": "resources-043",
+      "label": "Text: Make room for what is true. Questions do not disqualify you from belongi…",
+      "value": "Make room for what is true. Questions do not disqualify you from belonging."
+    },
+    {
+      "key": "resources-044",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-045",
+      "label": "Heading: The Sin of Certainty",
+      "value": "The Sin of Certainty"
+    },
+    {
+      "key": "resources-046",
+      "label": "Text: Peter Enns",
+      "value": "Peter Enns"
+    },
+    {
+      "key": "resources-047",
+      "label": "Text: Trusting God beyond the need to be right.",
+      "value": "Trusting God beyond the need to be right."
+    },
+    {
+      "key": "resources-048",
+      "label": "Text: WHEN SCRIPTURE IS THE QUESTION",
+      "value": "WHEN SCRIPTURE IS THE QUESTION"
+    },
+    {
+      "key": "resources-049",
+      "label": "Heading: Inspired",
+      "value": "Inspired"
+    },
+    {
+      "key": "resources-050",
+      "label": "Text: Rachel Held Evans",
+      "value": "Rachel Held Evans"
+    },
+    {
+      "key": "resources-051",
+      "label": "Text: Loving the Bible while engaging difficult passages, scholarship, imagina…",
+      "value": "Loving the Bible while engaging difficult passages, scholarship, imagination, and doubt."
+    },
+    {
+      "key": "resources-052",
+      "label": "Text: WHEN SUFFERING BROKE THE ANSWER",
+      "value": "WHEN SUFFERING BROKE THE ANSWER"
+    },
+    {
+      "key": "resources-053",
+      "label": "Heading: Everything Happens for a Reason",
+      "value": "Everything Happens for a Reason"
+    },
+    {
+      "key": "resources-054",
+      "label": "Text: Kate Bowler",
+      "value": "Kate Bowler"
+    },
+    {
+      "key": "resources-055",
+      "label": "Text: A candid memoir about illness, easy explanations, and life without certa…",
+      "value": "A candid memoir about illness, easy explanations, and life without certainty."
+    },
+    {
+      "key": "resources-056",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-057",
+      "label": "Heading: The Bible for Normal People",
+      "value": "The Bible for Normal People"
+    },
+    {
+      "key": "resources-058",
+      "label": "Text: Honest Bible scholarship without false choices between faith and thinkin…",
+      "value": "Honest Bible scholarship without false choices between faith and thinking."
+    },
+    {
+      "key": "resources-059",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-060",
+      "label": "Heading: Doubt Can Pull You Closer to Home",
+      "value": "Doubt Can Pull You Closer to Home"
+    },
+    {
+      "key": "resources-061",
+      "label": "Text: Doubt, identity, church, and belonging without pretending.",
+      "value": "Doubt, identity, church, and belonging without pretending."
+    },
+    {
+      "key": "resources-062",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-063",
+      "label": "Heading: What Is the Bible?",
+      "value": "What Is the Bible?"
+    },
+    {
+      "key": "resources-064",
+      "label": "Text: A clear introduction to Scripture's origins and literary diversity.",
+      "value": "A clear introduction to Scripture's origins and literary diversity."
+    },
+    {
+      "key": "resources-065",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-066",
+      "label": "Heading: What Brought Me Back to Church",
+      "value": "What Brought Me Back to Church"
+    },
+    {
+      "key": "resources-067",
+      "label": "Text: Embodied practices that made room for faith again.",
+      "value": "Embodied practices that made room for faith again."
+    },
+    {
+      "key": "resources-068",
+      "label": "Heading: Honest Prayer",
+      "value": "Honest Prayer"
+    },
+    {
+      "key": "resources-069",
+      "label": "Text: A guided practice for bringing the whole truth into God's presence.",
+      "value": "A guided practice for bringing the whole truth into God's presence."
+    },
+    {
+      "key": "resources-070",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-honest-prayer"
+    },
+    {
+      "key": "resources-071",
+      "label": "Button / link: Read the Honest Questions guide",
+      "value": "Read the Honest Questions guide",
+      "url": "/journey/honest-questions"
+    },
+    {
+      "key": "resources-072",
+      "label": "Text: Stage Three",
+      "value": "Stage Three"
+    },
+    {
+      "key": "resources-073",
+      "label": "Heading: The Sacred Search",
+      "value": "The Sacred Search"
+    },
+    {
+      "key": "resources-074",
+      "label": "Text: Resources for seeking, questioning, and discovering a more spacious fait…",
+      "value": "Resources for seeking, questioning, and discovering a more spacious faith."
+    },
+    {
+      "key": "resources-075",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-076",
+      "label": "Heading: Faith After Doubt",
+      "value": "Faith After Doubt"
+    },
+    {
+      "key": "resources-077",
+      "label": "Text: Brian McLaren",
+      "value": "Brian McLaren"
+    },
+    {
+      "key": "resources-078",
+      "label": "Text: Language for why doubt can be part of growth rather than the end of fait…",
+      "value": "Language for why doubt can be part of growth rather than the end of faith."
+    },
+    {
+      "key": "resources-079",
+      "label": "Text: FOR A LARGER VISION",
+      "value": "FOR A LARGER VISION"
+    },
+    {
+      "key": "resources-080",
+      "label": "Heading: The Universal Christ",
+      "value": "The Universal Christ"
+    },
+    {
+      "key": "resources-081",
+      "label": "Text: Richard Rohr",
+      "value": "Richard Rohr"
+    },
+    {
+      "key": "resources-082",
+      "label": "Text: A contemplative vision of Christ revealed in Jesus and present throughou…",
+      "value": "A contemplative vision of Christ revealed in Jesus and present throughout creation."
+    },
+    {
+      "key": "resources-083",
+      "label": "Text: FOR A STEADIER PRACTICE",
+      "value": "FOR A STEADIER PRACTICE"
+    },
+    {
+      "key": "resources-084",
+      "label": "Heading: Sacred Rhythms",
+      "value": "Sacred Rhythms"
+    },
+    {
+      "key": "resources-085",
+      "label": "Text: Ruth Haley Barton",
+      "value": "Ruth Haley Barton"
+    },
+    {
+      "key": "resources-086",
+      "label": "Text: Gentle practices that help a searching heart become rooted.",
+      "value": "Gentle practices that help a searching heart become rooted."
+    },
+    {
+      "key": "resources-087",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-088",
+      "label": "Heading: Another Name for Every Thing",
+      "value": "Another Name for Every Thing"
+    },
+    {
+      "key": "resources-089",
+      "label": "Text: Contemplative conversations for the questions underneath the questions.",
+      "value": "Contemplative conversations for the questions underneath the questions."
+    },
+    {
+      "key": "resources-090",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-091",
+      "label": "Heading: Everything Happens",
+      "value": "Everything Happens"
+    },
+    {
+      "key": "resources-092",
+      "label": "Text: Honest conversations about faith when life does not resolve neatly.",
+      "value": "Honest conversations about faith when life does not resolve neatly."
+    },
+    {
+      "key": "resources-093",
+      "label": "Text: GUIDED VIDEO",
+      "value": "GUIDED VIDEO"
+    },
+    {
+      "key": "resources-094",
+      "label": "Heading: Centering Prayer",
+      "value": "Centering Prayer"
+    },
+    {
+      "key": "resources-095",
+      "label": "Text: A short guided entry from Contemplative Outreach.",
+      "value": "A short guided entry from Contemplative Outreach."
+    },
+    {
+      "key": "resources-096",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-097",
+      "label": "Heading: The Universal Christ",
+      "value": "The Universal Christ"
+    },
+    {
+      "key": "resources-098",
+      "label": "Text: Richard Rohr introduces the vision behind the book.",
+      "value": "Richard Rohr introduces the vision behind the book."
+    },
+    {
+      "key": "resources-099",
+      "label": "Heading: Breath Prayer",
+      "value": "Breath Prayer"
+    },
+    {
+      "key": "resources-100",
+      "label": "Text: Come home to God, one breath at a time.",
+      "value": "Come home to God, one breath at a time."
+    },
+    {
+      "key": "resources-101",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-breath.html"
+    },
+    {
+      "key": "resources-102",
+      "label": "Button / link: Read the Sacred Search guide",
+      "value": "Read the Sacred Search guide",
+      "url": "/journey/sacred-search"
+    },
+    {
+      "key": "resources-103",
+      "label": "Text: Stage Four",
+      "value": "Stage Four"
+    },
+    {
+      "key": "resources-104",
+      "label": "Heading: New Foundations",
+      "value": "New Foundations"
+    },
+    {
+      "key": "resources-105",
+      "label": "Text: Rebuild with humility and hope - rooted in Jesus, tested by its fruit, a…",
+      "value": "Rebuild with humility and hope - rooted in Jesus, tested by its fruit, and made livable through practice."
+    },
+    {
+      "key": "resources-106",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-107",
+      "label": "Heading: The Divine Conspiracy",
+      "value": "The Divine Conspiracy"
+    },
+    {
+      "key": "resources-108",
+      "label": "Text: Dallas Willard",
+      "value": "Dallas Willard"
+    },
+    {
+      "key": "resources-109",
+      "label": "Text: A Jesus-centered vision of life in the Kingdom of God.",
+      "value": "A Jesus-centered vision of life in the Kingdom of God."
+    },
+    {
+      "key": "resources-110",
+      "label": "Text: FOR A FAITH DEFINED BY LOVE",
+      "value": "FOR A FAITH DEFINED BY LOVE"
+    },
+    {
+      "key": "resources-111",
+      "label": "Heading: The Great Spiritual Migration",
+      "value": "The Great Spiritual Migration"
+    },
+    {
+      "key": "resources-112",
+      "label": "Text: Brian D. McLaren",
+      "value": "Brian D. McLaren"
+    },
+    {
+      "key": "resources-113",
+      "label": "Text: A hopeful movement from fear and belief systems toward love and healing …",
+      "value": "A hopeful movement from fear and belief systems toward love and healing action."
+    },
+    {
+      "key": "resources-114",
+      "label": "Text: FOR CONTEMPLATIVE DEPTH",
+      "value": "FOR CONTEMPLATIVE DEPTH"
+    },
+    {
+      "key": "resources-115",
+      "label": "Heading: The Wisdom Jesus",
+      "value": "The Wisdom Jesus"
+    },
+    {
+      "key": "resources-116",
+      "label": "Text: Cynthia Bourgeault",
+      "value": "Cynthia Bourgeault"
+    },
+    {
+      "key": "resources-117",
+      "label": "Text: Jesus as a teacher of transformation, self-emptying love, and contemplat…",
+      "value": "Jesus as a teacher of transformation, self-emptying love, and contemplative practice."
+    },
+    {
+      "key": "resources-118",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-119",
+      "label": "Heading: Living the Divine Conspiracy",
+      "value": "Living the Divine Conspiracy"
+    },
+    {
+      "key": "resources-120",
+      "label": "Text: Dallas Willard on life in God's present Kingdom.",
+      "value": "Dallas Willard on life in God's present Kingdom."
+    },
+    {
+      "key": "resources-121",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-122",
+      "label": "Heading: Learning How to See",
+      "value": "Learning How to See"
+    },
+    {
+      "key": "resources-123",
+      "label": "Text: Brian McLaren on learning to see through eyes of love.",
+      "value": "Brian McLaren on learning to see through eyes of love."
+    },
+    {
+      "key": "resources-124",
+      "label": "Text: WEBINAR",
+      "value": "WEBINAR"
+    },
+    {
+      "key": "resources-125",
+      "label": "Heading: Shaped by the Word",
+      "value": "Shaped by the Word"
+    },
+    {
+      "key": "resources-126",
+      "label": "Text: How Scripture forms disciples and draws us into relationship with God.",
+      "value": "How Scripture forms disciples and draws us into relationship with God."
+    },
+    {
+      "key": "resources-127",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-128",
+      "label": "Heading: The Choice",
+      "value": "The Choice"
+    },
+    {
+      "key": "resources-129",
+      "label": "Text: Jesus' closing images of paths, fruit, houses, and practicing his way.",
+      "value": "Jesus' closing images of paths, fruit, houses, and practicing his way."
+    },
+    {
+      "key": "resources-130",
+      "label": "Heading: Inspired Reading",
+      "value": "Inspired Reading"
+    },
+    {
+      "key": "resources-131",
+      "label": "Text: An accessible Lectio Divina practice for letting Scripture become encoun…",
+      "value": "An accessible Lectio Divina practice for letting Scripture become encounter."
+    },
+    {
+      "key": "resources-132",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-inspired-reading"
+    },
+    {
+      "key": "resources-133",
+      "label": "Button / link: Read the New Foundations guide",
+      "value": "Read the New Foundations guide",
+      "url": "/journey/new-foundations"
+    },
+    {
+      "key": "resources-134",
+      "label": "Text: Stage Five",
+      "value": "Stage Five"
+    },
+    {
+      "key": "resources-135",
+      "label": "Heading: Embodied Faith",
+      "value": "Embodied Faith"
+    },
+    {
+      "key": "resources-136",
+      "label": "Text: Let faith become a way of life through ordinary rhythms, relationships, …",
+      "value": "Let faith become a way of life through ordinary rhythms, relationships, practices, and acts of love."
+    },
+    {
+      "key": "resources-137",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-138",
+      "label": "Heading: The Spirit of the Disciplines",
+      "value": "The Spirit of the Disciplines"
+    },
+    {
+      "key": "resources-139",
+      "label": "Text: Dallas Willard",
+      "value": "Dallas Willard"
+    },
+    {
+      "key": "resources-140",
+      "label": "Text: Spiritual practices as training for living as Jesus taught.",
+      "value": "Spiritual practices as training for living as Jesus taught."
+    },
+    {
+      "key": "resources-141",
+      "label": "Text: FOR EVERYDAY LIFE",
+      "value": "FOR EVERYDAY LIFE"
+    },
+    {
+      "key": "resources-142",
+      "label": "Heading: Liturgy of the Ordinary",
+      "value": "Liturgy of the Ordinary"
+    },
+    {
+      "key": "resources-143",
+      "label": "Text: Tish Harrison Warren",
+      "value": "Tish Harrison Warren"
+    },
+    {
+      "key": "resources-144",
+      "label": "Text: The holiness and formation hidden in ordinary routines.",
+      "value": "The holiness and formation hidden in ordinary routines."
+    },
+    {
+      "key": "resources-145",
+      "label": "Text: FOR CONTEMPLATIVE DEPTH",
+      "value": "FOR CONTEMPLATIVE DEPTH"
+    },
+    {
+      "key": "resources-146",
+      "label": "Heading: The Way of the Heart",
+      "value": "The Way of the Heart"
+    },
+    {
+      "key": "resources-147",
+      "label": "Text: Henri J. M. Nouwen",
+      "value": "Henri J. M. Nouwen"
+    },
+    {
+      "key": "resources-148",
+      "label": "Text: Solitude, silence, and prayer as a path toward compassion.",
+      "value": "Solitude, silence, and prayer as a path toward compassion."
+    },
+    {
+      "key": "resources-149",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-150",
+      "label": "Heading: Rule of Life",
+      "value": "Rule of Life"
+    },
+    {
+      "key": "resources-151",
+      "label": "Text: Arrange life around being with and becoming like Jesus.",
+      "value": "Arrange life around being with and becoming like Jesus."
+    },
+    {
+      "key": "resources-152",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-153",
+      "label": "Heading: Liturgy of the Ordinary",
+      "value": "Liturgy of the Ordinary"
+    },
+    {
+      "key": "resources-154",
+      "label": "Text: How ordinary life matters and forms us.",
+      "value": "How ordinary life matters and forms us."
+    },
+    {
+      "key": "resources-155",
+      "label": "Text: GUIDED PRESENTATION",
+      "value": "GUIDED PRESENTATION"
+    },
+    {
+      "key": "resources-156",
+      "label": "Heading: The Examen",
+      "value": "The Examen"
+    },
+    {
+      "key": "resources-157",
+      "label": "Text: A simple introduction to the daily prayer of reflection.",
+      "value": "A simple introduction to the daily prayer of reflection."
+    },
+    {
+      "key": "resources-158",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-159",
+      "label": "Heading: Agape / Love",
+      "value": "Agape / Love"
+    },
+    {
+      "key": "resources-160",
+      "label": "Text: Love as an embodied, others-centered way defined by Jesus.",
+      "value": "Love as an embodied, others-centered way defined by Jesus."
+    },
+    {
+      "key": "resources-161",
+      "label": "Heading: Daily Reflection",
+      "value": "Daily Reflection"
+    },
+    {
+      "key": "resources-162",
+      "label": "Text: A gentle Examen practice for noticing grace and resistance in an ordinar…",
+      "value": "A gentle Examen practice for noticing grace and resistance in an ordinary day."
+    },
+    {
+      "key": "resources-163",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-daily-reflection"
+    },
+    {
+      "key": "resources-164",
+      "label": "Button / link: Read the Embodied Faith guide",
+      "value": "Read the Embodied Faith guide",
+      "url": "/journey/embodied-faith"
+    },
+    {
+      "key": "resources-165",
+      "label": "Text: Stage Six",
+      "value": "Stage Six"
+    },
+    {
+      "key": "resources-166",
+      "label": "Heading: Living Awake",
+      "value": "Living Awake"
+    },
+    {
+      "key": "resources-167",
+      "label": "Text: Live present to God, grounded in humility, and available to love.",
+      "value": "Live present to God, grounded in humility, and available to love."
+    },
+    {
+      "key": "resources-168",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-169",
+      "label": "Heading: New Seeds of Contemplation",
+      "value": "New Seeds of Contemplation"
+    },
+    {
+      "key": "resources-170",
+      "label": "Text: Thomas Merton",
+      "value": "Thomas Merton"
+    },
+    {
+      "key": "resources-171",
+      "label": "Text: A classic invitation into contemplation as life fully awake and receptiv…",
+      "value": "A classic invitation into contemplation as life fully awake and receptive to God."
+    },
+    {
+      "key": "resources-172",
+      "label": "Text: FOR LOVE IN A WOUNDED WORLD",
+      "value": "FOR LOVE IN A WOUNDED WORLD"
+    },
+    {
+      "key": "resources-173",
+      "label": "Heading: Jesus and the Disinherited",
+      "value": "Jesus and the Disinherited"
+    },
+    {
+      "key": "resources-174",
+      "label": "Text: Howard Thurman",
+      "value": "Howard Thurman"
+    },
+    {
+      "key": "resources-175",
+      "label": "Text: Jesus' way of dignity, resistance, and love from the perspective of thos…",
+      "value": "Jesus' way of dignity, resistance, and love from the perspective of those with their backs against the wall."
+    },
+    {
+      "key": "resources-176",
+      "label": "Text: FOR AWAKENED SEEING",
+      "value": "FOR AWAKENED SEEING"
+    },
+    {
+      "key": "resources-177",
+      "label": "Heading: The Naked Now",
+      "value": "The Naked Now"
+    },
+    {
+      "key": "resources-178",
+      "label": "Text: Richard Rohr",
+      "value": "Richard Rohr"
+    },
+    {
+      "key": "resources-179",
+      "label": "Text: Learning to see beyond either-or thinking through Jesus and the Christia…",
+      "value": "Learning to see beyond either-or thinking through Jesus and the Christian contemplative tradition."
+    },
+    {
+      "key": "resources-180",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-181",
+      "label": "Heading: Turning to the Mystics",
+      "value": "Turning to the Mystics"
+    },
+    {
+      "key": "resources-182",
+      "label": "Text: James Finley explores Christian mystics through teaching, reflection, an…",
+      "value": "James Finley explores Christian mystics through teaching, reflection, and practice."
+    },
+    {
+      "key": "resources-183",
+      "label": "Text: CONVERSATION",
+      "value": "CONVERSATION"
+    },
+    {
+      "key": "resources-184",
+      "label": "Heading: The Sound of the Genuine",
+      "value": "The Sound of the Genuine"
+    },
+    {
+      "key": "resources-185",
+      "label": "Text: Otis Moss III on Howard Thurman, suffering, inner authority, and courage…",
+      "value": "Otis Moss III on Howard Thurman, suffering, inner authority, and courageous love."
+    },
+    {
+      "key": "resources-186",
+      "label": "Text: ARCHIVAL TEACHING",
+      "value": "ARCHIVAL TEACHING"
+    },
+    {
+      "key": "resources-187",
+      "label": "Heading: Action and Contemplation",
+      "value": "Action and Contemplation"
+    },
+    {
+      "key": "resources-188",
+      "label": "Text: Richard Rohr on prayer, prophetic action, and holding the two together.",
+      "value": "Richard Rohr on prayer, prophetic action, and holding the two together."
+    },
+    {
+      "key": "resources-189",
+      "label": "Text: GUIDED PRACTICE",
+      "value": "GUIDED PRACTICE"
+    },
+    {
+      "key": "resources-190",
+      "label": "Heading: Contemplative Sit",
+      "value": "Contemplative Sit"
+    },
+    {
+      "key": "resources-191",
+      "label": "Text: A guided invitation into stillness, presence, and receptive awareness.",
+      "value": "A guided invitation into stillness, presence, and receptive awareness."
+    },
+    {
+      "key": "resources-192",
+      "label": "Heading: Contemplative Presence",
+      "value": "Contemplative Presence"
+    },
+    {
+      "key": "resources-193",
+      "label": "Text: A simple practice for becoming present to God and available to love.",
+      "value": "A simple practice for becoming present to God and available to love."
+    },
+    {
+      "key": "resources-194",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-contemplative-presence"
+    },
+    {
+      "key": "resources-195",
+      "label": "Button / link: Read the Living Awake guide",
+      "value": "Read the Living Awake guide",
+      "url": "/journey/living-awake"
+    },
+    {
+      "key": "resources-196",
+      "label": "Text: The Journey",
+      "value": "The Journey"
+    },
+    {
+      "key": "resources-197",
+      "label": "Heading: Explore the stages as they are completed.",
+      "value": "Explore the stages as they are completed."
+    },
+    {
+      "key": "resources-198",
+      "label": "Text: The resource library will remain one open shelf. Each assessment guide a…",
+      "value": "The resource library will remain one open shelf. Each assessment guide also offers a focused starting point for the season most alive in you."
+    },
+    {
+      "key": "resources-199",
+      "label": "Text: Inherited Faith",
+      "value": "Inherited Faith"
+    },
+    {
+      "key": "resources-200",
+      "label": "Text: Honest Questions",
+      "value": "Honest Questions"
+    },
+    {
+      "key": "resources-201",
+      "label": "Text: Sacred Search",
+      "value": "Sacred Search"
+    },
+    {
+      "key": "resources-202",
+      "label": "Text: New Foundations",
+      "value": "New Foundations"
+    },
+    {
+      "key": "resources-203",
+      "label": "Text: Embodied Faith",
+      "value": "Embodied Faith"
+    },
+    {
+      "key": "resources-204",
+      "label": "Text: Living Awake",
+      "value": "Living Awake"
+    }
+  ],
+  "meta_title": "Resources for the Journey - Homeward",
+  "meta_description": "Books, podcasts, videos, and spiritual practices selected by Homeward for depth, honesty, and formation."
+}

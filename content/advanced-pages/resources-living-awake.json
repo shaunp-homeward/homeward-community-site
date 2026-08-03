@@ -1,0 +1,191 @@
+{
+  "title": "Living Awake Resources - Homeward",
+  "source": "resources-living-awake.html",
+  "blocks": [
+    {
+      "key": "resources-living-awake-001",
+      "label": "Text: Stage Six · Living Awake",
+      "value": "Stage Six · Living Awake"
+    },
+    {
+      "key": "resources-living-awake-002",
+      "label": "Heading: Companions for the Road",
+      "value": "Companions for the Road"
+    },
+    {
+      "key": "resources-living-awake-003",
+      "label": "Text: A focused shelf for living present to God, grounded in humility, and ava…",
+      "value": "A focused shelf for living present to God, grounded in humility, and available to love."
+    },
+    {
+      "key": "resources-living-awake-004",
+      "label": "Text: Begin with One",
+      "value": "Begin with One"
+    },
+    {
+      "key": "resources-living-awake-005",
+      "label": "Heading: Books",
+      "value": "Books"
+    },
+    {
+      "key": "resources-living-awake-006",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-living-awake-007",
+      "label": "Heading: New Seeds of Contemplation",
+      "value": "New Seeds of Contemplation"
+    },
+    {
+      "key": "resources-living-awake-008",
+      "label": "Text: Thomas Merton",
+      "value": "Thomas Merton"
+    },
+    {
+      "key": "resources-living-awake-009",
+      "label": "Text: A classic invitation into contemplation as life fully awake and receptiv…",
+      "value": "A classic invitation into contemplation as life fully awake and receptive to God."
+    },
+    {
+      "key": "resources-living-awake-010",
+      "label": "Text: FOR LOVE IN A WOUNDED WORLD",
+      "value": "FOR LOVE IN A WOUNDED WORLD"
+    },
+    {
+      "key": "resources-living-awake-011",
+      "label": "Heading: Jesus and the Disinherited",
+      "value": "Jesus and the Disinherited"
+    },
+    {
+      "key": "resources-living-awake-012",
+      "label": "Text: Howard Thurman",
+      "value": "Howard Thurman"
+    },
+    {
+      "key": "resources-living-awake-013",
+      "label": "Text: Jesus' way of dignity, resistance, and love from the perspective of thos…",
+      "value": "Jesus' way of dignity, resistance, and love from the perspective of those with their backs against the wall."
+    },
+    {
+      "key": "resources-living-awake-014",
+      "label": "Text: FOR AWAKENED SEEING",
+      "value": "FOR AWAKENED SEEING"
+    },
+    {
+      "key": "resources-living-awake-015",
+      "label": "Heading: The Naked Now",
+      "value": "The Naked Now"
+    },
+    {
+      "key": "resources-living-awake-016",
+      "label": "Text: Richard Rohr",
+      "value": "Richard Rohr"
+    },
+    {
+      "key": "resources-living-awake-017",
+      "label": "Text: Learning to see beyond either-or thinking through Jesus and the Christia…",
+      "value": "Learning to see beyond either-or thinking through Jesus and the Christian contemplative tradition."
+    },
+    {
+      "key": "resources-living-awake-018",
+      "label": "Text: Listen & Watch",
+      "value": "Listen & Watch"
+    },
+    {
+      "key": "resources-living-awake-019",
+      "label": "Heading: Awareness That Becomes Love",
+      "value": "Awareness That Becomes Love"
+    },
+    {
+      "key": "resources-living-awake-020",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-living-awake-021",
+      "label": "Heading: Turning to the Mystics",
+      "value": "Turning to the Mystics"
+    },
+    {
+      "key": "resources-living-awake-022",
+      "label": "Text: James Finley explores Christian mystics through teaching, reflection, an…",
+      "value": "James Finley explores Christian mystics through teaching, reflection, and practice."
+    },
+    {
+      "key": "resources-living-awake-023",
+      "label": "Text: CONVERSATION",
+      "value": "CONVERSATION"
+    },
+    {
+      "key": "resources-living-awake-024",
+      "label": "Heading: The Sound of the Genuine",
+      "value": "The Sound of the Genuine"
+    },
+    {
+      "key": "resources-living-awake-025",
+      "label": "Text: Otis Moss III on Howard Thurman, suffering, inner authority, and courage…",
+      "value": "Otis Moss III on Howard Thurman, suffering, inner authority, and courageous love."
+    },
+    {
+      "key": "resources-living-awake-026",
+      "label": "Text: ARCHIVAL TEACHING",
+      "value": "ARCHIVAL TEACHING"
+    },
+    {
+      "key": "resources-living-awake-027",
+      "label": "Heading: Action and Contemplation",
+      "value": "Action and Contemplation"
+    },
+    {
+      "key": "resources-living-awake-028",
+      "label": "Text: Richard Rohr on prayer, prophetic action, and holding the two together.",
+      "value": "Richard Rohr on prayer, prophetic action, and holding the two together."
+    },
+    {
+      "key": "resources-living-awake-029",
+      "label": "Text: GUIDED PRACTICE",
+      "value": "GUIDED PRACTICE"
+    },
+    {
+      "key": "resources-living-awake-030",
+      "label": "Heading: Contemplative Sit",
+      "value": "Contemplative Sit"
+    },
+    {
+      "key": "resources-living-awake-031",
+      "label": "Text: A guided invitation into stillness, presence, and receptive awareness.",
+      "value": "A guided invitation into stillness, presence, and receptive awareness."
+    },
+    {
+      "key": "resources-living-awake-032",
+      "label": "Heading: Contemplative Presence",
+      "value": "Contemplative Presence"
+    },
+    {
+      "key": "resources-living-awake-033",
+      "label": "Text: A short practice for becoming present to God and available to love.",
+      "value": "A short practice for becoming present to God and available to love."
+    },
+    {
+      "key": "resources-living-awake-034",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-contemplative-presence"
+    },
+    {
+      "key": "resources-living-awake-035",
+      "label": "Button / link: Read the Living Awake guide",
+      "value": "Read the Living Awake guide",
+      "url": "/journey/living-awake"
+    },
+    {
+      "key": "resources-living-awake-036",
+      "label": "Button / link: Return to all resources",
+      "value": "Return to all resources",
+      "url": "/resources"
+    }
+  ],
+  "meta_title": "Living Awake Resources - Homeward",
+  "meta_description": "Books, podcasts, videos, and a contemplative practice for the Living Awake season."
+}

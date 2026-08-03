@@ -1,3 +1,3 @@
-# Homeward V6.2.17
+# Homeward Website V6.2.22
 
-Use the targeted ZIP over V6.2.16 for staging. This update changes only the mobile subtitle sizing/tracking and version metadata. See `V6_2_17_STAGING_UPLOAD.md`.
+Upload the targeted update over V6.2.21 on the GitHub staging branch. This release implements the approved assessment accessibility revisions and expands the assessment's Decap CMS editing controls without changing scoring, Airtable mapping, or email delivery.

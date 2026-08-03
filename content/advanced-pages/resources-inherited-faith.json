@@ -1,0 +1,196 @@
+{
+  "title": "Inherited Faith Resources - Homeward",
+  "source": "resources-inherited-faith.html",
+  "blocks": [
+    {
+      "key": "resources-inherited-faith-001",
+      "label": "Text: Stage One · Inherited Faith",
+      "value": "Stage One · Inherited Faith"
+    },
+    {
+      "key": "resources-inherited-faith-002",
+      "label": "Heading: Receive the Gift. Make It Your Own.",
+      "value": "Receive the Gift. Make It Your Own."
+    },
+    {
+      "key": "resources-inherited-faith-003",
+      "label": "Text: A short, trustworthy shelf for honoring what you received while growing …",
+      "value": "A short, trustworthy shelf for honoring what you received while growing into a personal, lived faith."
+    },
+    {
+      "key": "resources-inherited-faith-004",
+      "label": "Text: Books",
+      "value": "Books"
+    },
+    {
+      "key": "resources-inherited-faith-005",
+      "label": "Heading: Begin with one.",
+      "value": "Begin with one."
+    },
+    {
+      "key": "resources-inherited-faith-006",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-inherited-faith-007",
+      "label": "Heading: The Good and Beautiful God",
+      "value": "The Good and Beautiful God"
+    },
+    {
+      "key": "resources-inherited-faith-008",
+      "label": "Text: James Bryan Smith",
+      "value": "James Bryan Smith"
+    },
+    {
+      "key": "resources-inherited-faith-009",
+      "label": "Text: Examine the stories you carry about God and learn the God Jesus knows.",
+      "value": "Examine the stories you carry about God and learn the God Jesus knows."
+    },
+    {
+      "key": "resources-inherited-faith-010",
+      "label": "Text: MAKE IT YOUR OWN",
+      "value": "MAKE IT YOUR OWN"
+    },
+    {
+      "key": "resources-inherited-faith-011",
+      "label": "Heading: Sacred Pathways",
+      "value": "Sacred Pathways"
+    },
+    {
+      "key": "resources-inherited-faith-012",
+      "label": "Text: Gary Thomas",
+      "value": "Gary Thomas"
+    },
+    {
+      "key": "resources-inherited-faith-013",
+      "label": "Text: Discover the different ways people naturally connect with God.",
+      "value": "Discover the different ways people naturally connect with God."
+    },
+    {
+      "key": "resources-inherited-faith-014",
+      "label": "Text: BELONG AS THE BELOVED",
+      "value": "BELONG AS THE BELOVED"
+    },
+    {
+      "key": "resources-inherited-faith-015",
+      "label": "Heading: The Return of the Prodigal Son",
+      "value": "The Return of the Prodigal Son"
+    },
+    {
+      "key": "resources-inherited-faith-016",
+      "label": "Text: Henri J. M. Nouwen",
+      "value": "Henri J. M. Nouwen"
+    },
+    {
+      "key": "resources-inherited-faith-017",
+      "label": "Text: A meditation on homecoming, belonging, and receiving the Father's love.",
+      "value": "A meditation on homecoming, belonging, and receiving the Father's love."
+    },
+    {
+      "key": "resources-inherited-faith-018",
+      "label": "Text: Listen & Watch",
+      "value": "Listen & Watch"
+    },
+    {
+      "key": "resources-inherited-faith-019",
+      "label": "Heading: Go a little deeper.",
+      "value": "Go a little deeper."
+    },
+    {
+      "key": "resources-inherited-faith-020",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-inherited-faith-021",
+      "label": "Heading: Things Above",
+      "value": "Things Above"
+    },
+    {
+      "key": "resources-inherited-faith-022",
+      "label": "Text: James Bryan Smith offers short practices for filling the mind with what …",
+      "value": "James Bryan Smith offers short practices for filling the mind with what is good, beautiful, and true."
+    },
+    {
+      "key": "resources-inherited-faith-023",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-inherited-faith-024",
+      "label": "Heading: Life with God",
+      "value": "Life with God"
+    },
+    {
+      "key": "resources-inherited-faith-025",
+      "label": "Text: Gentle conversations about living the way of Jesus and growing into an i…",
+      "value": "Gentle conversations about living the way of Jesus and growing into an interactive life with God."
+    },
+    {
+      "key": "resources-inherited-faith-026",
+      "label": "Text: VIDEO SERIES",
+      "value": "VIDEO SERIES"
+    },
+    {
+      "key": "resources-inherited-faith-027",
+      "label": "Heading: How to Read the Bible",
+      "value": "How to Read the Bible"
+    },
+    {
+      "key": "resources-inherited-faith-028",
+      "label": "Text: A visual introduction to Scripture as a unified story that leads to Jesu…",
+      "value": "A visual introduction to Scripture as a unified story that leads to Jesus."
+    },
+    {
+      "key": "resources-inherited-faith-029",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-inherited-faith-030",
+      "label": "Heading: Being the Beloved",
+      "value": "Being the Beloved"
+    },
+    {
+      "key": "resources-inherited-faith-031",
+      "label": "Text: Henri Nouwen on receiving our deepest identity as God's beloved.",
+      "value": "Henri Nouwen on receiving our deepest identity as God's beloved."
+    },
+    {
+      "key": "resources-inherited-faith-032",
+      "label": "Text: Practice",
+      "value": "Practice"
+    },
+    {
+      "key": "resources-inherited-faith-033",
+      "label": "Heading: Sacred Remembering",
+      "value": "Sacred Remembering"
+    },
+    {
+      "key": "resources-inherited-faith-034",
+      "label": "Text: Receive what gave life, name what needs to mature, and choose what you w…",
+      "value": "Receive what gave life, name what needs to mature, and choose what you want to carry forward."
+    },
+    {
+      "key": "resources-inherited-faith-035",
+      "label": "Button / link: Try the guided practice",
+      "value": "Try the guided practice",
+      "url": "/practice-remembering"
+    },
+    {
+      "key": "resources-inherited-faith-036",
+      "label": "Button / link: Return to the full guide",
+      "value": "Return to the full guide",
+      "url": "/journey/inherited-faith"
+    },
+    {
+      "key": "resources-inherited-faith-037",
+      "label": "Button / link: Explore the whole Homeward shelf",
+      "value": "Explore the whole Homeward shelf",
+      "url": "/resources"
+    }
+  ],
+  "meta_title": "Inherited Faith Resources - Homeward",
+  "meta_description": "Books, podcasts, videos, and a guided practice for the Inherited Faith season."
+}

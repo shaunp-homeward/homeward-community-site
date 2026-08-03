@@ -1,0 +1,227 @@
+{
+  "title": "Sacred Search Resources — Homeward",
+  "source": "resources-sacred-search.html",
+  "blocks": [
+    {
+      "key": "resources-sacred-search-001",
+      "label": "Text: Stage Three · The Sacred Search",
+      "value": "Stage Three · The Sacred Search"
+    },
+    {
+      "key": "resources-sacred-search-002",
+      "label": "Heading: Companions for the Road",
+      "value": "Companions for the Road"
+    },
+    {
+      "key": "resources-sacred-search-003",
+      "label": "Text: A short, trustworthy shelf for a season of seeking, questioning, and dis…",
+      "value": "A short, trustworthy shelf for a season of seeking, questioning, and discovering a more spacious faith. Begin with one."
+    },
+    {
+      "key": "resources-sacred-search-004",
+      "label": "Text: All",
+      "value": "All"
+    },
+    {
+      "key": "resources-sacred-search-005",
+      "label": "Text: Books",
+      "value": "Books"
+    },
+    {
+      "key": "resources-sacred-search-006",
+      "label": "Text: Podcasts",
+      "value": "Podcasts"
+    },
+    {
+      "key": "resources-sacred-search-007",
+      "label": "Text: Videos",
+      "value": "Videos"
+    },
+    {
+      "key": "resources-sacred-search-008",
+      "label": "Text: Practices",
+      "value": "Practices"
+    },
+    {
+      "key": "resources-sacred-search-009",
+      "label": "Text: Read",
+      "value": "Read"
+    },
+    {
+      "key": "resources-sacred-search-010",
+      "label": "Heading: Choose the companion that meets you.",
+      "value": "Choose the companion that meets you."
+    },
+    {
+      "key": "resources-sacred-search-011",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-sacred-search-012",
+      "label": "Heading: Faith After Doubt",
+      "value": "Faith After Doubt"
+    },
+    {
+      "key": "resources-sacred-search-013",
+      "label": "Text: Brian McLaren",
+      "value": "Brian McLaren"
+    },
+    {
+      "key": "resources-sacred-search-014",
+      "label": "Text: Language for why doubt can be part of growth rather than the end of fait…",
+      "value": "Language for why doubt can be part of growth rather than the end of faith."
+    },
+    {
+      "key": "resources-sacred-search-015",
+      "label": "Text: FOR A LARGER VISION",
+      "value": "FOR A LARGER VISION"
+    },
+    {
+      "key": "resources-sacred-search-016",
+      "label": "Heading: The Universal Christ",
+      "value": "The Universal Christ"
+    },
+    {
+      "key": "resources-sacred-search-017",
+      "label": "Text: Richard Rohr",
+      "value": "Richard Rohr"
+    },
+    {
+      "key": "resources-sacred-search-018",
+      "label": "Text: A contemplative vision of Christ revealed in Jesus and present throughou…",
+      "value": "A contemplative vision of Christ revealed in Jesus and present throughout creation."
+    },
+    {
+      "key": "resources-sacred-search-019",
+      "label": "Text: FOR A STEADIER PRACTICE",
+      "value": "FOR A STEADIER PRACTICE"
+    },
+    {
+      "key": "resources-sacred-search-020",
+      "label": "Heading: Sacred Rhythms",
+      "value": "Sacred Rhythms"
+    },
+    {
+      "key": "resources-sacred-search-021",
+      "label": "Text: Ruth Haley Barton",
+      "value": "Ruth Haley Barton"
+    },
+    {
+      "key": "resources-sacred-search-022",
+      "label": "Text: Gentle practices that help a searching heart become rooted.",
+      "value": "Gentle practices that help a searching heart become rooted."
+    },
+    {
+      "key": "resources-sacred-search-023",
+      "label": "Text: Listen & Watch",
+      "value": "Listen & Watch"
+    },
+    {
+      "key": "resources-sacred-search-024",
+      "label": "Heading: Go a little deeper.",
+      "value": "Go a little deeper."
+    },
+    {
+      "key": "resources-sacred-search-025",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-sacred-search-026",
+      "label": "Heading: Another Name for Every Thing",
+      "value": "Another Name for Every Thing"
+    },
+    {
+      "key": "resources-sacred-search-027",
+      "label": "Text: Contemplative conversations for the questions underneath the questions.",
+      "value": "Contemplative conversations for the questions underneath the questions."
+    },
+    {
+      "key": "resources-sacred-search-028",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-sacred-search-029",
+      "label": "Heading: Everything Happens",
+      "value": "Everything Happens"
+    },
+    {
+      "key": "resources-sacred-search-030",
+      "label": "Text: Kate Bowler on faith when life does not resolve neatly.",
+      "value": "Kate Bowler on faith when life does not resolve neatly."
+    },
+    {
+      "key": "resources-sacred-search-031",
+      "label": "Text: GUIDED VIDEO",
+      "value": "GUIDED VIDEO"
+    },
+    {
+      "key": "resources-sacred-search-032",
+      "label": "Heading: Centering Prayer",
+      "value": "Centering Prayer"
+    },
+    {
+      "key": "resources-sacred-search-033",
+      "label": "Text: A short guided entry from Contemplative Outreach.",
+      "value": "A short guided entry from Contemplative Outreach."
+    },
+    {
+      "key": "resources-sacred-search-034",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-sacred-search-035",
+      "label": "Heading: The Universal Christ",
+      "value": "The Universal Christ"
+    },
+    {
+      "key": "resources-sacred-search-036",
+      "label": "Text: Richard Rohr introduces the vision behind the book.",
+      "value": "Richard Rohr introduces the vision behind the book."
+    },
+    {
+      "key": "resources-sacred-search-037",
+      "label": "Button / link: ← Return to the Sacred Search guide",
+      "value": "← Return to the Sacred Search guide",
+      "url": "/journey/sacred-search"
+    },
+    {
+      "key": "resources-sacred-search-038",
+      "label": "Button / link: Explore all Homeward resources →",
+      "value": "Explore all Homeward resources →",
+      "url": "/resources"
+    },
+    {
+      "key": "resources-sacred-search-039",
+      "label": "Text: Keep Journeying",
+      "value": "Keep Journeying"
+    },
+    {
+      "key": "resources-sacred-search-040",
+      "label": "Heading: Do Not Search Alone.",
+      "value": "Do Not Search Alone."
+    },
+    {
+      "key": "resources-sacred-search-041",
+      "label": "Text: Read the full guide, try the Breath Prayer practice, or explore a Homewa…",
+      "value": "Read the full guide, try the Breath Prayer practice, or explore a Homeward Circle."
+    },
+    {
+      "key": "resources-sacred-search-042",
+      "label": "Button / link: Read the guide",
+      "value": "Read the guide",
+      "url": "/journey/sacred-search"
+    },
+    {
+      "key": "resources-sacred-search-043",
+      "label": "Button / link: Explore a Circle",
+      "value": "Explore a Circle",
+      "url": "/#interest"
+    }
+  ],
+  "meta_title": "Sacred Search Resources — Homeward",
+  "meta_description": "Books, podcasts, videos, and guided practices for the Sacred Search season."
+}

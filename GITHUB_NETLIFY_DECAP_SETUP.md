@@ -1,77 +1,54 @@
-# Homeward Website — GitHub, Netlify Staging, and Decap CMS Setup
+# Homeward — GitHub, Netlify Staging, and Decap CMS
 
-Most of V6 is already prepared. The remaining steps require account-level authorization that only the account owner can complete.
+## Current architecture
 
-## 1. Create or choose the GitHub repository
+- GitHub repository: `shaunp-homeward/homeward-community-site`
+- Production branch: `main`
+- CMS publication branch: `staging`
+- Netlify project: `homeward-community-dfw`
+- Live domain: `https://homewardcommunity.com`
+- Staging domain: `https://staging--homeward-community-dfw.netlify.app`
+- Staging editor: `https://staging--homeward-community-dfw.netlify.app/admin/`
 
-Recommended private repository name:
+## Decap authentication
 
-`homeward-community-site`
+The site uses Decap’s direct GitHub backend, not Git Gateway:
 
-The connected ChatGPT GitHub app currently reports **no installed repository access**, so it cannot create branches or push V6 yet.
+```yaml
+backend:
+  name: github
+  repo: shaunp-homeward/homeward-community-site
+  branch: staging
+  squash_merges: true
+  use_graphql: true
+publish_mode: editorial_workflow
+```
 
-Manual step:
-1. In GitHub, create the private repository above, or choose an existing repository.
-2. Open ChatGPT **Settings → Apps → GitHub** and grant the GitHub app access to that repository.
-3. Return to this chat and provide the repository name in `owner/repository` format.
+Editors log in with GitHub and must have write access to the repository.
 
-After that, ChatGPT can upload V6, create a `staging` branch, open pull requests, and manage revisions.
+### One-time OAuth setup, if login is not already working
 
-## 2. Connect the existing Netlify project to GitHub
+1. In GitHub, create an OAuth App.
+2. Use `https://api.netlify.com/auth/done` as the Authorization callback URL.
+3. Copy the GitHub Client ID and Client Secret.
+4. In Netlify, open **Project configuration → Access & security → OAuth**.
+5. Install the GitHub authentication provider and enter the credentials.
+6. Return to the staging `/admin/` page and log in with GitHub.
 
-Use the existing Netlify project:
-- Project: `homeward-community-dfw`
-- Live domain: `homewardcommunity.com`
+## Editorial workflow
 
-Manual step in Netlify:
-1. Open **Project configuration → Build & deploy → Continuous deployment**.
-2. Choose **Link repository** and select the GitHub repository.
-3. Production branch: `main`.
-4. Build command and publish directory are already defined in `netlify.toml`:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
+Saving a draft creates a CMS branch and pull request. Publishing merges it into `staging`. Netlify then rebuilds the staging branch site. Once the change is reviewed, merge `staging` into `main` to update the live website.
 
-## 3. Create the review sandbox
+The configured branch controls where Decap writes. Therefore, even the live-domain `/admin/` page continues to write to `staging`. This is intentional and keeps the live site behind a review step.
 
-In Netlify:
-1. Open **Project configuration → Build & deploy → Continuous Deployment → Branches and deploy contexts**.
-2. Enable branch deploys for the branch `staging`.
-3. Keep Deploy Previews enabled for pull requests.
-4. Under **Collaboration tools**, enable the Netlify Drawer for the `staging` branch if you want on-page comments.
+## Build settings
 
-This creates:
-- Live: `main` → `homewardcommunity.com`
-- Stable sandbox: `staging` → a Netlify branch URL
-- Individual revisions: pull request → a unique Deploy Preview URL
+The repository already contains the Netlify settings:
 
-## 4. Enable Decap CMS
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Node: 20+
 
-In Netlify:
-1. Open **Integrations → Identity → Netlify Identity** and enable it.
-2. Set registration to **Invite only**.
-3. Enable **Git Gateway** under Identity services.
-4. Invite your email as an Identity user.
-5. Open `https://homewardcommunity.com/admin/` and accept the invitation.
+## Scope of the CMS
 
-The CMS is configured to use editorial workflow. Saving a draft creates a branch and pull request; publishing merges it into `main`.
-
-## 5. Airtable security and preview behavior
-
-The live Airtable integration is preserved. V6 prevents local, staging, and Deploy Preview form tests from creating real CRM records unless `ALLOW_PREVIEW_AIRTABLE=true` is intentionally set.
-
-Security manual step:
-1. In Netlify environment variables, rotate the current Airtable personal access token because it was previously stored as a non-secret value.
-2. Save the new `AIRTABLE_TOKEN` as a **secret**, scoped to Functions/Runtime.
-3. Keep these existing variables:
-   - `AIRTABLE_BASE_ID`
-   - `AIRTABLE_TABLE_ID`
-   - `AIRTABLE_QR_TABLE_ID`
-
-## 6. Analytics
-
-V6 keeps Google Analytics ID `G-EDK2LGMJZG`, but the build only inserts it in the production context. Branch and preview traffic will not pollute live analytics.
-
-Optional Netlify variable:
-- `HOMEWARD_GA_ID=G-EDK2LGMJZG`
-
-The code already falls back to this ID if the variable is not set.
+V6.2.18 exposes most copy, button labels, core button destinations, form wording, assessment wording, metadata, and 22 additional static pages. Technical logic and visual structure remain protected.

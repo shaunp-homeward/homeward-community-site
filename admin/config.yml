@@ -4,7 +4,6 @@ backend:
   branch: staging
   squash_merges: true
   use_graphql: true
-
 local_backend: true
 publish_mode: editorial_workflow
 site_url: https://staging--homeward-community-dfw.netlify.app
@@ -12,409 +11,1910 @@ display_url: https://staging--homeward-community-dfw.netlify.app
 logo_url: https://homewardcommunity.com/assets/logo-forest.png
 media_folder: assets/uploads
 public_folder: /assets/uploads
-
 editor:
   preview: false
-
 collections:
-  - name: site_pages
-    label: Website Pages
-    delete: false
-    files:
-      - name: home
-        label: Homepage
-        file: content/home.json
-        format: json
+- name: site_content
+  label: Main Site Content
+  delete: false
+  files:
+  - name: global
+    label: Global Site Copy
+    file: content/global.json
+    format: json
+    fields:
+    - label: Brand and footer
+      name: brand
+      widget: object
+      collapsed: false
+      fields:
+      - label: Brand name
+        name: name
+        widget: string
+      - label: Brand subline
+        name: subline
+        widget: string
+      - label: Footer description
+        name: footer_description
+        widget: text
+      - label: Mission line
+        name: mission
+        widget: string
+      - label: Copyright line
+        name: copyright
+        widget: string
+    - label: Navigation labels
+      name: navigation
+      widget: object
+      collapsed: false
+      fields:
+      - label: Home
+        name: home
+        widget: string
+      - label: Circles
+        name: circles
+        widget: string
+      - label: Practices
+        name: practices
+        widget: string
+      - label: Journey
+        name: journey
+        widget: string
+      - label: Our Story
+        name: story
+        widget: string
+      - label: Interest button
+        name: interest
+        widget: string
+      - label: Conversation button
+        name: conversation
+        widget: string
+      - label: Mobile conversation button
+        name: mobile_conversation
+        widget: string
+    - label: Footer labels
+      name: footer
+      widget: object
+      collapsed: true
+      fields:
+      - label: Explore heading
+        name: explore_heading
+        widget: string
+      - label: Circles
+        name: circles
+        widget: string
+      - label: Practices
+        name: practices
+        widget: string
+      - label: Journey
+        name: journey
+        widget: string
+      - label: Resources
+        name: resources
+        widget: string
+      - label: Our Story
+        name: story
+        widget: string
+      - label: Vision
+        name: vision
+        widget: string
+      - label: Connect heading
+        name: connect_heading
+        widget: string
+      - label: Interest
+        name: interest
+        widget: string
+      - label: Conversation
+        name: conversation
+        widget: string
+      - label: Conversation details
+        name: conversation_details
+        widget: string
+      - label: Privacy
+        name: privacy
+        widget: string
+    - label: Small interest invitation
+      name: interest_prompt
+      widget: object
+      collapsed: true
+      fields:
+      - label: Accessibility label
+        name: aria_label
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Text
+        name: text
+        widget: text
+      - label: Interest button
+        name: interest_button
+        widget: string
+      - label: Conversation button
+        name: conversation_button
+        widget: string
+      - label: Dismiss label
+        name: dismiss_label
+        widget: string
+    - label: Conversation calendar
+      name: calendar
+      widget: object
+      collapsed: true
+      fields:
+      - label: Modal accessibility label
+        name: modal_label
+        widget: string
+      - label: Calendar frame title
+        name: iframe_title
+        widget: string
+      - label: Close label
+        name: close_label
+        widget: string
+      - label: Embedded calendar URL
+        name: embed_url
+        widget: string
+        hint: Full Calendly embed URL used by the conversation modal. Normally leave this unchanged.
+    - label: Image viewer labels
+      name: lightbox
+      widget: object
+      collapsed: true
+      fields:
+      - label: Viewer label
+        name: dialog_label
+        widget: string
+      - label: Close label
+        name: close_label
+        widget: string
+      - label: Previous label
+        name: previous_label
+        widget: string
+      - label: Next label
+        name: next_label
+        widget: string
+      - label: Expand text
+        name: expand_label
+        widget: string
+  - name: home
+    label: Homepage
+    file: content/home.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Headline
+        name: headline
+        widget: string
+      - label: Emphasized line
+        name: emphasis
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Primary button label
+        name: primary_label
+        widget: string
+      - label: Primary button destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button label
+        name: secondary_label
+        widget: string
+      - label: Secondary button destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Rooted in Jesus welcome line
+      name: rooted_line
+      widget: text
+    - label: Invitation questions
+      name: recognition
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Six questions
+        name: questions
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        field:
+          label: Question
+          name: question
+          widget: text
+        min: 6
+        max: 6
+      - label: Closing welcome line
+        name: honest_line
+        widget: text
+      - label: Let’s Talk strip
+        name: conversation
+        widget: object
+        collapsed: false
         fields:
-          - label: Hero
-            name: hero
-            widget: object
-            collapsed: false
-            fields:
-              - { label: Headline, name: headline, widget: string }
-              - { label: Emphasized word or line, name: emphasis, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Primary button label, name: primary_label, widget: string }
-              - { label: Primary button URL, name: primary_url, widget: string }
-              - { label: Secondary button label, name: secondary_label, widget: string }
-              - { label: Secondary button URL, name: secondary_url, widget: string }
-
-          - { label: Rooted in Jesus welcome line, name: rooted_line, widget: text }
-
-          - label: Recognition Questions
-            name: recognition
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: intro, widget: text }
-              - label: Questions
-                name: questions
-                widget: list
-                field: { label: Question, name: question, widget: text }
-              - { label: Honest beginning line, name: honest_line, widget: text }
-
-          - label: Homeward Circles
-            name: circles
-            widget: object
-            collapsed: false
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading line 1, name: heading_line1, widget: string }
-              - { label: Heading line 2, name: heading_line2, widget: string }
-              - { label: Availability badge, name: badge, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Image quote, name: quote, widget: text }
-              - { label: Circle image, name: image, widget: image }
-              - label: Gathering flow
-                name: steps
-                widget: list
-                fields:
-                  - { label: Step title, name: title, widget: string }
-                  - { label: Description, name: description, widget: text }
-              - { label: Primary button label, name: primary_label, widget: string }
-              - { label: Secondary button label, name: secondary_label, widget: string }
-
-          - label: Belong · Grow · Become
-            name: values
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: text }
-              - { label: Intro, name: intro, widget: text }
-              - label: Three values
-                name: items
-                widget: list
-                min: 3
-                max: 3
-                fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Description, name: description, widget: text }
-
-          - label: Practices
-            name: practices
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: intro, widget: text }
-              - label: Practices
-                name: items
-                widget: list
-                fields:
-                  - label: Icon key
-                    name: key
-                    widget: select
-                    options: [light, breath, maranatha, reading, reflection, gratitude]
-                  - { label: Title, name: title, widget: string }
-                  - { label: Subtitle, name: subtitle, widget: string, required: false }
-                  - { label: Description, name: description, widget: text }
-              - { label: Primary button label, name: primary_label, widget: string }
-              - { label: Secondary button label, name: secondary_label, widget: string }
-
-          - label: Journey of Faith
-            name: journey
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Journey image or infographic, name: image, widget: image }
-              - label: Stages
-                name: stages
-                widget: list
-                min: 6
-                max: 6
-                fields:
-                  - { label: Stage title, name: title, widget: string }
-                  - { label: Stage description, name: description, widget: text }
-              - { label: Benefit box heading, name: benefit_heading, widget: string }
-              - { label: Benefit box text, name: benefit_text, widget: text }
-              - { label: Button label, name: cta_label, widget: string }
-
-          - label: We Gather to Remember
-            name: remembering
-            widget: object
-            collapsed: false
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Emphasized heading line, name: emphasis, widget: string }
-              - { label: Intro paragraph, name: intro1, widget: text }
-              - { label: Intro closing line, name: intro2, widget: text }
-              - label: Remembering statements
-                name: items
-                widget: list
-                field: { label: Statement, name: statement, widget: string }
-              - { label: Community image, name: community_image, widget: image }
-              - { label: Awe and wonder image, name: wonder_image, widget: image }
-              - { label: Why remembering matters heading, name: why_heading, widget: string }
-              - { label: Why remembering matters text, name: why_text, widget: text }
-              - { label: Footer invitation, name: footer_text, widget: text }
-              - { label: Primary button label, name: primary_label, widget: string }
-              - { label: Secondary button label, name: secondary_label, widget: string }
-
-          - label: Interest Form Section
-            name: interest
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Calendar box heading, name: calendar_heading, widget: string }
-              - { label: Calendar box text, name: calendar_text, widget: text }
-              - { label: Calendar button label, name: calendar_button, widget: string }
-
-          - label: Final Invitation
-            name: final
-            widget: object
-            collapsed: true
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
-
-
-      - name: circles
-        label: Circles Page
-        file: content/circles.json
-        format: json
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Text
+          name: text
+          widget: text
+        - label: Button label
+          name: button
+          widget: string
+        - label: Button destination
+          name: button_url
+          widget: string
+          hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such 
+            as circles.html or index.html#interest.
+    - label: Homeward Circles section
+      name: circles
+      widget: object
+      collapsed: false
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading line 1
+        name: heading_line1
+        widget: string
+      - label: Heading line 2
+        name: heading_line2
+        widget: string
+      - label: Registration badge
+        name: badge
+        widget: string
+      - label: Logistics line
+        name: logistics_line
+        widget: string
+        hint: Short line shown below the registration badge, such as location, cost, group size, and length.
+      - label: Description
+        name: description
+        widget: text
+      - label: Image quote
+        name: quote
+        widget: text
+      - label: Image
+        name: image
+        widget: image
+      - label: Gathering flow
+        name: steps
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
         fields:
-          - label: Page Metadata
-            name: meta
-            widget: object
-            fields:
-              - { label: Browser title, name: title, widget: string }
-              - { label: Search description, name: description, widget: text }
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Primary button, name: primary, widget: string }
-              - { label: Secondary button, name: secondary, widget: string }
-          - label: The Heart of Homeward
-            name: heart
-            widget: object
-            fields:
-              - { label: Main image, name: image, widget: image }
-              - { label: Image description, name: image_alt, widget: string }
-              - { label: Image caption, name: caption, widget: text }
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Body paragraph, name: body, widget: text }
-              - { label: Highlight heading, name: urgency_heading, widget: string }
-              - { label: Highlight text, name: urgency_text, widget: text }
-              - { label: Primary button, name: primary, widget: string }
-              - { label: Secondary button, name: secondary, widget: string }
-          - label: Gathering Rhythm
-            name: rhythm
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: intro, widget: text }
-              - label: Steps
-                name: steps
-                widget: list
-                fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Description, name: description, widget: text }
-          - label: Sample Session
-            name: sample
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: intro, widget: text }
-              - { label: Week label, name: week, widget: string }
-              - { label: Session title, name: title, widget: string }
-              - { label: Session description, name: description, widget: text }
-              - label: Session flow
-                name: items
-                widget: list
-                fields:
-                  - { label: Time label, name: time, widget: string }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Body, name: body, widget: text, required: false }
-                  - label: Questions
-                    name: questions
-                    widget: list
-                    required: false
-                    field: { label: Question, name: question, widget: string }
-          - label: Who Circles Are For
-            name: fit
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Positive column heading, name: fit_heading, widget: string }
-              - label: Positive items
-                name: fit_items
-                widget: list
-                field: { label: Item, name: item, widget: string }
-              - { label: Reassurance column heading, name: not_heading, widget: string }
-              - label: Reassurance items
-                name: not_items
-                widget: list
-                field: { label: Item, name: item, widget: string }
-          - label: Final Invitation
-            name: final
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Primary button, name: primary, widget: string }
-              - { label: Secondary button, name: secondary, widget: string }
-
-      - name: practices
-        label: Practices Page
-        file: content/practices.json
-        format: json
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        min: 5
+        max: 5
+        summary: '{{fields.title}}'
+      - label: Primary button label
+        name: primary_label
+        widget: string
+      - label: Primary button destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button label
+        name: secondary_label
+        widget: string
+      - label: Secondary button destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Capacity note
+        name: capacity_note
+        widget: text
+    - label: Optional invitation video
+      name: video
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section
+        name: enabled
+        widget: boolean
+        default: false
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Video embed URL
+        name: embed_url
+        widget: string
+        required: false
+      - label: Video frame title
+        name: iframe_title
+        widget: string
+    - label: Belong · Grow · Become
+      name: values
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: text
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Three values
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
         fields:
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Primary button, name: primary, widget: string }
-              - { label: Secondary button, name: secondary, widget: string }
-          - label: Practice Introduction
-            name: intro
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-          - label: Practices
-            name: items
-            widget: list
-            fields:
-              - { label: Anchor ID, name: id, widget: string }
-              - { label: Tradition label, name: tradition, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-              - label: Steps
-                name: steps
-                widget: list
-                field: { label: Step, name: step, widget: text }
-              - { label: Optional button, name: button, widget: string, required: false }
-          - label: Practice in Community
-            name: community
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Primary button, name: primary, widget: string }
-              - { label: Secondary button, name: secondary, widget: string }
-
-      - name: about
-        label: Our Story Page
-        file: content/about.json
-        format: json
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+    - label: Practices preview
+      name: practices
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Practice cards
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
         fields:
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-          - label: Why Homeward Began
-            name: origin
-            widget: object
-            fields:
-              - { label: Image, name: image, widget: image }
-              - { label: Image description, name: image_alt, widget: string }
-              - { label: Image caption, name: caption, widget: text }
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - label: Additional paragraphs
-                name: paragraphs
-                widget: list
-                field: { label: Paragraph, name: paragraph, widget: text }
-          - label: Formation and Experience
-            name: formation
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - label: Cards
-                name: cards
-                widget: list
-                fields:
-                  - { label: Title, name: title, widget: string }
-                  - label: Items
-                    name: items
-                    widget: list
-                    field: { label: Item, name: item, widget: text }
-          - label: Community Section
-            name: community
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-              - { label: Button, name: button, widget: string }
-
-      - name: connect
-        label: Conversation Page
-        file: content/connect.json
-        format: json
+        - label: Show this practice on the homepage
+          name: show_on_homepage
+          widget: boolean
+          default: true
+          hint: Turn this off to keep the practice in the CMS while removing its card from the homepage preview.
+        - label: Icon key
+          name: key
+          widget: select
+          options:
+          - light
+          - breath
+          - maranatha
+          - reading
+          - reflection
+          - gratitude
+        - label: Title
+          name: title
+          widget: string
+        - label: Subtitle
+          name: subtitle
+          widget: string
+          required: false
+        - label: Description
+          name: description
+          widget: text
+        min: 6
+        max: 6
+        summary: '{{fields.title}}'
+      - label: “And more” line below the visible practice cards
+        name: more_text
+        widget: text
+        required: false
+        hint: Leave blank to remove this line.
+      - label: Primary button label
+        name: primary_label
+        widget: string
+      - label: Primary button destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button label
+        name: secondary_label
+        widget: string
+      - label: Secondary button destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Journey preview
+      name: journey
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Journey image
+        name: image
+        widget: image
+      - label: Six stages
+        name: stages
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
         fields:
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-          - label: What to Expect
-            name: expect
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - label: Items
-                name: items
-                widget: list
-                field: { label: Item, name: item, widget: text }
-              - { label: Not-ready line, name: not_ready, widget: text }
-
-      - name: vision
-        label: Future Vision Page
-        file: content/vision.json
-        format: json
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        min: 6
+        max: 6
+        summary: '{{fields.title}}'
+      - label: Benefit box heading
+        name: benefit_heading
+        widget: string
+      - label: Benefit box text
+        name: benefit_text
+        widget: text
+      - label: Button label
+        name: cta_label
+        widget: string
+      - label: Button destination
+        name: cta_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: We gather to remember
+      name: remembering
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Main heading
+        name: heading
+        widget: string
+      - label: Emphasized line
+        name: emphasis
+        widget: string
+      - label: First paragraph
+        name: intro1
+        widget: text
+      - label: Second paragraph
+        name: intro2
+        widget: text
+      - label: Remembering statements
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        field:
+          label: Statement
+          name: statement
+          widget: text
+        min: 6
+        max: 6
+      - label: Community image
+        name: community_image
+        widget: image
+      - label: Why heading
+        name: why_heading
+        widget: string
+      - label: Why text
+        name: why_text
+        widget: text
+      - label: Footer invitation
+        name: footer_text
+        widget: text
+      - label: Primary button label
+        name: primary_label
+        widget: string
+      - label: Primary button destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button label
+        name: secondary_label
+        widget: string
+      - label: Secondary button destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Founder note
+      name: founder
+      widget: object
+      collapsed: false
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Photo
+        name: image
+        widget: image
+      - label: Photo description
+        name: image_alt
+        widget: string
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        field:
+          label: Paragraph
+          name: paragraph
+          widget: text
+        min: 3
+        max: 3
+      - label: Small disclaimer
+        name: disclaimer
+        widget: text
+      - label: Button label
+        name: button_label
+        widget: string
+      - label: Button destination
+        name: button_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Interest form section
+      name: interest
+      widget: object
+      collapsed: false
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Calendar box heading
+        name: calendar_heading
+        widget: string
+      - label: Calendar box text
+        name: calendar_text
+        widget: text
+      - label: Calendar button label
+        name: calendar_button
+        widget: string
+      - label: Calendar button destination
+        name: calendar_button_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Form wording
+        name: form
+        widget: object
+        collapsed: false
         fields:
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Main heading, name: heading, widget: string }
-              - { label: Intro, name: lead, widget: text }
-          - label: Vision Areas
-            name: items
-            widget: list
-            fields:
-              - { label: Image, name: image, widget: image }
-              - { label: Image description, name: alt, widget: string }
-              - { label: Lightbox title, name: lightbox_title, widget: string }
-              - { label: Small heading, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: lead, widget: text }
-          - { label: Concept note, name: note, widget: text }
+        - label: First-name label
+          name: first_name_label
+          widget: string
+        - label: First-name placeholder
+          name: first_name_placeholder
+          widget: string
+          required: false
+        - label: Last-name label
+          name: last_name_label
+          widget: string
+        - label: Last-name placeholder
+          name: last_name_placeholder
+          widget: string
+          required: false
+        - label: Email label
+          name: email_label
+          widget: string
+        - label: Email placeholder
+          name: email_placeholder
+          widget: string
+          required: false
+        - label: ZIP code label
+          name: zip_label
+          widget: string
+        - label: ZIP code placeholder
+          name: zip_placeholder
+          widget: string
+        - label: ZIP code helper text
+          name: zip_help
+          widget: text
+        - label: Interest question label
+          name: interest_label
+          widget: string
+        - label: Interest menu placeholder
+          name: interest_placeholder
+          widget: string
+        - label: Interest choices
+          name: interest_options
+          widget: list
+          allow_add: false
+          allow_delete: false
+          allow_reorder: false
+          collapsed: true
+          field:
+            label: Choice
+            name: choice
+            widget: string
+          min: 5
+          max: 5
+        - label: Circle format question
+          name: gathering_label
+          widget: string
+        - label: Circle format placeholder
+          name: gathering_placeholder
+          widget: string
+        - label: Circle format choices
+          name: gathering_options
+          widget: list
+          allow_add: false
+          allow_delete: false
+          allow_reorder: false
+          min: 4
+          max: 4
+          field:
+            label: Choice
+            name: choice
+            widget: string
+        - label: Open question label
+          name: draw_label
+          widget: string
+        - label: Open question placeholder
+          name: draw_placeholder
+          widget: string
+        - label: Optional label
+          name: optional_label
+          widget: string
+        - label: Newsletter checkbox
+          name: newsletter_label
+          widget: text
+        - label: Submit button
+          name: submit_button
+          widget: string
+        - label: Privacy note
+          name: privacy_note
+          widget: text
+        - label: Success heading
+          name: success_heading
+          widget: string
+        - label: Success text
+          name: success_text
+          widget: text
+        - label: Success calendar button
+          name: success_calendar_button
+          widget: string
+        - label: Success calendar destination
+          name: success_calendar_url
+          widget: string
+          hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such 
+            as circles.html or index.html#interest.
+        - label: Success practice button
+          name: success_practice_button
+          widget: string
+        - label: Success practice destination
+          name: success_practice_url
+          widget: string
+          hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such 
+            as circles.html or index.html#interest.
+    - label: FAQ
+      name: faq
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Questions and answers
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        fields:
+        - label: Question
+          name: question
+          widget: string
+        - label: Answer
+          name: answer
+          widget: text
+        summary: '{{fields.question}}'
+    - label: Future vision preview
+      name: vision
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: false
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Vision cards
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        fields:
+        - label: Image
+          name: image
+          widget: image
+        - label: Image description
+          name: alt
+          widget: string
+        - label: Image viewer title
+          name: lightbox_title
+          widget: string
+        - label: Small label
+          name: label
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        min: 3
+        max: 3
+        summary: '{{fields.heading}}'
+      - label: Button label
+        name: button_label
+        widget: string
+      - label: Button destination
+        name: button_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Helper text
+        name: helper_text
+        widget: string
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - label: Show this section on the homepage
+        name: enabled
+        widget: boolean
+        default: true
+        hint: Turn this off to hide the entire section without deleting its content. Turn it back on whenever you are 
+          ready.
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Primary button label
+        name: primary_label
+        widget: string
+      - label: Primary button destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button label
+        name: secondary_label
+        widget: string
+      - label: Secondary button destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+  - name: circles
+    label: Circles Page
+    file: content/circles.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Logistics line
+        name: logistics
+        widget: string
+        hint: Shown beneath the intro. Include location, cost, group size, and length.
+      - label: Primary button
+        name: primary
+        widget: string
+      - label: Primary destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button
+        name: secondary
+        widget: string
+      - label: Secondary destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Heart of the Circle
+      name: heart
+      widget: object
+      collapsed: false
+      fields:
+      - label: Image
+        name: image
+        widget: image
+      - label: Image description
+        name: image_alt
+        widget: string
+      - label: Caption
+        name: caption
+        widget: text
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Body
+        name: body
+        widget: text
+      - label: Highlight heading
+        name: urgency_heading
+        widget: string
+      - label: Highlight text
+        name: urgency_text
+        widget: text
+      - label: Primary button
+        name: primary
+        widget: string
+      - label: Primary destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button
+        name: secondary
+        widget: string
+      - label: Secondary destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Gathering rhythm
+      name: rhythm
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Five steps
+        name: steps
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        min: 5
+        max: 5
+        summary: '{{fields.title}}'
+    - label: Sample session
+      name: sample
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Week label
+        name: week
+        widget: string
+      - label: Session title
+        name: title
+        widget: string
+      - label: Session description
+        name: description
+        widget: text
+      - label: Session flow
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        fields:
+        - label: Time label
+          name: time
+          widget: string
+        - label: Title
+          name: title
+          widget: string
+        - label: Body
+          name: body
+          widget: text
+          required: false
+          hint: Basic <em> and <br> formatting is supported.
+        - label: Questions
+          name: questions
+          widget: list
+          required: false
+          field:
+            label: Question
+            name: question
+            widget: text
+        summary: '{{fields.time}} — {{fields.title}}'
+    - label: Who Circles are for
+      name: fit
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Positive heading
+        name: fit_heading
+        widget: string
+      - label: Positive items
+        name: fit_items
+        widget: list
+        field:
+          label: Item
+          name: item
+          widget: text
+      - label: Reassurance heading
+        name: not_heading
+        widget: string
+      - label: Reassurance items
+        name: not_items
+        widget: list
+        field:
+          label: Item
+          name: item
+          widget: text
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Primary button
+        name: primary
+        widget: string
+      - label: Primary destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button
+        name: secondary
+        widget: string
+      - label: Secondary destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+  - name: practices
+    label: Practices Page
+    file: content/practices.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Primary button
+        name: primary
+        widget: string
+      - label: Primary destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button
+        name: secondary
+        widget: string
+      - label: Secondary destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+    - label: Introduction
+      name: intro
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+    - label: Practice descriptions
+      name: items
+      widget: list
+      allow_add: false
+      allow_delete: false
+      allow_reorder: false
+      collapsed: true
+      fields:
+      - label: Anchor ID
+        name: id
+        widget: string
+        hint: Technical value. Change only when a developer also updates links.
+      - label: Tradition label
+        name: tradition
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Steps
+        name: steps
+        widget: list
+        field:
+          label: Step
+          name: step
+          widget: text
+      - label: Optional button label
+        name: button
+        widget: string
+        required: false
+      - label: Optional button destination
+        name: button_url
+        widget: string
+        required: false
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      min: 6
+      max: 6
+      summary: '{{fields.title}}'
+    - label: Practices FAQ
+      name: faq
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Questions and answers
+        name: items
+        widget: list
+        collapsed: true
+        summary: '{{fields.question}}'
+        fields:
+        - label: Question
+          name: question
+          widget: string
+        - label: Answer
+          name: answer
+          widget: text
+    - label: Practice in community
+      name: community
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Primary button
+        name: primary
+        widget: string
+      - label: Primary destination
+        name: primary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+      - label: Secondary button
+        name: secondary
+        widget: string
+      - label: Secondary destination
+        name: secondary_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+  - name: about
+    label: Our Story Page
+    file: content/about.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+    - label: Why Homeward began
+      name: origin
+      widget: object
+      collapsed: false
+      fields:
+      - label: Image
+        name: image
+        widget: image
+      - label: Image description
+        name: image_alt
+        widget: string
+      - label: Caption
+        name: caption
+        widget: text
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Additional paragraphs
+        name: paragraphs
+        widget: list
+        field:
+          label: Paragraph
+          name: paragraph
+          widget: text
+    - label: Formation and experience
+      name: formation
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Cards
+        name: cards
+        widget: list
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Items
+          name: items
+          widget: list
+          field:
+            label: Item
+            name: item
+            widget: text
+        summary: '{{fields.title}}'
+    - label: Community section
+      name: community
+      widget: object
+      collapsed: true
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Button label
+        name: button
+        widget: string
+      - label: Button destination
+        name: button_url
+        widget: string
+        hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
+          circles.html or index.html#interest.
+  - name: connect
+    label: Conversation Page
+    file: content/connect.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+    - label: What to expect
+      name: expect
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Items
+        name: items
+        widget: list
+        field:
+          label: Item
+          name: item
+          widget: text
+      - label: Not-ready line
+        name: not_ready
+        widget: text
+    - label: Calendar
+      name: calendar
+      widget: object
+      collapsed: true
+      fields:
+      - label: Embedded calendar URL
+        name: embed_url
+        widget: string
+        hint: Full Calendly embed URL displayed on the Conversation page.
+      - label: External calendar URL
+        name: external_url
+        widget: string
+        hint: Full Calendly URL used when someone opens the calendar in a new window.
+      - label: Calendar frame title
+        name: iframe_title
+        widget: string
+      - label: Fallback text
+        name: fallback_text
+        widget: string
+      - label: Fallback link label
+        name: fallback_link
+        widget: string
+  - name: vision
+    label: Future Vision Page
+    file: content/vision.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+    - label: Vision areas
+      name: items
+      widget: list
+      fields:
+      - label: Image
+        name: image
+        widget: image
+      - label: Image description
+        name: alt
+        widget: string
+      - label: Image viewer title
+        name: lightbox_title
+        widget: string
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: lead
+        widget: text
+      summary: '{{fields.heading}}'
+    - label: Concept note
+      name: note
+      widget: text
+  - name: assessment
+    label: Journey Reflection / Assessment
+    file: content/assessment.json
+    format: json
+    fields:
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - label: Browser title
+        name: title
+        widget: string
+      - label: Search description
+        name: description
+        widget: text
+      - label: Social sharing title
+        name: og_title
+        widget: string
+      - label: Social sharing description
+        name: og_description
+        widget: text
+      - label: Social sharing image
+        name: og_image
+        widget: image
+    - label: Introduction
+      name: intro
+      widget: object
+      collapsed: false
+      fields:
+      - label: Back link label
+        name: back
+        widget: string
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Inclusive welcome note
+        name: inclusion_note
+        widget: text
+        hint: This appears before Question 1. Keep Homeward rooted in Jesus while welcoming people with uncertainty, little church background, or different language for the sacred.
+      - label: Reassurance line
+        name: meta
+        widget: string
+      - label: Start button
+        name: button
+        widget: string
+    - label: Question-screen labels
+      name: quiz
+      widget: object
+      collapsed: true
+      fields:
+      - label: Question label
+        name: question_label
+        widget: string
+      - label: “of” label
+        name: of_label
+        widget: string
+      - label: Back button
+        name: back
+        widget: string
+      - label: Continue button
+        name: continue
+        widget: string
+      - label: Text-box placeholder
+        name: text_placeholder
+        widget: string
+    - label: Result-screen wording
+      name: result
+      widget: object
+      collapsed: true
+      fields:
+      - label: Moving-toward label
+        name: moving_label
+        widget: string
+      - label: Spiral note
+        name: spiral_note
+        widget: text
+      - label: Guide capture heading
+        name: capture_heading
+        widget: string
+      - label: Guide sentence before stage name
+        name: capture_lead_before
+        widget: string
+      - label: Guide sentence after stage name
+        name: capture_lead_after
+        widget: text
+      - label: First-name placeholder
+        name: first_placeholder
+        widget: string
+      - label: Email placeholder
+        name: email_placeholder
+        widget: string
+      - label: No-spam message
+        name: no_spam
+        widget: string
+      - label: Follow-up note
+        name: subnote
+        widget: text
+      - label: Newsletter checkbox
+        name: newsletter
+        widget: text
+      - label: Submit button
+        name: submit
+        widget: string
+      - label: Ready heading
+        name: done_heading
+        widget: string
+      - label: Ready text
+        name: done_text
+        widget: text
+      - label: Online guide button
+        name: online_button
+        widget: string
+      - label: PDF button
+        name: pdf_button
+        widget: string
+      - label: Share link
+        name: share
+        widget: string
+      - label: Interest button
+        name: interest_button
+        widget: string
+      - label: About button
+        name: about_button
+        widget: string
+      - label: Retake note
+        name: retake_note
+        widget: text
+      - label: Retake button
+        name: retake_button
+        widget: string
+      - label: Email sent heading
+        name: email_sent_heading
+        widget: string
+      - label: Email sent text
+        name: email_sent_text
+        widget: text
+      - label: Link-only heading
+        name: email_link_heading
+        widget: string
+      - label: Link-only text
+        name: email_link_text
+        widget: text
+      - label: Future guide heading
+        name: future_heading
+        widget: string
+      - label: Future guide text
+        name: future_text
+        widget: text
+      - label: Sending label
+        name: sending_label
+        widget: string
+      - label: Send error
+        name: send_error
+        widget: text
+      - label: Share prefix
+        name: share_prefix
+        widget: string
+      - label: Share message after the stage name
+        name: share_suffix
+        widget: string
+      - label: Share title
+        name: share_title
+        widget: string
+      - label: Share copied label
+        name: share_copied
+        widget: string
+    - label: Six stage results
+      name: stages
+      hint: Result wording is editable. Keep all six entries in the same order; stage keys and scoring remain protected.
+      widget: list
+      allow_add: false
+      allow_delete: false
+      allow_reorder: false
+      collapsed: true
+      fields:
+      - label: Stage number
+        name: num
+        widget: string
+      - label: Stage title
+        name: title
+        widget: string
+      - label: Tagline
+        name: tag
+        widget: string
+      - label: Guide name
+        name: guide
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Resonance line
+        name: resonate
+        widget: text
+      - label: Technical season key
+        name: season
+        widget: hidden
+      min: 6
+      max: 6
+      summary: '{{fields.num}} — {{fields.title}}'
+    - label: Six short stage labels
+      name: labels
+      widget: list
+      allow_add: false
+      allow_delete: false
+      allow_reorder: false
+      collapsed: true
+      field:
+        label: Label
+        name: label
+        widget: string
+      min: 6
+      max: 6
+    - label: Eleven questions
+      name: questions
+      hint: You may edit questions, hints, and answer wording. Keep all questions and answers in their existing order because each answer position carries protected scoring and CRM meaning.
+      widget: list
+      allow_add: false
+      allow_delete: false
+      allow_reorder: false
+      collapsed: true
+      fields:
+      - label: Question type
+        name: type
+        widget: hidden
+      - label: Question
+        name: question
+        widget: text
+      - label: Hint
+        name: hint
+        widget: text
+        required: false
+      - label: Answer choices
+        name: options
+        hint: Edit wording only. Do not change the number or order of choices without a scoring review.
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        field:
+          label: Choice wording
+          name: choice
+          widget: text
+      min: 11
+      max: 11
+      summary: '{{fields.question}}'
+- name: advanced_pages
+  label: Additional Page Copy
+  label_singular: Additional Page
+  folder: content/advanced-pages
+  create: false
+  delete: false
+  format: json
+  identifier_field: title
+  summary: '{{title}}'
+  fields:
+  - label: Page
+    name: title
+    widget: string
+  - label: Source file
+    name: source
+    widget: hidden
+  - label: Browser title
+    name: meta_title
+    widget: string
+  - label: Search description
+    name: meta_description
+    widget: text
+    required: false
+  - label: Editable text and button labels
+    name: blocks
+    widget: list
+    allow_add: false
+    allow_delete: false
+    allow_reorder: false
+    collapsed: false
+    fields:
+    - label: Technical key
+      name: key
+      widget: hidden
+    - label: Field label
+      name: label
+      widget: hidden
+    - label: Text
+      name: value
+      widget: text
+    - label: Link or button destination
+      name: url
+      widget: string
+      required: false
+      hint: Only shown for links. Use a relative page URL unless this should open an external site.
+    summary: '{{fields.label}}'

@@ -4,7 +4,9 @@
     "heading": "Practices for becoming present.",
     "lead": "Christian meditation, contemplative prayer, and silent presence help us slow down, pay attention, and open our lives to God.",
     "primary": "Try a 5-minute practice",
-    "secondary": "Explore the practices"
+    "secondary": "Explore the practices",
+    "primary_url": "practice-breath.html",
+    "secondary_url": "#practice-list"
   },
   "intro": {
     "eyebrow": "Nothing to perform",
@@ -36,7 +38,8 @@
         "Breathing out: <em>I offer love.</em>",
         "When attention wanders, return gently to the next breath."
       ],
-      "button": "Begin a 5-minute Breath Prayer"
+      "button": "Begin a 5-minute Breath Prayer",
+      "button_url": "practice-breath.html"
     },
     {
       "id": "maranatha",
@@ -95,6 +98,25 @@
     "heading": "Silence feels different in community.",
     "lead": "Homeward Circles introduce these practices gently, with explanation, guidance, and room to talk about the experience afterward.",
     "primary": "Explore Homeward Circles",
-    "secondary": "Tell us you’re interested"
+    "secondary": "Tell us you’re interested",
+    "primary_url": "circles.html",
+    "secondary_url": "index.html#interest"
+  },
+  "meta": {
+    "title": "Practices — Homeward",
+    "description": "Explore Christian meditation, contemplative prayer, breath prayer, inspired reading, daily reflection, and other practices for becoming present.",
+    "og_title": "Practices — Homeward",
+    "og_description": "Explore Christian meditation, contemplative prayer, breath prayer, inspired reading, daily reflection, and other practices for becoming present.",
+    "og_image": "assets/hero-community.jpg"
+  },
+  "faq": {
+    "eyebrow": "A common question",
+    "heading": "Do you draw from traditions outside Christianity?",
+    "items": [
+      {
+        "question": "Do you draw from traditions outside Christianity?",
+        "answer": "Homeward is rooted in Jesus and draws primarily from the historic Christian contemplative tradition. Practices such as silence, attention, compassion, gratitude, and awareness of the breath also appear in other spiritual traditions, including Buddhism. We acknowledge those points of connection honestly and respectfully while teaching our practices within a Jesus-centered Christian framework. Homeward is not an attempt to blend religions together. It is a community seeking to follow Jesus deeply while remaining open to truth, wisdom, and love wherever they may be recognized."
+      }
+    ]
   }
 }

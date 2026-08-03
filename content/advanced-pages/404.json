@@ -1,0 +1,35 @@
+{
+  "title": "Page Not Found — Homeward",
+  "source": "404.html",
+  "blocks": [
+    {
+      "key": "404-001",
+      "label": "Text: Page not found",
+      "value": "Page not found"
+    },
+    {
+      "key": "404-002",
+      "label": "Heading: This path may have moved.",
+      "value": "This path may have moved."
+    },
+    {
+      "key": "404-003",
+      "label": "Text: Return home, explore a practice, or learn about Homeward Circles.",
+      "value": "Return home, explore a practice, or learn about Homeward Circles."
+    },
+    {
+      "key": "404-004",
+      "label": "Button / link: Return home",
+      "value": "Return home",
+      "url": "/"
+    },
+    {
+      "key": "404-005",
+      "label": "Button / link: Explore practices",
+      "value": "Explore practices",
+      "url": "/practices"
+    }
+  ],
+  "meta_title": "Page Not Found — Homeward",
+  "meta_description": "The requested Homeward page could not be found."
+}

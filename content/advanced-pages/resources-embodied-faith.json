@@ -1,0 +1,181 @@
+{
+  "title": "Embodied Faith Resources - Homeward",
+  "source": "resources-embodied-faith.html",
+  "blocks": [
+    {
+      "key": "resources-embodied-faith-001",
+      "label": "Text: Stage Five · Embodied Faith",
+      "value": "Stage Five · Embodied Faith"
+    },
+    {
+      "key": "resources-embodied-faith-002",
+      "label": "Heading: Companions for the Road",
+      "value": "Companions for the Road"
+    },
+    {
+      "key": "resources-embodied-faith-003",
+      "label": "Text: A focused shelf for allowing the life of Jesus to enter ordinary rhythms…",
+      "value": "A focused shelf for allowing the life of Jesus to enter ordinary rhythms, relationships, choices, and acts of love."
+    },
+    {
+      "key": "resources-embodied-faith-004",
+      "label": "Text: Begin with One",
+      "value": "Begin with One"
+    },
+    {
+      "key": "resources-embodied-faith-005",
+      "label": "Heading: Books",
+      "value": "Books"
+    },
+    {
+      "key": "resources-embodied-faith-006",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "resources-embodied-faith-007",
+      "label": "Heading: The Spirit of the Disciplines",
+      "value": "The Spirit of the Disciplines"
+    },
+    {
+      "key": "resources-embodied-faith-008",
+      "label": "Text: Dallas Willard",
+      "value": "Dallas Willard"
+    },
+    {
+      "key": "resources-embodied-faith-009",
+      "label": "Text: Spiritual practices as training for living as apprentices of Jesus.",
+      "value": "Spiritual practices as training for living as apprentices of Jesus."
+    },
+    {
+      "key": "resources-embodied-faith-010",
+      "label": "Text: FOR EVERYDAY LIFE",
+      "value": "FOR EVERYDAY LIFE"
+    },
+    {
+      "key": "resources-embodied-faith-011",
+      "label": "Heading: Liturgy of the Ordinary",
+      "value": "Liturgy of the Ordinary"
+    },
+    {
+      "key": "resources-embodied-faith-012",
+      "label": "Text: Tish Harrison Warren",
+      "value": "Tish Harrison Warren"
+    },
+    {
+      "key": "resources-embodied-faith-013",
+      "label": "Text: The holiness and formation hidden in ordinary routines.",
+      "value": "The holiness and formation hidden in ordinary routines."
+    },
+    {
+      "key": "resources-embodied-faith-014",
+      "label": "Text: FOR CONTEMPLATIVE DEPTH",
+      "value": "FOR CONTEMPLATIVE DEPTH"
+    },
+    {
+      "key": "resources-embodied-faith-015",
+      "label": "Heading: The Way of the Heart",
+      "value": "The Way of the Heart"
+    },
+    {
+      "key": "resources-embodied-faith-016",
+      "label": "Text: Henri J. M. Nouwen",
+      "value": "Henri J. M. Nouwen"
+    },
+    {
+      "key": "resources-embodied-faith-017",
+      "label": "Text: Solitude, silence, and prayer as a path toward compassion.",
+      "value": "Solitude, silence, and prayer as a path toward compassion."
+    },
+    {
+      "key": "resources-embodied-faith-018",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-embodied-faith-019",
+      "label": "Heading: Rule of Life",
+      "value": "Rule of Life"
+    },
+    {
+      "key": "resources-embodied-faith-020",
+      "label": "Text: Arrange everyday life around being with and becoming like Jesus.",
+      "value": "Arrange everyday life around being with and becoming like Jesus."
+    },
+    {
+      "key": "resources-embodied-faith-021",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "resources-embodied-faith-022",
+      "label": "Heading: Liturgy of the Ordinary",
+      "value": "Liturgy of the Ordinary"
+    },
+    {
+      "key": "resources-embodied-faith-023",
+      "label": "Text: Tish Harrison Warren on how ordinary life matters spiritually.",
+      "value": "Tish Harrison Warren on how ordinary life matters spiritually."
+    },
+    {
+      "key": "resources-embodied-faith-024",
+      "label": "Text: GUIDED PRESENTATION",
+      "value": "GUIDED PRESENTATION"
+    },
+    {
+      "key": "resources-embodied-faith-025",
+      "label": "Heading: The Examen",
+      "value": "The Examen"
+    },
+    {
+      "key": "resources-embodied-faith-026",
+      "label": "Text: A simple introduction to the daily prayer of reflection.",
+      "value": "A simple introduction to the daily prayer of reflection."
+    },
+    {
+      "key": "resources-embodied-faith-027",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "resources-embodied-faith-028",
+      "label": "Heading: Agape / Love",
+      "value": "Agape / Love"
+    },
+    {
+      "key": "resources-embodied-faith-029",
+      "label": "Text: Love as an embodied, others-centered way defined by Jesus.",
+      "value": "Love as an embodied, others-centered way defined by Jesus."
+    },
+    {
+      "key": "resources-embodied-faith-030",
+      "label": "Heading: Daily Reflection",
+      "value": "Daily Reflection"
+    },
+    {
+      "key": "resources-embodied-faith-031",
+      "label": "Text: A gentle Examen practice for noticing grace and resistance in an ordinar…",
+      "value": "A gentle Examen practice for noticing grace and resistance in an ordinary day."
+    },
+    {
+      "key": "resources-embodied-faith-032",
+      "label": "Button / link: Try the practice",
+      "value": "Try the practice",
+      "url": "/practice-daily-reflection"
+    },
+    {
+      "key": "resources-embodied-faith-033",
+      "label": "Button / link: Read the Embodied Faith guide",
+      "value": "Read the Embodied Faith guide",
+      "url": "/journey/embodied-faith"
+    },
+    {
+      "key": "resources-embodied-faith-034",
+      "label": "Button / link: Browse the whole Homeward shelf",
+      "value": "Browse the whole Homeward shelf",
+      "url": "/resources"
+    }
+  ],
+  "meta_title": "Embodied Faith Resources - Homeward",
+  "meta_description": "Books, podcasts, videos, and practices for letting faith become a way of life."
+}

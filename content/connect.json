@@ -15,5 +15,19 @@
       "Discover a next step only if it feels right."
     ],
     "not_ready": "Not ready to schedule? Tell us you are interested instead."
+  },
+  "meta": {
+    "title": "Have a Conversation — Homeward",
+    "description": "Have a short, no-pressure conversation about Homeward, ask questions, and learn whether a Circle might be a good fit.",
+    "og_title": "Have a Conversation — Homeward",
+    "og_description": "Have a short, no-pressure conversation about Homeward, ask questions, and learn whether a Circle might be a good fit.",
+    "og_image": "assets/hero-community.jpg"
+  },
+  "calendar": {
+    "embed_url": "https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&embed_type=Inline&hide_event_type_details=1&background_color=faf6ef&text_color=153a2e&primary_color=b35a2a",
+    "external_url": "https://calendly.com/s-pennington/30-min-discovery-call",
+    "iframe_title": "Schedule a 30-minute Homeward conversation",
+    "fallback_text": "If the calendar does not appear,",
+    "fallback_link": "open it in a new window."
   }
 }
