@@ -35,13 +35,13 @@
     "heading_line1": "Find your people.",
     "heading_line2": "Go deeper together.",
     "badge": "Registration is open · Space is limited",
-    "description": "Homeward Circles are eight-week guided experiences for 6–8 people who want deeper faith, real friendship, and room for honest questions. Each gathering combines coffee or a shared meal, Christian meditation, thoughtful teaching inspired by Jesus, and conversation that connects it all to everyday life. No expertise, polished answers, or prior meditation experience is required.",
+    "description": "Homeward Circles are leader-facilitated, eight-week experiences for six to eight people who want deeper faith, real friendship, and room for honest questions.\n\nEach gathering begins with simple hospitality, then moves into Christian meditation, a short teaching inspired by Jesus, and open dialogue that makes room for questions, doubt, and different perspectives. We explore Scripture with curiosity and honesty—not pressure for a polished or predetermined answer.\n\nTogether, we learn and practice the <strong>how-to of spiritual life</strong>: becoming present to God, experiencing God in ordinary life, and growing in wonder, joy, peace, presence, and love.\n\nNo expertise, polished answers, or prior meditation experience is required. After eight weeks, you decide whether to continue. There is no ongoing commitment.",
     "quote": "A Circle is a place to become present, known, and formed together—one honest gathering at a time.",
     "image": "assets/circles-home-v62.webp",
     "steps": [
       {
         "title": "Arrive",
-        "description": "Coffee, food, and unhurried connection."
+        "description": "Settle in, reconnect, and feel at home."
       },
       {
         "title": "Become present",
@@ -49,15 +49,15 @@
       },
       {
         "title": "Explore",
-        "description": "Scripture and thoughtful teaching inspired by Jesus."
+        "description": "Scripture and teaching inspired by Jesus—approached with curiosity."
       },
       {
         "title": "Share",
-        "description": "Honest conversation without pressure for the right answer."
+        "description": "Honest dialogue, questions, and room to explore without pressure."
       },
       {
         "title": "Carry it home",
-        "description": "A simple practice or invitation for the week."
+        "description": "A simple practice for noticing God in everyday life."
       }
     ],
     "primary_label": "I'm Interested in a Circle",
@@ -66,7 +66,8 @@
     "primary_url": "#interest",
     "secondary_url": "circles.html",
     "enabled": true,
-    "logistics_line": "In person in the Fort Worth area or online · No cost · Six to eight people · Eight weeks"
+    "logistics_line": "In person in the Fort Worth area or online · No cost · Six to eight people · Eight weeks",
+    "differentiator_line": "Practice the way. Explore honestly. Carry it into life."
   },
   "values": {
     "eyebrow": "What is Homeward?",

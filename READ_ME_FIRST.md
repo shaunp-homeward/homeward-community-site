@@ -1,3 +1,3 @@
-# Homeward Website V6.2.22
+# Homeward Website V6.2.27
 
-Upload the targeted update over V6.2.21 on the GitHub staging branch. This release implements the approved assessment accessibility revisions and expands the assessment's Decap CMS editing controls without changing scoring, Airtable mapping, or email delivery.
+Focused Circle-language and gathering-flow refinement built on V6.2.26. See `V6_2_27_CHANGELOG.md` and `V6_2_27_STAGING_UPLOAD.md`.

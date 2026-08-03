@@ -21,10 +21,18 @@ const escapeHtml = (value = '') => String(value)
 
 const richText = (value = '') => escapeHtml(value).replaceAll('\n', '<br/>');
 const inlineRichText = (value = '') => escapeHtml(value)
+  .replaceAll('&lt;strong&gt;', '<strong>')
+  .replaceAll('&lt;/strong&gt;', '</strong>')
   .replaceAll('&lt;em&gt;', '<em>')
   .replaceAll('&lt;/em&gt;', '</em>')
   .replaceAll('&lt;br&gt;', '<br>')
   .replaceAll('&lt;br/&gt;', '<br/>');
+const paragraphRichText = (value = '') => String(value)
+  .split(/\n\s*\n/)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean)
+  .map((paragraph) => `<p>${inlineRichText(paragraph).replaceAll('\n', '<br/>')}</p>`)
+  .join('');
 const attr = (value = '') => escapeHtml(value);
 const escapeRegExp = (value = '') => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const hiddenAttr = (section) => section?.enabled === false ? 'hidden' : '';
@@ -152,8 +160,7 @@ const questionHtml = content.recognition.questions.map((question, index) => `
 
 const circlesStepsHtml = content.circles.steps.map((step, index) => `
        <div class="rhythm-card">
-        <span>${String(index + 1).padStart(2, '0')}</span>
-        <h3>${escapeHtml(step.title)}</h3>
+        <div class="rhythm-card-heading"><span>${String(index + 1).padStart(2, '0')}</span><h3>${escapeHtml(step.title)}</h3></div>
         <p>${escapeHtml(step.description)}</p>
        </div>`).join('');
 
@@ -247,7 +254,8 @@ const replacements = {
   CIRCLES_EYEBROW: escapeHtml(content.circles.eyebrow),
   CIRCLES_HEADING_HTML: `${escapeHtml(content.circles.heading_line1)}<br/><em>${escapeHtml(content.circles.heading_line2)}</em>`,
   CIRCLES_BADGE_HTML: `<span aria-hidden="true"></span>${escapeHtml(content.circles.badge)}`,
-  CIRCLES_DESCRIPTION: escapeHtml(content.circles.description),
+  CIRCLES_DESCRIPTION: paragraphRichText(content.circles.description),
+  CIRCLES_DIFFERENTIATOR: escapeHtml(content.circles.differentiator_line || ''),
   CIRCLES_QUOTE: escapeHtml(content.circles.quote),
   CIRCLES_IMAGE: attr(content.circles.image),
   CIRCLES_STEPS_HTML: circlesStepsHtml,
@@ -376,12 +384,28 @@ const pageData = {
   vision: await readJson('vision'),
 };
 
+
+const circleDistinctivesHtml = (items = []) => items.map((item, index) => `
+      <article class="circle-distinctive-card reveal">
+       <span class="circle-distinctive-number">${String(index + 1).padStart(2, '0')}</span>
+       <h3>${escapeHtml(item.title)}</h3>
+       <p>${escapeHtml(item.description)}</p>
+      </article>`).join('');
+
+const circlePracticeStepsHtml = (items = []) => items.map((item, index) => `
+        <li>
+         <span>${String(index + 1).padStart(2, '0')}</span>
+         <div><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.description)}</p></div>
+        </li>`).join('');
+
 const pageReplacementMaps = {
   circles: (d) => ({
     META_TITLE: escapeHtml(d.meta.title), META_DESCRIPTION: attr(d.meta.description), OG_TITLE: attr(d.meta.og_title || d.meta.title), OG_DESCRIPTION: attr(d.meta.og_description || d.meta.description), OG_IMAGE: attr(d.meta.og_image || 'assets/hero-community.jpg'),
-    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: escapeHtml(d.hero.lead), HERO_LOGISTICS: escapeHtml(d.hero.logistics || ""), HERO_PRIMARY: escapeHtml(d.hero.primary), HERO_SECONDARY: escapeHtml(d.hero.secondary), HERO_PRIMARY_URL: attr(d.hero.primary_url), HERO_SECONDARY_URL: attr(d.hero.secondary_url),
+    HERO_EYEBROW: escapeHtml(d.hero.eyebrow), HERO_HEADING: escapeHtml(d.hero.heading), HERO_LEAD: inlineRichText(d.hero.lead), HERO_LOGISTICS: escapeHtml(d.hero.logistics || ""), HERO_PRIMARY: escapeHtml(d.hero.primary), HERO_SECONDARY: escapeHtml(d.hero.secondary), HERO_PRIMARY_URL: attr(d.hero.primary_url), HERO_SECONDARY_URL: attr(d.hero.secondary_url),
     HEART_IMAGE: attr(d.heart.image), HEART_IMAGE_ALT: attr(d.heart.image_alt), HEART_CAPTION: escapeHtml(d.heart.caption), HEART_EYEBROW: escapeHtml(d.heart.eyebrow), HEART_HEADING: escapeHtml(d.heart.heading), HEART_LEAD: escapeHtml(d.heart.lead), HEART_BODY: escapeHtml(d.heart.body), HEART_URGENCY_HEADING: escapeHtml(d.heart.urgency_heading), HEART_URGENCY_TEXT: escapeHtml(d.heart.urgency_text), HEART_PRIMARY: escapeHtml(d.heart.primary), HEART_SECONDARY: escapeHtml(d.heart.secondary), HEART_PRIMARY_URL: attr(d.heart.primary_url), HEART_SECONDARY_HTML: buttonHtml(d.heart.secondary, d.heart.secondary_url, 'button button-secondary'),
-    RHYTHM_EYEBROW: escapeHtml(d.rhythm.eyebrow), RHYTHM_HEADING: escapeHtml(d.rhythm.heading), RHYTHM_INTRO: escapeHtml(d.rhythm.intro), RHYTHM_HTML: d.rhythm.steps.map((x,i)=>`<div class="rhythm-card"><span>${String(i+1).padStart(2,'0')}</span><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.description)}</p></div>`).join(''),
+    DISTINCTIVES_HIDDEN: hiddenAttr(d.distinctives), DISTINCTIVES_EYEBROW: escapeHtml(d.distinctives?.eyebrow), DISTINCTIVES_HEADING: escapeHtml(d.distinctives?.heading), DISTINCTIVES_INTRO: escapeHtml(d.distinctives?.intro), DISTINCTIVES_HTML: circleDistinctivesHtml(d.distinctives?.items),
+    RHYTHM_EYEBROW: escapeHtml(d.rhythm.eyebrow), RHYTHM_HEADING: escapeHtml(d.rhythm.heading), RHYTHM_INTRO: escapeHtml(d.rhythm.intro), RHYTHM_HTML: d.rhythm.steps.map((x,i)=>`<div class="rhythm-card"><div class="rhythm-card-heading"><span>${String(i+1).padStart(2,'0')}</span><h3>${escapeHtml(x.title)}</h3></div><p>${escapeHtml(x.description)}</p></div>`).join(''),
+    PRACTICE_EXAMPLE_HIDDEN: hiddenAttr(d.practice_example), PRACTICE_EXAMPLE_EYEBROW: escapeHtml(d.practice_example?.eyebrow), PRACTICE_EXAMPLE_HEADING: escapeHtml(d.practice_example?.heading), PRACTICE_EXAMPLE_LEAD: escapeHtml(d.practice_example?.lead), PRACTICE_EXAMPLE_STEPS_HTML: circlePracticeStepsHtml(d.practice_example?.steps), PRACTICE_EXAMPLE_CLOSING: escapeHtml(d.practice_example?.closing), PRACTICE_EXAMPLE_BUTTON_HTML: buttonHtml(d.practice_example?.button, d.practice_example?.button_url, 'button button-secondary'),
     SAMPLE_EYEBROW: escapeHtml(d.sample.eyebrow), SAMPLE_HEADING: escapeHtml(d.sample.heading), SAMPLE_INTRO: escapeHtml(d.sample.intro), SAMPLE_WEEK: escapeHtml(d.sample.week), SAMPLE_TITLE: escapeHtml(d.sample.title), SAMPLE_DESCRIPTION: escapeHtml(d.sample.description), SESSION_HTML: d.sample.items.map(x=>`<div class="session-time">${escapeHtml(x.time)}</div><div class="session-content"><h4>${escapeHtml(x.title)}</h4>${x.questions?`<ul>${listItems(x.questions.map(inlineRichText))}</ul>`:`<p>${inlineRichText(x.body)}</p>`}</div>`).join(''),
     FIT_EYEBROW: escapeHtml(d.fit.eyebrow), FIT_HEADING: escapeHtml(d.fit.heading), FIT_CARD_HEADING: escapeHtml(d.fit.fit_heading), FIT_ITEMS_HTML: listItems(d.fit.fit_items.map(escapeHtml)), NOT_CARD_HEADING: escapeHtml(d.fit.not_heading), NOT_ITEMS_HTML: listItems(d.fit.not_items.map(escapeHtml)),
     FINAL_EYEBROW: escapeHtml(d.final.eyebrow), FINAL_HEADING: escapeHtml(d.final.heading), FINAL_LEAD: escapeHtml(d.final.lead), FINAL_PRIMARY: escapeHtml(d.final.primary), FINAL_SECONDARY: escapeHtml(d.final.secondary), FINAL_PRIMARY_URL: attr(d.final.primary_url), FINAL_SECONDARY_HTML: buttonHtml(d.final.secondary, d.final.secondary_url, 'button button-secondary'),
@@ -465,10 +489,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.2.22',
+  version: '6.2.27',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2.22 into ${dist}`);
+console.log(`Built Homeward V6.2.27 into ${dist}`);
