@@ -317,6 +317,11 @@ collections:
       - label: Description
         name: description
         widget: text
+        hint: Separate paragraphs with a blank line. Use <strong>words</strong> when a short phrase should appear bold.
+      - label: Differentiator line
+        name: differentiator_line
+        widget: string
+        hint: Short signature line shown between the description and gathering flow.
       - label: Image quote
         name: quote
         widget: text
@@ -979,6 +984,7 @@ collections:
       - label: Intro
         name: lead
         widget: text
+        hint: Use <strong>words</strong> when a short phrase should appear bold.
       - label: Logistics line
         name: logistics
         widget: string
@@ -1047,6 +1053,41 @@ collections:
         widget: string
         hint: Use calendar to open the Homeward conversation calendar. Otherwise use a relative page or section such as 
           circles.html or index.html#interest.
+    - label: What makes a Circle different
+      name: distinctives
+      widget: object
+      collapsed: false
+      fields:
+      - label: Show this section
+        name: enabled
+        widget: boolean
+        default: true
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: intro
+        widget: text
+      - label: Three differentiators
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
     - label: Gathering rhythm
       name: rhythm
       widget: object
@@ -1078,6 +1119,51 @@ collections:
         min: 5
         max: 5
         summary: '{{fields.title}}'
+    - label: Practice example
+      name: practice_example
+      widget: object
+      collapsed: false
+      fields:
+      - label: Show this section
+        name: enabled
+        widget: boolean
+        default: true
+      - label: Small heading
+        name: eyebrow
+        widget: string
+      - label: Heading
+        name: heading
+        widget: string
+      - label: Intro
+        name: lead
+        widget: text
+      - label: Five practice steps
+        name: steps
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        collapsed: true
+        min: 5
+        max: 5
+        summary: '{{fields.title}}'
+        fields:
+        - label: Title
+          name: title
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+      - label: Closing note
+        name: closing
+        widget: text
+      - label: Button label
+        name: button
+        widget: string
+      - label: Button destination
+        name: button_url
+        widget: string
+        hint: Use a relative page such as practices.html.
     - label: Sample session
       name: sample
       widget: object

@@ -1,15 +1,15 @@
 {
   "meta": {
     "title": "Homeward Circles — Honest Community and Spiritual Practice",
-    "description": "Learn how free eight-week Homeward Circles meet online or in person in the Fort Worth area for Christian meditation, contemplative practice, meaningful questions, and authentic friendship.",
+    "description": "Learn how free, leader-facilitated eight-week Homeward Circles meet online or in the Fort Worth area to practice Christian meditation, explore Scripture honestly, and carry faith into everyday life.",
     "og_title": "Homeward Circles — Honest Community and Spiritual Practice",
-    "og_description": "Learn how free eight-week Homeward Circles meet online or in person in the Fort Worth area for Christian meditation, contemplative practice, meaningful questions, and authentic friendship.",
+    "og_description": "Learn how free, leader-facilitated eight-week Homeward Circles meet online or in the Fort Worth area to practice Christian meditation, explore Scripture honestly, and carry faith into everyday life.",
     "og_image": "assets/hero-community.jpg"
   },
   "hero": {
     "eyebrow": "Homeward Circles",
     "heading": "A small community where faith becomes real.",
-    "lead": "A Homeward Circle is a leader-facilitated group of six to eight people who meet for eight weeks — to share life, become present to God, explore honest questions, and practice the rhythms of faith inspired by Jesus. At the end, you decide whether to continue. There's no ongoing commitment.",
+    "lead": "A Homeward Circle is a leader-facilitated group of six to eight people who meet for eight weeks—to share life, become present to God, explore honest questions, and practice the rhythms of faith inspired by Jesus. It is not only a place to discuss spiritual ideas; it is a place to learn and practice the <strong>how-to of spiritual life</strong> together. At the end, you decide whether to continue. There is no ongoing commitment.",
     "primary": "I’m interested in a Circle",
     "secondary": "See a sample session",
     "primary_url": "index.html#interest",
@@ -22,8 +22,8 @@
     "caption": "A consistent group. A guided rhythm. Space to be honest and known.",
     "eyebrow": "The heart of Homeward",
     "heading": "Unhurried. Honest. Practiced together.",
-    "lead": "A Circle is not a class where one person has all the answers. It's a consistent group — the same people each week — learning to become present to God and one another.",
-    "body": "Leaders participate rather than perform. Questions are welcomed. Silence is not awkward. Scripture is explored with curiosity. No one is asked to pretend.",
+    "lead": "A Circle is not a class where one person has all the answers, and it is more than a weekly conversation about faith. It is a consistent group—the same people each week—learning to become present to God and one another through shared practice, Scripture, and honest dialogue.",
+    "body": "Leaders facilitate rather than lecture. We practice together, notice what is happening within us, explore Scripture and the teachings of Jesus with honesty, and carry a concrete rhythm into the week. No one is asked to pretend or reach the same conclusion.",
     "urgency_heading": "Circles form as the right people connect.",
     "urgency_text": "Tell us you are interested, and we will get to know you before helping you join a group.",
     "primary": "Tell us you’re interested",
@@ -34,27 +34,27 @@
   "rhythm": {
     "eyebrow": "The shape of a gathering",
     "heading": "A simple rhythm with room to breathe.",
-    "intro": "The flow shifts from week to week, but every gathering makes room for presence, honest conversation, and a practice to carry into everyday life.",
+    "intro": "The flow shifts from week to week, but every gathering makes room for simple hospitality, a practice we experience together, honest dialogue, and a rhythm to carry into everyday life.",
     "steps": [
       {
         "title": "Arrive",
-        "description": "Settle in and reconnect over coffee, tea, and snacks — no rush."
+        "description": "Settle in, reconnect, and feel at home—no rush."
       },
       {
         "title": "Become present",
-        "description": "A short guided practice — breath prayer, Christian meditation, or silence."
+        "description": "Practice breath prayer, Christian meditation, silence, or another guided rhythm together."
       },
       {
         "title": "Explore",
-        "description": "A short story or teaching inspired by Jesus, explored with curiosity."
+        "description": "Engage a story, Scripture passage, or teaching inspired by Jesus with curiosity."
       },
       {
         "title": "Share",
-        "description": "Honest conversation — share what's alive for you, or simply listen. No pressure."
+        "description": "Speak honestly about what is alive for you, explore the text together, or simply listen. No pressure."
       },
       {
         "title": "Carry it home",
-        "description": "A simple practice to carry into the week."
+        "description": "Choose a simple practice that helps you notice God and live with greater presence during the week."
       }
     ]
   },
@@ -131,5 +131,56 @@
     "secondary": "Have a Conversation",
     "primary_url": "index.html#interest",
     "secondary_url": "calendar"
+  },
+  "distinctives": {
+    "enabled": true,
+    "eyebrow": "What makes a Circle different",
+    "heading": "Practice the way. Explore honestly. Carry it into life.",
+    "intro": "Many groups are built mainly around discussing ideas. A Homeward Circle includes thoughtful conversation, but does not stop there. Every week, we practice, reflect, and take something concrete into daily life.",
+    "items": [
+      {
+        "title": "Practice the way.",
+        "description": "Learn time-tested practices such as breath prayer, Christian meditation, silence, inspired reading, and daily reflection—and actually practice them together."
+      },
+      {
+        "title": "Explore honestly.",
+        "description": "Engage Scripture and the life of Jesus with curiosity. Bring questions, doubt, lived experience, and different perspectives without pressure for a polished or predetermined answer."
+      },
+      {
+        "title": "Carry it into life.",
+        "description": "Take home a simple rhythm and learn to notice God, wonder, and love in ordinary moments—so faith becomes more present, peaceful, joyful, and embodied."
+      }
+    ]
+  },
+  "practice_example": {
+    "enabled": true,
+    "eyebrow": "A practice you might experience",
+    "heading": "Here I am. You are here.",
+    "lead": "In a Circle, we do not only explain breath prayer—we practice it together, reflect on what we notice, and carry it into the week.",
+    "steps": [
+      {
+        "title": "Settle",
+        "description": "Let your body become still and notice the natural rhythm of your breathing."
+      },
+      {
+        "title": "Breathe in",
+        "description": "Here I am."
+      },
+      {
+        "title": "Breathe out",
+        "description": "You are here."
+      },
+      {
+        "title": "Return",
+        "description": "When the mind wanders, gently return to the breath and the words."
+      },
+      {
+        "title": "Carry it home",
+        "description": "Practice for three to five minutes on a few days this week."
+      }
+    ],
+    "closing": "The point is not to perform the practice perfectly. It is to become more available to God, yourself, and the life in front of you.",
+    "button": "Explore all practices",
+    "button_url": "practices.html"
   }
 }
