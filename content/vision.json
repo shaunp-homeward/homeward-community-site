@@ -30,5 +30,12 @@
       "lead": "A room for Christian meditation, contemplative prayer, silence, spiritual direction, and returning to the presence of God."
     }
   ],
-  "note": "These are concept visualizations, not a promise of a building tomorrow. The first Homeward experience begins much more simply: people gathering around real tables."
+  "note": "These are concept visualizations, not a promise of a building tomorrow. The first Homeward experience begins much more simply: people gathering around real tables.",
+  "meta": {
+    "title": "Future Vision — Homeward",
+    "description": "Explore concept images for a future Homeward community campus, Coffeehouse Commons, and Still Point meditation room.",
+    "og_title": "Future Vision — Homeward",
+    "og_description": "Explore concept images for a future Homeward community campus, Coffeehouse Commons, and Still Point meditation room.",
+    "og_image": "assets/hero-community.jpg"
+  }
 }

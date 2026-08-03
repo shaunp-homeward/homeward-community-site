@@ -1,0 +1,240 @@
+{
+  "title": "Privacy Policy — Homeward",
+  "source": "privacy.html",
+  "blocks": [
+    {
+      "key": "privacy-001",
+      "label": "Text: Last updated: July 16, 2026",
+      "value": "Last updated: July 16, 2026"
+    },
+    {
+      "key": "privacy-002",
+      "label": "Text: On this page",
+      "value": "On this page"
+    },
+    {
+      "key": "privacy-003",
+      "label": "Button / link: What we collect",
+      "value": "What we collect",
+      "url": "#collect"
+    },
+    {
+      "key": "privacy-004",
+      "label": "Button / link: How we use it",
+      "value": "How we use it",
+      "url": "#use"
+    },
+    {
+      "key": "privacy-005",
+      "label": "Button / link: How we share it",
+      "value": "How we share it",
+      "url": "#share"
+    },
+    {
+      "key": "privacy-006",
+      "label": "Button / link: Cookies & analytics",
+      "value": "Cookies & analytics",
+      "url": "#cookies"
+    },
+    {
+      "key": "privacy-007",
+      "label": "Button / link: Retention",
+      "value": "Retention",
+      "url": "#retention"
+    },
+    {
+      "key": "privacy-008",
+      "label": "Button / link: Your rights",
+      "value": "Your rights",
+      "url": "#rights"
+    },
+    {
+      "key": "privacy-009",
+      "label": "Button / link: California",
+      "value": "California",
+      "url": "#ca"
+    },
+    {
+      "key": "privacy-010",
+      "label": "Button / link: Texas",
+      "value": "Texas",
+      "url": "#tx"
+    },
+    {
+      "key": "privacy-011",
+      "label": "Button / link: Children",
+      "value": "Children",
+      "url": "#children"
+    },
+    {
+      "key": "privacy-012",
+      "label": "Button / link: Contact",
+      "value": "Contact",
+      "url": "#contact"
+    },
+    {
+      "key": "privacy-013",
+      "label": "Heading: 1. Information we collect",
+      "value": "1. Information we collect"
+    },
+    {
+      "key": "privacy-014",
+      "label": "Heading: Information you give us",
+      "value": "Information you give us"
+    },
+    {
+      "key": "privacy-015",
+      "label": "Heading: Information collected automatically",
+      "value": "Information collected automatically"
+    },
+    {
+      "key": "privacy-016",
+      "label": "Text: Like most websites, we and our service providers may automatically colle…",
+      "value": "Like most websites, we and our service providers may automatically collect limited technical information such as your device and browser type, general location (derived from IP address), pages viewed, and how you arrived at the Site (including marketing campaign tags, or \"UTM\" parameters). This is collected through cookies and similar technologies described below."
+    },
+    {
+      "key": "privacy-017",
+      "label": "Heading: 2. How we use your information",
+      "value": "2. How we use your information"
+    },
+    {
+      "key": "privacy-018",
+      "label": "Text: To respond to you, welcome you, and share details about our Circles and …",
+      "value": "To respond to you, welcome you, and share details about our Circles and gatherings;"
+    },
+    {
+      "key": "privacy-019",
+      "label": "Text: To send your reflection results and, with your consent, occasional updat…",
+      "value": "To send your reflection results and, with your consent, occasional updates and resources by email;"
+    },
+    {
+      "key": "privacy-020",
+      "label": "Text: To understand how the Site is used so we can improve it;",
+      "value": "To understand how the Site is used so we can improve it;"
+    },
+    {
+      "key": "privacy-021",
+      "label": "Text: To measure the effectiveness of our outreach and advertising;",
+      "value": "To measure the effectiveness of our outreach and advertising;"
+    },
+    {
+      "key": "privacy-022",
+      "label": "Text: To keep the Site secure and to comply with legal obligations.",
+      "value": "To keep the Site secure and to comply with legal obligations."
+    },
+    {
+      "key": "privacy-023",
+      "label": "Heading: 3. How we share your information",
+      "value": "3. How we share your information"
+    },
+    {
+      "key": "privacy-024",
+      "label": "Text: We share information only with trusted service providers who help us ope…",
+      "value": "We share information only with trusted service providers who help us operate, and only as needed to provide their service to us:"
+    },
+    {
+      "key": "privacy-025",
+      "label": "Text: We may also disclose information if required by law, to protect our righ…",
+      "value": "We may also disclose information if required by law, to protect our rights or the safety of others, or in connection with a merger or transfer of our activities. We do not otherwise disclose your information to third parties for their own marketing."
+    },
+    {
+      "key": "privacy-026",
+      "label": "Heading: 4. Cookies & analytics",
+      "value": "4. Cookies & analytics"
+    },
+    {
+      "key": "privacy-027",
+      "label": "Heading: 5. How long we keep it",
+      "value": "5. How long we keep it"
+    },
+    {
+      "key": "privacy-028",
+      "label": "Text: We keep your information for as long as needed to stay in touch with you…",
+      "value": "We keep your information for as long as needed to stay in touch with you about Homeward and for the purposes described above, unless you ask us to delete it sooner. Aggregate or de-identified information may be kept longer."
+    },
+    {
+      "key": "privacy-029",
+      "label": "Heading: 6. Your privacy rights",
+      "value": "6. Your privacy rights"
+    },
+    {
+      "key": "privacy-030",
+      "label": "Button / link: Contact",
+      "value": "Contact",
+      "url": "#contact"
+    },
+    {
+      "key": "privacy-031",
+      "label": "Heading: 7. California residents (CCPA/CPRA)",
+      "value": "7. California residents (CCPA/CPRA)"
+    },
+    {
+      "key": "privacy-032",
+      "label": "Heading: 8. Texas residents (TDPSA)",
+      "value": "8. Texas residents (TDPSA)"
+    },
+    {
+      "key": "privacy-033",
+      "label": "Heading: 9. Children's privacy",
+      "value": "9. Children's privacy"
+    },
+    {
+      "key": "privacy-034",
+      "label": "Text: The Site is intended for adults and is not directed to children under 13…",
+      "value": "The Site is intended for adults and is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us information, please contact us and we will delete it."
+    },
+    {
+      "key": "privacy-035",
+      "label": "Heading: 10. Security",
+      "value": "10. Security"
+    },
+    {
+      "key": "privacy-036",
+      "label": "Text: We use reasonable administrative and technical measures to protect your …",
+      "value": "We use reasonable administrative and technical measures to protect your information. No method of transmission or storage is completely secure, however, and we cannot guarantee absolute security."
+    },
+    {
+      "key": "privacy-037",
+      "label": "Heading: 11. Changes to this policy",
+      "value": "11. Changes to this policy"
+    },
+    {
+      "key": "privacy-038",
+      "label": "Text: We may update this Privacy Policy from time to time. When we do, we'll r…",
+      "value": "We may update this Privacy Policy from time to time. When we do, we'll revise the \"Last updated\" date above, and significant changes will be reflected on this page."
+    },
+    {
+      "key": "privacy-039",
+      "label": "Heading: 12. Contact us",
+      "value": "12. Contact us"
+    },
+    {
+      "key": "privacy-040",
+      "label": "Button / link: contact form on our website",
+      "value": "contact form on our website",
+      "url": "index.html#interest"
+    },
+    {
+      "key": "privacy-041",
+      "label": "Button / link: privacy@homewardcommunity.com",
+      "value": "privacy@homewardcommunity.com"
+    },
+    {
+      "key": "privacy-042",
+      "label": "Text: Information provided through the interest form",
+      "value": "When you join our interest list or contact us, we collect what you choose to share — typically your name, email address, ZIP code, preferred Circle format, what best describes your interest, and any note you add. We may use the ZIP code you provide to identify your city or general area so we can form geographically sensible in-person Circles. If you take our \"Where Am I on the Journey?\" reflection, we collect your responses and the reflected result, and — only if you choose to enter it — your email address so we can send your results and a related guide."
+    },
+    {
+      "key": "privacy-043",
+      "label": "Text: Contact management service provider",
+      "value": "Contact management — the database we use to keep track of people interested in Homeward;"
+    },
+    {
+      "key": "privacy-044",
+      "label": "Text: ZIP-code location lookup service provider",
+      "value": "Location lookup — a postal-code lookup service used only to identify the city or general area associated with the ZIP code you provide;"
+    }
+  ],
+  "meta_title": "Privacy Policy — Homeward",
+  "meta_description": "How Homeward collects, uses, and protects your information — including your rights under California and Texas privacy law."
+}

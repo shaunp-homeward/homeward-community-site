@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Where Am I on the Journey? — A Homeward Reflection</title>
-<meta name="description" content="A gentle, five-minute reflection to name where you are on the journey of faith. No right answers, no email required to see your result. From Homeward, a community walking the way of Jesus in DFW." />
-<meta property="og:title" content="Where Am I on the Journey? — A Homeward Reflection" />
-<meta property="og:description" content="A five-minute reflection on where you are with God. No right answers." />
+<title>{{ASSESS_META_TITLE}}</title>
+<meta name="description" content="{{ASSESS_META_DESCRIPTION}}" />
+<meta property="og:title" content="{{ASSESS_OG_TITLE}}" />
+<meta property="og:description" content="{{ASSESS_OG_DESCRIPTION}}" />
+<meta property="og:image" content="{{ASSESS_OG_IMAGE}}" />
 <meta name="theme-color" content="#153A2E" />
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -129,7 +130,7 @@
 </head>
 <body>
 
-<a class="linkback" href="index.html">&larr; Homeward</a>
+<a class="linkback" href="index.html">{{ASSESS_BACK}}</a>
 <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
 
 <div class="stage-shell">
@@ -137,11 +138,11 @@
   <!-- INTRO -->
   <div id="intro">
     <img src="img/logo-forest.png" alt="Homeward — A Spiritual Community" style="height:112px;width:auto;margin:0 auto;display:block" />
-    <p class="eyebrow" style="text-align:center;margin-top:30px">A Reflection</p>
-    <h1>Where am I on the journey?</h1>
-    <p class="sub">Faith isn't a straight line — it's a spiral we travel, revisit, and deepen over a lifetime. This is a gentle mirror, not a test. Eleven honest questions, about five minutes.</p>
-    <p class="meta">No right answers · No email required to see your result</p>
-    <div class="start"><button class="btn" onclick="startQuiz()">Begin the reflection</button></div>
+    <p class="eyebrow" style="text-align:center;margin-top:30px">{{ASSESS_EYEBROW}}</p>
+    <h1>{{ASSESS_HEADING}}</h1>
+    <p class="sub">{{ASSESS_DESCRIPTION}}</p>
+    <p class="meta">{{ASSESS_META_LINE}}</p>
+    <div class="start"><button class="btn" onclick="startQuiz()">{{ASSESS_START_BUTTON}}</button></div>
   </div>
 
   <!-- QUIZ -->
@@ -151,8 +152,8 @@
     <p class="qhint" id="qhint"></p>
     <div class="options" id="options"></div>
     <div class="qnav">
-      <button class="back" id="backBtn" onclick="goBack()">&larr; Back</button>
-      <button class="btn continue" id="continueBtn" style="display:none" onclick="continueNext()">Continue</button>
+      <button class="back" id="backBtn" onclick="goBack()">{{ASSESS_BACK_BUTTON}}</button>
+      <button class="btn continue" id="continueBtn" style="display:none" onclick="continueNext()">{{ASSESS_CONTINUE_BUTTON}}</button>
     </div>
   </div>
 
@@ -163,25 +164,25 @@
         <div class="stagenum" id="rNum"></div>
         <h2 id="rTitle"></h2>
         <div class="tagline" id="rTag"></div>
-        <div class="movingpill" id="rMoving"><span class="arrow">You seem to be moving toward</span> <b id="rMovingName"></b></div>
+        <div class="movingpill" id="rMoving"><span class="arrow">{{ASSESS_MOVING_LABEL}}</span> <b id="rMovingName"></b></div>
       </div>
       <div class="result-body">
         <p id="rDesc"></p>
         <div class="resonate" id="rResonate"></div>
         <div class="spiral" id="spiral"></div>
-        <p style="text-align:center;font-size:.9rem;color:var(--taupe);margin-top:6px">The journey of faith — you're somewhere on this spiral, and you'll travel it more than once.</p>
+        <p style="text-align:center;font-size:.9rem;color:var(--taupe);margin-top:6px">{{ASSESS_SPIRAL_NOTE}}</p>
 
         <div class="capture" id="capture">
-          <h3 id="captureTitle">Want the deeper version to keep?</h3>
-          <p class="lead" id="captureLead">We'll send you the full <b id="rGuideName" style="color:var(--gold)"></b> guide — a beautiful, printable companion for your season, with practices to try, and books, podcasts, and resources worth your time.</p>
+          <h3 id="captureTitle">{{ASSESS_CAPTURE_HEADING}}</h3>
+          <p class="lead" id="captureLead">{{ASSESS_CAPTURE_LEAD_BEFORE}} <b id="rGuideName" style="color:var(--gold)"></b> {{ASSESS_CAPTURE_LEAD_AFTER}}</p>
           <form id="captureForm" data-endpoint="/api/lead">
             <div class="fields">
-              <input type="text" id="rFirst" name="firstName" placeholder="First name (optional)" autocomplete="given-name" />
-              <input type="email" id="rEmail" name="email" placeholder="you@email.com" required aria-label="Email" />
+              <input type="text" id="rFirst" name="firstName" placeholder="{{ASSESS_FIRST_PLACEHOLDER}}" autocomplete="given-name" />
+              <input type="email" id="rEmail" name="email" placeholder="{{ASSESS_EMAIL_PLACEHOLDER}}" required aria-label="Email" />
             </div>
-            <p class="nospam"><span>We will not spam you.</span></p>
-            <p class="subnote" id="captureSubnote">Your guide, then at most one gentle follow-up — and that's it, unless you want more.</p>
-            <label class="news"><input type="checkbox" id="rNews" name="newsletter" value="yes" /> <span>Also send me the occasional Homeward note — reflections and what's forming in DFW. (You can opt out anytime.)</span></label>
+            <p class="nospam"><span>{{ASSESS_NO_SPAM}}</span></p>
+            <p class="subnote" id="captureSubnote">{{ASSESS_SUBNOTE}}</p>
+            <label class="news"><input type="checkbox" id="rNews" name="newsletter" value="yes" /> <span>{{ASSESS_NEWSLETTER}}</span></label>
             <input type="hidden" name="form_type" value="assessment" />
             <input type="hidden" id="hStage" name="assessment_stage" />
             <input type="hidden" id="hMoving" name="moving_toward" />
@@ -190,29 +191,30 @@
             <input type="hidden" id="hIntent" name="intent" />
             <input type="hidden" id="hLongings" name="longings" />
             <input type="hidden" id="hNote" name="open_note" />
-            <button class="btn" type="submit" id="rSubmit">Email me my guide</button>
+            <button class="btn" type="submit" id="rSubmit">{{ASSESS_SUBMIT}}</button>
           </form>
           <div class="capture-done" id="captureDone">
-            <h3 id="captureDoneTitle">Your guide is ready. 🌿</h3>
-            <p id="captureDoneText" style="margin-bottom:0">Thank you for reflecting honestly — we're glad you're here.</p>
-            <div class="capture-links" id="captureLinks"><a class="btn" id="guideOpenBtn" href="/journey/sacred-search">Read the guide online</a><a class="btn ghost" id="guidePdfBtn" href="/downloads/Homeward_Sacred_Search_Guide.pdf">Download the PDF</a></div>
+            <h3 id="captureDoneTitle">{{ASSESS_DONE_HEADING}}</h3>
+            <p id="captureDoneText" style="margin-bottom:0">{{ASSESS_DONE_TEXT}}</p>
+            <div class="capture-links" id="captureLinks"><a class="btn" id="guideOpenBtn" href="/journey/sacred-search">{{ASSESS_ONLINE_BUTTON}}</a><a class="btn ghost" id="guidePdfBtn" href="/downloads/Homeward_Sacred_Search_Guide.pdf">{{ASSESS_PDF_BUTTON}}</a></div>
           </div>
         </div>
       </div>
       <div class="share">
-        <a href="#" id="shareBtn" onclick="shareResult(event)">Share “which season are you in?” &rarr;</a>
+        <a href="#" id="shareBtn" onclick="shareResult(event)">{{ASSESS_SHARE}}</a>
       </div>
       <div class="result-actions">
-        <a class="btn" id="joinBtn" href="index.html#interest">Tell us you're interested</a>
-        <a class="btn ghost" href="about.html">Learn more about Homeward</a>
+        <a class="btn" id="joinBtn" href="index.html#interest">{{ASSESS_INTEREST_BUTTON}}</a>
+        <a class="btn ghost" href="about.html">{{ASSESS_ABOUT_BUTTON}}</a>
       </div>
-      <div class="retake-note">Faith is a spiral — come back in a few months and see how you've moved.<button class="restart" onclick="restart()">Take the reflection again</button></div>
+      <div class="retake-note">{{ASSESS_RETAKE_NOTE}}<button class="restart" onclick="restart()">{{ASSESS_RETAKE_BUTTON}}</button></div>
     </div>
   </div>
 
 </div>
 
 <script>
+var ASSESSMENT_COPY = {{ASSESS_COPY_JSON}};
 /* ---------- Journey of Faith: 6 stages ---------- */
 var STAGES = {
   1:{num:"Stage One",title:"Inherited Faith",tag:"A place to begin",guide:"Inherited Faith",
@@ -298,6 +300,19 @@ var Q = [
  {type:'text',q:"Anything you'd like us to know — comments, suggestions, or a question you're carrying?",hint:"Optional — a sentence is plenty.",intake:'note'}
 ];
 
+/* Editable copy from content/assessment.json; scoring weights and CRM values stay protected below. */
+(ASSESSMENT_COPY.stages || []).forEach(function(stage, index){
+  var target=STAGES[index+1]; if(!target) return;
+  target.num=stage.num; target.title=stage.title; target.tag=stage.tag; target.guide=stage.guide;
+  target.desc=stage.description; target.res=stage.resonate; target.season=stage.season;
+});
+(ASSESSMENT_COPY.labels || []).forEach(function(label,index){ LABELS[index+1]=label; });
+(ASSESSMENT_COPY.questions || []).forEach(function(question,index){
+  var target=Q[index]; if(!target) return;
+  target.q=question.question; target.hint=question.hint || '';
+  (question.options || []).forEach(function(label,optionIndex){ if(target.opts && target.opts[optionIndex]) target.opts[optionIndex].t=label; });
+});
+
 var current=0, answers=[];
 
 function startQuiz(){
@@ -308,7 +323,7 @@ function startQuiz(){
 }
 function renderQuestion(){
   var q=Q[current];
-  document.getElementById('qcount').textContent='Question '+(current+1)+' of '+Q.length;
+  document.getElementById('qcount').textContent=ASSESSMENT_COPY.quiz.question_label+' '+(current+1)+' '+ASSESSMENT_COPY.quiz.of_label+' '+Q.length;
   document.getElementById('qtext').textContent=q.q;
   document.getElementById('qhint').textContent=q.hint||'';
   var wrap=document.getElementById('options'); wrap.innerHTML='';
@@ -316,10 +331,10 @@ function renderQuestion(){
 
   if(q.type==='text'){
     var ta=document.createElement('textarea');
-    ta.id='textInput'; ta.placeholder='Type here…';
+    ta.id='textInput'; ta.placeholder=ASSESSMENT_COPY.quiz.text_placeholder;
     if(typeof answers[current]==='string') ta.value=answers[current];
     wrap.appendChild(ta);
-    cont.style.display='inline-block'; cont.textContent='Continue';
+    cont.style.display='inline-block'; cont.textContent=ASSESSMENT_COPY.quiz.continue;
   } else if(q.type==='multi'){
     var sel=Array.isArray(answers[current])?answers[current]:[];
     q.opts.forEach(function(o,i){
@@ -329,7 +344,7 @@ function renderQuestion(){
       b.onclick=function(){ toggleMulti(i,q.max); };
       wrap.appendChild(b);
     });
-    cont.style.display='inline-block'; cont.textContent='Continue';
+    cont.style.display='inline-block'; cont.textContent=ASSESSMENT_COPY.quiz.continue;
   } else {
     q.opts.forEach(function(o,i){
       var b=document.createElement('button');
@@ -406,12 +421,11 @@ function showResult(stage,moving,intake){
   var captureSubnote=document.getElementById('captureSubnote');
   var submitButton=document.getElementById('rSubmit');
   if(guideReady){
-    captureTitle.textContent='Want the deeper version to keep?';
-    var practiceName=stage===1?'Sacred Remembering':(stage===2?'Honest Prayer':(stage===3?'Breath Prayer':(stage===4?'Inspired Reading':(stage===5?'Daily Reflection':'Contemplative Presence'))));
-    captureLead.innerHTML="We’ll email you the full <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> guide — a beautiful, printable companion with "+practiceName+" and live resource links.";
-    captureSubnote.textContent='Your guide, then at most one gentle follow-up — and that’s it, unless you want more.';
-    submitButton.textContent='Email me my guide';
-    submitButton.dataset.defaultLabel='Email me my guide';
+    captureTitle.textContent=ASSESSMENT_COPY.result.capture_heading;
+    captureLead.innerHTML=ASSESSMENT_COPY.result.capture_lead_before+" <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> "+ASSESSMENT_COPY.result.capture_lead_after;
+    captureSubnote.textContent=ASSESSMENT_COPY.result.subnote;
+    submitButton.textContent=ASSESSMENT_COPY.result.submit;
+    submitButton.dataset.defaultLabel=ASSESSMENT_COPY.result.submit;
   }else{
     captureTitle.textContent='Want the deeper version when it is ready?';
     captureLead.innerHTML="We’re building the full <b id='rGuideName' style='color:var(--gold)'>"+S.guide+"</b> guide now. Share your email and we’ll send it as soon as this stage is completed.";
@@ -452,16 +466,16 @@ function shareResult(e){
   e.preventDefault();
   var title=document.getElementById('rTitle').textContent;
   var url=window.location.href.split('?')[0];
-  var text="I'm in a season of “"+title+"” on the Homeward journey of faith. Where are you? "+url;
-  if(navigator.share){ navigator.share({title:'Where am I on the journey?',text:text,url:url}).catch(function(){}); }
-  else if(navigator.clipboard){ navigator.clipboard.writeText(text); e.target.textContent='Copied to share ✓'; }
+  var text=ASSESSMENT_COPY.result.share_prefix+" “"+title+"” on the Homeward journey of faith. Where are you? "+url;
+  if(navigator.share){ navigator.share({title:ASSESSMENT_COPY.result.share_title,text:text,url:url}).catch(function(){}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(text); e.target.textContent=ASSESSMENT_COPY.result.share_copied; }
 }
 
 /* email capture -> /api/lead */
 document.getElementById('captureForm').addEventListener('submit',function(e){
   e.preventDefault();
   var form=e.target, endpoint=form.getAttribute('data-endpoint');
-  var btn=document.getElementById('rSubmit'); btn.disabled=true; btn.textContent='Sending…';
+  var btn=document.getElementById('rSubmit'); btn.disabled=true; btn.textContent=ASSESSMENT_COPY.result.sending_label;
   var done=function(body){
     form.style.display='none';
     document.getElementById('captureDone').style.display='block';
@@ -474,16 +488,16 @@ document.getElementById('captureForm').addEventListener('submit',function(e){
       openBtn.href=body.guideUrl;
       if(body.guidePdfUrl)pdfBtn.href=body.guidePdfUrl;
       links.style.display='flex';
-      if(body.emailSent){title.textContent='It is on its way. 🌿';text.textContent='Check your inbox for the guide. You can also open it now below.';}
-      else{title.textContent='Your guide is ready. 🌿';text.textContent='We saved your request. Open the guide now; email delivery can also be enabled for the live site.';}
+      if(body.emailSent){title.textContent=ASSESSMENT_COPY.result.email_sent_heading;text.textContent=ASSESSMENT_COPY.result.email_sent_text;}
+      else{title.textContent=ASSESSMENT_COPY.result.email_link_heading;text.textContent=ASSESSMENT_COPY.result.email_link_text;}
     }else{
       links.style.display='none';
-      title.textContent='You are on the list. 🌿';
-      text.textContent='We saved your request and will send the guide for your stage as soon as it is completed.';
+      title.textContent=ASSESSMENT_COPY.result.future_heading;
+      text.textContent=ASSESSMENT_COPY.result.future_text;
     }
     if(typeof gtag==='function'){gtag('event','journey_reflection_complete',{assessment_stage:document.getElementById('hStage').value||''});}
   };
-  var fail=function(){ btn.disabled=false; btn.textContent=btn.dataset.defaultLabel||'Send my guide'; var note=form.querySelector('.subnote'); if(note){note.textContent='We could not send this just now. Please try again in a moment.';note.style.color='#B35A2A';} };
+  var fail=function(){ btn.disabled=false; btn.textContent=btn.dataset.defaultLabel||ASSESSMENT_COPY.result.submit; var note=form.querySelector('.subnote'); if(note){note.textContent=ASSESSMENT_COPY.result.send_error;note.style.color='#B35A2A';} };
   if(endpoint){
     var data=new FormData(form);
     var params=new URLSearchParams(window.location.search);

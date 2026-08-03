@@ -1,3 +1,3 @@
-# Homeward V6.2.17
+# Homeward Website V6.2.20
 
-Use the targeted ZIP over V6.2.16 for staging. This update changes only the mobile subtitle sizing/tracking and version metadata. See `V6_2_17_STAGING_UPLOAD.md`.
+Use the targeted update over V6.2.17. This package already includes the uninstalled V6.2.18 and V6.2.19 changes. See `V6_2_20_STAGING_UPLOAD.md` for deployment and testing steps.

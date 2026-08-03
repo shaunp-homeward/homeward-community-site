@@ -24,7 +24,8 @@ export default async (req) => {
   if (!email) return json({ ok: false, error: "email-required" }, 400);
 
   const name = [first, last].filter(Boolean).join(" ") || email.split("@")[0] || "Website Lead";
-  const city = clean(data.city);
+  const suppliedCity = clean(data.city); // Backward compatibility with older form versions.
+  const zip = normalizeZip(data.zip || data.postal_code);
   const interestChoice = clean(data.interest);
   const draw = clean(data.draw);
   const formType = clean(data.form_type) || "interest";
@@ -73,7 +74,8 @@ export default async (req) => {
   const guidePdfUrl = guide ? new URL(guide.pdf, requestOrigin).href : "";
   const season = clean(data.season);
   const movingToward = clean(data.moving_toward);
-  const gathering = clean(data.gathering);
+  const assessmentGathering = clean(data.gathering);
+  const gatheringChoice = clean(data.gathering_preference);
   const intent = clean(data.intent);
   const longings = clean(data.longings);
   const openNote = clean(data.open_note);
@@ -87,6 +89,10 @@ export default async (req) => {
   const previewHost = /localhost|127\.0\.0\.1|deploy-preview|--/.test(requestHost);
   const isPreview = (deployContext && deployContext !== "production") || previewHost;
   const allowPreviewWrite = clean(Netlify.env.get("ALLOW_PREVIEW_AIRTABLE")).toLowerCase() === "true";
+
+  const zipLocation = zip ? await lookupUsZip(zip) : null;
+  const city = suppliedCity || (zipLocation ? zipLocation.city : "");
+  const gathering = normalizeGatheringPreference(assessmentGathering || gatheringChoice, zip);
 
   const attribution = {
     source: clean(data.utm_source).toLowerCase(),
@@ -126,7 +132,10 @@ export default async (req) => {
   if (movingToward) notes.push(`Moving toward: ${movingToward}`);
   if (intent) notes.push(`Wants: ${intent}`);
   if (longings) notes.push(`Longing for: ${longings}`);
-  if (gathering) notes.push(`Gathering: ${gathering}`);
+  if (zip) notes.push(`ZIP: ${zip}`);
+  if (zipLocation) notes.push(`City from ZIP: ${zipLocation.city}, ${zipLocation.state}`);
+  if (gatheringChoice) notes.push(`Circle format preference: ${gatheringChoice}`);
+  if (assessmentGathering) notes.push(`Gathering: ${assessmentGathering}`);
   if (openNote) notes.push(`Their words: ${openNote}`);
   notes.push(`Newsletter opt-in: ${newsletter ? "yes" : "no"}`);
   const utmSummary = [attribution.source, attribution.medium, attribution.campaign, attribution.term, attribution.content].filter(Boolean).join(" / ");
@@ -147,6 +156,7 @@ export default async (req) => {
     "Notes": notes.join("\n"),
     "Date Added": new Date().toISOString().slice(0, 10),
   };
+  if (zip) fields["ZIP"] = zip;
   if (city) fields["City"] = city;
   if (interested.length) fields["Interested In"] = interested;
   if (contactTypes.length) fields["Contact Type"] = contactTypes;
@@ -221,6 +231,47 @@ async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl }
   } catch (error) {
     console.error("Guide email exception", error);
     return false;
+  }
+}
+
+function normalizeZip(value) {
+  const match = String(value || "").trim().match(/\b(\d{5})(?:-\d{4})?\b/);
+  return match ? match[1] : "";
+}
+
+function isLikelyDfwZip(zip) {
+  const prefix = Number(String(zip || "").slice(0, 3));
+  return (prefix >= 750 && prefix <= 754) || (prefix >= 760 && prefix <= 762);
+}
+
+function normalizeGatheringPreference(value, zip) {
+  const raw = String(value || "").trim();
+  if (["DFW — open to in person", "DFW — prefer online", "Outside DFW — online"].includes(raw)) return raw;
+  const outsideDfw = zip && !isLikelyDfwZip(zip);
+  if (/in person/i.test(raw)) return "DFW — open to in person";
+  if (/either/i.test(raw)) return outsideDfw ? "Outside DFW — online" : "DFW — open to in person";
+  if (/online/i.test(raw)) return outsideDfw ? "Outside DFW — online" : "DFW — prefer online";
+  return "";
+}
+
+async function lookupUsZip(zip) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 2500);
+  try {
+    // Zippopotam.us is a free postal-code lookup service. Failure never blocks the form.
+    const response = await fetch(`https://api.zippopotam.us/us/${encodeURIComponent(zip)}`, { signal: controller.signal });
+    if (!response.ok) return null;
+    const payload = await response.json();
+    const place = Array.isArray(payload.places) ? payload.places[0] : null;
+    if (!place) return null;
+    const city = String(place["place name"] || "").trim();
+    const state = String(place["state abbreviation"] || place.state || "").trim();
+    return city ? { city, state } : null;
+  } catch (error) {
+    console.warn("ZIP lookup skipped", String(error && error.message || error));
+    return null;
+  } finally {
+    clearTimeout(timeout);
   }
 }
 

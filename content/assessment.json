@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "title": "Where Am I on the Journey? — A Homeward Reflection",
+    "description": "A gentle, five-minute reflection to name where you are on the journey of faith. No right answers, no email required to see your result. From Homeward, a community walking the way of Jesus in DFW.",
+    "og_title": "Where Am I on the Journey? — A Homeward Reflection",
+    "og_description": "A five-minute reflection on where you are with God. No right answers.",
+    "og_image": "assets/hero-community.jpg"
+  },
+  "intro": {
+    "back": "← Homeward",
+    "eyebrow": "A Reflection",
+    "heading": "Where am I on the journey?",
+    "description": "Faith isn't a straight line — it's a spiral we travel, revisit, and deepen over a lifetime. This is a gentle mirror, not a test. Eleven honest questions, about five minutes.",
+    "meta": "No right answers · No email required to see your result",
+    "button": "Begin the reflection"
+  },
+  "quiz": {
+    "question_label": "Question",
+    "of_label": "of",
+    "back": "← Back",
+    "continue": "Continue",
+    "text_placeholder": "Type here…"
+  },
+  "result": {
+    "moving_label": "You seem to be moving toward",
+    "spiral_note": "The journey of faith — you're somewhere on this spiral, and you'll travel it more than once.",
+    "capture_heading": "Want the deeper version to keep?",
+    "capture_lead_before": "We'll send you the full",
+    "capture_lead_after": "guide — a beautiful, printable companion for your season, with practices to try, and books, podcasts, and resources worth your time.",
+    "first_placeholder": "First name (optional)",
+    "email_placeholder": "you@email.com",
+    "no_spam": "We will not spam you.",
+    "subnote": "Your guide, then at most one gentle follow-up — and that's it, unless you want more.",
+    "newsletter": "Also send me the occasional Homeward note — reflections and what's forming in DFW. (You can opt out anytime.)",
+    "submit": "Email me my guide",
+    "done_heading": "Your guide is ready. 🌿",
+    "done_text": "Thank you for reflecting honestly — we're glad you're here.",
+    "online_button": "Read the guide online",
+    "pdf_button": "Download the PDF",
+    "share": "Share “which season are you in?” →",
+    "interest_button": "Tell us you're interested",
+    "about_button": "Learn more about Homeward",
+    "retake_note": "Faith is a spiral — come back in a few months and see how you've moved.",
+    "retake_button": "Take the reflection again",
+    "email_sent_heading": "It is on its way. 🌿",
+    "email_sent_text": "Check your inbox for the guide. You can also open it now below.",
+    "email_link_heading": "Your guide is ready. 🌿",
+    "email_link_text": "We saved your request. Open the guide now; email delivery can also be enabled for the live site.",
+    "future_heading": "You are on the list. 🌿",
+    "future_text": "We saved your request and will send the guide for your stage as soon as it is completed.",
+    "sending_label": "Sending…",
+    "send_error": "We could not send this just now. Please try again in a moment.",
+    "share_prefix": "I’m in a season of",
+    "share_title": "Where am I on the journey?",
+    "share_copied": "Copied to share ✓"
+  },
+  "labels": [
+    "Inherited",
+    "Questions",
+    "Search",
+    "New Ground",
+    "Embodied",
+    "Awake"
+  ],
+  "stages": [
+    {
+      "num": "Stage One",
+      "title": "Inherited Faith",
+      "tag": "A place to begin",
+      "guide": "Inherited Faith",
+      "description": "You're carrying a faith that was largely handed to you — by family, church, or culture. There's real gift in that inheritance: roots, belonging, a sense of the sacred. Right now it may feel settled and mostly unquestioned, and that's a genuine place to stand. Homeward isn't here to shake it loose — it's here to help it become deeply, personally yours.",
+      "resonate": "You might resonate with: honoring where you came from while staying open to what's next.",
+      "season": "inherited"
+    },
+    {
+      "num": "Stage Two",
+      "title": "Honest Questions",
+      "tag": "The cracks that let the light in",
+      "guide": "Honest Questions",
+      "description": "Questions have arrived that you can't un-ask. Maybe the old answers stopped fitting, or something happened the tidy version of faith couldn't hold. This can feel lonely — but here's the heart of Homeward: your doubt isn't a betrayal of faith. It's often love, refusing to settle for something too small. Questions are holy, and you don't have to carry them alone.",
+      "resonate": "You might resonate with: “doubt born of love, not grievance” — questions that lead toward a bigger faith, not out the door.",
+      "season": "questions"
+    },
+    {
+      "num": "Stage Three",
+      "title": "Sacred Search",
+      "tag": "Seeking with open hands",
+      "guide": "Sacred Search",
+      "description": "You're actively looking — reading, praying differently, exploring practices and voices you weren't handed. This is holy, generative work. The risk of this season is wandering without companions or roots. Homeward exists for exactly this: a place to search with others, grounded in the way of Jesus and the deep well of contemplative practice, so the seeking leads somewhere home.",
+      "resonate": "You might resonate with: contemplative practice, honest community, and teachers who take both faith and questions seriously.",
+      "season": "search"
+    },
+    {
+      "num": "Stage Four",
+      "title": "New Foundations",
+      "tag": "Rebuilding with humility and hope",
+      "guide": "New Foundations",
+      "description": "You've been through the unmaking and you're rebuilding — a faith that's simpler in some ways, deeper in others, and unmistakably yours. It can hold mystery without needing to control it. What this season needs is community that can match its depth and keep it from drifting into isolation. That's the kind of table Homeward is setting.",
+      "resonate": "You might resonate with: depth over certainty, practice over performance, and friends for the long road.",
+      "season": "foundations"
+    },
+    {
+      "num": "Stage Five",
+      "title": "Embodied Faith",
+      "tag": "Letting faith become a way of life",
+      "guide": "Embodied Faith",
+      "description": "Faith for you is no longer mostly about believing the right things — it's a whole-person way of being. Prayer, presence, justice, and love are becoming the texture of ordinary days. You may find yourself wanting to help others find this too. Homeward would love to walk with you — and, quite possibly, to have you help shape and lead.",
+      "resonate": "You might resonate with: a rule of life, spiritual practice, and helping build something real for others.",
+      "season": "embodied"
+    },
+    {
+      "num": "Stage Six",
+      "title": "Living Awake",
+      "tag": "Awake to God in everything",
+      "guide": "Living Awake",
+      "description": "You've come round the spiral to a kind of second simplicity — awake to God in the ordinary, holding paradox with peace, and drawn to pour love outward. This isn't an arrival; it's a way of continuing to journey while helping carry others home. If you sense a call to help form and lead a community like this, we'd genuinely love to talk.",
+      "resonate": "You might resonate with: contemplation-in-action, mentoring others, and co-creating community.",
+      "season": "awake"
+    }
+  ],
+  "questions": [
+    {
+      "type": "single",
+      "question": "Which feels most true about where you are with God right now?",
+      "hint": "Choose the one that fits best today.",
+      "options": [
+        "The faith I grew up with still fits — I feel settled and at peace.",
+        "I still believe, but I'm carrying real questions I can't shake.",
+        "I'm searching — exploring what I actually believe and where God is in it.",
+        "I've been actively rebuilding my faith into something more honestly my own.",
+        "Faith has become a whole way of living for me, not just what I believe.",
+        "I feel deeply at home with God — and I want to help others find that."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "Have you ever gone through a season of really wrestling with what you believe?",
+      "hint": "There's no better answer here — steadiness and struggle can both be signs of a living faith.",
+      "options": [
+        "Yes — deeply.",
+        "A little, here and there.",
+        "Not really — it's felt steady."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "When questions or doubts come, where do they usually lead you?",
+      "hint": "",
+      "options": [
+        "Deeper — they've grown my faith bigger.",
+        "Into rebuilding — I'm putting something new together.",
+        "Into searching — I've stepped back and I'm still looking.",
+        "Further out — I've drifted from faith for now.",
+        "They don't come up much — I'm content where I am."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "How would you describe your relationship with church right now?",
+      "hint": "",
+      "options": [
+        "I'm in it, and it feels like home.",
+        "I'm there, but something feels off.",
+        "I've stepped back, but I'm still open.",
+        "I'm away from it right now.",
+        "It's never really been part of my life."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "When it comes to God and other paths, which comes closest to what you believe?",
+      "hint": "Answer honestly — questions are welcome here, and there's no “right” answer to score.",
+      "options": [
+        "Jesus is the one way to God.",
+        "Jesus is my way to God — and I trust God can meet others in ways I don't fully understand.",
+        "I believe many paths hold real truth about God.",
+        "I'm honestly still working that out."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "How do you relate to contemplative practice?",
+      "hint": "Contemplative practice — silence, stillness, visualization, and prayer that's more about embodiment and listening than talking — is how many people learn to notice God's presence in everyday life.",
+      "options": [
+        "It's new to me — I haven't really explored it.",
+        "I'm curious, and I'd like to learn.",
+        "I practice it now and then.",
+        "It's becoming central to how I live."
+      ]
+    },
+    {
+      "type": "single",
+      "question": "Which sounds most like you?",
+      "hint": "",
+      "options": [
+        "I find real peace in clear answers and a faith I can stand on.",
+        "I'm learning to be at peace with questions and mystery.",
+        "I care more about growing than about being right.",
+        "I can hold deep conviction and real openness at the same time."
+      ]
+    },
+    {
+      "type": "multi",
+      "question": "What are you most longing for in this season of life?",
+      "hint": "Choose up to two.",
+      "options": [
+        "A place to truly belong",
+        "To grow spiritually",
+        "Room for honest questions",
+        "A deeper sense of God's presence",
+        "Meaning and purpose",
+        "Real friendships with likeminded people"
+      ]
+    },
+    {
+      "type": "single",
+      "question": "Where are you, and how might you connect — if you ever wanted to?",
+      "hint": "This isn't asking whether you're interested — only what would fit your life. The next question covers interest.",
+      "options": [
+        "DFW area — I'd be open to meeting in person",
+        "DFW area — online would suit me better",
+        "Outside DFW — online only",
+        "Not sure / just here to reflect"
+      ]
+    },
+    {
+      "type": "single",
+      "question": "Is there anything you'd like from Homeward?",
+      "hint": "No pressure at all — this just helps us know how to care for you.",
+      "options": [
+        "I'd love to explore joining a Circle",
+        "I'd try something online",
+        "Just keep me posted for now",
+        "I might want to help build this",
+        "Nothing right now — thank you"
+      ]
+    },
+    {
+      "type": "text",
+      "question": "Anything you'd like us to know — comments, suggestions, or a question you're carrying?",
+      "hint": "Optional — a sentence is plenty.",
+      "options": []
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "title": "Honest Questions - Homeward Journey of Faith",
+  "source": "journey-honest-questions.html",
+  "blocks": [
+    {
+      "key": "journey-honest-questions-001",
+      "label": "Text: Your Journey of Faith Result · Stage Two",
+      "value": "Your Journey of Faith Result · Stage Two"
+    },
+    {
+      "key": "journey-honest-questions-002",
+      "label": "Heading: Honest Questions",
+      "value": "Honest Questions"
+    },
+    {
+      "key": "journey-honest-questions-003",
+      "label": "Text: You appear to be in a season when inherited answers are beginning to str…",
+      "value": "You appear to be in a season when inherited answers are beginning to strain. Questions may be rising through Scripture, science, suffering, injustice, personal experience, identity, or something that happened in church."
+    },
+    {
+      "key": "journey-honest-questions-004",
+      "label": "Button / link: Download the printable PDF",
+      "value": "Download the printable PDF",
+      "url": "/downloads/Homeward_Honest_Questions_Guide.pdf"
+    },
+    {
+      "key": "journey-honest-questions-005",
+      "label": "Button / link: Open the resource shelf",
+      "value": "Open the resource shelf",
+      "url": "/resources/honest-questions"
+    },
+    {
+      "key": "journey-honest-questions-006",
+      "label": "Text: The Journey of Faith",
+      "value": "The Journey of Faith"
+    },
+    {
+      "key": "journey-honest-questions-007",
+      "label": "Heading: A Spiral, Not a Ladder",
+      "value": "A Spiral, Not a Ladder"
+    },
+    {
+      "key": "journey-honest-questions-008",
+      "label": "Text: Spiritual growth is rarely linear. We receive, question, seek, rebuild, …",
+      "value": "Spiritual growth is rarely linear. We receive, question, seek, rebuild, embody, and awaken - often more than once. No stage is a rank, and no stage makes anyone more loved by God."
+    },
+    {
+      "key": "journey-honest-questions-009",
+      "label": "Text: The stages describe how our relationship to faith may change - not God's…",
+      "value": "The stages describe how our relationship to faith may change - not God's relationship to us. Jesus remains at the center of the journey."
+    },
+    {
+      "key": "journey-honest-questions-010",
+      "label": "Text: Inherited Faith",
+      "value": "Inherited Faith"
+    },
+    {
+      "key": "journey-honest-questions-011",
+      "label": "Text: Honest Questions",
+      "value": "Honest Questions"
+    },
+    {
+      "key": "journey-honest-questions-012",
+      "label": "Text: Sacred Search",
+      "value": "Sacred Search"
+    },
+    {
+      "key": "journey-honest-questions-013",
+      "label": "Text: New Foundations",
+      "value": "New Foundations"
+    },
+    {
+      "key": "journey-honest-questions-014",
+      "label": "Text: Embodied Faith",
+      "value": "Embodied Faith"
+    },
+    {
+      "key": "journey-honest-questions-015",
+      "label": "Text: Living Awake",
+      "value": "Living Awake"
+    },
+    {
+      "key": "journey-honest-questions-016",
+      "label": "Text: Where You Are",
+      "value": "Where You Are"
+    },
+    {
+      "key": "journey-honest-questions-017",
+      "label": "Heading: You are not failing. You are becoming honest.",
+      "value": "You are not failing. You are becoming honest."
+    },
+    {
+      "key": "journey-honest-questions-018",
+      "label": "Text: The questions may be intellectual, emotional, moral, or deeply personal.…",
+      "value": "The questions may be intellectual, emotional, moral, or deeply personal. Sometimes the hardest part is not the question itself, but the fear of what asking it might cost."
+    },
+    {
+      "key": "journey-honest-questions-019",
+      "label": "Text: One common risk is believing you must solve everything quickly - or carr…",
+      "value": "One common risk is believing you must solve everything quickly - or carry the questions alone. The invitation is to tell the truth in the presence of God and trustworthy people, without forcing a conclusion before it is ready."
+    },
+    {
+      "key": "journey-honest-questions-020",
+      "label": "Heading: Your questions may be a form of faithfulness.",
+      "value": "Your questions may be a form of faithfulness."
+    },
+    {
+      "key": "journey-honest-questions-021",
+      "label": "Text: Love of truth can require the courage to question answers that no longer…",
+      "value": "Love of truth can require the courage to question answers that no longer hold."
+    },
+    {
+      "key": "journey-honest-questions-022",
+      "label": "Heading: Grief often travels with doubt.",
+      "value": "Grief often travels with doubt."
+    },
+    {
+      "key": "journey-honest-questions-023",
+      "label": "Text: You may be mourning certainty, community, identity, or a picture of God …",
+      "value": "You may be mourning certainty, community, identity, or a picture of God that once made life feel safer."
+    },
+    {
+      "key": "journey-honest-questions-024",
+      "label": "Heading: You do not owe anyone a rushed answer.",
+      "value": "You do not owe anyone a rushed answer."
+    },
+    {
+      "key": "journey-honest-questions-025",
+      "label": "Text: Some questions need study. Others need healing, time, or a new experienc…",
+      "value": "Some questions need study. Others need healing, time, or a new experience of God."
+    },
+    {
+      "key": "journey-honest-questions-026",
+      "label": "Heading: Honesty needs companionship and practice.",
+      "value": "Honesty needs companionship and practice."
+    },
+    {
+      "key": "journey-honest-questions-027",
+      "label": "Text: Safe people and simple prayer keep questions connected to relationship r…",
+      "value": "Safe people and simple prayer keep questions connected to relationship rather than isolation."
+    },
+    {
+      "key": "journey-honest-questions-028",
+      "label": "Text: A Practice for This Season",
+      "value": "A Practice for This Season"
+    },
+    {
+      "key": "journey-honest-questions-029",
+      "label": "Heading: Honest Prayer",
+      "value": "Honest Prayer"
+    },
+    {
+      "key": "journey-honest-questions-030",
+      "label": "Text: Bringing your whole truth into God's presence.",
+      "value": "Bringing your whole truth into God's presence."
+    },
+    {
+      "key": "journey-honest-questions-031",
+      "label": "Heading: Arrive",
+      "value": "Arrive"
+    },
+    {
+      "key": "journey-honest-questions-032",
+      "label": "Text: Take one slow breath. Pray: “God, here is what is true.”",
+      "value": "Take one slow breath. Pray: “God, here is what is true.”"
+    },
+    {
+      "key": "journey-honest-questions-033",
+      "label": "Heading: Name",
+      "value": "Name"
+    },
+    {
+      "key": "journey-honest-questions-034",
+      "label": "Text: Say or write the question, feeling, or disappointment without softening …",
+      "value": "Say or write the question, feeling, or disappointment without softening it for God."
+    },
+    {
+      "key": "journey-honest-questions-035",
+      "label": "Heading: Ask",
+      "value": "Ask"
+    },
+    {
+      "key": "journey-honest-questions-036",
+      "label": "Text: What do you need? What do you wish God would do? Let the prayer be speci…",
+      "value": "What do you need? What do you wish God would do? Let the prayer be specific and unfinished."
+    },
+    {
+      "key": "journey-honest-questions-037",
+      "label": "Heading: Notice & Rest",
+      "value": "Notice & Rest"
+    },
+    {
+      "key": "journey-honest-questions-038",
+      "label": "Text: Notice any thread of trust or longing that remains. Close with silence o…",
+      "value": "Notice any thread of trust or longing that remains. Close with silence or: “I believe; help my unbelief.”"
+    },
+    {
+      "key": "journey-honest-questions-039",
+      "label": "Text: WORDS YOU CAN BORROW",
+      "value": "WORDS YOU CAN BORROW"
+    },
+    {
+      "key": "journey-honest-questions-040",
+      "label": "Text: Try this for seven days: write one honest sentence each day. The aim is …",
+      "value": "Try this for seven days: write one honest sentence each day. The aim is not certainty. It is relationship."
+    },
+    {
+      "key": "journey-honest-questions-041",
+      "label": "Heading: Prefer to be guided?",
+      "value": "Prefer to be guided?"
+    },
+    {
+      "key": "journey-honest-questions-042",
+      "label": "Text: Open the online Honest Prayer practice for a gentle, step-by-step reflec…",
+      "value": "Open the online Honest Prayer practice for a gentle, step-by-step reflection."
+    },
+    {
+      "key": "journey-honest-questions-043",
+      "label": "Button / link: Begin the guided practice",
+      "value": "Begin the guided practice",
+      "url": "/practice-honest-prayer"
+    },
+    {
+      "key": "journey-honest-questions-044",
+      "label": "Text: Read, Listen & Watch",
+      "value": "Read, Listen & Watch"
+    },
+    {
+      "key": "journey-honest-questions-045",
+      "label": "Heading: Companions for the Road",
+      "value": "Companions for the Road"
+    },
+    {
+      "key": "journey-honest-questions-046",
+      "label": "Text: Choose the companion that meets the question most alive in you. You do n…",
+      "value": "Choose the companion that meets the question most alive in you. You do not need to consume the whole shelf."
+    },
+    {
+      "key": "journey-honest-questions-047",
+      "label": "Text: BEGIN HERE",
+      "value": "BEGIN HERE"
+    },
+    {
+      "key": "journey-honest-questions-048",
+      "label": "Heading: The Sin of Certainty",
+      "value": "The Sin of Certainty"
+    },
+    {
+      "key": "journey-honest-questions-049",
+      "label": "Text: Peter Enns",
+      "value": "Peter Enns"
+    },
+    {
+      "key": "journey-honest-questions-050",
+      "label": "Text: Trusting God beyond the need to be right.",
+      "value": "Trusting God beyond the need to be right."
+    },
+    {
+      "key": "journey-honest-questions-051",
+      "label": "Text: WHEN SCRIPTURE IS THE QUESTION",
+      "value": "WHEN SCRIPTURE IS THE QUESTION"
+    },
+    {
+      "key": "journey-honest-questions-052",
+      "label": "Heading: Inspired",
+      "value": "Inspired"
+    },
+    {
+      "key": "journey-honest-questions-053",
+      "label": "Text: Rachel Held Evans",
+      "value": "Rachel Held Evans"
+    },
+    {
+      "key": "journey-honest-questions-054",
+      "label": "Text: Loving the Bible while engaging difficult passages, scholarship, imagina…",
+      "value": "Loving the Bible while engaging difficult passages, scholarship, imagination, and doubt."
+    },
+    {
+      "key": "journey-honest-questions-055",
+      "label": "Text: WHEN SUFFERING BROKE THE ANSWER",
+      "value": "WHEN SUFFERING BROKE THE ANSWER"
+    },
+    {
+      "key": "journey-honest-questions-056",
+      "label": "Heading: Everything Happens for a Reason",
+      "value": "Everything Happens for a Reason"
+    },
+    {
+      "key": "journey-honest-questions-057",
+      "label": "Text: Kate Bowler",
+      "value": "Kate Bowler"
+    },
+    {
+      "key": "journey-honest-questions-058",
+      "label": "Text: A candid memoir about illness, easy explanations, and life without certa…",
+      "value": "A candid memoir about illness, easy explanations, and life without certainty."
+    },
+    {
+      "key": "journey-honest-questions-059",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "journey-honest-questions-060",
+      "label": "Heading: The Bible for Normal People",
+      "value": "The Bible for Normal People"
+    },
+    {
+      "key": "journey-honest-questions-061",
+      "label": "Text: Bible scholarship and honest conversation without false choices between …",
+      "value": "Bible scholarship and honest conversation without false choices between faith and thinking."
+    },
+    {
+      "key": "journey-honest-questions-062",
+      "label": "Text: PODCAST",
+      "value": "PODCAST"
+    },
+    {
+      "key": "journey-honest-questions-063",
+      "label": "Heading: Doubt Can Pull You Closer to Home",
+      "value": "Doubt Can Pull You Closer to Home"
+    },
+    {
+      "key": "journey-honest-questions-064",
+      "label": "Text: R. Eric Thomas on doubt, identity, church, and belonging without pretend…",
+      "value": "R. Eric Thomas on doubt, identity, church, and belonging without pretending."
+    },
+    {
+      "key": "journey-honest-questions-065",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "journey-honest-questions-066",
+      "label": "Heading: What Is the Bible?",
+      "value": "What Is the Bible?"
+    },
+    {
+      "key": "journey-honest-questions-067",
+      "label": "Text: A clear introduction to Scripture as a diverse collection of ancient wri…",
+      "value": "A clear introduction to Scripture as a diverse collection of ancient writings that leads to Jesus."
+    },
+    {
+      "key": "journey-honest-questions-068",
+      "label": "Text: VIDEO",
+      "value": "VIDEO"
+    },
+    {
+      "key": "journey-honest-questions-069",
+      "label": "Heading: What Brought Me Back to Church",
+      "value": "What Brought Me Back to Church"
+    },
+    {
+      "key": "journey-honest-questions-070",
+      "label": "Text: Rachel Held Evans on embodied practices and finding room for faith again…",
+      "value": "Rachel Held Evans on embodied practices and finding room for faith again."
+    },
+    {
+      "key": "journey-honest-questions-071",
+      "label": "Heading: Keep the shelf close.",
+      "value": "Keep the shelf close."
+    },
+    {
+      "key": "journey-honest-questions-072",
+      "label": "Text: Open every link, future addition, and guided practice in one place.",
+      "value": "Open every link, future addition, and guided practice in one place."
+    },
+    {
+      "key": "journey-honest-questions-073",
+      "label": "Button / link: Open the resource shelf",
+      "value": "Open the resource shelf",
+      "url": "/resources/honest-questions"
+    },
+    {
+      "key": "journey-honest-questions-074",
+      "label": "Text: One Next Step",
+      "value": "One Next Step"
+    },
+    {
+      "key": "journey-honest-questions-075",
+      "label": "Heading: Bring Your Questions to the Table.",
+      "value": "Bring Your Questions to the Table."
+    },
+    {
+      "key": "journey-honest-questions-076",
+      "label": "Text: You do not need to solve your questions before you belong. The next fait…",
+      "value": "You do not need to solve your questions before you belong. The next faithful step may be letting one safe person know what is true."
+    },
+    {
+      "key": "journey-honest-questions-077",
+      "label": "Text: It is not a debate. It is a table - questions and all.",
+      "value": "It is not a debate. It is a table - questions and all."
+    },
+    {
+      "key": "journey-honest-questions-078",
+      "label": "Button / link: Explore a Circle",
+      "value": "Explore a Circle",
+      "url": "/m/circle"
+    },
+    {
+      "key": "journey-honest-questions-079",
+      "label": "Button / link: Have a Conversation",
+      "value": "Have a Conversation"
+    }
+  ],
+  "meta_title": "Honest Questions - Homeward Journey of Faith",
+  "meta_description": "A Homeward guide for making room for honest questions and bringing the whole truth into relationship with God."
+}

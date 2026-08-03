@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Start a Conversation — Homeward</title><meta content="Have a short, no-pressure conversation about Homeward, ask questions, and learn whether a Circle might be a good fit." name="description"/><meta content="Start a Conversation — Homeward" property="og:title"/><meta content="Have a short, no-pressure conversation about Homeward and learn whether a Circle might be a good fit." property="og:description"/><meta content="website" property="og:type"/><meta content="assets/hero-community.jpg" property="og:image"/><meta content="#153A2E" name="theme-color"/><link href="assets/mark-forest.png" rel="icon"/><link href="styles.css" rel="stylesheet"/>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>{{META_TITLE}}</title><meta name="description" content="{{META_DESCRIPTION}}"><meta property="og:title" content="{{OG_TITLE}}"><meta property="og:description" content="{{OG_DESCRIPTION}}"><meta content="website" property="og:type"/><meta property="og:image" content="{{OG_IMAGE}}"><meta content="#153A2E" name="theme-color"/><link href="assets/mark-forest.png" rel="icon"/><link href="styles.css" rel="stylesheet"/>
 <!-- Meta Pixel: add the verified Pixel ID only after consent settings are configured. See TRACKING_SETUP.md. -->
 </head><body><header class="site-header">
 <div class="container header-inner">
@@ -17,7 +17,7 @@
 </nav>
 </header><main>
 <section class="page-hero"><div class="container reveal"><p class="eyebrow">{{HERO_EYEBROW}}</p><h1>{{HERO_HEADING}}</h1><p class="lead">{{HERO_LEAD}}</p></div></section>
-<section class="section"><div class="container connect-grid"><aside class="connect-card reveal"><p class="eyebrow">{{EXPECT_EYEBROW}}</p><h3>{{EXPECT_HEADING}}</h3><ul class="check-list">{{EXPECT_ITEMS_HTML}}</ul><p class="small muted">{{EXPECT_NOT_READY_HTML}}</p></aside><div class="reveal"><iframe class="calendly-frame" src="https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&amp;embed_type=Inline&amp;hide_event_type_details=1&amp;background_color=faf6ef&amp;text_color=153a2e&amp;primary_color=b35a2a" title="Schedule a 30-minute Homeward conversation"></iframe><p class="small muted center">If the calendar does not appear, <a href="https://calendly.com/s-pennington/30-min-discovery-call" rel="noopener" style="color:var(--copper);font-weight:700" target="_blank">open it in a new window.</a></p></div></div></section>
+<section class="section"><div class="container connect-grid"><aside class="connect-card reveal"><p class="eyebrow">{{EXPECT_EYEBROW}}</p><h3>{{EXPECT_HEADING}}</h3><ul class="check-list">{{EXPECT_ITEMS_HTML}}</ul><p class="small muted">{{EXPECT_NOT_READY_HTML}}</p></aside><div class="reveal"><iframe class="calendly-frame" src="{{CALENDAR_EMBED_URL}}" title="{{CALENDAR_IFRAME_TITLE}}"></iframe><p class="small muted center">{{CALENDAR_FALLBACK_TEXT}} <a href="{{CALENDAR_EXTERNAL_URL}}" rel="noopener" style="color:var(--copper);font-weight:700" target="_blank">{{CALENDAR_FALLBACK_LINK}}</a></p></div></div></section>
 </main><footer class="site-footer">
 <div class="container">
 <div class="footer-grid">
@@ -34,6 +34,6 @@
 <div class="interest-prompt-actions"><a class="button" data-event="interest_prompt_click" href="index.html#interest">I'm Interested</a><button class="button button-secondary" data-calendar-open="" data-event="start_conversation_click" type="button">Have a Conversation</button></div>
 </aside>
 <div aria-hidden="true" aria-label="Schedule a Homeward conversation" aria-modal="true" class="calendar-modal" id="calendarModal" role="dialog">
-<div class="calendar-dialog"><button aria-label="Close calendar" class="calendar-close" type="button">×</button><iframe data-src="https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&amp;embed_type=Inline&amp;hide_event_type_details=1&amp;background_color=faf6ef&amp;text_color=153a2e&amp;primary_color=b35a2a" title="Schedule a 30-minute Homeward conversation"></iframe></div>
+<div class="calendar-dialog"><button aria-label="Close calendar" class="calendar-close" type="button">×</button><iframe data-src="{{CALENDAR_EMBED_URL}}" title="{{CALENDAR_IFRAME_TITLE}}"></iframe></div>
 </div>
 <div aria-hidden="true" aria-label="Future vision image viewer" aria-modal="true" class="lightbox" id="lightbox" role="dialog"><div class="lightbox-dialog"><button aria-label="Close image" class="lightbox-close" type="button">×</button><button aria-label="Previous image" class="lightbox-prev" type="button">‹</button><img alt="" class="lightbox-image" src=""/><button aria-label="Next image" class="lightbox-next" type="button">›</button><div class="lightbox-caption"></div></div></div><script src="script.js"></script></body></html>
