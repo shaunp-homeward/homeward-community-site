@@ -1,3 +1,3 @@
-# Homeward Website V6.2.20
+# Homeward Website V6.2.21
 
-Use the targeted update over V6.2.17. This package already includes the uninstalled V6.2.18 and V6.2.19 changes. See `V6_2_20_STAGING_UPLOAD.md` for deployment and testing steps.
+Upload the targeted update over V6.2.20 on the staging branch. This release fixes the clipped footer wordmark and makes the traditions FAQ visible on both the homepage and Practices page.

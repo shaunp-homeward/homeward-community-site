@@ -1310,9 +1310,9 @@ body.modal-open{overflow:hidden}
 
 
 /* =========================================================
-   HOMEWARD V6.2.17 — Mobile subtitle width correction
-   Keeps the V6.2.15 HOMEWARD wordmark size and narrows
-   only the A SPIRITUAL COMMUNITY subtitle to end under R.
+   HOMEWARD V6.2.21 — Header-only mobile lockup sizing
+   Preserves the approved mobile header lockup without applying
+   its width constraints to footer logos or other brand marks.
    ========================================================= */
 .conversation-label-mobile{display:none}
 
@@ -1326,19 +1326,19 @@ body.modal-open{overflow:hidden}
     gap:10px;
     min-width:0;
   }
-  .brand{
+  .site-header .brand{
     min-width:0;
     max-width:100%;
     gap:10px;
     overflow:hidden;
   }
-  .brand-mark{width:50px;height:50px}
-  .brand-copy{
+  .site-header .brand-mark{width:50px;height:50px}
+  .site-header .brand-copy{
     min-width:0;
     width:140px;
     overflow:hidden;
   }
-  .brand-copy strong{
+  .site-header .brand-copy strong{
     display:block;
     width:100%;
     overflow:hidden;
@@ -1347,7 +1347,7 @@ body.modal-open{overflow:hidden}
     font-size:1.2rem;
     letter-spacing:.145em;
   }
-  .brand-copy small{
+  .site-header .brand-copy small{
     display:block;
     width:max-content;
     max-width:100%;
@@ -1385,11 +1385,11 @@ body.modal-open{overflow:hidden}
 
 @media(max-width:374px){
   .header-inner{width:min(100% - 14px,1180px);gap:5px}
-  .brand{gap:7px}
-  .brand-mark{width:45px;height:45px}
-  .brand-copy{width:126px}
-  .brand-copy strong{font-size:1.07rem;letter-spacing:.115em}
-  .brand-copy small{font-size:.47rem;letter-spacing:.075em;margin-top:4px}
+  .site-header .brand{gap:7px}
+  .site-header .brand-mark{width:45px;height:45px}
+  .site-header .brand-copy{width:126px}
+  .site-header .brand-copy strong{font-size:1.07rem;letter-spacing:.115em}
+  .site-header .brand-copy small{font-size:.47rem;letter-spacing:.075em;margin-top:4px}
   .mobile-header-actions{gap:4px}
   .mobile-header-conversation{padding:9px 11px;font-size:.74rem}
   .mobile-toggle{width:36px;height:36px;font-size:1.35rem}
