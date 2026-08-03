@@ -434,7 +434,7 @@ try {
 
 const assessmentReplacements = {
   ASSESS_META_TITLE: escapeHtml(assessmentCopy.meta.title), ASSESS_META_DESCRIPTION: attr(assessmentCopy.meta.description), ASSESS_OG_TITLE: attr(assessmentCopy.meta.og_title), ASSESS_OG_DESCRIPTION: attr(assessmentCopy.meta.og_description), ASSESS_OG_IMAGE: attr(assessmentCopy.meta.og_image),
-  ASSESS_BACK: escapeHtml(assessmentCopy.intro.back), ASSESS_EYEBROW: escapeHtml(assessmentCopy.intro.eyebrow), ASSESS_HEADING: escapeHtml(assessmentCopy.intro.heading), ASSESS_DESCRIPTION: escapeHtml(assessmentCopy.intro.description), ASSESS_META_LINE: escapeHtml(assessmentCopy.intro.meta), ASSESS_START_BUTTON: escapeHtml(assessmentCopy.intro.button),
+  ASSESS_BACK: escapeHtml(assessmentCopy.intro.back), ASSESS_EYEBROW: escapeHtml(assessmentCopy.intro.eyebrow), ASSESS_HEADING: escapeHtml(assessmentCopy.intro.heading), ASSESS_DESCRIPTION: escapeHtml(assessmentCopy.intro.description), ASSESS_INCLUSION_NOTE: escapeHtml(assessmentCopy.intro.inclusion_note), ASSESS_META_LINE: escapeHtml(assessmentCopy.intro.meta), ASSESS_START_BUTTON: escapeHtml(assessmentCopy.intro.button),
   ASSESS_BACK_BUTTON: escapeHtml(assessmentCopy.quiz.back), ASSESS_CONTINUE_BUTTON: escapeHtml(assessmentCopy.quiz.continue),
   ASSESS_MOVING_LABEL: escapeHtml(assessmentCopy.result.moving_label), ASSESS_SPIRAL_NOTE: escapeHtml(assessmentCopy.result.spiral_note), ASSESS_CAPTURE_HEADING: escapeHtml(assessmentCopy.result.capture_heading), ASSESS_CAPTURE_LEAD_BEFORE: escapeHtml(assessmentCopy.result.capture_lead_before), ASSESS_CAPTURE_LEAD_AFTER: escapeHtml(assessmentCopy.result.capture_lead_after), ASSESS_FIRST_PLACEHOLDER: attr(assessmentCopy.result.first_placeholder), ASSESS_EMAIL_PLACEHOLDER: attr(assessmentCopy.result.email_placeholder), ASSESS_NO_SPAM: escapeHtml(assessmentCopy.result.no_spam), ASSESS_SUBNOTE: escapeHtml(assessmentCopy.result.subnote), ASSESS_NEWSLETTER: escapeHtml(assessmentCopy.result.newsletter), ASSESS_SUBMIT: escapeHtml(assessmentCopy.result.submit), ASSESS_DONE_HEADING: escapeHtml(assessmentCopy.result.done_heading), ASSESS_DONE_TEXT: escapeHtml(assessmentCopy.result.done_text), ASSESS_ONLINE_BUTTON: escapeHtml(assessmentCopy.result.online_button), ASSESS_PDF_BUTTON: escapeHtml(assessmentCopy.result.pdf_button), ASSESS_SHARE: escapeHtml(assessmentCopy.result.share), ASSESS_INTEREST_BUTTON: escapeHtml(assessmentCopy.result.interest_button), ASSESS_ABOUT_BUTTON: escapeHtml(assessmentCopy.result.about_button), ASSESS_RETAKE_NOTE: escapeHtml(assessmentCopy.result.retake_note), ASSESS_RETAKE_BUTTON: escapeHtml(assessmentCopy.result.retake_button), ASSESS_COPY_JSON: JSON.stringify(assessmentCopy).replaceAll('<', '\\u003c'),
 };
@@ -465,10 +465,10 @@ for (const entry of rootFiles) {
 }
 
 const buildMeta = {
-  version: '6.2.21',
+  version: '6.2.22',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2.21 into ${dist}`);
+console.log(`Built Homeward V6.2.22 into ${dist}`);

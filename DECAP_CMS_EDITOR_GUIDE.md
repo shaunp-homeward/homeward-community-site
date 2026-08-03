@@ -49,7 +49,11 @@ Edit the page introduction, expectations, calendar wording, fallback text, and c
 Edit the introduction, each vision item, image descriptions, and closing note. Hiding the homepage preview does not delete or disable this full page.
 
 ### Journey Reflection / Assessment
-Edit the visible assessment introduction, all eleven questions and answer wording, the six result descriptions, guide-capture messages, delivery-status messages, and button labels. Scoring remains protected so copy edits cannot break result calculation.
+Edit the visible assessment introduction, inclusive welcome note, all eleven questions and answer wording, the six result descriptions, guide-capture messages, delivery-status messages, share wording, and button labels.
+
+The assessment now welcomes people who use language such as **Higher Power**, are uncertain whether they believe in God, have little or no church background, or are spiritually curious without identifying as Christian. Homeward's Jesus-centered identity remains explicit in the introduction and result language.
+
+Scoring weights, CRM values, question types, and technical stage keys remain protected. You may safely revise wording, but keep the eleven questions and each question's answer choices in the same order. The order is how the protected scoring system knows which stage each answer supports.
 
 ## Additional Page Copy
 

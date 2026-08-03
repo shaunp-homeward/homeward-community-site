@@ -43,6 +43,7 @@
   /* INTRO */
   #intro h1{font-size:clamp(2rem,5vw,3rem);text-align:center;margin-top:28px}
   #intro p.sub{font-size:1.2rem;color:#3a3c37;text-align:center;max-width:52ch;margin:20px auto 0}
+  #intro .inclusion-note{font-size:.96rem;color:#36443b;max-width:58ch;margin:22px auto 0;padding:14px 18px;background:#F3ECE0;border-left:3px solid var(--copper);border-radius:0 5px 5px 0;text-align:left}
   #intro .meta{margin-top:14px;font-size:.9rem;color:var(--taupe);text-align:center}
   #intro .start{text-align:center;margin-top:38px}
 
@@ -141,6 +142,7 @@
     <p class="eyebrow" style="text-align:center;margin-top:30px">{{ASSESS_EYEBROW}}</p>
     <h1>{{ASSESS_HEADING}}</h1>
     <p class="sub">{{ASSESS_DESCRIPTION}}</p>
+    <p class="inclusion-note">{{ASSESS_INCLUSION_NOTE}}</p>
     <p class="meta">{{ASSESS_META_LINE}}</p>
     <div class="start"><button class="btn" onclick="startQuiz()">{{ASSESS_START_BUTTON}}</button></div>
   </div>
@@ -218,64 +220,64 @@ var ASSESSMENT_COPY = {{ASSESS_COPY_JSON}};
 /* ---------- Journey of Faith: 6 stages ---------- */
 var STAGES = {
   1:{num:"Stage One",title:"Inherited Faith",tag:"A place to begin",guide:"Inherited Faith",
-     desc:"You're carrying a faith that was largely handed to you — by family, church, or culture. There's real gift in that inheritance: roots, belonging, a sense of the sacred. Right now it may feel settled and mostly unquestioned, and that's a genuine place to stand. Homeward isn't here to shake it loose — it's here to help it become deeply, personally yours.",
-     res:"You might resonate with: honoring where you came from while staying open to what's next.",season:"inherited"},
+     desc:"You're carrying a spiritual or faith framework that was largely handed to you — by family, church, a recovery community, or culture. There can be real gift in that inheritance: roots, belonging, and a sense of the sacred. Right now it may feel settled and mostly unquestioned, and that's a genuine place to stand. Homeward isn't here to shake it loose. It's here to help what you have received become deeply and personally yours.",
+     res:"You might resonate with: honoring where you came from while staying open to what may deepen next.",season:"inherited"},
   2:{num:"Stage Two",title:"Honest Questions",tag:"The cracks that let the light in",guide:"Honest Questions",
-     desc:"Questions have arrived that you can't un-ask. Maybe the old answers stopped fitting, or something happened the tidy version of faith couldn't hold. This can feel lonely — but here's the heart of Homeward: your doubt isn't a betrayal of faith. It's often love, refusing to settle for something too small. Questions are holy, and you don't have to carry them alone.",
-     res:"You might resonate with: “doubt born of love, not grievance” — questions that lead toward a bigger faith, not out the door.",season:"questions"},
+     desc:"Questions have arrived that you can't un-ask. Maybe old answers stopped fitting, your language for God has changed, or something happened that a tidy spiritual framework couldn't hold. This can feel lonely, but questioning is not a failure of faith or honesty. It may be a sign that you are refusing to settle for something too small. Homeward makes room for doubt, uncertainty, and the questions you are still learning to name.",
+     res:"You might resonate with: questions born of honesty and longing — questions that may lead toward a larger, more lived spiritual life.",season:"questions"},
   3:{num:"Stage Three",title:"Sacred Search",tag:"Seeking with open hands",guide:"Sacred Search",
-     desc:"You're actively looking — reading, praying differently, exploring practices and voices you weren't handed. This is holy, generative work. The risk of this season is wandering without companions or roots. Homeward exists for exactly this: a place to search with others, grounded in the way of Jesus and the deep well of contemplative practice, so the seeking leads somewhere home.",
-     res:"You might resonate with: contemplative practice, honest community, and teachers who take both faith and questions seriously.",season:"search"},
+     desc:"You're actively looking — reading, reflecting, praying differently, or exploring practices and voices you weren't handed. You may be searching for God, a Higher Power, meaning, or simply a spiritual life that feels honest and alive. Homeward offers a place to search with others, grounded in the life and way of Jesus and the deep well of contemplative practice, without requiring you to pretend certainty you do not have.",
+     res:"You might resonate with: contemplative practice, honest community, and teachers who take both spiritual hunger and hard questions seriously.",season:"search"},
   4:{num:"Stage Four",title:"New Foundations",tag:"Rebuilding with humility and hope",guide:"New Foundations",
-     desc:"You've been through the unmaking and you're rebuilding — a faith that's simpler in some ways, deeper in others, and unmistakably yours. It can hold mystery without needing to control it. What this season needs is community that can match its depth and keep it from drifting into isolation. That's the kind of table Homeward is setting.",
-     res:"You might resonate with: depth over certainty, practice over performance, and friends for the long road.",season:"foundations"},
+     desc:"You've been through some unmaking and are rebuilding a spiritual life or faith that is simpler in some ways, deeper in others, and unmistakably your own. It can hold mystery without needing to control it and conviction without pretending certainty. What this season needs is community that can match its depth and keep it from drifting into isolation. That's the kind of table Homeward is setting, rooted in Jesus and spacious enough for honest questions.",
+     res:"You might resonate with: depth over certainty, practice over performance, and companions for the long road.",season:"foundations"},
   5:{num:"Stage Five",title:"Embodied Faith",tag:"Letting faith become a way of life",guide:"Embodied Faith",
-     desc:"Faith for you is no longer mostly about believing the right things — it's a whole-person way of being. Prayer, presence, justice, and love are becoming the texture of ordinary days. You may find yourself wanting to help others find this too. Homeward would love to walk with you — and, quite possibly, to have you help shape and lead.",
+     desc:"Faith or spirituality is becoming more than a set of beliefs for you — it is becoming a whole-person way of being. Prayer, presence, compassion, justice, and love are becoming the texture of ordinary days. You may find yourself wanting to help others discover this kind of grounded life too. Homeward would love to walk with you and, quite possibly, invite you to help shape and lead.",
      res:"You might resonate with: a rule of life, spiritual practice, and helping build something real for others.",season:"embodied"},
   6:{num:"Stage Six",title:"Living Awake",tag:"Awake to God in everything",guide:"Living Awake",
-     desc:"You've come round the spiral to a kind of second simplicity — awake to God in the ordinary, holding paradox with peace, and drawn to pour love outward. This isn't an arrival; it's a way of continuing to journey while helping carry others home. If you sense a call to help form and lead a community like this, we'd genuinely love to talk.",
-     res:"You might resonate with: contemplation-in-action, mentoring others, and co-creating community.",season:"awake"}
+     desc:"You've come round the spiral to a kind of second simplicity — awake to God or the sacred in ordinary life, able to hold paradox with peace, and drawn to pour love outward. Whether your language is traditional or still evolving, this isn't an arrival; it is a way of continuing to journey while helping carry others home. If you sense a call to help form and lead a Jesus-centered community like this, we'd genuinely love to talk.",
+     res:"You might resonate with: contemplation in action, mentoring others, and co-creating community.",season:"awake"}
 };
 var LABELS={1:"Inherited",2:"Questions",3:"Search",4:"New Ground",5:"Embodied",6:"Awake"};
 var ANGLE={1:"broad",2:"perplexity",3:"perplexity",4:"transition",5:"harmony",6:"harmony"};
 
 /* ---------- v2 questions ---------- */
 var Q = [
- {type:'single',q:"Which feels most true about where you are with God right now?",hint:"Choose the one that fits best today.",opts:[
-   {t:"The faith I grew up with still fits — I feel settled and at peace.",w:{1:3}},
-   {t:"I still believe, but I'm carrying real questions I can't shake.",w:{2:3}},
-   {t:"I'm searching — exploring what I actually believe and where God is in it.",w:{3:3}},
-   {t:"I've been actively rebuilding my faith into something more honestly my own.",w:{4:3}},
-   {t:"Faith has become a whole way of living for me, not just what I believe.",w:{5:3}},
-   {t:"I feel deeply at home with God — and I want to help others find that.",w:{6:3}} ]},
- {type:'single',q:"Have you ever gone through a season of really wrestling with what you believe?",hint:"There's no better answer here — steadiness and struggle can both be signs of a living faith.",opts:[
+ {type:'single',q:"Which feels most true about your spiritual life right now?",hint:"Choose the one that fits best today — even if none fits perfectly.",opts:[
+   {t:"The spiritual or faith framework I inherited still fits — I feel settled and at peace.",w:{1:3}},
+   {t:"I still have some form of faith or trust, but I'm carrying real questions I can't shake.",w:{2:3}},
+   {t:"I'm searching — exploring God, a Higher Power, meaning, or what I actually believe.",w:{3:3}},
+   {t:"I've been rebuilding my spiritual life into something more honest and my own.",w:{4:3}},
+   {t:"Faith or spirituality has become a whole way of living for me, not just a set of beliefs.",w:{5:3}},
+   {t:"I feel deeply grounded in God, a Higher Power, or the sacred — and I want to help others find that depth.",w:{6:3}} ]},
+ {type:'single',q:"Have you ever gone through a season of deeply wrestling with what you believe — or whether you believe at all?",hint:"There's no better answer here — steadiness, struggle, and uncertainty can all be honest places to be.",opts:[
    {t:"Yes — deeply.",w:{3:1,4:1,5:1}},
    {t:"A little, here and there.",w:{2:1,3:1}},
-   {t:"Not really — it's felt steady.",w:{1:2}} ]},
- {type:'single',q:"When questions or doubts come, where do they usually lead you?",hint:"",opts:[
-   {t:"Deeper — they've grown my faith bigger.",w:{5:3,6:2,4:1}},
-   {t:"Into rebuilding — I'm putting something new together.",w:{4:3,5:1}},
+   {t:"Not really — my beliefs or outlook have felt fairly steady.",w:{1:2}} ]},
+ {type:'single',q:"When questions, doubts, or uncertainty arise, where do they usually lead you?",hint:"",opts:[
+   {t:"Deeper — they've expanded my faith or spiritual life.",w:{5:3,6:2,4:1}},
+   {t:"Into rebuilding — I'm putting something more honest together.",w:{4:3,5:1}},
    {t:"Into searching — I've stepped back and I'm still looking.",w:{3:3,2:1}},
-   {t:"Further out — I've drifted from faith for now.",w:{3:2,2:2}},
-   {t:"They don't come up much — I'm content where I am.",w:{1:2,6:1}} ]},
- {type:'single',q:"How would you describe your relationship with church right now?",hint:"",opts:[
-   {t:"I'm in it, and it feels like home.",w:{1:1,6:1}},
-   {t:"I'm there, but something feels off.",w:{2:2}},
-   {t:"I've stepped back, but I'm still open.",w:{3:2}},
-   {t:"I'm away from it right now.",w:{3:1,2:1}},
-   {t:"It's never really been part of my life.",w:{3:1}} ]},
- {type:'single',q:"When it comes to God and other paths, which comes closest to what you believe?",hint:"Answer honestly — questions are welcome here, and there's no “right” answer to score.",opts:[
+   {t:"Further away from organized faith or spirituality for now.",w:{3:2,2:2}},
+   {t:"They don't come up much — I'm mostly content where I am.",w:{1:2,6:1}} ]},
+ {type:'single',q:"What has your experience with church or organized religion been?",hint:"",opts:[
+   {t:"I'm involved, and it feels like home.",w:{1:1,6:1}},
+   {t:"I'm involved, but something feels off.",w:{2:2}},
+   {t:"I used to be involved and have stepped back, but I'm still open.",w:{3:2}},
+   {t:"I've intentionally stayed away or left.",w:{3:1,2:1}},
+   {t:"Church or organized religion has never really been part of my life.",w:{3:1}} ]},
+ {type:'single',q:"When it comes to Jesus, God, a Higher Power, and other spiritual paths, which comes closest to what you believe?",hint:"Answer honestly — questions are welcome here, and there's no “right” answer to score.",opts:[
    {t:"Jesus is the one way to God.",w:{1:2}},
-   {t:"Jesus is my way to God — and I trust God can meet others in ways I don't fully understand.",w:{4:1,5:2}},
-   {t:"I believe many paths hold real truth about God.",w:{5:1,6:2}},
-   {t:"I'm honestly still working that out.",w:{2:2,3:1}} ]},
- {type:'single',q:"How do you relate to contemplative practice?",hint:"Contemplative practice — silence, stillness, visualization, and prayer that's more about embodiment and listening than talking — is how many people learn to notice God's presence in everyday life.",opts:[
+   {t:"Jesus is my primary path, while I trust others may encounter God or the sacred differently.",w:{4:1,5:2}},
+   {t:"I believe many spiritual paths hold real truth about God, a Higher Power, or the sacred.",w:{5:1,6:2}},
+   {t:"I'm still working out what — if anything — I believe about God, a Higher Power, or the sacred.",w:{2:2,3:1}} ]},
+ {type:'single',q:"How do you relate to contemplative practice?",hint:"Contemplative practice includes silence, stillness, breath, visualization, prayer, and reflective awareness. People use these practices to become more present to God, a Higher Power, the sacred, or simply life as it is.",opts:[
    {t:"It's new to me — I haven't really explored it.",w:{1:2}},
    {t:"I'm curious, and I'd like to learn.",w:{2:1,3:1}},
    {t:"I practice it now and then.",w:{4:2}},
    {t:"It's becoming central to how I live.",w:{5:2,6:1}} ]},
  {type:'single',q:"Which sounds most like you?",hint:"",opts:[
-   {t:"I find real peace in clear answers and a faith I can stand on.",w:{1:3}},
+   {t:"I find real peace in clear beliefs and a spiritual framework I can stand on.",w:{1:3}},
    {t:"I'm learning to be at peace with questions and mystery.",w:{2:2,3:1}},
    {t:"I care more about growing than about being right.",w:{4:2,5:1}},
    {t:"I can hold deep conviction and real openness at the same time.",w:{6:3,5:1}} ]},
@@ -283,13 +285,13 @@ var Q = [
    {t:"A place to truly belong",w:{1:1},val:"Belonging"},
    {t:"To grow spiritually",w:{4:1},val:"Spiritual growth"},
    {t:"Room for honest questions",w:{2:1},val:"Honest questions"},
-   {t:"A deeper sense of God's presence",w:{5:1},val:"God's presence"},
+   {t:"A deeper connection with God, a Higher Power, or the sacred",w:{5:1},val:"God's presence"},
    {t:"Meaning and purpose",w:{3:1},val:"Meaning & purpose"},
-   {t:"Real friendships with likeminded people",w:{1:1},val:"Friendship"} ]},
+   {t:"Real friendships with people who value depth and honesty",w:{1:1},val:"Friendship"} ]},
  {type:'single',q:"Where are you, and how might you connect — if you ever wanted to?",hint:"This isn't asking whether you're interested — only what would fit your life. The next question covers interest.",intake:'gathering',opts:[
-   {t:"DFW area — I'd be open to meeting in person",val:"DFW — open to in person"},
-   {t:"DFW area — online would suit me better",val:"DFW — prefer online"},
-   {t:"Outside DFW — online only",val:"Outside DFW — online"},
+   {t:"Fort Worth area — I'd be open to meeting in person",val:"DFW — open to in person"},
+   {t:"Fort Worth area — online would suit me better",val:"DFW — prefer online"},
+   {t:"Outside the Fort Worth area — online would work best",val:"Outside DFW — online"},
    {t:"Not sure / just here to reflect",val:"Just reflecting"} ]},
  {type:'single',q:"Is there anything you'd like from Homeward?",hint:"No pressure at all — this just helps us know how to care for you.",intake:'intent',opts:[
    {t:"I'd love to explore joining a Circle",val:"Join a Circle"},
@@ -466,7 +468,7 @@ function shareResult(e){
   e.preventDefault();
   var title=document.getElementById('rTitle').textContent;
   var url=window.location.href.split('?')[0];
-  var text=ASSESSMENT_COPY.result.share_prefix+" “"+title+"” on the Homeward journey of faith. Where are you? "+url;
+  var text=ASSESSMENT_COPY.result.share_prefix+" “"+title+"” "+ASSESSMENT_COPY.result.share_suffix+" "+url;
   if(navigator.share){ navigator.share({title:ASSESSMENT_COPY.result.share_title,text:text,url:url}).catch(function(){}); }
   else if(navigator.clipboard){ navigator.clipboard.writeText(text); e.target.textContent=ASSESSMENT_COPY.result.share_copied; }
 }

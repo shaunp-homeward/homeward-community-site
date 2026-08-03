@@ -1662,6 +1662,10 @@ collections:
       - label: Description
         name: description
         widget: text
+      - label: Inclusive welcome note
+        name: inclusion_note
+        widget: text
+        hint: This appears before Question 1. Keep Homeward rooted in Jesus while welcoming people with uncertainty, little church background, or different language for the sacred.
       - label: Reassurance line
         name: meta
         widget: string
@@ -1780,6 +1784,9 @@ collections:
       - label: Share prefix
         name: share_prefix
         widget: string
+      - label: Share message after the stage name
+        name: share_suffix
+        widget: string
       - label: Share title
         name: share_title
         widget: string
@@ -1788,6 +1795,7 @@ collections:
         widget: string
     - label: Six stage results
       name: stages
+      hint: Result wording is editable. Keep all six entries in the same order; stage keys and scoring remain protected.
       widget: list
       allow_add: false
       allow_delete: false
@@ -1833,6 +1841,7 @@ collections:
       max: 6
     - label: Eleven questions
       name: questions
+      hint: You may edit questions, hints, and answer wording. Keep all questions and answers in their existing order because each answer position carries protected scoring and CRM meaning.
       widget: list
       allow_add: false
       allow_delete: false
@@ -1851,6 +1860,7 @@ collections:
         required: false
       - label: Answer choices
         name: options
+        hint: Edit wording only. Do not change the number or order of choices without a scoring review.
         widget: list
         allow_add: false
         allow_delete: false

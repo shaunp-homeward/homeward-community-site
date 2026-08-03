@@ -1,3 +1,3 @@
-# Homeward Website V6.2.21
+# Homeward Website V6.2.22
 
-Upload the targeted update over V6.2.20 on the staging branch. This release fixes the clipped footer wordmark and makes the traditions FAQ visible on both the homepage and Practices page.
+Upload the targeted update over V6.2.21 on the GitHub staging branch. This release implements the approved assessment accessibility revisions and expands the assessment's Decap CMS editing controls without changing scoring, Airtable mapping, or email delivery.
