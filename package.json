@@ -1,6 +1,6 @@
 {
   "name": "homeward-community-site",
-  "version": "6.2.24",
+  "version": "6.2.25",
   "private": true,
   "type": "module",
   "scripts": {
