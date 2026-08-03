@@ -1,6 +1,9 @@
 // Homeward website lead capture -> Airtable Homeward CRM (Contacts table)
 // Required Netlify environment variables:
 // AIRTABLE_TOKEN, AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID
+// RESEND_API_KEY, HOMEWARD_FROM_EMAIL
+// Optional email variables:
+// HOMEWARD_REPLY_TO, HOMEWARD_NOTIFICATION_EMAIL, ALLOW_PREVIEW_EMAIL, PREVIEW_EMAIL_RECIPIENTS
 
 export default async (req) => {
   if (req.method !== "POST") return json({ ok: false, error: "method-not-allowed" }, 405);
@@ -167,8 +170,23 @@ export default async (req) => {
   if (validGathering.includes(gathering)) fields["Gathering Preference"] = gathering;
 
   if (isPreview && !allowPreviewWrite) {
-    console.log("Homeward preview lead captured without Airtable write", { formType, interestChoice, conversationRequested });
-    return json({ ok: true, preview: true, conversationRequested, guideUrl, guidePdfUrl, emailSent: false }, 200);
+    const previewEmailAllowed = canSendPreviewEmail(email);
+    let emailSent = false;
+    let notificationSent = false;
+    if (previewEmailAllowed && formType === "assessment" && guide && email) {
+      emailSent = await sendGuideEmail({ email, firstName: first, guide, guideUrl, guidePdfUrl });
+    }
+    if (previewEmailAllowed && formType === "interest") {
+      notificationSent = await sendInterestNotification({
+        name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
+        draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"),
+        recordId: "", baseId: "", tableId: "", preview: true,
+      });
+    }
+    console.log("Homeward preview lead captured without Airtable write", {
+      formType, interestChoice, conversationRequested, previewEmailAllowed, emailSent, notificationSent,
+    });
+    return json({ ok: true, preview: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent }, 200);
   }
 
   const token = Netlify.env.get("AIRTABLE_TOKEN");
@@ -187,7 +205,10 @@ export default async (req) => {
       console.error("Airtable error", response.status, detail);
       return json({ ok: false, error: "airtable-write-failed" }, 502);
     }
+    const airtablePayload = await response.json().catch(() => ({}));
+    const recordId = airtablePayload?.records?.[0]?.id || "";
     let emailSent = false;
+    let notificationSent = false;
     if (formType === "assessment" && guide && email) {
       emailSent = await sendGuideEmail({
         email,
@@ -197,7 +218,14 @@ export default async (req) => {
         guidePdfUrl,
       });
     }
-    return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent }, 200);
+    if (formType === "interest") {
+      notificationSent = await sendInterestNotification({
+        name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
+        draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"),
+        recordId, baseId, tableId, preview: false,
+      });
+    }
+    return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent }, 200);
   } catch (error) {
     console.error("Airtable fetch failed", error);
     return json({ ok: false, error: "airtable-fetch-failed" }, 502);
@@ -205,31 +233,110 @@ export default async (req) => {
 };
 
 async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl }) {
-  const apiKey = String(Netlify.env.get("RESEND_API_KEY") || "").trim();
-  const from = String(Netlify.env.get("ASSESSMENT_FROM_EMAIL") || "").trim();
-  const replyTo = String(Netlify.env.get("ASSESSMENT_REPLY_TO") || "").trim();
-  if (!apiKey || !from) return false;
+  const config = getEmailConfig();
+  if (!config.apiKey || !config.from) return false;
 
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
   const subject = `Your Homeward guide: ${guide.title}`;
-  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${guideUrl}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${guidePdfUrl}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
-  const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your ${guide.title} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${escapeHtml(guideUrl)}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${escapeHtml(guidePdfUrl)}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
+  const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your complete ${guide.title.replace(/^The\s+/i, "")} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
 
+  return sendViaResend({
+    to: email,
+    subject,
+    html,
+    text,
+    replyTo: config.replyTo,
+    logLabel: "assessment guide",
+  });
+}
+
+async function sendInterestNotification({
+  name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
+  draw, newsletter, conversationRequested, attribution, notes, recordId, baseId, tableId, preview,
+}) {
+  const config = getEmailConfig();
+  if (!config.apiKey || !config.from || !config.notificationTo) return false;
+
+  const location = [city, zipLocation?.state, zip].filter(Boolean).join(", ") || "Not provided";
+  const preferredFormat = gatheringChoice || gathering || "Not provided";
+  const subjectPrefix = preview ? "[STAGING TEST] " : "";
+  const subject = `${subjectPrefix}New Homeward interest: ${name}`;
+  const airtableUrl = recordId && baseId && tableId
+    ? `https://airtable.com/${encodeURIComponent(baseId)}/${encodeURIComponent(tableId)}/${encodeURIComponent(recordId)}`
+    : "";
+  const rows = [
+    ["Name", name],
+    ["Email", email],
+    ["Location", location],
+    ["Preferred format", preferredFormat],
+    ["Interested in", interestChoice || "Not provided"],
+    ["What they hope to find", draw || "Not provided"],
+    ["Conversation requested", conversationRequested ? "Yes" : "No"],
+    ["Newsletter opt-in", newsletter ? "Yes" : "No"],
+    ["Source", attribution?.source || "Direct / unknown"],
+    ["Campaign", attribution?.campaign || "None"],
+  ];
+  const rowHtml = rows.map(([label, value]) => `<tr><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;font-weight:700;color:#153A2E;vertical-align:top;width:180px">${escapeHtml(label)}</td><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;vertical-align:top">${escapeHtml(value)}</td></tr>`).join("");
+  const replyButton = email
+    ? `<p style="margin:26px 0"><a href="mailto:${escapeHtml(email)}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Reply to ${escapeHtml(name)}</a></p>`
+    : "";
+  const airtableButton = airtableUrl
+    ? `<p><a href="${escapeHtml(airtableUrl)}" style="color:#153A2E;font-weight:700">Open the Airtable contact →</a></p>`
+    : "";
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:680px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:28px 30px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · WEBSITE INTEREST</div><h1 style="font-family:Georgia,serif;font-size:31px;margin:10px 0 0">${escapeHtml(name)}</h1></div><div style="background:white;padding:28px 30px;border-radius:0 0 12px 12px"><p>A new person submitted the Homeward interest form${preview ? " on staging" : ""}.</p><table role="presentation" style="width:100%;border-collapse:collapse;margin-top:18px">${rowHtml}</table>${replyButton}${airtableButton}<details style="margin-top:24px"><summary style="cursor:pointer;color:#6D7D6A">Submission notes</summary><pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:13px;color:#555">${escapeHtml(notes || "")}</pre></details></div></div></body></html>`;
+  const textRows = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
+  const text = `A new person submitted the Homeward interest form${preview ? " on staging" : ""}.\n\n${textRows}${airtableUrl ? `\n\nAirtable: ${airtableUrl}` : ""}\n\nSubmission notes:\n${notes || ""}`;
+
+  return sendViaResend({
+    to: config.notificationTo,
+    subject,
+    html,
+    text,
+    replyTo: email || config.replyTo,
+    logLabel: "interest notification",
+  });
+}
+
+function getEmailConfig() {
+  return {
+    apiKey: String(Netlify.env.get("RESEND_API_KEY") || "").trim(),
+    from: String(Netlify.env.get("HOMEWARD_FROM_EMAIL") || Netlify.env.get("ASSESSMENT_FROM_EMAIL") || "").trim(),
+    replyTo: String(Netlify.env.get("HOMEWARD_REPLY_TO") || Netlify.env.get("ASSESSMENT_REPLY_TO") || "").trim(),
+    notificationTo: String(Netlify.env.get("HOMEWARD_NOTIFICATION_EMAIL") || "shaun@homewardcommunity.com").trim(),
+  };
+}
+
+function canSendPreviewEmail(submittedEmail) {
+  const enabled = String(Netlify.env.get("ALLOW_PREVIEW_EMAIL") || "").trim().toLowerCase() === "true";
+  if (!enabled) return false;
+  const allowed = String(Netlify.env.get("PREVIEW_EMAIL_RECIPIENTS") || "")
+    .split(",")
+    .map((item) => item.trim().toLowerCase())
+    .filter(Boolean);
+  return allowed.includes(String(submittedEmail || "").trim().toLowerCase());
+}
+
+async function sendViaResend({ to, subject, html, text, replyTo, logLabel }) {
+  const config = getEmailConfig();
+  if (!config.apiKey || !config.from || !to) return false;
   try {
-    const payload = { from, to: [email], subject, html, text };
+    const payload = { from: config.from, to: Array.isArray(to) ? to : [to], subject, html, text };
     if (replyTo) payload.reply_to = replyTo;
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
+    const responseText = await response.text();
     if (!response.ok) {
-      console.error("Guide email failed", response.status, await response.text());
+      console.error(`${logLabel || "Email"} failed`, response.status, responseText);
       return false;
     }
+    console.log(`${logLabel || "Email"} sent`, responseText);
     return true;
   } catch (error) {
-    console.error("Guide email exception", error);
+    console.error(`${logLabel || "Email"} exception`, error);
     return false;
   }
 }
