@@ -1,6 +1,6 @@
 # Homeward email setup
 
-V6.2.23 uses one Resend account for two transactional-email jobs:
+V6.2.24 uses one Resend account for two transactional-email jobs:
 
 1. Send a participant their assessment guide, including both the online guide and PDF link.
 2. Notify Shaun when someone submits the homepage interest form.
@@ -30,7 +30,7 @@ The site remains compatible with the older variable names `ASSESSMENT_FROM_EMAIL
 
 ## Staging test
 
-After the V6.2.23 patch and environment variables are deployed:
+After the V6.2.24 patch and environment variables are deployed:
 
 - Submit the interest form on staging using `shaun@homewardcommunity.com`. Airtable is not changed, but Shaun should receive a notification with `[STAGING TEST]` in the subject.
 - Complete the assessment on staging and enter `shaun@homewardcommunity.com`. The result email should contain both **Read your guide online** and **Download the printable PDF**.

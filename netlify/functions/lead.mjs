@@ -91,7 +91,13 @@ export default async (req) => {
   const requestHost = new URL(req.url).hostname;
   const previewHost = /localhost|127\.0\.0\.1|deploy-preview|--/.test(requestHost);
   const isPreview = (deployContext && deployContext !== "production") || previewHost;
-  const allowPreviewWrite = clean(Netlify.env.get("ALLOW_PREVIEW_AIRTABLE")).toLowerCase() === "true";
+  const branchName = clean(Netlify.env.get("BRANCH"));
+  const isStagingBranch = /^staging--homeward-community-dfw\.netlify\.app$/i.test(requestHost)
+    || (deployContext === "branch-deploy" && branchName.toLowerCase() === "staging");
+  // The named staging branch is an intentional end-to-end environment: it writes to
+  // the Homeward CRM and sends email. Temporary deploy previews remain sandboxed.
+  const allowPreviewWrite = isStagingBranch
+    || clean(Netlify.env.get("ALLOW_PREVIEW_AIRTABLE")).toLowerCase() === "true";
 
   const zipLocation = zip ? await lookupUsZip(zip) : null;
   const city = suppliedCity || (zipLocation ? zipLocation.city : "");
@@ -128,6 +134,7 @@ export default async (req) => {
 
   const notes = [];
   notes.push(formType === "assessment" ? "Website — Journey Reflection" : "Website — Interest form");
+  if (isStagingBranch) notes.push("Environment: staging branch test");
   if (interestChoice) notes.push(`Selected: ${interestChoice}`);
   if (conversationRequested) notes.push("Conversation requested: yes");
   if (draw) notes.push(`What they hope to find: ${draw}`);
@@ -216,13 +223,14 @@ export default async (req) => {
         guide,
         guideUrl,
         guidePdfUrl,
+        preview: isStagingBranch,
       });
     }
     if (formType === "interest") {
       notificationSent = await sendInterestNotification({
         name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
         draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"),
-        recordId, baseId, tableId, preview: false,
+        recordId, baseId, tableId, preview: isStagingBranch,
       });
     }
     return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent }, 200);
@@ -232,12 +240,12 @@ export default async (req) => {
   }
 };
 
-async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl }) {
+async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl, preview = false }) {
   const config = getEmailConfig();
   if (!config.apiKey || !config.from) return false;
 
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
-  const subject = `Your Homeward guide: ${guide.title}`;
+  const subject = `${preview ? "[STAGING TEST] " : ""}Your Homeward guide: ${guide.title}`;
   const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${escapeHtml(guideUrl)}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${escapeHtml(guidePdfUrl)}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
   const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your complete ${guide.title.replace(/^The\s+/i, "")} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
 
@@ -301,8 +309,8 @@ async function sendInterestNotification({
 function getEmailConfig() {
   return {
     apiKey: String(Netlify.env.get("RESEND_API_KEY") || "").trim(),
-    from: String(Netlify.env.get("HOMEWARD_FROM_EMAIL") || Netlify.env.get("ASSESSMENT_FROM_EMAIL") || "").trim(),
-    replyTo: String(Netlify.env.get("HOMEWARD_REPLY_TO") || Netlify.env.get("ASSESSMENT_REPLY_TO") || "").trim(),
+    from: String(Netlify.env.get("HOMEWARD_FROM_EMAIL") || Netlify.env.get("ASSESSMENT_FROM_EMAIL") || "Homeward <hello@mail.homewardcommunity.com>").trim(),
+    replyTo: String(Netlify.env.get("HOMEWARD_REPLY_TO") || Netlify.env.get("ASSESSMENT_REPLY_TO") || "shaun@homewardcommunity.com").trim(),
     notificationTo: String(Netlify.env.get("HOMEWARD_NOTIFICATION_EMAIL") || "shaun@homewardcommunity.com").trim(),
   };
 }
