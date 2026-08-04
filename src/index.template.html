@@ -14,7 +14,7 @@
   <link href="assets/mark-forest.png" rel="icon"/>
   <link href="styles.css" rel="stylesheet"/>
   <!-- Meta Pixel: add the verified Pixel ID only after consent settings are configured. See TRACKING_SETUP.md. -->
-  <meta content="6.2.18" name="homeward-version"/>
+  <meta content="7.1.0" name="homeward-version"/>
  </head>
  <body>
   <header class="site-header">
@@ -254,7 +254,7 @@
      <div class="journey-panel reveal">
       <div class="journey-layout">
        <div class="journey-visual-panel">
-        <img alt="A six-stage spiral showing the lifelong Homeward Journey of Faith" src="{{JOURNEY_IMAGE}}"/>
+        <img alt="A spiral illustrating the recurring movements of a spiritual journey" src="{{JOURNEY_IMAGE}}"/>
        </div>
        <div class="journey-content">
         <p class="eyebrow">
@@ -266,14 +266,14 @@
         <p class="lead">
          {{JOURNEY_DESCRIPTION}}
         </p>
-        <div class="journey-stages">
-         {{JOURNEY_STAGES_HTML}}
-        </div>
         <aside class="journey-benefit">
          <h3>
           {{JOURNEY_BENEFIT_HEADING}}
          </h3>
-         <p>
+         <ul class="journey-benefit-list">
+          {{JOURNEY_BENEFIT_ITEMS_HTML}}
+         </ul>
+         <p class="journey-benefit-note">
           {{JOURNEY_BENEFIT_TEXT}}
          </p>
         </aside>
