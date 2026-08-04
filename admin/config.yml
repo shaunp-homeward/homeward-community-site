@@ -252,7 +252,7 @@ collections:
       - label: Intro
         name: intro
         widget: text
-      - label: Six questions
+      - label: Four recognition questions
         name: questions
         widget: list
         allow_add: false
@@ -263,8 +263,8 @@ collections:
           label: Question
           name: question
           widget: text
-        min: 6
-        max: 6
+        min: 4
+        max: 4
       - label: Closing welcome line
         name: honest_line
         widget: text
@@ -328,7 +328,7 @@ collections:
       - label: Image
         name: image
         widget: image
-      - label: Gathering flow
+      - label: Three Circle differentiators
         name: steps
         widget: list
         allow_add: false
@@ -342,8 +342,8 @@ collections:
         - label: Description
           name: description
           widget: text
-        min: 5
-        max: 5
+        min: 3
+        max: 3
         summary: '{{fields.title}}'
       - label: Primary button label
         name: primary_label
@@ -526,7 +526,7 @@ collections:
       - label: Journey image
         name: image
         widget: image
-      - label: Six stages
+      - label: Internal journey stages (not shown on homepage)
         name: stages
         widget: list
         allow_add: false
@@ -540,13 +540,25 @@ collections:
         - label: Description
           name: description
           widget: text
-        min: 6
-        max: 6
+        required: false
         summary: '{{fields.title}}'
       - label: Benefit box heading
         name: benefit_heading
         widget: string
-      - label: Benefit box text
+      - label: Benefit bullets
+        name: benefit_items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 4
+        max: 4
+        collapsed: true
+        field:
+          label: Benefit
+          name: benefit
+          widget: string
+      - label: Benefit box closing note
         name: benefit_text
         widget: text
       - label: Button label
@@ -594,8 +606,8 @@ collections:
           label: Statement
           name: statement
           widget: text
-        min: 6
-        max: 6
+        min: 4
+        max: 4
       - label: Community image
         name: community_image
         widget: image

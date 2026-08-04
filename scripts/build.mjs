@@ -152,6 +152,8 @@ const icons = {
   }
 };
 
+const journeyBenefitItems = (items = []) => items.map((item) => `<li><span aria-hidden="true">✓</span><p>${escapeHtml(item)}</p></li>`).join('');
+
 const questionHtml = content.recognition.questions.map((question, index) => `
       <div class="question-v4">
        <div class="question-icon">${index + 1}</div>
@@ -288,6 +290,7 @@ const replacements = {
   JOURNEY_IMAGE: attr(content.journey.image),
   JOURNEY_STAGES_HTML: journeyStagesHtml,
   JOURNEY_BENEFIT_HEADING: escapeHtml(content.journey.benefit_heading),
+  JOURNEY_BENEFIT_ITEMS_HTML: journeyBenefitItems(content.journey.benefit_items),
   JOURNEY_BENEFIT_TEXT: escapeHtml(content.journey.benefit_text),
   JOURNEY_CTA_LABEL: escapeHtml(content.journey.cta_label),
   JOURNEY_CTA_URL: attr(content.journey.cta_url),
@@ -351,6 +354,44 @@ function injectHead(html, snippet) {
 function injectIdentityRedirect(html) {
   if (html.includes('identity-redirect.js')) return html;
   return html.replace(/<\/body>/i, '  <script src="/identity-redirect.js" defer></script>\n </body>');
+}
+
+function makeRootPagePortable(html, pageName) {
+  if (pageName !== 'resources.html') return html;
+  const routeMap = new Map([
+    ['/', 'index.html'],
+    ['/circles', 'circles.html'],
+    ['/practices', 'practices.html'],
+    ['/#journey', 'index.html#journey'],
+    ['/about', 'about.html'],
+    ['/#interest', 'index.html#interest'],
+    ['/resources', 'resources.html'],
+    ['/vision', 'vision.html'],
+    ['/connect', 'connect.html'],
+    ['/privacy.html', 'privacy.html'],
+    ['/practice-remembering', 'practice-remembering.html'],
+    ['/practice-honest-prayer', 'practice-honest-prayer.html'],
+    ['/practice-breath.html', 'practice-breath.html'],
+    ['/practice-inspired-reading', 'practice-inspired-reading.html'],
+    ['/practice-daily-reflection', 'practice-daily-reflection.html'],
+    ['/practice-contemplative-presence', 'practice-contemplative-presence.html'],
+    ['/journey/inherited-faith', 'journey-inherited-faith.html'],
+    ['/journey/honest-questions', 'journey-honest-questions.html'],
+    ['/journey/sacred-search', 'journey-sacred-search.html'],
+    ['/journey/new-foundations', 'journey-new-foundations.html'],
+    ['/journey/embodied-faith', 'journey-embodied-faith.html'],
+    ['/journey/living-awake', 'journey-living-awake.html'],
+  ]);
+  let output = html
+    .replaceAll('href="/styles.css"', 'href="styles.css"')
+    .replaceAll('href="/sacred-search.css"', 'href="sacred-search.css"')
+    .replaceAll('href="/assets/', 'href="assets/')
+    .replaceAll('src="/assets/', 'src="assets/')
+    .replaceAll('src="/script.js"', 'src="script.js"')
+    .replaceAll('src="/journey-explorer.js"', 'src="journey-explorer.js"')
+    .replaceAll('src="/identity-redirect.js"', 'src="identity-redirect.js"');
+  for (const [from, to] of routeMap) output = output.replaceAll(`href="${from}"`, `href="${to}"`);
+  return output;
 }
 
 async function copyRecursive(src, dest) {
@@ -482,17 +523,41 @@ for (const entry of rootFiles) {
     html = injectHead(html, analyticsTag);
     html = applyGlobalCopy(html);
     html = injectIdentityRedirect(html);
+    html = makeRootPagePortable(html, entry.name);
     await fs.writeFile(destination, html);
   } else {
     await fs.copyFile(source, destination);
   }
 }
 
+const resourcesOutput = path.join(dist, 'resources.html');
+const resourcesStat = await fs.stat(resourcesOutput).catch(() => null);
+if (!resourcesStat || resourcesStat.size < 5000) {
+  throw new Error('Resources page was not generated correctly.');
+}
+
 const buildMeta = {
-  version: '6.2.27',
+  version: '7.1.0',
   builtAt: new Date().toISOString(),
   context: process.env.CONTEXT || 'local',
   analyticsEnabled: analyticsTag.includes('googletagmanager.com'),
 };
 await fs.writeFile(path.join(dist, 'build-meta.json'), JSON.stringify(buildMeta, null, 2));
-console.log(`Built Homeward V6.2.27 into ${dist}`);
+
+/*
+ * Keep the root-level generated preview synchronized with dist.
+ * Netlify deploys dist/, but many collaborators open index.html directly
+ * from the source package. Without this sync, the root preview can silently
+ * remain on an older version even though the canonical dist build is current.
+ */
+for (const entry of await fs.readdir(dist, { withFileTypes: true })) {
+  const source = path.join(dist, entry.name);
+  const destination = path.join(root, entry.name);
+  if (entry.isDirectory()) {
+    await fs.cp(source, destination, { recursive: true, force: true });
+  } else {
+    await fs.copyFile(source, destination);
+  }
+}
+
+console.log(`Built Homeward V7.1 into ${dist} and synchronized the root preview`);

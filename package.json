@@ -1,11 +1,12 @@
 {
   "name": "homeward-community-site",
-  "version": "6.2.27",
+  "version": "7.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "dev": "npx netlify dev"
+    "dev": "npx netlify dev",
+    "verify": "node scripts/verify.mjs"
   },
   "engines": {
     "node": ">=20"
