@@ -32,11 +32,19 @@
         widget: object
         fields:
         - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
+        - {label: Season label, name: eyebrow, widget: string}
+        - {label: Program title, name: title, widget: string}
+        - {label: Tagline, name: heading, widget: string}
         - {label: Body, name: body, widget: text}
-        - {label: Link label, name: link_label, widget: string}
-        - {label: Link destination, name: link_url, widget: string}
+        - label: Logistics
+          name: logistics
+          widget: list
+          fields:
+          - {label: Main fact, name: label, widget: string}
+          - {label: Supporting detail, name: detail, widget: string}
+        - {label: Availability line, name: availability, widget: string}
+        - {label: CTA label, name: link_label, widget: string}
+        - {label: CTA destination, name: link_url, widget: string}
       - label: Recognition
         name: recognition
         widget: object
@@ -49,6 +57,10 @@
           name: questions
           widget: list
           field: {label: Question, name: question, widget: text}
+        - label: Author names
+          name: authors
+          widget: list
+          field: {label: Author, name: author, widget: string}
         - {label: Closing line, name: honest_line, widget: text}
       - label: Exercises for the Heart and Mind
         name: practice_bridge
@@ -59,6 +71,8 @@
         - {label: Heading, name: heading, widget: string}
         - {label: Body, name: body, widget: text}
         - {label: Outcome line, name: outcomes, widget: string}
+        - {label: Supporting image, name: image, widget: image}
+        - {label: Image alt text, name: image_alt, widget: string}
       - label: Four Gifts
         name: gifts
         widget: object
@@ -75,6 +89,8 @@
             fields:
             - {label: Practice, name: title, widget: string}
             - {label: Outcome, name: description, widget: text}
+            - {label: Image, name: image, widget: image}
+            - {label: Image alt text, name: image_alt, widget: string}
       - label: Not Your Ordinary Small Group
         name: difference
         widget: object
@@ -92,6 +108,33 @@
           field: {label: Question, name: question, widget: string}
         - {label: Signature, name: signature, widget: string}
         - {label: Closing note, name: closing, widget: text}
+      - label: Journey Reflection
+        name: journey
+        widget: object
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Description, name: description, widget: text}
+        - {label: Spiral artwork, name: image, widget: image}
+        - {label: Benefits heading, name: benefit_heading, widget: string}
+        - label: Benefits
+          name: benefit_items
+          widget: list
+          field: {label: Benefit, name: benefit, widget: string}
+        - {label: Reassurance note, name: benefit_text, widget: text}
+        - {label: CTA label, name: cta_label, widget: string}
+        - {label: CTA destination, name: cta_url, widget: string}
+      - label: Founder
+        name: founder
+        widget: object
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Image, name: image, widget: image}
+        - {label: Image alt text, name: image_alt, widget: string}
+        - {label: Short homepage bio, name: body, widget: text}
+        - {label: Link label, name: link_label, widget: string}
+        - {label: Link destination, name: link_url, widget: string}
     - label: Circles page comparison
       name: circles
       widget: object
