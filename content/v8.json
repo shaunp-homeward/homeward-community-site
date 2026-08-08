@@ -1,0 +1,92 @@
+{
+  "homepage": {
+    "hero": {
+      "eyebrow": "HOMEWARD CIRCLES",
+      "headline": "You learned what to believe.",
+      "emphasis": "But were you ever taught how to practice?",
+      "description": "Homeward Circles are free, four-week gatherings where people practice the way of Jesus together—through prayer, silence, Scripture, reflection, and honest conversation.",
+      "primary_label": "Tell Us You’re Interested",
+      "primary_url": "#interest",
+      "secondary_label": "See How a Circle Works",
+      "secondary_url": "circles.html",
+      "logistics": "Fort Worth + online · Six to eight people · Four weeks · No cost",
+      "requirements": "No church membership or settled beliefs required.",
+      "image": "assets/circles-home-v62.webp",
+      "image_alt": "Adults gathered together in a warm Homeward Circle conversation"
+    },
+    "finding_home": {
+      "enabled": true,
+      "eyebrow": "FINDING HOME",
+      "heading": "A four-week beginning. A lifetime of practice.",
+      "body": "A Homeward Circle is a small, guided experience for people who want more than ideas about spiritual life. Over four weeks, we practice together, reflect honestly, and carry simple practices into ordinary life.",
+      "link_label": "See How a Circle Works",
+      "link_url": "circles.html"
+    },
+    "recognition": {
+      "enabled": true,
+      "eyebrow": "SOME OF THIS IS PROBABLY TRUE FOR YOU",
+      "heading": "Some of this is probably true for you.",
+      "intro": "You may already have faith, questions, practices, or a longing for something deeper. You may simply sense that understanding spiritual life and actually living it are not quite the same thing.",
+      "questions": [
+        "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?",
+        "You long to experience God more deeply, not simply gather more religious information?",
+        "You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?",
+        "You are looking for a community where people learn from one another without being required to reach all the same conclusions?"
+      ],
+      "honest_line": "You do not need settled beliefs—only an honest desire to explore, practice, and grow."
+    },
+    "practice_bridge": {
+      "enabled": true,
+      "eyebrow": "SPIRITUAL PRACTICES",
+      "heading": "Exercises for the heart and mind.",
+      "body": "We exercise our bodies to become stronger, healthier, and more capable. Spiritual practices train our inner life in much the same way—strengthening attention, opening the heart, and helping us return to God in the middle of ordinary life.\n\nOver time, the hope is a life marked by greater focus, more peace and steadiness, deeper connection, more joy and happiness, and a growing capacity to love and serve.",
+      "outcomes": "Focus · Peace · Joy · Happiness · Connection · Love"
+    },
+    "gifts": {
+      "enabled": true,
+      "eyebrow": "FOUR GIFTS",
+      "heading": "In four weeks, you’ll experience four gifts.",
+      "bridge": "The practices are the training. A more peaceful, joyful, loving—and ultimately happier—life is the hope.",
+      "items": [
+        {"title":"Breath Prayer","description":"More peace. Less reactivity."},
+        {"title":"Gratitude","description":"More joy, appreciation, and happiness in ordinary life."},
+        {"title":"Light of Christ","description":"More love, openness, and connection with God and others."},
+        {"title":"Scripture as Encounter","description":"More wisdom, meaning, and a deeper connection with God."}
+      ]
+    },
+    "difference": {
+      "enabled": true,
+      "eyebrow": "WHY A CIRCLE IS DIFFERENT",
+      "heading": "Not your ordinary small group.",
+      "paragraphs": [
+        "Many Christian small groups naturally center on understanding Scripture and faith: <em>What does this passage teach? What do Christians believe? How should we understand this?</em>",
+        "Homeward adds another layer. We gather around practice, personal reflection, lived experience, and honest conversation.",
+        "<strong>Understanding matters.</strong> But spiritual formation asks another question: how does what we encounter in Scripture and prayer actually become part of the way we live?",
+        "Scripture remains important and Jesus remains at the center. A facilitator guides the experience, but does not function primarily as the person with the correct answer. People speak from their own experience, listen deeply to one another, and are not expected to debate, fix, correct, or force agreement. Anyone may pass.",
+        "We practice together during the gathering, then carry a simple practice into ordinary life and return to reflect on what we noticed."
+      ],
+      "questions": ["What are you noticing?","What is this stirring in you?","Where might God be inviting you?","What could you actually practice this week?"],
+      "signature": "Practice the way. Explore honestly. Carry it into life.",
+      "closing": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
+    }
+  },
+  "circles": {
+    "comparison": {
+      "enabled": true,
+      "eyebrow": "A DEEPER LOOK",
+      "heading": "Understanding matters. Homeward adds encounter, practice, and formation.",
+      "intro": "This isn’t a judgment on traditional groups. Many offer meaningful friendship, teaching, and Scripture study. A Homeward Circle builds on that foundation by making spiritual practice part of the experience.",
+      "rows": [
+        {"typical_label":"May emphasize","typical":"Understanding doctrine and beliefs.","typical_quote":"What is sin? Who is Jesus? What does this passage teach?","homeward_label":"Homeward emphasizes","homeward":"Practice, personal reflection, and spiritual formation.","homeward_quote":"What am I noticing? What is God inviting? How might I practice this?"},
+        {"typical_label":"May emphasize","typical":"Discussing Scripture primarily to understand or interpret it.","homeward_label":"Homeward","homeward":"Engaging Scripture as both wisdom to understand and an encounter that can shape how we live."},
+        {"typical_label":"May emphasize","typical":"A leader teaching, explaining, or helping the group reach answers.","homeward_label":"Homeward","homeward":"A facilitator who participates, guides the process, and protects the quality of listening."},
+        {"typical_label":"May emphasize","typical":"Sharing ideas, interpretations, and opinions.","homeward_label":"Homeward","homeward":"Speaking from lived experience, listening deeply, and reflecting personally."},
+        {"typical_label":"May emphasize","typical":"Prayer primarily through words, requests, or discussion.","homeward_label":"Homeward","homeward":"Prayer that can also include meditation, silence, breath, attention, imagination, and receptive listening."},
+        {"typical_label":"May emphasize","typical":"Much of the experience happening during the meeting.","homeward_label":"Homeward","homeward":"A simple practice carried into everyday life and brought back for reflection the following week."},
+        {"typical_label":"May emphasize","typical":"Shared beliefs or reaching similar conclusions as an important part of belonging.","homeward_label":"Homeward","homeward":"People exploring honestly without pressure to reach identical conclusions."}
+      ],
+      "close": "We speak from experience. We listen without fixing. We make room for silence. We practice together. And anyone may pass.",
+      "final": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
+    }
+  }
+}
