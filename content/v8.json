@@ -21,33 +21,33 @@
       "heading": "A four-week beginning. A lifetime of practice.",
       "body": "A Homeward Circle is a small, guided experience for people who want more than ideas about spiritual life. Over four weeks, we practice together, reflect honestly, and carry simple practices into ordinary life.",
       "logistics": [
-        {"label":"Begins the week of Oct 13","detail":"Season One begins together"},
-        {"label":"Four weeks · ~90 minutes","detail":"One evening Circle each week"},
-        {"label":"Six to eight people","detail":"A small, guided gathering"},
-        {"label":"Fort Worth + online","detail":"Two ways to participate"},
-        {"label":"No cost","detail":"No church membership required"}
+        {"label":"Begins the week","detail":"of Oct 13"},
+        {"label":"Four weeks","detail":"~90 minutes each week"},
+        {"label":"Six to eight","detail":"people"},
+        {"label":"Fort Worth","detail":"+ online"},
+        {"label":"No cost","detail":"to participate"}
       ],
-      "availability": "Evening Circles forming now.",
+      "availability": "Evening Circles are forming now.",
       "link_label": "Tell Us You’re Interested",
       "link_url": "#interest"
     },
     "recognition": {
       "enabled": true,
-      "eyebrow": "RECOGNITION",
-      "heading": "Some of this is probably true for you.",
-      "intro": "You may already have faith, questions, practices, or a longing for something deeper. You may simply sense that understanding spiritual life and actually living it are not quite the same thing.",
+      "eyebrow": "THE INVITATION",
+      "heading": "Does any of this feel familiar?",
+      "intro": "Maybe you know a lot about spiritual life—or maybe you’re simply longing for something deeper. Either way, you may sense that understanding faith and actually living it are not quite the same thing.",
       "questions": [
-        "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?",
-        "You long to experience God more deeply, not simply gather more religious information?",
-        "You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?",
-        "You are looking for a community where people learn from one another without being required to reach all the same conclusions?"
+        "You know things about God, but you long to experience God more deeply—not simply gather more information.",
+        "You pray, and sometimes it still feels like talking to the ceiling. You wonder if prayer can also become quieter and more receptive.",
+        "You carry real questions and want to explore them honestly without being pushed toward a predetermined conclusion.",
+        "You want to be less reactive and more awake—more peaceful, joyful, loving, and rooted in God rather than self-improvement."
       ],
       "authors": ["Richard Rohr", "Henri Nouwen", "Thomas Merton", "John Mark Comer"],
       "honest_line": "Any one of these is enough to begin."
     },
     "practice_bridge": {
       "enabled": true,
-      "eyebrow": "SPIRITUAL PRACTICES",
+      "eyebrow": "WHY PRACTICE MATTERS",
       "heading": "Exercises for the heart and mind.",
       "body": "We exercise our bodies to become stronger, healthier, and more capable. Spiritual practices train our inner life in much the same way—strengthening attention, opening the heart, and helping us return to God in the middle of ordinary life.\n\nOver time, the hope is a life marked by greater focus, more peace and steadiness, deeper connection, more joy and happiness, and a growing capacity to love and serve.",
       "outcomes": "Focus · Peace · Joy · Happiness · Connection · Love",
@@ -56,9 +56,9 @@
     },
     "gifts": {
       "enabled": true,
-      "eyebrow": "FOUR GIFTS",
-      "heading": "In four weeks, you’ll experience four gifts.",
-      "bridge": "The practices are the training. A more peaceful, joyful, loving—and ultimately happier—life is the hope.",
+      "eyebrow": "SEASON ONE PRACTICES",
+      "heading": "Four practices. Four gifts for everyday life.",
+      "bridge": "Each practice is a way of training the inner life—opening us to greater peace, joy, wisdom, and connection with God.",
       "items": [
         {"title":"Breath Prayer","description":"More peace. Less reactivity.","image":"assets/embodied-faith/embodied-life.webp","image_alt":"A quiet contemplative moment representing breath prayer and stillness"},
         {"title":"Gratitude","description":"More joy, appreciation, and happiness in ordinary life.","image":"assets/embodied-faith/ordinary-table.webp","image_alt":"An ordinary table in warm natural light representing gratitude in daily life"},
@@ -68,8 +68,8 @@
     },
     "difference": {
       "enabled": true,
-      "eyebrow": "WHY A CIRCLE IS DIFFERENT",
-      "heading": "Not your ordinary small group.",
+      "eyebrow": "NOT YOUR ORDINARY SMALL GROUP",
+      "heading": "A Circle is different.",
       "paragraphs": [
         "Many Christian small groups naturally center on understanding Scripture and faith: <em>What does this passage teach? What do Christians believe? How should we understand this?</em>",
         "Homeward adds another layer. We gather around practice, personal reflection, lived experience, and honest conversation.",
@@ -87,17 +87,17 @@
       "description":"Spiritual growth rarely moves in a straight line. We revisit familiar seasons with new questions, insight, and depth. This reflection helps you recognize what may be most alive in you now—and choose a meaningful next step.",
       "image":"assets/spiritual-journey-spiral-v71.svg",
       "benefit_heading":"What you’ll receive in about five minutes",
-      "benefit_items":["A name and description for the season you may be experiencing","Personalized practices suited to where you are","Curated resources for deeper exploration","A practical next step for your journey"],
+      "benefit_items":["A clear name and description for the season you may be experiencing.","A personalized guide with spiritual practices suited to where you are.","Curated books, videos, podcasts, and resources for deeper exploration.","A practical next step to help you keep moving on your journey."],
       "benefit_text":"Private, reflective, and free—there are no scores, right answers, or beliefs you need to prove.",
       "cta_label":"Take the 5-Minute Spiritual Journey Reflection",
       "cta_url":"assessment.html"
     },
     "founder": {
-      "eyebrow":"Meet Shaun",
+      "eyebrow":"MEET SHAUN",
       "heading":"A fellow traveler.",
       "image":"assets/founder-headshot.jpg",
       "image_alt":"Shaun Pennington, founder of Homeward",
-      "body":"I am not here as someone who has figured it all out. I am here as someone who keeps practicing, asking honest questions, and learning to follow the way of Jesus in ordinary life.",
+      "body":"I’ve spent years exploring deeper practices, honest faith, and a community where people can ask real questions without pretending to have everything figured out. Homeward is the community I was looking for.",
       "link_label":"Read Shaun’s Story →",
       "link_url":"about.html"
     }
