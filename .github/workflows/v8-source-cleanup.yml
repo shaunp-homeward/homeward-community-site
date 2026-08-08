@@ -1,0 +1,58 @@
+name: V8 source architecture cleanup
+on:
+  push:
+    branches: [v8-four-week-front-door]
+permissions:
+  contents: write
+jobs:
+  refactor:
+    if: ${{ !contains(github.event.head_commit.message, 'Canonicalize V8 CMS source') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v8-four-week-front-door
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Add V8 Decap collection
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const file = 'admin/config.yml';
+          let s = fs.readFileSync(file, 'utf8');
+          if (!s.includes('name: v8_front_door')) {
+            s += `\n- name: v8_front_door\n  label: V8 Front Door\n  delete: false\n  files:\n  - name: v8\n    label: V8 Homepage & Circle Messaging\n    file: content/v8.json\n    format: json\n    fields:\n    - label: Homepage\n      name: homepage\n      widget: object\n      fields:\n      - label: Hero\n        name: hero\n        widget: object\n        fields:\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Headline, name: headline, widget: string}\n        - {label: Emphasis, name: emphasis, widget: string}\n        - {label: Description, name: description, widget: text}\n        - {label: Primary CTA, name: primary_label, widget: string}\n        - {label: Primary destination, name: primary_url, widget: string}\n        - {label: Secondary CTA, name: secondary_label, widget: string}\n        - {label: Secondary destination, name: secondary_url, widget: string}\n        - {label: Logistics, name: logistics, widget: string}\n        - {label: Requirements, name: requirements, widget: string}\n        - {label: Hero image, name: image, widget: image}\n        - {label: Image alt text, name: image_alt, widget: string}\n      - label: Finding Home / Season One\n        name: finding_home\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - {label: Body, name: body, widget: text}\n        - {label: Link label, name: link_label, widget: string}\n        - {label: Link destination, name: link_url, widget: string}\n      - label: Recognition\n        name: recognition\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - {label: Intro, name: intro, widget: text}\n        - label: Recognition questions\n          name: questions\n          widget: list\n          field: {label: Question, name: question, widget: text}\n        - {label: Closing line, name: honest_line, widget: text}\n      - label: Exercises for the Heart and Mind\n        name: practice_bridge\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - {label: Body, name: body, widget: text}\n        - {label: Outcome line, name: outcomes, widget: string}\n      - label: Four Gifts\n        name: gifts\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - {label: Editorial bridge, name: bridge, widget: text}\n        - label: Gifts\n          name: items\n          widget: list\n          field:\n            widget: object\n            fields:\n            - {label: Practice, name: title, widget: string}\n            - {label: Outcome, name: description, widget: text}\n      - label: Not Your Ordinary Small Group\n        name: difference\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - label: Paragraphs\n          name: paragraphs\n          widget: list\n          field: {label: Paragraph, name: paragraph, widget: text}\n        - label: Reflection questions\n          name: questions\n          widget: list\n          field: {label: Question, name: question, widget: string}\n        - {label: Signature, name: signature, widget: string}\n        - {label: Closing note, name: closing, widget: text}\n    - label: Circles page comparison\n      name: circles\n      widget: object\n      fields:\n      - label: Comparison\n        name: comparison\n        widget: object\n        fields:\n        - {label: Enabled, name: enabled, widget: boolean, default: true}\n        - {label: Eyebrow, name: eyebrow, widget: string}\n        - {label: Heading, name: heading, widget: string}\n        - {label: Intro, name: intro, widget: text}\n        - label: Comparison rows\n          name: rows\n          widget: list\n          field:\n            widget: object\n            fields:\n            - {label: Typical label, name: typical_label, widget: string}\n            - {label: Typical emphasis, name: typical, widget: text}\n            - {label: Typical question, name: typical_quote, widget: string, required: false}\n            - {label: Homeward label, name: homeward_label, widget: string}\n            - {label: Homeward emphasis, name: homeward, widget: text}\n            - {label: Homeward question, name: homeward_quote, widget: string, required: false}\n        - {label: Closing principle, name: close, widget: text}\n        - {label: Final note, name: final, widget: text}\n`;
+            fs.writeFileSync(file, s);
+          }
+          NODE
+      - name: Remove duplicate V8 scripts
+        run: |
+          rm -f scripts/apply-v8-front-door.mjs scripts/v8-front-door.mjs
+      - name: Validate and run source test
+        run: |
+          npm install --ignore-scripts
+          node --check scripts/render-v8-front-door.mjs
+          node --check scripts/v8-build-hook.mjs
+          cp content/v8.json /tmp/v8-approved.json
+          node <<'NODE'
+          const fs = require('fs');
+          const p = 'content/v8.json';
+          const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+          d.homepage.finding_home.heading = 'SOURCE TEST — RESTORE AFTER BUILD';
+          fs.writeFileSync(p, JSON.stringify(d, null, 2) + '\n');
+          NODE
+          npm run build
+          grep -q 'SOURCE TEST — RESTORE AFTER BUILD' dist/index.html
+          cp /tmp/v8-approved.json content/v8.json
+          npm run build
+          npm run verify
+          test -z "$(grep -R 'apply-v8-front-door\|v8-front-door.mjs' package.json scripts src admin --exclude='v8-source-cleanup.yml' || true)"
+      - name: Commit canonical V8 cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add admin/config.yml content/v8.json package.json scripts/render-v8-front-door.mjs scripts/v8-build-hook.mjs scripts/apply-v8-front-door.mjs scripts/v8-front-door.mjs
+          git commit -m 'Canonicalize V8 CMS source architecture'
+          git push origin v8-four-week-front-door
