@@ -65,10 +65,21 @@
         "Scripture remains important and Jesus remains at the center. A facilitator guides the experience, but does not function primarily as the person with the correct answer. People speak from their own experience, listen deeply to one another, and are not expected to debate, fix, correct, or force agreement. Anyone may pass.",
         "We practice together during the gathering, then carry a simple practice into ordinary life and return to reflect on what we noticed."
       ],
-      "questions": ["What are you noticing?","What is this stirring in you?","Where might God be inviting you?","What could you actually practice this week?"],
-      "signature": "Practice the way. Explore honestly. Carry it into life.",
-      "closing": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
-    }
+      "questions":["What are you noticing?","What is this stirring in you?","Where might God be inviting you?","What could you actually practice this week?"],
+      "signature":"Practice the way. Explore honestly. Carry it into life.",
+      "closing":"Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
+    },
+    "journey": {
+      "eyebrow":"Spiritual Journey Reflection",
+      "heading":"Where are you on your spiritual journey?",
+      "description":"Spiritual growth rarely moves in a straight line. We revisit familiar seasons with new questions, insight, and depth. This reflection helps you recognize what may be most alive in you now—and choose a meaningful next step.",
+      "image":"assets/spiritual-journey-spiral-v71.svg",
+      "benefit_heading":"What you’ll receive in about five minutes",
+      "cta_label":"Take the 5-Minute Spiritual Journey Reflection",
+      "cta_url":"assessment.html"
+    },
+    "founder_image":"assets/founder-headshot.jpg",
+    "founder_short":"I am not here as someone who has figured it all out. I am here as someone who keeps practicing, asking honest questions, and learning to follow the way of Jesus in ordinary life."
   },
   "circles": {
     "comparison": {
@@ -85,8 +96,8 @@
         {"typical_label":"May emphasize","typical":"Much of the experience happening during the meeting.","homeward_label":"Homeward","homeward":"A simple practice carried into everyday life and brought back for reflection the following week."},
         {"typical_label":"May emphasize","typical":"Shared beliefs or reaching similar conclusions as an important part of belonging.","homeward_label":"Homeward","homeward":"People exploring honestly without pressure to reach identical conclusions."}
       ],
-      "close": "We speak from experience. We listen without fixing. We make room for silence. We practice together. And anyone may pass.",
-      "final": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
+      "close":"We speak from experience. We listen without fixing. We make room for silence. We practice together. And anyone may pass.",
+      "final":"Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
     }
   }
 }
