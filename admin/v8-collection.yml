@@ -1,0 +1,120 @@
+- name: v8_front_door
+  label: V8 Front Door
+  delete: false
+  files:
+  - name: v8
+    label: V8 Homepage & Circle Messaging
+    file: content/v8.json
+    format: json
+    fields:
+    - label: Homepage
+      name: homepage
+      widget: object
+      fields:
+      - label: Hero
+        name: hero
+        widget: object
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Headline, name: headline, widget: string}
+        - {label: Emphasis, name: emphasis, widget: string}
+        - {label: Description, name: description, widget: text}
+        - {label: Primary CTA, name: primary_label, widget: string}
+        - {label: Primary destination, name: primary_url, widget: string}
+        - {label: Secondary CTA, name: secondary_label, widget: string}
+        - {label: Secondary destination, name: secondary_url, widget: string}
+        - {label: Logistics, name: logistics, widget: string}
+        - {label: Requirements, name: requirements, widget: string}
+        - {label: Hero image, name: image, widget: image}
+        - {label: Image alt text, name: image_alt, widget: string}
+      - label: Finding Home / Season One
+        name: finding_home
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Body, name: body, widget: text}
+        - {label: Link label, name: link_label, widget: string}
+        - {label: Link destination, name: link_url, widget: string}
+      - label: Recognition
+        name: recognition
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - label: Recognition questions
+          name: questions
+          widget: list
+          field: {label: Question, name: question, widget: text}
+        - {label: Closing line, name: honest_line, widget: text}
+      - label: Exercises for the Heart and Mind
+        name: practice_bridge
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Body, name: body, widget: text}
+        - {label: Outcome line, name: outcomes, widget: string}
+      - label: Four Gifts
+        name: gifts
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Editorial bridge, name: bridge, widget: text}
+        - label: Gifts
+          name: items
+          widget: list
+          field:
+            widget: object
+            fields:
+            - {label: Practice, name: title, widget: string}
+            - {label: Outcome, name: description, widget: text}
+      - label: Not Your Ordinary Small Group
+        name: difference
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - label: Paragraphs
+          name: paragraphs
+          widget: list
+          field: {label: Paragraph, name: paragraph, widget: text}
+        - label: Reflection questions
+          name: questions
+          widget: list
+          field: {label: Question, name: question, widget: string}
+        - {label: Signature, name: signature, widget: string}
+        - {label: Closing note, name: closing, widget: text}
+    - label: Circles page comparison
+      name: circles
+      widget: object
+      fields:
+      - label: Comparison
+        name: comparison
+        widget: object
+        fields:
+        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - label: Comparison rows
+          name: rows
+          widget: list
+          field:
+            widget: object
+            fields:
+            - {label: Typical label, name: typical_label, widget: string}
+            - {label: Typical emphasis, name: typical, widget: text}
+            - {label: Typical question, name: typical_quote, widget: string, required: false}
+            - {label: Homeward label, name: homeward_label, widget: string}
+            - {label: Homeward emphasis, name: homeward, widget: text}
+            - {label: Homeward question, name: homeward_quote, widget: string, required: false}
+        - {label: Closing principle, name: close, widget: text}
+        - {label: Final note, name: final, widget: text}
