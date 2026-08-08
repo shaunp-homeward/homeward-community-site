@@ -16,15 +16,24 @@
     },
     "finding_home": {
       "enabled": true,
-      "eyebrow": "FINDING HOME",
+      "eyebrow": "SEASON ONE · FALL 2026",
+      "title": "Finding Home",
       "heading": "A four-week beginning. A lifetime of practice.",
       "body": "A Homeward Circle is a small, guided experience for people who want more than ideas about spiritual life. Over four weeks, we practice together, reflect honestly, and carry simple practices into ordinary life.",
-      "link_label": "See How a Circle Works",
-      "link_url": "circles.html"
+      "logistics": [
+        {"label":"Begins the week of Oct 13","detail":"Season One begins together"},
+        {"label":"Four weeks · ~90 minutes","detail":"One evening Circle each week"},
+        {"label":"Six to eight people","detail":"A small, guided gathering"},
+        {"label":"Fort Worth + online","detail":"Two ways to participate"},
+        {"label":"No cost","detail":"No church membership required"}
+      ],
+      "availability": "Evening Circles forming now.",
+      "link_label": "Tell Us You’re Interested",
+      "link_url": "#interest"
     },
     "recognition": {
       "enabled": true,
-      "eyebrow": "SOME OF THIS IS PROBABLY TRUE FOR YOU",
+      "eyebrow": "RECOGNITION",
       "heading": "Some of this is probably true for you.",
       "intro": "You may already have faith, questions, practices, or a longing for something deeper. You may simply sense that understanding spiritual life and actually living it are not quite the same thing.",
       "questions": [
@@ -33,14 +42,17 @@
         "You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?",
         "You are looking for a community where people learn from one another without being required to reach all the same conclusions?"
       ],
-      "honest_line": "You do not need settled beliefs—only an honest desire to explore, practice, and grow."
+      "authors": ["Richard Rohr", "Henri Nouwen", "Thomas Merton", "John Mark Comer"],
+      "honest_line": "Any one of these is enough to begin."
     },
     "practice_bridge": {
       "enabled": true,
       "eyebrow": "SPIRITUAL PRACTICES",
       "heading": "Exercises for the heart and mind.",
       "body": "We exercise our bodies to become stronger, healthier, and more capable. Spiritual practices train our inner life in much the same way—strengthening attention, opening the heart, and helping us return to God in the middle of ordinary life.\n\nOver time, the hope is a life marked by greater focus, more peace and steadiness, deeper connection, more joy and happiness, and a growing capacity to love and serve.",
-      "outcomes": "Focus · Peace · Joy · Happiness · Connection · Love"
+      "outcomes": "Focus · Peace · Joy · Happiness · Connection · Love",
+      "image": "assets/remembering-wonder-v6.webp",
+      "image_alt": "A quiet natural scene suggesting attention, wonder, and the inner life"
     },
     "gifts": {
       "enabled": true,
@@ -48,10 +60,10 @@
       "heading": "In four weeks, you’ll experience four gifts.",
       "bridge": "The practices are the training. A more peaceful, joyful, loving—and ultimately happier—life is the hope.",
       "items": [
-        {"title":"Breath Prayer","description":"More peace. Less reactivity."},
-        {"title":"Gratitude","description":"More joy, appreciation, and happiness in ordinary life."},
-        {"title":"Light of Christ","description":"More love, openness, and connection with God and others."},
-        {"title":"Scripture as Encounter","description":"More wisdom, meaning, and a deeper connection with God."}
+        {"title":"Breath Prayer","description":"More peace. Less reactivity.","image":"assets/embodied-faith/embodied-life.webp","image_alt":"A quiet contemplative moment representing breath prayer and stillness"},
+        {"title":"Gratitude","description":"More joy, appreciation, and happiness in ordinary life.","image":"assets/embodied-faith/ordinary-table.webp","image_alt":"An ordinary table in warm natural light representing gratitude in daily life"},
+        {"title":"Light of Christ","description":"More love, openness, and connection with God and others.","image":"assets/remembering-wonder-v6.webp","image_alt":"Warm light in nature suggesting wonder and the presence of Christ"},
+        {"title":"Scripture as Encounter","description":"More wisdom, meaning, and a deeper connection with God.","image":"assets/embodied-faith/_cover_crop.jpg","image_alt":"A reflective reading scene representing Scripture as encounter"}
       ]
     },
     "difference": {
@@ -75,11 +87,20 @@
       "description":"Spiritual growth rarely moves in a straight line. We revisit familiar seasons with new questions, insight, and depth. This reflection helps you recognize what may be most alive in you now—and choose a meaningful next step.",
       "image":"assets/spiritual-journey-spiral-v71.svg",
       "benefit_heading":"What you’ll receive in about five minutes",
+      "benefit_items":["A name and description for the season you may be experiencing","Personalized practices suited to where you are","Curated resources for deeper exploration","A practical next step for your journey"],
+      "benefit_text":"Private, reflective, and free—there are no scores, right answers, or beliefs you need to prove.",
       "cta_label":"Take the 5-Minute Spiritual Journey Reflection",
       "cta_url":"assessment.html"
     },
-    "founder_image":"assets/founder-headshot.jpg",
-    "founder_short":"I am not here as someone who has figured it all out. I am here as someone who keeps practicing, asking honest questions, and learning to follow the way of Jesus in ordinary life."
+    "founder": {
+      "eyebrow":"Meet Shaun",
+      "heading":"A fellow traveler.",
+      "image":"assets/founder-headshot.jpg",
+      "image_alt":"Shaun Pennington, founder of Homeward",
+      "body":"I am not here as someone who has figured it all out. I am here as someone who keeps practicing, asking honest questions, and learning to follow the way of Jesus in ordinary life.",
+      "link_label":"Read Shaun’s Story →",
+      "link_url":"about.html"
+    }
   },
   "circles": {
     "comparison": {
