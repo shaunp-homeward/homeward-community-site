@@ -13,9 +13,19 @@ await fs.cp(source, dist, { recursive: true });
 // deployed CMS preview explicit and enabled. The browser also enables preview
 // at runtime so the setting remains resilient if the copied config changes.
 const configPath = path.join(dist, 'config.yml');
-const config = await fs.readFile(configPath, 'utf8');
+let config = await fs.readFile(configPath, 'utf8');
 const enabledConfig = config.replace(/editor:\n  preview: false/, 'editor:\n  preview: true');
-await fs.writeFile(configPath, enabledConfig);
+config = enabledConfig;
+
+// V8's editable source fields live in a separate, maintainable collection file
+// so the large legacy config remains stable. The collection is merged into the
+// deployed config at build time, before the admin bundle is published.
+const v8CollectionPath = path.join(source, 'v8-collection.yml');
+const v8Collection = await fs.readFile(v8CollectionPath, 'utf8');
+if (!config.includes('name: v8_front_door')) {
+  config = `${config.trimEnd()}\n${v8Collection.trim()}\n`;
+}
+await fs.writeFile(configPath, config);
 
 // Netlify exposes BRANCH during builds. Production is intentionally prevented
 // from becoming a direct main-branch CMS: it falls back to staging. The admin
