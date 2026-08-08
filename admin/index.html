@@ -8,6 +8,53 @@
   <link rel="icon" href="/assets/mark-forest.png" />
 </head>
 <body>
+  <script>
+    // Manual initialization lets the deployed site choose its Git branch at runtime
+    // without requiring a branch-specific edit to admin/config.yml.
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="/admin/runtime-config.js"></script>
+  <script>
+    (function () {
+      const netlifyHost = window.location.hostname;
+      const netlifySite = 'homeward-community-dfw.netlify.app';
+      let hostBranch = '';
+
+      // Netlify's default branch-deploy hostname is branch--site.netlify.app.
+      // Ignore deploy-preview/permalink hosts so they fall back to the build-time branch.
+      const marker = `--${netlifySite}`;
+      if (netlifyHost.endsWith(marker)) {
+        const prefix = netlifyHost.slice(0, -marker.length);
+        if (prefix && !prefix.startsWith('deploy-preview-') && !/^[0-9a-f]{10,}$/i.test(prefix)) {
+          hostBranch = prefix;
+        }
+      }
+
+      const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'staging';
+      const branch = hostBranch || configuredBranch;
+      const safeBranch = branch === 'main' ? 'staging' : branch;
+      const siteUrl = window.location.origin;
+      const init = window.initCMS;
+
+      if (typeof init !== 'function') {
+        throw new Error('Decap CMS failed to expose initCMS.');
+      }
+
+      init({
+        config: {
+          backend: {
+            branch: safeBranch,
+          },
+          site_url: siteUrl,
+          display_url: siteUrl,
+          editor: {
+            preview: true,
+          },
+        },
+      });
+    }());
+  </script>
+  <script src="/admin/preview.js"></script>
 </body>
 </html>
