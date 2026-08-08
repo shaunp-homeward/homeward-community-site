@@ -1,20 +1,20 @@
 {
   "meta": {
-    "title": "Homeward Circles — Guided Spiritual Practice in Community",
-    "description": "Homeward Circles are free, leader-facilitated eight-week groups in Fort Worth and online where people practice Christian meditation, explore Scripture honestly, and carry the way of Jesus into everyday life.",
+    "title": "Homeward Circles — Four-Week Guided Spiritual Practice in Community",
+    "description": "Homeward Circles are free, leader-facilitated four-week groups in Fort Worth and online where people practice Christian meditation, explore Scripture honestly, and carry the way of Jesus into everyday life.",
     "og_title": "Homeward Circles — Guided Spiritual Practice in Community",
-    "og_description": "More than a traditional small group: a guided eight-week community of practice rooted in Jesus, contemplation, shared wisdom, and everyday integration.",
+    "og_description": "More than a traditional small group: a guided four-week community of practice rooted in Jesus, contemplation, shared wisdom, and everyday integration.",
     "og_image": "assets/hero-community.jpg"
   },
   "hero": {
     "eyebrow": "Homeward Circles",
     "heading": "More than a small group. A guided community of practice.",
-    "lead": "Homeward Circles bring together the same six to eight people for eight weeks. We practice time-tested forms of Christian meditation and contemplation, explore Scripture and the way of Jesus through lived experience, and support one another in carrying the practice into everyday life. This is the <strong>how-to of spiritual life</strong>—not another requirement to reach all the same conclusions.",
+    "lead": "Homeward Circles bring together the same six to eight people for four weeks. We practice time-tested forms of Christian meditation and contemplation, explore Scripture and the way of Jesus through lived experience, and support one another in carrying the practice into everyday life. This is the <strong>how-to of spiritual life</strong>—not another requirement to reach all the same conclusions.",
     "primary": "Have a Conversation",
     "secondary": "I’m interested in a Circle",
     "primary_url": "connect.html",
     "secondary_url": "index.html#interest",
-    "logistics": "In person in the Fort Worth area or online · Six to eight people · Eight weeks · No cost"
+    "logistics": "In person in the Fort Worth area or online · Six to eight people · Four weeks · No cost"
   },
   "heart": {
     "image": "assets/circles-page-v62.webp",
@@ -36,70 +36,27 @@
     "heading": "A simple rhythm with room to breathe.",
     "intro": "The flow shifts from week to week, but every gathering includes simple hospitality, a practice we experience together, Scripture and reflection, honest conversation, and a rhythm to carry into everyday life.",
     "steps": [
-      {
-        "title": "Arrive",
-        "description": "Settle in over coffee, drinks, and a simple snack. Reconnect and feel at home—no rush."
-      },
-      {
-        "title": "Become present",
-        "description": "Practice breath prayer, Christian meditation, silence, gratitude, or another guided contemplative rhythm together."
-      },
-      {
-        "title": "Explore",
-        "description": "Engage Scripture, a story, or a teaching rooted in the life and way of Jesus with curiosity."
-      },
-      {
-        "title": "Share",
-        "description": "Speak from lived experience, listen deeply, and learn from the wisdom in the room. No pressure to agree or perform."
-      },
-      {
-        "title": "Carry it home",
-        "description": "Choose a simple practice that helps you return to the present and notice God in everyday life during the week."
-      }
+      {"title":"Arrive","description":"Settle in, reconnect, and feel at home—no rush."},
+      {"title":"Become present","description":"Practice breath prayer, Christian meditation, silence, gratitude, or another guided contemplative rhythm together."},
+      {"title":"Explore","description":"Engage Scripture, a story, or a teaching rooted in the life and way of Jesus with curiosity."},
+      {"title":"Share","description":"Speak from lived experience, listen deeply, and learn from the wisdom in the room. No pressure to agree or perform."},
+      {"title":"Carry it home","description":"Choose a simple practice that helps you return to the present and notice God in everyday life during the week."}
     ]
   },
   "sample": {
     "eyebrow": "Season One · Finding Home",
     "heading": "What one session might feel like.",
-    "intro": "This shows the tone and flow — not a rigid script. A gathering runs about 90 minutes. Week one is about getting to know each other and feeling welcome: everyone's invited to share, and anyone can pass. There's no pressure to perform.",
+    "intro": "This shows the tone and flow—not a rigid script. A gathering runs about 90 minutes. Week one is about getting to know each other and feeling welcome: everyone is invited to share, and anyone can pass. There is no pressure to perform.",
     "week": "Week One",
     "title": "The Invitation Home",
     "description": "An approachable first gathering about belonging, spiritual longing, and what it means to begin honestly.",
     "items": [
-      {
-        "time": "Welcome · ~20 min",
-        "title": "Settling in and getting to know each other",
-        "body": "We settle in over coffee, tea, and snacks — no rush — then begin with a simple question: <em>What drew you here?</em> Everyone's welcome to share, or to pass."
-      },
-      {
-        "time": "Practice · ~8 min",
-        "title": "A guided breath prayer",
-        "body": "A simple practice that calms the body, steadies the mind, and helps us become present to the presence of God — with us and within us. As we breathe, we grow more grounded, open, and loving.<br>Breathing in: <em>Here I am.</em><br>Breathing out: <em>You are here.</em>"
-      },
-      {
-        "time": "Explore · ~15 min",
-        "title": "A story and reflection",
-        "body": "A short, familiar story Jesus told — the son who comes home to a father running to meet him — and an open, honest conversation about God, grace, and how each of us hears it."
-      },
-      {
-        "time": "Conversation · ~30 min",
-        "title": "Honest conversation",
-        "questions": [
-          "When you hear the word <em>home</em>, what image or longing comes to mind?",
-          "Where do you most long to experience welcome or belonging?",
-          "What do you make of a love that runs to meet us before we've figured it all out?"
-        ]
-      },
-      {
-        "time": "For the week · ~5 min",
-        "title": "A practice to carry home",
-        "body": "A few minutes of breath prayer on a few days this week, using the same words: <em>Here I am. You are here.</em>"
-      },
-      {
-        "time": "Blessing · ~5 min",
-        "title": "A simple blessing",
-        "body": "We each offer a word for how we're leaving, and close with a blessing: <em>May you know you are received before you have everything figured out — and may you notice the presence of God on the road ahead.</em>"
-      }
+      {"time":"Welcome · ~20 min","title":"Settling in and getting to know each other","body":"We settle in and begin with a simple question: <em>What drew you here?</em> Everyone is welcome to share, or to pass."},
+      {"time":"Practice · ~8 min","title":"A guided breath prayer","body":"A simple practice that steadies the mind and helps us become present to God—with us and within us. As we breathe, we grow more grounded, open, and loving.<br>Breathing in: <em>Here I am.</em><br>Breathing out: <em>You are here.</em>"},
+      {"time":"Explore · ~15 min","title":"A story and reflection","body":"A short, familiar story Jesus told—the son who comes home to a father running to meet him—and an open, honest conversation about God, grace, and how each of us hears it."},
+      {"time":"Conversation · ~30 min","title":"Honest conversation","questions":["When you hear the word <em>home</em>, what image or longing comes to mind?","Where do you most long to experience welcome or belonging?","What do you make of a love that runs to meet us before we have figured it all out?"]},
+      {"time":"For the week · ~5 min","title":"A practice to carry home","body":"A few minutes of breath prayer on a few days this week, using the same words: <em>Here I am. You are here.</em>"},
+      {"time":"Blessing · ~5 min","title":"A simple blessing","body":"We each offer a word for how we are leaving, and close with a blessing: <em>May you know you are received before you have everything figured out—and may you notice the presence of God on the road ahead.</em>"}
     ]
   },
   "fit": {
@@ -113,14 +70,14 @@
       "You can speak from your own experience and listen without needing to correct others.",
       "You are willing to practice between gatherings and support others on the journey."
     ],
-    "not_heading": "A Circle is probably not the right fit if...",
+    "not_heading": "A Circle may not be the best fit if...",
     "not_items": [
       "Your primary purpose is to debate, disprove, convert, or require agreement from others.",
       "You are unwilling to participate respectfully in Jesus-centered practices.",
       "You want a class built around one expert supplying the correct answers.",
       "You are looking for group therapy or professional mental-health treatment.",
       "You cannot respect confidentiality or the lived experience of other participants.",
-      "You are looking for a drop-in group rather than an eight-week shared journey."
+      "You are looking for a drop-in group rather than a four-week shared journey."
     ]
   },
   "final": {
@@ -138,18 +95,9 @@
     "heading": "This isn’t your ordinary small group.",
     "intro": "The comparison is not a judgment on what came before. Traditional groups can offer real friendship and learning. Circles build on that foundation by adding the missing how-to: guided practice, shared wisdom, and support for carrying the practice into everyday life.",
     "items": [
-      {
-        "title": "Practice together.",
-        "description": "Experience Christian meditation, contemplative prayer, silence, inspired reading, and other time-tested practices together. Sustained practice can reshape patterns of attention and response, helping us become less reactive, more present, and more receptive to God."
-      },
-      {
-        "title": "Learn through shared experience.",
-        "description": "The facilitator holds the process, but no one person holds all the answers. Participants speak from lived experience, listen deeply, and discover wisdom together without debating toward agreement."
-      },
-      {
-        "title": "Carry it into life.",
-        "description": "Each week includes a simple practice for ordinary life. The Circle helps us keep returning—until we begin to notice God, connection, meaning, awe, and wonder in the moments already in front of us."
-      }
+      {"title":"Practice together.","description":"Experience Christian meditation, contemplative prayer, silence, inspired reading, and other time-tested practices together. Sustained practice can reshape patterns of attention and response, helping us become less reactive, more present, and more receptive to God."},
+      {"title":"Learn through shared experience.","description":"The facilitator holds the process, but no one person holds all the answers. Participants speak from lived experience, listen deeply, and discover wisdom together without debating toward agreement."},
+      {"title":"Carry it into life.","description":"Each week includes a simple practice for ordinary life. The Circle helps us keep returning—until we begin to notice God, connection, meaning, awe, and wonder in the moments already in front of us."}
     ]
   },
   "practice_example": {
@@ -158,26 +106,11 @@
     "heading": "Here I am. You are here.",
     "lead": "In a Circle, we do not only explain breath prayer. We practice it together, reflect on what we notice, and use it during the week whenever we need to return to the present moment.",
     "steps": [
-      {
-        "title": "Settle",
-        "description": "Let your body become still and notice the natural rhythm of your breathing."
-      },
-      {
-        "title": "Breathe in",
-        "description": "Here I am."
-      },
-      {
-        "title": "Breathe out",
-        "description": "You are here."
-      },
-      {
-        "title": "Return",
-        "description": "When the mind wanders, gently return to the breath and the words."
-      },
-      {
-        "title": "Carry it home",
-        "description": "Practice for three to five minutes on a few days this week."
-      }
+      {"title":"Settle","description":"Let your body become still and notice the natural rhythm of your breathing."},
+      {"title":"Breathe in","description":"Here I am."},
+      {"title":"Breathe out","description":"You are here."},
+      {"title":"Return","description":"When the mind wanders, gently return to the breath and the words."},
+      {"title":"Carry it home","description":"Practice for three to five minutes on a few days this week."}
     ],
     "closing": "The point is not to perform the practice perfectly. It is to train attention and become more available to God, ourselves, other people, and the life directly in front of us.",
     "button": "Explore all practices",
