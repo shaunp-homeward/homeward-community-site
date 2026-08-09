@@ -9,7 +9,7 @@ const distDir = path.join(root, 'dist');
 
 await fs.mkdir(distDir, { recursive: true });
 
-for (const name of ['index-draft1.html', 'index-draft2.html']) {
+for (const name of ['index-draft1.html', 'index-draft2.html', 'index-draft2-1.html']) {
   const source = path.join(draftsDir, name);
   const target = path.join(distDir, name);
   await fs.copyFile(source, target);
