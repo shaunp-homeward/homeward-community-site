@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Homeward — Homepage Draft 2.1</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#FAF6EF}
+    #draftFrame{display:block;width:100%;height:100%;border:0;background:#FAF6EF}
+  </style>
+</head>
+<body>
+<iframe id="draftFrame" src="/" title="Homeward Homepage Draft 2.1"></iframe>
+<script>
+(function(){
+  const frame=document.getElementById('draftFrame');
+  frame.addEventListener('load',function(){
+    try{
+      const doc=frame.contentDocument;
+      if(!doc || !doc.body || !doc.body.classList.contains('v8-v6-home')) return;
+
+      const first=doc.querySelector('.v6-recognition-item:first-child svg');
+      if(first){
+        first.outerHTML=`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 39S10 31 10 20c0-5.2 3.7-8.8 8.6-8.8 3.1 0 5.3 1.7 6.4 4 1.2-2.3 3.4-4 6.5-4 4.9 0 8.5 3.6 8.5 8.8 0 11-16 19-16 19Z"/><path d="M24 5v4M8.5 9.5l3.1 3.1M39.5 9.5l-3.1 3.1M4 24h4M40 24h4"/></svg>`;
+      }
+
+      const giftImages=[
+        ['/assets/review/practices/BP-I.jpg','Breath Prayer: an older woman seated comfortably with eyes closed and a hand over the heart'],
+        ['/assets/review/practices/GR-H.jpg','Gratitude: a relaxed man smiling gently with open hands'],
+        ['/assets/review/practices/LC-F.jpg','Light of Christ: a man seated in a chair receiving warm window light'],
+        ['/assets/review/practices/SE-H.jpg','Scripture as Encounter: a diverse group sharing Scripture and conversation around a warm table']
+      ];
+      doc.querySelectorAll('.v6-gift-img img').forEach(function(img,index){
+        if(!giftImages[index]) return;
+        img.src=giftImages[index][0];
+        img.alt=giftImages[index][1];
+      });
+
+      const style=doc.createElement('style');
+      style.id='homeward-draft21-overrides';
+      style.textContent=`
+        .v6-recognition-item{color:#2C2C2C;font-size:.96rem;line-height:1.62}
+        .v6-recognition-item p{color:#2C2C2C}
+        .v6-recognition-head .v6-lead{color:#435049}
+        .v6-recognition-end{font-size:1.7rem;font-weight:600}
+        .v6-gift-img img{filter:saturate(.86) contrast(1.02);object-position:center}
+        .v6-gift-copy p{color:#35463e;font-size:.94rem;line-height:1.6}
+        @media(max-width:640px){
+          .v6-recognition{padding-top:64px;padding-bottom:64px}
+          .v6-recognition-head{max-width:none}
+          .v6-recognition-head h2{font-size:2.35rem;line-height:1.08}
+          .v6-recognition-head .v6-lead{font-size:1rem;line-height:1.7;color:#37453e}
+          .v6-recognition-grid{display:block;margin-top:34px}
+          .v6-recognition-item{display:grid!important;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start;text-align:left;padding:22px 4px;border-right:0;border-bottom:1px solid rgba(21,58,46,.14);font-size:1rem;line-height:1.68;color:#2C2C2C}
+          .v6-recognition-item:first-child{border-top:1px solid rgba(21,58,46,.14)}
+          .v6-recognition-item svg{width:40px;height:40px;margin:2px 0 0 2px;stroke:#6D7D6A;stroke-width:1.55}
+          .v6-recognition-item p{margin:0;color:#2C2C2C;font-size:1rem;line-height:1.68}
+          .v6-recognition-end{margin-top:30px;font-size:1.45rem;line-height:1.28}
+          .v6-gift-copy p{font-size:1rem;line-height:1.62;color:#35463e}
+        }
+      `;
+      doc.head.appendChild(style);
+    }catch(err){ console.error('Draft 2.1 patch failed',err); }
+  });
+}());
+</script>
+</body>
+</html>
