@@ -1,0 +1,169 @@
+{
+  "version": "8.0.4",
+  "hero": {
+    "eyebrow": "HOMEWARD PRACTICES",
+    "heading": "Train the inner life.",
+    "emphasis": "Become more fully alive.",
+    "lead": "Ancient Christian practices help us slow down, gather our attention, open the heart, and become more available to God in ordinary life.",
+    "promise": "The point is not to become good at meditation. The point is to become more present, peaceful, joyful, resilient, loving—and rooted in God.",
+    "image": "/assets/review/practices/LC-F.jpg",
+    "image_alt": "A woman seated quietly in warm light, practicing contemplative prayer",
+    "primary_label": "Explore the Practices",
+    "primary_url": "#practice-library",
+    "secondary_label": "See How a Circle Works",
+    "secondary_url": "/circles.html"
+  },
+  "why": {
+    "eyebrow": "WHY PRACTICE MATTERS",
+    "heading": "Spiritual practices are exercises for the heart and mind.",
+    "body": "We exercise our bodies because strength and endurance do not appear simply because we understand them. Prayer, meditation, gratitude, Scripture, and reflection repeatedly train attention, openness, presence, and love.",
+    "signature": "In Homeward, practice is not the destination. Love is.",
+    "image": "/assets/review/practices/BP-G.jpg",
+    "image_alt": "A person seated comfortably with eyes closed in a quiet breath prayer",
+    "benefits": [
+      {"title": "Peace & Steadiness", "body": "Respond rather than react."},
+      {"title": "Joy & Happiness", "body": "Notice goodness, gratitude, beauty, and delight."},
+      {"title": "Focus & Clarity", "body": "Gather a scattered mind and become more present."},
+      {"title": "Deeper Connection", "body": "Attend more fully to God, yourself, and other people."},
+      {"title": "More Love to Give", "body": "Turn presence into compassion and action."}
+    ]
+  },
+  "research": {
+    "eyebrow": "ANCIENT WISDOM · MODERN RESEARCH",
+    "heading": "A little daily practice can make a measurable difference.",
+    "intro": "Prayer is more than a wellness technique, and science cannot measure God. But research on meditation, mindfulness, gratitude, and compassion gives us another lens on why repeated practice can matter.",
+    "daily": {
+      "number": "10",
+      "unit": "MINUTES A DAY",
+      "kicker": "SMALL ENOUGH TO BEGIN. MEANINGFUL ENOUGH TO STUDY.",
+      "body": "In one randomized clinical trial, 1,458 employees were assigned to 10 minutes of daily meditation or a waiting-list control. After eight weeks, the meditation group reported substantially lower perceived stress.",
+      "note": "That does not mean ten minutes works the same way for everyone. It does show that a modest, repeatable daily rhythm can matter.",
+      "facts": ["1,458 participants", "8 weeks", "10 min daily"],
+      "source": "https://pubmed.ncbi.nlm.nih.gov/39808431/"
+    },
+    "cards": [
+      {
+        "stat": "47 trials",
+        "title": "Stress & anxiety",
+        "body": "A major review of 3,515 participants found small-to-moderate reductions in several negative dimensions of psychological stress, with moderate evidence for improved anxiety and depression.",
+        "tags": ["LESS REACTIVITY", "MORE STEADINESS"],
+        "source": "https://pubmed.ncbi.nlm.nih.gov/24395196/"
+      },
+      {
+        "stat": "111 RCTs",
+        "title": "Focus & cognition",
+        "body": "A meta-analysis of 9,538 people found small-to-moderate effects on global cognition and several measures of attention, working-memory accuracy, inhibition, and cognitive control.",
+        "tags": ["ATTENTION", "CLARITY"],
+        "source": "https://pubmed.ncbi.nlm.nih.gov/37578065/"
+      },
+      {
+        "stat": "24,804 people",
+        "title": "Gratitude & well-being",
+        "body": "A 2025 preregistered meta-analysis across 28 countries found gratitude interventions produced a small overall increase in well-being, with stronger effects for positive affect in some analyses.",
+        "tags": ["GRATITUDE", "POSITIVE AFFECT"],
+        "source": "https://pubmed.ncbi.nlm.nih.gov/40627390/"
+      },
+      {
+        "stat": "22% less",
+        "title": "Connection & belonging",
+        "body": "In one randomized trial of 153 adults, acceptance-based mindfulness training reduced daily loneliness by 22% and increased everyday social contact.",
+        "tags": ["CONNECTION", "OPENNESS"],
+        "source": "https://pubmed.ncbi.nlm.nih.gov/30808743/"
+      }
+    ],
+    "benefits": ["PEACE", "FOCUS", "JOY", "CONNECTION", "RESILIENCE"],
+    "translation": "The Homeward translation: the goal is not a permanent high. It is a growing capacity to meet the same life with awareness, acceptance, wisdom, love, and deeper openness to God.",
+    "resources_label": "Explore Research & Resources",
+    "resources_url": "/resources.html"
+  },
+  "formation": {
+    "eyebrow": "FROM EXERCISE TO FORMATION",
+    "heading": "What we repeat becomes easier to return to.",
+    "intro": "The goal is not a perfectly quiet mind. It is a growing capacity to return—to God, to love, to wisdom, and to the life actually in front of us.",
+    "steps": [
+      {"title": "Notice", "body": "Recognize what is happening."},
+      {"title": "Return", "body": "Gather attention gently."},
+      {"title": "Receive", "body": "Open to grace and presence."},
+      {"title": "Practice", "body": "Repeat it in real life."},
+      {"title": "Become", "body": "Let practice shape response."}
+    ]
+  },
+  "library": {
+    "eyebrow": "THE HOMEWARD PRACTICE LIBRARY",
+    "heading": "Different practices train different capacities.",
+    "intro": "This is not an instruction manual. It is a snapshot of what each practice is like, why Homeward uses it, and what it can help grow.",
+    "items": [
+      {
+        "title": "Light of Christ",
+        "tradition": "Guided Christian meditation",
+        "snapshot": "A warm, imaginal prayer of receiving Christ's love and allowing that love to widen toward others.",
+        "growth": "Receptivity · compassion · love · connection with God",
+        "image": "/assets/review/practices/LC-F.jpg",
+        "image_alt": "Warm sunlight bathing a person in contemplative prayer"
+      },
+      {
+        "title": "Breath Prayer",
+        "tradition": "Prayer joined to breathing",
+        "snapshot": "A simple anchor that joins prayer to the natural rhythm of the body and offers a gentle place to return.",
+        "growth": "Steadiness · focus · presence · less reactivity",
+        "image": "/assets/review/practices/BP-G.jpg",
+        "image_alt": "A person practicing quiet breath prayer"
+      },
+      {
+        "title": "Maranatha Prayer",
+        "tradition": "Christian meditation",
+        "snapshot": "An ancient word-prayer—Come, Lord Jesus—used as a gentle point of return when attention becomes scattered.",
+        "growth": "Collected attention · surrender · silence · openness",
+        "image": "/assets/review/practices/BP-A.jpg",
+        "image_alt": "A person seated comfortably with eyes closed in meditation"
+      },
+      {
+        "title": "Inspired Reading",
+        "tradition": "Scripture as encounter",
+        "snapshot": "A slower, receptive way of reading Scripture—listening for the word, image, question, or invitation that meets your life.",
+        "growth": "Wisdom · meaning · discernment · curiosity",
+        "image": "/assets/embodied-faith/_cover_crop.jpg",
+        "image_alt": "A reflective reading scene representing Scripture as encounter"
+      },
+      {
+        "title": "Daily Reflection",
+        "tradition": "Noticing God in your day",
+        "snapshot": "A compassionate review of the day that notices where you felt alive, closed, grateful, reactive, loved, or invited to grow.",
+        "growth": "Self-awareness · integration · honesty · growth",
+        "image": "/assets/embodied-faith/embodied-life.webp",
+        "image_alt": "A quiet reflective moment representing daily spiritual reflection"
+      },
+      {
+        "title": "Prayer of Gratitude",
+        "tradition": "Prayerful remembering",
+        "snapshot": "A practice of remembering gifts, people, beauty, and ordinary goodness before God until gratitude becomes easier to notice.",
+        "growth": "Joy · happiness · appreciation · hope · generosity",
+        "image": "/assets/review/practices/GR-D.jpg",
+        "image_alt": "A person smiling gently with a hand over the heart in gratitude"
+      }
+    ]
+  },
+  "community": {
+    "eyebrow": "WHY PRACTICE IN COMMUNITY?",
+    "heading": "You can practice alone. Community helps the practice go deeper.",
+    "lead": "A private practice can be powerful. A Circle adds guidance, shared reflection, spiritual friendship, and a recurring place to talk about what is actually happening.",
+    "image": "/assets/review/practices/SE-H.jpg",
+    "image_alt": "Three adults gathered around Scripture and conversation in a warm home setting",
+    "points": [
+      {"title": "We normalize the struggle.", "body": "Distraction and difficulty become something to work with, not a reason to quit."},
+      {"title": "We learn from lived experience.", "body": "Another person may notice something you would never have seen alone."},
+      {"title": "We build rhythm together.", "body": "Shared practice and return make consistency easier to sustain."},
+      {"title": "We are formed through relationship.", "body": "Being heard without fixing creates room for honesty, trust, healing, and growth."}
+    ],
+    "signature": "The practice happens in silence. The formation often becomes visible in relationship."
+  },
+  "final": {
+    "eyebrow": "PRACTICE THE WAY. TOGETHER.",
+    "heading": "These practices come alive inside Homeward Circles.",
+    "lead": "Experience them with guidance, carry them into the week, and return to learn from the community.",
+    "primary_label": "See How a Circle Works",
+    "primary_url": "/circles.html",
+    "secondary_label": "Tell Us You're Interested",
+    "secondary_url": "/#interest"
+  }
+}
