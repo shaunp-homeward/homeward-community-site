@@ -1,5 +1,5 @@
 {
-  "version": "8.0.4",
+  "version": "8.0.5",
   "hero": {
     "eyebrow": "HOMEWARD PRACTICES",
     "heading": "Train the inner life.",
@@ -122,16 +122,16 @@
         "tradition": "Scripture as encounter",
         "snapshot": "A slower, receptive way of reading Scripture—listening for the word, image, question, or invitation that meets your life.",
         "growth": "Wisdom · meaning · discernment · curiosity",
-        "image": "/assets/embodied-faith/_cover_crop.jpg",
-        "image_alt": "A reflective reading scene representing Scripture as encounter"
+        "image": "/assets/review/practices/SE-G.jpg",
+        "image_alt": "People gathered around Scripture in warm, thoughtful conversation"
       },
       {
         "title": "Daily Reflection",
         "tradition": "Noticing God in your day",
         "snapshot": "A compassionate review of the day that notices where you felt alive, closed, grateful, reactive, loved, or invited to grow.",
         "growth": "Self-awareness · integration · honesty · growth",
-        "image": "/assets/embodied-faith/embodied-life.webp",
-        "image_alt": "A quiet reflective moment representing daily spiritual reflection"
+        "image": "/assets/review/practices/BP-H.jpg",
+        "image_alt": "A quiet reflective moment in a warm home setting"
       },
       {
         "title": "Prayer of Gratitude",
@@ -142,6 +142,20 @@
         "image_alt": "A person smiling gently with a hand over the heart in gratitude"
       }
     ]
+  },
+  "join": {
+    "eyebrow": "READY TO PRACTICE WITH OTHERS?",
+    "heading": "Bring the practices into a Homeward Circle.",
+    "lead": "You do not need to know exactly what you believe or whether a Circle is right for you. Start with interest, have a short conversation, and we’ll help you find a Circle that fits.",
+    "steps": [
+      {"title": "Tell us you’re interested", "body": "Complete a short form. It takes only a couple of minutes and there is no commitment."},
+      {"title": "Have a short conversation", "body": "Ask questions, hear what a Circle feels like, and tell us what you’re looking for."},
+      {"title": "We’ll help find your Circle", "body": "We’ll look at location, schedule, online or in-person format, and fit."}
+    ],
+    "primary_label": "Tell Us You’re Interested",
+    "primary_url": "/#interest",
+    "secondary_label": "Have a Conversation",
+    "secondary_url": "/connect.html"
   },
   "community": {
     "eyebrow": "WHY PRACTICE IN COMMUNITY?",
