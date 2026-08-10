@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs';
 import { renderHomeV6 } from './render-v8-home-v6.mjs';
-import { renderCirclesV8 } from './render-v8-front-door.mjs';
+import { renderCirclesPrimary } from './render-v8-circles-primary.mjs';
 
 const originalWriteFile = fs.writeFile.bind(fs);
 
@@ -9,7 +9,7 @@ fs.writeFile = async (file, data, ...rest) => {
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
     data = renderHomeV6(String(data));
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
-    data = renderCirclesV8(String(data));
+    data = renderCirclesPrimary(String(data));
   }
   return originalWriteFile(file, data, ...rest);
 };
