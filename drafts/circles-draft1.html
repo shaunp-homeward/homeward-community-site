@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Homeward — Circles Draft 1</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#FAF6EF}
+    #draftFrame{display:block;width:100%;height:100%;border:0;background:#FAF6EF}
+  </style>
+</head>
+<body>
+<iframe id="draftFrame" src="/circles.html" title="Homeward Circles Draft 1"></iframe>
+<script>
+(function(){
+  const frame=document.getElementById('draftFrame');
+  frame.addEventListener('load',function(){
+    try{
+      const doc=frame.contentDocument;
+      if(!doc) return;
+      const main=doc.querySelector('main');
+      if(!main) return;
+      doc.title='Homeward Circles — Draft 1';
+      doc.body.classList.add('circles-draft1');
+
+      main.innerHTML=`
+<section class="cd1-hero">
+  <div class="cd1-shell cd1-hero-grid">
+    <div class="cd1-hero-copy">
+      <div class="cd1-eyebrow">Homeward Circles</div>
+      <h1>Not just another small group.<br><em>A place to practice.</em></h1>
+      <p class="cd1-lead">Homeward Circles are small, Jesus-centered communities where we practice together, learn from lived experience, and carry spiritual practices into everyday life.</p>
+      <p class="cd1-season-line"><strong>An ongoing community, gathered in four-week seasons.</strong> A season gives us enough time to build a rhythm, show up consistently, and go deeper together—without asking anyone to commit forever.</p>
+      <div class="cd1-actions">
+        <a class="cd1-btn cd1-btn-primary" href="/index.html#interest">Tell Us You’re Interested</a>
+        <a class="cd1-btn cd1-btn-ghost" href="#join">See How Joining Works</a>
+      </div>
+      <div class="cd1-logistics"><span>6–8 people</span><span>~90 minutes</span><span>Fort Worth + online</span><span>No cost</span></div>
+    </div>
+    <figure class="cd1-hero-image"><img src="/assets/circles-page-v62.webp" alt="People gathered in a warm Homeward Circle conversation"></figure>
+  </div>
+</section>
+
+<section class="cd1-loop">
+  <div class="cd1-shell">
+    <div class="cd1-section-head cd1-on-dark">
+      <div class="cd1-eyebrow">The Circle Loop</div>
+      <h2>Practice. Live it. Come back. Go deeper.</h2>
+      <p>The Circle is not only what happens in the room. Formation grows in the rhythm between gathering and everyday life.</p>
+    </div>
+    <div class="cd1-loop-grid">
+      <article><b>01</b><h3>Practice together</h3><p>Experience a guided practice together so you know what it feels like—not simply what it means.</p></article>
+      <article><b>02</b><h3>Reflect together</h3><p>Share what you noticed. Listen without fixing. Learn from the lived experience and wisdom of the group.</p></article>
+      <article><b>03</b><h3>Carry it into life</h3><p>Use one simple practice during the week—in work, relationships, stress, gratitude, prayer, conflict, or quiet.</p></article>
+      <article><b>04</b><h3>Return and deepen</h3><p>Come back with real experience: what helped, what was difficult, what surprised you, and what you are learning.</p></article>
+    </div>
+    <p class="cd1-loop-close">Community helps a practice become something you can actually return to.</p>
+  </div>
+</section>
+
+<section class="cd1-practice">
+  <div class="cd1-shell cd1-practice-grid">
+    <figure class="cd1-practice-image"><img src="/assets/review/practices/BP-G.jpg" alt="A person seated comfortably with eyes closed, practicing quiet breath prayer"></figure>
+    <div>
+      <div class="cd1-eyebrow">Why practice matters</div>
+      <h2>Spiritual practices are exercises for the heart and mind.</h2>
+      <p class="cd1-lead">We do not practice breath prayer simply to become good at breath prayer. Like exercise for the body, repeated spiritual practice trains attention, awareness, response, openness, and our capacity to love.</p>
+      <p>Over time, the hope is a life that feels more grounded, awake, connected, joyful, and receptive to God. Practicing with others adds encouragement, perspective, shared wisdom, and motivation to keep returning.</p>
+    </div>
+  </div>
+  <div class="cd1-shell">
+    <div class="cd1-benefits">
+      <article><span>✓</span><h3>More Peace &amp; Steadiness</h3><p>Respond rather than react.</p></article>
+      <article><span>✓</span><h3>More Joy &amp; Happiness</h3><p>Notice goodness, gratitude, beauty, and delight.</p></article>
+      <article><span>✓</span><h3>Greater Focus &amp; Clarity</h3><p>Gather the mind and become more present.</p></article>
+      <article><span>✓</span><h3>Deeper Connection</h3><p>Grow closer to God, yourself, and other people.</p></article>
+      <article><span>✓</span><h3>More Love to Give</h3><p>Open the heart and carry the way of Jesus into daily life.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cd1-season">
+  <div class="cd1-shell">
+    <div class="cd1-section-head">
+      <div class="cd1-eyebrow">What is a season?</div>
+      <h2>Homeward is ongoing. Circles move in four-week seasons.</h2>
+      <p>A season is a focused four-week window to show up consistently, practice together, and build momentum. At the end there is a natural pause—not a graduation. You can continue into future seasons as your practices and relationships deepen.</p>
+    </div>
+    <div class="cd1-season-grid">
+      <article><h3>A realistic commitment</h3><p>Four weeks is easier to plan around work, travel, family, and real life.</p></article>
+      <article><h3>Consistency creates depth</h3><p>The same people return together, allowing trust and spiritual rhythm to grow.</p></article>
+      <article><h3>No graduation</h3><p>Four weeks is a season—not the end of Homeward or your spiritual journey.</p></article>
+      <article><h3>Season by season</h3><p>Future seasons can deepen familiar practices and introduce new tools for the spiritual life.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cd1-talk">
+  <div class="cd1-shell cd1-talk-grid">
+    <div>
+      <div class="cd1-eyebrow">How we talk together</div>
+      <h2>A different kind of conversation.</h2>
+      <p class="cd1-lead">The facilitator guides the process, but does not lecture or supply the approved conclusion. We learn through Scripture, practice, deep listening, and one another’s lived experience.</p>
+      <blockquote>“What did you notice?” matters more than “Who has the best answer?”</blockquote>
+    </div>
+    <div class="cd1-principles">
+      <article><b>1</b><div><h3>Speak from your own experience</h3><p>Share what you are noticing, learning, wondering, resisting, or trying—not what someone else should believe.</p></div></article>
+      <article><b>2</b><div><h3>Listen without fixing</h3><p>No cross-talk, rescuing, debating, or correcting. Anyone may pass.</p></div></article>
+      <article><b>3</b><div><h3>Let Scripture open the room</h3><p>Scripture gives us a shared center and doorway into honest exploration.</p></div></article>
+      <article><b>4</b><div><h3>Learn from the wisdom in the room</h3><p>Insight can emerge through every participant’s lived experience—not only from the facilitator.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cd1-midcta">
+  <div class="cd1-shell cd1-midcta-inner">
+    <div><div class="cd1-eyebrow">Curious about Circles?</div><h3>You don’t have to decide anything today.</h3><p>Ask questions, hear what a Circle feels like, and tell us what you’re looking for.</p></div>
+    <div class="cd1-actions"><a class="cd1-btn cd1-btn-primary" href="/connect.html">Have a Conversation About Circles</a><a class="cd1-text-link" href="/index.html#interest">Or tell us you’re interested →</a></div>
+  </div>
+</section>
+
+<section class="cd1-agenda">
+  <div class="cd1-shell">
+    <div class="cd1-section-head">
+      <div class="cd1-eyebrow">What happens when we gather?</div>
+      <h2>A guided 90 minutes with an engaging, unhurried pace.</h2>
+      <p>You will not spend the whole evening listening to a talk. A Circle moves between settling, practice, Scripture or story, honest conversation, and a simple rhythm to carry into the week.</p>
+    </div>
+    <div class="cd1-agenda-list">
+      <article><time>15–20 min</time><h3>Arrive &amp; reconnect</h3><p>Settle in, get to know one another, and become present.</p></article>
+      <article><time>8–10 min</time><h3>Practice together</h3><p>Experience a guided contemplative practice together.</p></article>
+      <article><time>10–15 min</time><h3>Scripture &amp; story</h3><p>Receive a passage or story as a doorway into reflection.</p></article>
+      <article><time>25–30 min</time><h3>Honest conversation</h3><p>Speak from experience, listen deeply, and learn from the group.</p></article>
+      <article><time>~10 min</time><h3>Carry it home &amp; blessing</h3><p>Choose a practice for the week and close together.</p></article>
+    </div>
+    <details class="cd1-details">
+      <summary>See a full sample gathering: Week One — The Invitation Home</summary>
+      <div class="cd1-details-body">
+        <p><strong>Welcome · ~20 min — Settling in and getting to know each other.</strong> We begin with a simple question: <em>What drew you here?</em> Everyone is welcome to share, or to pass.</p>
+        <p><strong>Practice · ~8 min — A guided breath prayer.</strong> A simple practice that steadies the mind and helps us become present to God. Breathing in: <em>Here I am.</em> Breathing out: <em>You are here.</em></p>
+        <p><strong>Explore · ~15 min — A story and reflection.</strong> A short story Jesus told—the son who comes home to a father running to meet him—and an open conversation about God, grace, and how each of us hears it.</p>
+        <p><strong>Conversation · ~30 min — Honest conversation.</strong> Questions might include: When you hear the word <em>home</em>, what image or longing comes to mind? Where do you long to experience welcome or belonging?</p>
+        <p><strong>For the week · ~5 min — A practice to carry home.</strong> A few minutes of breath prayer on a few days this week using the same words: <em>Here I am. You are here.</em></p>
+        <p><strong>Blessing · ~5 min.</strong> We each offer a word for how we are leaving and close with a simple blessing.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="cd1-tools">
+  <div class="cd1-shell">
+    <div class="cd1-section-head">
+      <div class="cd1-eyebrow">Tools for the spiritual life</div>
+      <h2>Leave each season with practices you can actually use.</h2>
+      <p>The goal is not more information. It is a growing spiritual tool belt: practices you know how to return to in real life—and a community that helps you keep using them until they become part of your rhythm.</p>
+    </div>
+    <div class="cd1-tools-grid">
+      <article><h3>Breath Prayer</h3><p>Return to presence and steadiness.</p></article>
+      <article><h3>Gratitude</h3><p>Train attention toward goodness, joy, happiness, and wonder.</p></article>
+      <article><h3>Light of Christ</h3><p>Open the heart to receive and extend love.</p></article>
+      <article><h3>Scripture as Encounter</h3><p>Receive Scripture as wisdom, invitation, and conversation.</p></article>
+    </div>
+    <p class="cd1-tools-close">Season by season, the practices deepen, the habits strengthen, and the spiritual life becomes more lived than merely understood.</p>
+  </div>
+</section>
+
+<section class="cd1-compare">
+  <div class="cd1-shell">
+    <div class="cd1-section-head cd1-align-left">
+      <div class="cd1-eyebrow">What makes a Circle different</div>
+      <h2>Same desire for community. A different center of gravity.</h2>
+      <p>Traditional small groups can offer friendship, learning, and support. Homeward Circles emphasize formation through practice and lived experience.</p>
+    </div>
+    <div class="cd1-compare-grid">
+      <div class="cd1-compare-col">
+        <h3>Many small groups emphasize…</h3>
+        <article><h4>Learning about faith</h4><p>Teaching, study, discussion, interpretation.</p></article>
+        <article><h4>Talking through ideas</h4><p>Opinions, questions, agreement, explanation.</p></article>
+        <article><h4>The meeting itself</h4><p>The group experience is often concentrated in the weekly gathering.</p></article>
+        <article><h4>A leader with content</h4><p>The leader may carry most of the teaching or answers.</p></article>
+      </div>
+      <div class="cd1-compare-col cd1-compare-homeward">
+        <h3>A Homeward Circle emphasizes…</h3>
+        <article><h4>Practicing the spiritual life</h4><p>We actually meditate, pray, listen, reflect, and engage Scripture together.</p></article>
+        <article><h4>Speaking from lived experience</h4><p>We learn through what we are noticing and how the practice is meeting real life.</p></article>
+        <article><h4>Practice between gatherings</h4><p>What happens Tuesday morning matters as much as what happens in the Circle.</p></article>
+        <article><h4>A facilitator who holds the process</h4><p>The facilitator creates safety, rhythm, and depth without becoming the person with all the answers.</p></article>
+      </div>
+    </div>
+    <p class="cd1-compare-note">This comparison is not a criticism of traditional groups. Homeward is designed to add a form of spiritual formation many people have never been given: a place to learn how to practice.</p>
+  </div>
+</section>
+
+<section class="cd1-join" id="join">
+  <div class="cd1-shell">
+    <div class="cd1-section-head">
+      <div class="cd1-eyebrow">How joining a Circle works</div>
+      <h2>Three simple steps. No pressure.</h2>
+      <p>You do not need to know exactly what you believe or whether a Circle is right for you before reaching out.</p>
+    </div>
+    <div class="cd1-join-grid">
+      <article><b>1</b><h3>Tell us you’re interested</h3><p>Complete a short form. It takes only a couple of minutes and there is no commitment.</p><a href="/index.html#interest">Tell us you’re interested →</a></article>
+      <article><b>2</b><h3>Have a conversation</h3><p>Ask questions, hear more about Homeward Circles, and tell us what you are looking for.</p><a href="/connect.html">Have a conversation →</a></article>
+      <article><b>3</b><h3>We’ll help find the right Circle</h3><p>We’ll consider location, schedule, format, and fit as we form a Circle that makes sense for you.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cd1-fit">
+  <div class="cd1-shell cd1-fit-grid">
+    <div><div class="cd1-eyebrow">You may feel at home if…</div><ul><li>You are seeking depth, connection, and a more lived spiritual life.</li><li>You are willing to explore Jesus and Scripture respectfully, even if your beliefs are unsettled.</li><li>You can speak from your own experience and listen without needing to correct others.</li><li>You are willing to practice between gatherings and support others on the journey.</li></ul></div>
+    <div><div class="cd1-eyebrow">A Circle may not be the best fit if…</div><ul><li>Your primary purpose is to debate, disprove, convert, or require agreement.</li><li>You want a class built around one expert supplying the correct answers.</li><li>You are looking for group therapy or professional mental-health treatment.</li><li>You cannot respect confidentiality or the lived experience of other participants.</li></ul></div>
+  </div>
+</section>
+
+<section class="cd1-final">
+  <div class="cd1-shell">
+    <div class="cd1-eyebrow">Finding Home · Season One</div>
+    <h2>Practice the way. Explore honestly. Carry it into life.</h2>
+    <p>Begin with one four-week season. Continue the journey as Homeward becomes part of your ongoing spiritual life.</p>
+    <div class="cd1-actions cd1-final-actions"><a class="cd1-btn cd1-btn-primary" href="/index.html#interest">Tell Us You’re Interested</a><a class="cd1-btn cd1-btn-light" href="/connect.html">Have a Conversation</a></div>
+  </div>
+</section>`;
+
+      const style=doc.createElement('style');
+      style.id='circles-draft1-styles';
+      style.textContent=`
+:root{--cd-forest:#153A2E;--cd-ivory:#FAF6EF;--cd-sage:#6D7D6A;--cd-copper:#B53A2A;--cd-gold:#E0A443;--cd-char:#333;--cd-white:#fff}
+.circles-draft1 main{overflow:hidden}.cd1-shell{width:min(1120px,calc(100% - 48px));margin:0 auto}.cd1-eyebrow{font-size:.76rem;line-height:1.2;letter-spacing:.105em;text-transform:uppercase;font-weight:700;color:var(--cd-copper);margin-bottom:16px}.cd1-section-head{max-width:850px;margin:0 auto 46px;text-align:center}.cd1-section-head.cd1-align-left{text-align:left;max-width:none;margin-left:0}.cd1-section-head h2,.cd1-practice h2,.cd1-talk h2{font-family:var(--serif,Georgia,serif);font-size:clamp(2.25rem,4.2vw,4rem);line-height:1.04;letter-spacing:-.035em;color:var(--cd-forest);margin:0 0 20px}.cd1-section-head p,.cd1-lead,.cd1-practice p,.cd1-talk p{font-size:1.06rem;line-height:1.72;color:#49554f;margin:0}.cd1-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:8px;font-weight:700;text-decoration:none!important;transition:.2s ease}.cd1-btn-primary{background:var(--cd-copper);color:#fff!important}.cd1-btn-primary:hover{filter:brightness(.95);transform:translateY(-1px)}.cd1-btn-ghost{border:1px solid rgba(21,58,46,.35);color:var(--cd-forest)!important;background:transparent}.cd1-btn-light{border:1px solid rgba(250,246,239,.45);color:var(--cd-ivory)!important;background:transparent}.cd1-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.cd1-hero{background:#fff;padding:clamp(62px,7vw,100px) 0}.cd1-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.9fr);gap:70px;align-items:center}.cd1-hero h1{font-family:var(--serif,Georgia,serif);font-size:clamp(3rem,5.2vw,5.25rem);line-height:.98;letter-spacing:-.045em;color:var(--cd-forest);margin:0 0 26px}.cd1-hero h1 em{color:var(--cd-copper);font-style:italic;font-weight:400}.cd1-hero .cd1-lead{font-size:1.15rem}.cd1-season-line{font-size:.98rem;line-height:1.68;color:#52605a;margin:19px 0 0}.cd1-season-line strong{color:var(--cd-forest)}.cd1-hero-image{margin:0;overflow:hidden;border-radius:18px;box-shadow:0 18px 54px rgba(21,58,46,.12)}.cd1-hero-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.88)}.cd1-logistics{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.cd1-logistics span{padding:8px 12px;border:1px solid rgba(21,58,46,.14);border-radius:999px;background:var(--cd-ivory);font-size:.78rem;color:var(--cd-forest)}
+.cd1-loop{background:var(--cd-forest);padding:clamp(76px,8vw,112px) 0}.cd1-on-dark .cd1-eyebrow{color:var(--cd-gold)}.cd1-on-dark h2{color:#fff}.cd1-on-dark p{color:#e8e0d6}.cd1-loop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cd1-loop-grid article{padding:28px 24px 32px;border:1px solid rgba(250,246,239,.20);border-radius:10px;background:rgba(255,255,255,.025)}.cd1-loop-grid b{font-family:var(--serif,Georgia,serif);font-size:1.55rem;color:var(--cd-gold)}.cd1-loop-grid h3{font-family:var(--serif,Georgia,serif);font-size:1.45rem;line-height:1.18;color:#fff;margin:16px 0 12px}.cd1-loop-grid p{font-size:.94rem;line-height:1.65;color:#e7dfd6;margin:0}.cd1-loop-close{text-align:center;font-family:var(--serif,Georgia,serif);font-size:1.45rem;color:#fff;margin:42px 0 0}
+.cd1-practice{padding:clamp(78px,8.5vw,120px) 0;background:var(--cd-ivory)}.cd1-practice-grid{display:grid;grid-template-columns:minmax(340px,.8fr) minmax(0,1fr);gap:70px;align-items:center;margin-bottom:58px}.cd1-practice-image{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(21,58,46,.09)}.cd1-practice-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.cd1-practice p+p{margin-top:16px}.cd1-benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.cd1-benefits article{background:#fff;border:1px solid rgba(21,58,46,.10);border-radius:9px;padding:20px 18px 22px}.cd1-benefits span{display:flex;width:36px;height:36px;border:1px solid var(--cd-copper);border-radius:50%;align-items:center;justify-content:center;color:var(--cd-copper);font-weight:800}.cd1-benefits h3{font-size:.97rem;line-height:1.3;color:var(--cd-forest);margin:16px 0 7px}.cd1-benefits p{font-size:.84rem;line-height:1.5;margin:0;color:#5c665f}
+.cd1-season{padding:clamp(76px,8vw,108px) 0;background:#fff}.cd1-season-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cd1-season-grid article{background:var(--cd-ivory);border:1px solid rgba(21,58,46,.09);border-radius:9px;padding:25px}.cd1-season-grid h3{font-family:var(--serif,Georgia,serif);font-size:1.25rem;color:var(--cd-forest);margin:0 0 10px}.cd1-season-grid p{font-size:.91rem;line-height:1.58;color:#59635d;margin:0}
+.cd1-talk{padding:clamp(78px,8.5vw,118px) 0;background:var(--cd-ivory)}.cd1-talk-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;align-items:start}.cd1-talk blockquote{font-family:var(--serif,Georgia,serif);font-size:1.45rem;line-height:1.45;color:var(--cd-forest);margin:34px 0 0;padding:26px 28px;border-left:5px solid var(--cd-copper);background:#fff}.cd1-principles article{display:grid;grid-template-columns:46px 1fr;gap:18px;padding:22px 0;border-top:1px solid rgba(21,58,46,.14)}.cd1-principles b{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--cd-copper);border-radius:50%;color:var(--cd-copper)}.cd1-principles h3{font-family:var(--serif,Georgia,serif);font-size:1.22rem;color:var(--cd-forest);margin:0 0 6px}.cd1-principles p{font-size:.93rem;line-height:1.58;margin:0}
+.cd1-midcta{padding:42px 0;background:#fff;border-top:1px solid rgba(21,58,46,.09);border-bottom:1px solid rgba(21,58,46,.09)}.cd1-midcta-inner{display:flex;justify-content:space-between;gap:50px;align-items:center}.cd1-midcta h3{font-family:var(--serif,Georgia,serif);font-size:1.7rem;color:var(--cd-forest);margin:0 0 7px}.cd1-midcta p{margin:0;color:#5a655e}.cd1-midcta .cd1-actions{margin:0;justify-content:flex-end}.cd1-text-link{color:var(--cd-forest)!important;font-weight:700;text-decoration:none!important;font-size:.9rem}
+.cd1-agenda{padding:clamp(78px,8.5vw,118px) 0;background:#fff}.cd1-agenda-list{border-top:1px solid rgba(21,58,46,.14)}.cd1-agenda-list article{display:grid;grid-template-columns:135px 230px 1fr;gap:25px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(21,58,46,.14)}.cd1-agenda-list time{font-size:.82rem;font-weight:700;color:var(--cd-copper)}.cd1-agenda-list h3{font-family:var(--serif,Georgia,serif);font-size:1.18rem;color:var(--cd-forest);margin:0}.cd1-agenda-list p{font-size:.91rem;line-height:1.55;color:#606a64;margin:0}.cd1-details{margin-top:28px;border:1px solid rgba(21,58,46,.13);border-radius:9px;background:var(--cd-ivory);overflow:hidden}.cd1-details summary{cursor:pointer;padding:22px 25px;color:var(--cd-forest);font-weight:700;list-style:none}.cd1-details summary::-webkit-details-marker{display:none}.cd1-details summary:before{content:'＋';color:var(--cd-copper);margin-right:12px}.cd1-details[open] summary:before{content:'−'}.cd1-details-body{padding:0 25px 24px;border-top:1px solid rgba(21,58,46,.10)}.cd1-details-body p{font-size:.94rem;line-height:1.65;color:#4f5b54;margin:18px 0 0}
+.cd1-tools{padding:clamp(78px,8.5vw,116px) 0;background:var(--cd-ivory)}.cd1-tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cd1-tools-grid article{padding:28px 24px;background:#fff;border:1px solid rgba(21,58,46,.10);border-radius:9px}.cd1-tools-grid h3{font-family:var(--serif,Georgia,serif);font-size:1.35rem;color:var(--cd-forest);margin:0 0 10px}.cd1-tools-grid p{margin:0;font-size:.92rem;line-height:1.55;color:#5a655f}.cd1-tools-close{text-align:center;font-family:var(--serif,Georgia,serif);font-size:1.35rem;color:var(--cd-copper);max-width:900px;margin:38px auto 0;line-height:1.45}
+.cd1-compare{padding:clamp(78px,8.5vw,118px) 0;background:#fff}.cd1-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.cd1-compare-col{border:1px solid rgba(21,58,46,.13);border-radius:9px;background:#fbfbfa;padding:28px}.cd1-compare-homeward{background:var(--cd-ivory)}.cd1-compare-col>h3{font-family:var(--serif,Georgia,serif);font-size:1.38rem;color:var(--cd-forest);margin:0 0 12px}.cd1-compare-col article{padding:20px 0;border-top:1px solid rgba(21,58,46,.12)}.cd1-compare-col h4{font-size:.91rem;color:var(--cd-forest);margin:0 0 5px}.cd1-compare-col p{font-size:.82rem;line-height:1.5;color:#606963;margin:0}.cd1-compare-note{font-size:.78rem;line-height:1.55;color:#69726c;max-width:980px;margin:30px auto 0;text-align:center}
+.cd1-join{padding:clamp(78px,8.5vw,116px) 0;background:var(--cd-ivory);scroll-margin-top:110px}.cd1-join-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.cd1-join-grid article{background:#fff;border:1px solid rgba(21,58,46,.10);border-radius:10px;padding:30px}.cd1-join-grid b{display:flex;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--cd-copper);border-radius:50%;font-family:var(--serif,Georgia,serif);font-size:1.25rem;color:var(--cd-copper)}.cd1-join-grid h3{font-family:var(--serif,Georgia,serif);font-size:1.4rem;color:var(--cd-forest);margin:18px 0 10px}.cd1-join-grid p{font-size:.93rem;line-height:1.58;color:#59645d;margin:0}.cd1-join-grid a{display:inline-block;margin-top:18px;color:var(--cd-copper)!important;font-weight:700;text-decoration:none!important;font-size:.88rem}
+.cd1-fit{padding:clamp(68px,7vw,96px) 0;background:#fff}.cd1-fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px}.cd1-fit ul{margin:18px 0 0;padding-left:22px}.cd1-fit li{margin:0 0 13px;color:#52605a;line-height:1.55}
+.cd1-final{padding:clamp(78px,8vw,110px) 0;background:var(--cd-forest);text-align:center}.cd1-final .cd1-eyebrow{color:var(--cd-gold)}.cd1-final h2{font-family:var(--serif,Georgia,serif);font-size:clamp(2.4rem,4.6vw,4.25rem);line-height:1.05;color:#fff;max-width:940px;margin:0 auto 22px}.cd1-final p{font-size:1.02rem;line-height:1.7;color:#e7dfd6;max-width:760px;margin:0 auto}.cd1-final-actions{justify-content:center}
+@media(max-width:900px){.cd1-hero-grid,.cd1-practice-grid,.cd1-talk-grid{grid-template-columns:1fr;gap:42px}.cd1-hero-image{order:-1;max-width:720px}.cd1-loop-grid,.cd1-benefits,.cd1-season-grid,.cd1-tools-grid{grid-template-columns:1fr 1fr}.cd1-midcta-inner{align-items:flex-start;flex-direction:column}.cd1-midcta .cd1-actions{justify-content:flex-start}.cd1-agenda-list article{grid-template-columns:110px 190px 1fr}.cd1-join-grid{grid-template-columns:1fr}.cd1-compare-grid{gap:16px}}
+@media(max-width:640px){.cd1-shell{width:min(100% - 34px,1120px)}.cd1-hero{padding:42px 0 64px}.cd1-hero h1{font-size:2.7rem;line-height:1.02}.cd1-hero .cd1-lead,.cd1-section-head p,.cd1-practice p,.cd1-talk p{font-size:1rem;line-height:1.68}.cd1-section-head{margin-bottom:32px}.cd1-section-head h2,.cd1-practice h2,.cd1-talk h2{font-size:2.25rem}.cd1-actions{flex-direction:column;align-items:stretch}.cd1-btn{width:100%;box-sizing:border-box}.cd1-logistics{gap:7px}.cd1-loop-grid,.cd1-benefits,.cd1-season-grid,.cd1-tools-grid,.cd1-compare-grid,.cd1-fit-grid{grid-template-columns:1fr}.cd1-loop-grid article{padding:23px}.cd1-loop-close{font-size:1.22rem;line-height:1.45}.cd1-practice-grid{margin-bottom:35px}.cd1-benefits article{display:grid;grid-template-columns:42px 1fr;column-gap:12px;padding:17px}.cd1-benefits span{grid-row:1/3}.cd1-benefits h3{margin:2px 0 4px;font-size:1rem}.cd1-benefits p{font-size:.9rem}.cd1-season-grid article{padding:21px}.cd1-talk blockquote{font-size:1.25rem;padding:22px}.cd1-principles article{grid-template-columns:43px 1fr}.cd1-midcta{padding:35px 0}.cd1-midcta h3{font-size:1.45rem}.cd1-agenda-list article{grid-template-columns:92px 1fr;gap:7px 15px;padding:21px 0}.cd1-agenda-list time{grid-column:1;grid-row:1/3}.cd1-agenda-list h3{grid-column:2;font-size:1.13rem}.cd1-agenda-list p{grid-column:2;font-size:.94rem;line-height:1.55}.cd1-details summary{padding:20px;font-size:.93rem;line-height:1.45}.cd1-details-body{padding:0 20px 22px}.cd1-tools-close{font-size:1.18rem}.cd1-compare-col{padding:22px 20px}.cd1-compare-note{text-align:left;font-size:.82rem}.cd1-join-grid article{padding:24px}.cd1-fit-grid{gap:38px}.cd1-final h2{font-size:2.35rem}}
+      `;
+      doc.head.appendChild(style);
+      frame.contentWindow.scrollTo(0,0);
+    }catch(err){console.error('Circles Draft 1 patch failed',err);}
+  });
+}());
+</script>
+</body>
+</html>
