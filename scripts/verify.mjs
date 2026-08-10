@@ -20,6 +20,8 @@ assert(pkg.scripts.build.includes('v8-build-hook.mjs'), 'Build script must inclu
 assert(!pkg.scripts.build.includes('apply-v8-front-door.mjs'), 'Legacy post-build V8 override is still wired into the build');
 assert(await exists('scripts/render-v8-home-v6.mjs'), 'Approved V6 homepage renderer is missing');
 assert(await exists('assets/v8-home-v6.css'), 'Approved V6 homepage stylesheet is missing');
+assert(await exists('scripts/render-v8-circles-primary.mjs'), 'Primary V8 Circles renderer is missing');
+assert(await exists('assets/v8-circles-primary.css'), 'Primary V8 Circles stylesheet is missing');
 assert(v8.homepage.hero.primary_label === 'Tell Us You’re Interested', 'V8 hero primary CTA is incorrect');
 assert(v8.homepage.hero.primary_url === '#interest', 'V8 hero primary CTA must target #interest');
 assert(v8.homepage.hero.secondary_label === 'See How a Circle Works', 'V8 hero secondary CTA is incorrect');
@@ -27,7 +29,6 @@ assert(v8.homepage.hero.logistics.includes('Four weeks'), 'V8 hero logistics mus
 assert(v8.homepage.practice_bridge.outcomes.includes('Happiness'), 'V8 outcome line must include Happiness');
 assert(v8.homepage.gifts.items.length === 4, 'V8 Four Gifts must contain exactly four practices');
 assert(v8.homepage.difference.questions.length === 4, 'V8 Circle differentiation must contain four reflection questions');
-assert(v8.circles.comparison.rows.length === 7, 'V8 Circles comparison must contain seven comparison rows');
 assert(index.includes('class="v6-hero"'), 'Generated homepage is missing the approved V6 hero');
 assert(index.includes(v8.homepage.hero.headline), 'Generated homepage is missing the V8 hero headline from source');
 assert(index.includes(v8.homepage.hero.primary_label), 'Generated homepage is missing the V8 primary CTA from source');
@@ -43,7 +44,22 @@ assert(index.includes('Take the 5-Minute Spiritual Journey Reflection'), 'Journe
 assert(index.includes('What are Christian meditation and contemplative prayer?'), 'Homepage FAQ is missing meditation/contemplation question');
 assert(index.includes('Do you draw from traditions outside Christianity?'), 'Homepage FAQ is missing outside-traditions question');
 assert(index.includes('Why is a conversation required before joining a Circle?'), 'Homepage FAQ is missing conversation question');
-assert(circles.includes(v8.circles.comparison.heading), 'Generated Circles page is missing the source-driven comparison');
+
+assert(circles.includes('v8-circles-primary.css'), 'Generated Circles page is missing the primary Circles stylesheet');
+assert(circles.includes('Not just another small group.'), 'Generated Circles page is missing the approved hero');
+assert(circles.includes('Practice. Live it. Come back. Go deeper.'), 'Generated Circles page is missing the Circle Loop');
+assert(circles.includes('More Joy &amp; Happiness'), 'Generated Circles page is missing the joy and happiness benefit');
+assert(circles.includes('Homeward is ongoing. Circles move in four-week seasons.'), 'Generated Circles page is missing the season framing');
+assert(circles.includes('A guided 90 minutes with an engaging, unhurried pace.'), 'Generated Circles page is missing the agenda');
+assert(circles.includes('See a full sample gathering: Week One'), 'Generated Circles page is missing the expandable sample gathering');
+assert(circles.includes('Same desire for community. A different center of gravity.'), 'Generated Circles page is missing the approved small-group comparison');
+assert(circles.includes('How joining a Circle works'), 'Generated Circles page is missing the three-step joining process');
+assert(circles.includes('You may feel at home if'), 'Generated Circles page is missing the positive fit panel');
+assert(circles.includes('A Circle may not be the best fit if'), 'Generated Circles page is missing the not-fit panel');
+assert(circles.includes('href="/#interest"'), 'Circles page interest CTAs must use the existing homepage interest form');
+assert(circles.includes('href="/connect.html"'), 'Circles page must link to the conversation page');
+assert(circles.includes('Practice the way. Explore honestly. Carry it into life.'), 'Circles page is missing the approved closing signature');
+
 assert(await exists('dist/resources.html'), 'Resources page was not built');
 assert(resources.length > 5000, 'Resources page appears incomplete');
 assert(resources.includes('href="styles.css"') && resources.includes('src="assets/'), 'Resources page is not portable for a static preview');
