@@ -54,7 +54,7 @@ Use the `enabled` switch to hide a protected section. Removing a protected item 
 
 ## Flexible repeated content
 
-Repeatable items use stable IDs, an `enabled` flag where useful, and Decap list controls for add/remove/reorder. The public renderer filters hidden items and uses count-flexible grids.
+Repeatable structured items use stable IDs, an `enabled` flag where useful, and Decap list controls for add/remove/reorder. Scalar lists such as Journey benefits stay as strings for compatibility but can still be added, removed, and reordered. The public renderer filters hidden structured items and uses count-flexible grids.
 
 Examples include hero facts, Finding Home logistics, recognition prompts, practice outcomes, gift cards, Circle features, Journey benefits, and Circles comparison rows.
 
