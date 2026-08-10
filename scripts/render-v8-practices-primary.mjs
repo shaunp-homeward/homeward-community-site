@@ -13,6 +13,7 @@ const esc = (value = '') => String(value)
 const attr = esc;
 
 const btn = (label, url, secondary = false) => `<a class="pp-btn ${secondary ? 'pp-btn-ghost' : 'pp-btn-primary'}" href="${attr(url)}">${esc(label)}</a>`;
+const lightBtn = (label, url) => `<a class="pp-btn pp-btn-light" href="${attr(url)}">${esc(label)}</a>`;
 
 const main = `
 <main>
@@ -34,7 +35,7 @@ const main = `
 
 <section class="pp-community pp-section"><div class="pp-shell"><div class="pp-community-grid"><figure class="pp-community-image"><img src="${attr(data.community.image)}" alt="${attr(data.community.image_alt)}"></figure><div><p class="pp-eyebrow">${esc(data.community.eyebrow)}</p><h2>${esc(data.community.heading)}</h2><p class="pp-lead">${esc(data.community.lead)}</p><div class="pp-community-points">${data.community.points.map((p,i)=>`<article class="pp-community-point"><b>${i+1}</b><div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></div></article>`).join('')}</div></div></div><p class="pp-community-signature">${esc(data.community.signature)}</p></div></section>
 
-<section class="pp-final pp-section"><div class="pp-shell"><p class="pp-eyebrow">${esc(data.final.eyebrow)}</p><h2>${esc(data.final.heading)}</h2><p class="pp-lead">${esc(data.final.lead)}</p><div class="pp-actions">${btn(data.final.primary_label,data.final.primary_url,true)}${btn(data.final.secondary_label,data.final.secondary_url)}</div></div></section>
+<section class="pp-final pp-section"><div class="pp-shell"><p class="pp-eyebrow">${esc(data.final.eyebrow)}</p><h2>${esc(data.final.heading)}</h2><p class="pp-lead">${esc(data.final.lead)}</p><div class="pp-actions">${lightBtn(data.final.primary_label,data.final.primary_url)}${btn(data.final.secondary_label,data.final.secondary_url)}</div></div></section>
 </main>`;
 
 export function renderPracticesPrimary(sourceHtml){
