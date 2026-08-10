@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(await fs.readFile(path.join(root, 'content', 'practices-v8.json'), 'utf8'));
 const css = await fs.readFile(path.join(root, 'assets', 'v8-practices-primary.css'), 'utf8');
+const ctaCss = await fs.readFile(path.join(root, 'assets', 'v8-practices-cta.css'), 'utf8');
 
 const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -33,6 +34,8 @@ const main = `
 
 <section class="pp-library pp-section" id="practice-library"><div class="pp-shell"><div class="pp-section-head"><p class="pp-eyebrow">${esc(data.library.eyebrow)}</p><h2>${esc(data.library.heading)}</h2><p class="pp-lead">${esc(data.library.intro)}</p></div><div class="pp-library-grid">${data.library.items.map((it)=>`<article class="pp-practice-card"><img src="${attr(it.image)}" alt="${attr(it.image_alt)}"><div class="pp-practice-copy"><p class="pp-practice-tradition">${esc(it.tradition)}</p><h3>${esc(it.title)}</h3><p>${esc(it.snapshot)}</p><p class="pp-growth-label">WHAT IT CAN GROW</p><p class="pp-growth">${esc(it.growth)}</p></div></article>`).join('')}</div></div></section>
 
+<section class="pp-join pp-section"><div class="pp-shell"><div class="pp-section-head pp-center"><p class="pp-eyebrow">${esc(data.join.eyebrow)}</p><h2>${esc(data.join.heading)}</h2><p class="pp-lead">${esc(data.join.lead)}</p></div><div class="pp-join-grid">${data.join.steps.map((s,i)=>`<article class="pp-join-card"><b>${i+1}</b><h3>${esc(s.title)}</h3><p>${esc(s.body)}</p></article>`).join('')}</div><div class="pp-join-actions">${lightBtn(data.join.primary_label,data.join.primary_url)}${btn(data.join.secondary_label,data.join.secondary_url,true)}</div></div></section>
+
 <section class="pp-community pp-section"><div class="pp-shell"><div class="pp-community-grid"><figure class="pp-community-image"><img src="${attr(data.community.image)}" alt="${attr(data.community.image_alt)}"></figure><div><p class="pp-eyebrow">${esc(data.community.eyebrow)}</p><h2>${esc(data.community.heading)}</h2><p class="pp-lead">${esc(data.community.lead)}</p><div class="pp-community-points">${data.community.points.map((p,i)=>`<article class="pp-community-point"><b>${i+1}</b><div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></div></article>`).join('')}</div></div></div><p class="pp-community-signature">${esc(data.community.signature)}</p></div></section>
 
 <section class="pp-final pp-section"><div class="pp-shell"><p class="pp-eyebrow">${esc(data.final.eyebrow)}</p><h2>${esc(data.final.heading)}</h2><p class="pp-lead">${esc(data.final.lead)}</p><div class="pp-actions">${lightBtn(data.final.primary_label,data.final.primary_url)}${btn(data.final.secondary_label,data.final.secondary_url)}</div></div></section>
@@ -42,7 +45,7 @@ export function renderPracticesPrimary(sourceHtml){
   let html = String(sourceHtml);
   html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>Practices — Homeward</title>');
   html = html.replace(/<meta\s+name=["']description["'][^>]*>/i, '<meta name="description" content="Explore ancient Christian practices for greater peace, joy, focus, connection, resilience, and a deeper life with God.">');
-  if(!html.includes('v8-practices-primary-css')) html = html.replace('</head>', `<style id="v8-practices-primary-css">${css}</style></head>`);
+  if(!html.includes('v8-practices-primary-css')) html = html.replace('</head>', `<style id="v8-practices-primary-css">${css}${ctaCss}</style></head>`);
   html = html.replace(/<body([^>]*)>/i, (m, attrs) => /class=/.test(attrs) ? m.replace(/class=["']([^"']*)["']/, (_, cls) => `class="${cls} v8-practices-primary"`) : `<body${attrs} class="v8-practices-primary">`);
   html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/i, main);
   return html;
