@@ -95,6 +95,49 @@
     }
   });
 
+  const V8Preview = createClass({
+    render: function () {
+      const entry = this.props.entry;
+      const data = entry.get('data')?.toJS ? entry.get('data').toJS() : {};
+      const page = data.homepage || {};
+      const custom = Object.fromEntries((page.custom_sections || []).filter(function (item) { return item?.id; }).map(function (item) { return [item.id, item]; }));
+      const defaults = ['hero', 'recognition', 'practice_bridge', 'gifts', 'difference', 'finding_home', 'journey', 'practice_bears_fruit', 'founder', 'fit', 'interest', 'faq'];
+      const configured = Array.isArray(page.section_order) ? page.section_order : [];
+      const order = configured.concat(defaults.filter(function (id) { return !configured.some(function (item) { return item?.id === id; }); }).map(function (id) { return { id: id, enabled: true }; }));
+      const visible = function (items) { return (items || []).filter(function (item) { return item?.enabled !== false; }); };
+      const itemText = function (item, key) { return typeof item === 'string' ? item : item?.[key || 'text'] || ''; };
+      const cards = function (items) {
+        return h('div', { className: 'cms-grid' }, visible(items).map(function (item, index) {
+          return h('article', { className: 'cms-card', key: item.id || index },
+            item.image ? h('img', { className: 'cms-image', src: asset(item.image, this.props.getAsset), alt: item.image_alt || '' }) : null,
+            h('h3', {}, item.title || item.heading || item.label || itemText(item)),
+            item.description || item.body || item.detail ? h('p', {}, item.description || item.body || item.detail) : null
+          );
+        }, this));
+      }.bind(this);
+      const render = function (entryItem, index) {
+        if (!entryItem?.id || entryItem.enabled === false) return null;
+        const id = entryItem.id;
+        const section = page[id] || custom[id] || {};
+        if (section.enabled === false) return null;
+        if (id === 'hero') return h('section', { className: 'cms-hero', key: id }, h('div', { className: 'cms-shell' },
+          h('p', { className: 'cms-eyebrow' }, section.eyebrow || ''), h('h1', {}, section.headline || ''),
+          h('h1', {}, h('em', {}, section.emphasis || '')), h('p', {}, section.description || ''),
+          section.image ? h('img', { className: 'cms-image', src: asset(section.image, this.props.getAsset), alt: section.image_alt || '' }) : null
+        ));
+        const items = section.items || section.logistics || section.questions || section.benefit_items || [];
+        return h('section', { className: 'cms-section ' + (section.style?.background === 'forest' ? 'forest' : ''), key: id || index }, h('div', { className: 'cms-shell' },
+          h('p', { className: 'cms-eyebrow' }, section.eyebrow || id.replaceAll('_', ' ')),
+          h('h2', {}, section.heading || section.title || id.replaceAll('_', ' ')),
+          section.intro || section.body || section.description ? h('p', {}, section.intro || section.body || section.description) : null,
+          section.image ? h('img', { className: 'cms-image', src: asset(section.image, this.props.getAsset), alt: section.image_alt || '' }) : null,
+          items.length ? cards(items) : h('div', { className: 'cms-note' }, ['practice_bears_fruit', 'fit', 'interest', 'faq'].includes(id) ? 'Protected V8 structural section; public rendering remains the source of truth.' : 'Section is visible.')
+        ));
+      }.bind(this);
+      return h('div', { className: 'cms-preview' }, order.map(render));
+    }
+  });
+
   const GenericPreview = createClass({
     render: function () {
       const entry = this.props.entry;
@@ -126,6 +169,7 @@
   });
 
   CMS.registerPreviewTemplate('home', HomePreview);
+  CMS.registerPreviewTemplate('v8_front_door', V8Preview);
   ['global', 'circles', 'practices', 'about', 'connect', 'vision', 'assessment'].forEach(function (name) {
     CMS.registerPreviewTemplate(name, GenericPreview);
   });

@@ -1,16 +1,44 @@
 - name: v8_front_door
-  label: V8 Front Door
+  label: Homepage (V8)
   delete: false
   files:
   - name: v8
-    label: V8 Homepage & Circle Messaging
+    label: Homepage Builder
     file: content/v8.json
     format: json
+    editor:
+      preview: true
     fields:
     - label: Homepage
       name: homepage
       widget: object
+      collapsed: false
       fields:
+      - label: Homepage Section Order
+        name: section_order
+        widget: list
+        summary: "↕ {{fields.id}} — {{fields.enabled}}"
+        hint: Drag sections into the desired order. Keep each stable ID exactly as provided.
+        fields:
+        - label: Stable section ID
+          name: id
+          widget: select
+          allow_add: true
+          hint: Choose a built-in section or type the stable ID of an optional section.
+          options:
+          - {label: Hero, value: hero}
+          - {label: Invitation / Recognition, value: recognition}
+          - {label: Exercises for the Heart and Mind, value: practice_bridge}
+          - {label: Four Practices / Gifts, value: gifts}
+          - {label: Circle Difference, value: difference}
+          - {label: Finding Home, value: finding_home}
+          - {label: Spiritual Journey Reflection, value: journey}
+          - {label: Practice Bears Fruit, value: practice_bears_fruit}
+          - {label: Founder, value: founder}
+          - {label: Fit / Not Fit, value: fit}
+          - {label: Interest / CTA and Form, value: interest}
+          - {label: FAQ, value: faq}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
       - label: Hero
         name: hero
         widget: object
@@ -18,7 +46,7 @@
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Headline, name: headline, widget: string}
         - {label: Emphasis, name: emphasis, widget: string}
-        - {label: Description, name: description, widget: text}
+        - {label: Description, name: description, widget: markdown, buttons: [bold, italic, link]}
         - {label: Primary CTA, name: primary_label, widget: string}
         - {label: Primary destination, name: primary_url, widget: string}
         - {label: Secondary CTA, name: secondary_label, widget: string}
@@ -27,114 +55,760 @@
         - {label: Requirements, name: requirements, widget: string}
         - {label: Hero image, name: image, widget: image}
         - {label: Image alt text, name: image_alt, widget: string}
+        - label: Hero facts
+          name: fact_items
+          widget: list
+          summary: "↕ {{fields.line1}} {{fields.line2}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Icon, name: icon, widget: select, options: [pin, wifi, person, heart, coin, calendar, people, leaf]}
+          - {label: First line, name: line1, widget: string}
+          - {label: Emphasized line, name: line2, widget: string}
       - label: Finding Home / Season One
         name: finding_home
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Season label, name: eyebrow, widget: string}
         - {label: Program title, name: title, widget: string}
         - {label: Tagline, name: heading, widget: string}
-        - {label: Body, name: body, widget: text}
+        - {label: Body, name: body, widget: markdown, buttons: [bold, italic, bulleted-list, numbered-list, link]}
         - label: Logistics
           name: logistics
           widget: list
+          summary: "↕ {{fields.label}}"
           fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true, required: false}
+          - {label: Stable item ID, name: id, widget: string, required: false, hint: Optional; use lowercase words and hyphens.}
+          - {label: Icon, name: icon, widget: select, required: false, options: [calendar, people, pin, wifi, coin, heart, leaf, chat]}
           - {label: Main fact, name: label, widget: string}
           - {label: Supporting detail, name: detail, widget: string}
         - {label: Availability line, name: availability, widget: string}
         - {label: CTA label, name: link_label, widget: string}
         - {label: CTA destination, name: link_url, widget: string}
-      - label: Recognition
+      - label: Invitation / Recognition
         name: recognition
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Intro, name: intro, widget: text}
+        - {label: Intro, name: intro, widget: markdown, buttons: [bold, italic, link]}
         - label: Recognition questions
           name: questions
           widget: list
-          field: {label: Question, name: question, widget: text}
+          summary: "↕ {{fields.text}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Question, name: text, widget: text}
         - label: Author names
           name: authors
           widget: list
-          field: {label: Author, name: author, widget: string}
+          summary: "↕ {{fields.name}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Author, name: name, widget: string}
         - {label: Closing line, name: honest_line, widget: text}
       - label: Exercises for the Heart and Mind
         name: practice_bridge
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Body, name: body, widget: text}
+        - {label: Body, name: body, widget: markdown, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
         - {label: Outcome line, name: outcomes, widget: string}
-        - {label: Supporting image, name: image, widget: image}
-        - {label: Image alt text, name: image_alt, widget: string}
-      - label: Four Gifts
+        - {label: Supporting image, name: image, widget: image, required: false}
+        - {label: Image alt text, name: image_alt, widget: string, required: false}
+        - {label: Image caption, name: image_caption, widget: string, required: false}
+        - label: Benefit / outcome items
+          name: outcome_items
+          widget: list
+          summary: "↕ {{fields.line1}} {{fields.line2}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Icon, name: icon, widget: select, options: [brain, heart, sun, person, leaf, book, prayer]}
+          - {label: First line, name: line1, widget: string}
+          - {label: Second line, name: line2, widget: string}
+      - label: Four Practices / Four Gifts
         name: gifts
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Editorial bridge, name: bridge, widget: text}
-        - label: Gifts
+        - {label: Editorial bridge, name: bridge, widget: markdown, buttons: [bold, italic, link]}
+        - label: Practice cards
           name: items
           widget: list
-          field:
-            widget: object
-            fields:
-            - {label: Practice, name: title, widget: string}
-            - {label: Outcome, name: description, widget: text}
-            - {label: Image, name: image, widget: image}
-            - {label: Image alt text, name: image_alt, widget: string}
-      - label: Not Your Ordinary Small Group
+          summary: "↕ {{fields.title}}"
+          fields:
+          - {label: Show card, name: enabled, widget: boolean, default: true, required: false}
+          - {label: Stable item ID, name: id, widget: string, required: false}
+          - {label: Practice, name: title, widget: string}
+          - {label: Outcome, name: description, widget: markdown, buttons: [bold, italic, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+      - label: Circle Difference
         name: difference
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - label: Paragraphs
+        - label: Editorial paragraphs
           name: paragraphs
           widget: list
-          field: {label: Paragraph, name: paragraph, widget: text}
+          field: {label: Paragraph, name: paragraph, widget: markdown, buttons: [bold, italic, link]}
         - label: Reflection questions
           name: questions
           widget: list
-          field: {label: Question, name: question, widget: string}
+          summary: "↕ {{fields.text}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Question, name: text, widget: string}
+        - label: Circle differentiators
+          name: items
+          widget: list
+          summary: "↕ {{fields.title}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Icon, name: icon, widget: select, options: [people, calendar, leaf, chat, cross, heart, book]}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
         - {label: Signature, name: signature, widget: string}
-        - {label: Closing note, name: closing, widget: text}
-      - label: Journey Reflection
+        - {label: Closing note, name: closing, widget: markdown, buttons: [bold, italic, link]}
+      - label: Spiritual Journey Reflection
         name: journey
         widget: object
         fields:
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Description, name: description, widget: text}
-        - {label: Spiral artwork, name: image, widget: image}
+        - {label: Description, name: description, widget: markdown, buttons: [bold, italic, link]}
+        - {label: Spiral artwork, name: image, widget: image, required: false}
+        - {label: Image alt text, name: image_alt, widget: string, required: false}
         - {label: Benefits heading, name: benefit_heading, widget: string}
         - label: Benefits
           name: benefit_items
           widget: list
-          field: {label: Benefit, name: benefit, widget: string}
-        - {label: Reassurance note, name: benefit_text, widget: text}
+          summary: "↕ {{fields.text}}"
+          fields:
+          - {label: Show item, name: enabled, widget: boolean, default: true}
+          - {label: Stable item ID, name: id, widget: string}
+          - {label: Benefit, name: text, widget: string}
+        - {label: Reassurance note, name: benefit_text, widget: markdown, buttons: [bold, italic, link]}
         - {label: CTA label, name: cta_label, widget: string}
         - {label: CTA destination, name: cta_url, widget: string}
       - label: Founder
         name: founder
         widget: object
         fields:
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Image, name: image, widget: image}
-        - {label: Image alt text, name: image_alt, widget: string}
-        - {label: Short homepage bio, name: body, widget: text}
+        - {label: Image, name: image, widget: image, required: false}
+        - {label: Image alt text, name: image_alt, widget: string, required: false}
+        - {label: Short homepage bio, name: body, widget: markdown, buttons: [bold, italic, link]}
         - {label: Link label, name: link_label, widget: string}
         - {label: Link destination, name: link_url, widget: string}
+      - label: Add Optional Sections
+        name: custom_sections
+        widget: list
+        types:
+        - label: Text + Image
+          name: text_image
+          widget: object
+          summary: "↕ Text + Image: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Image + Text
+          name: image_text
+          widget: object
+          summary: "↕ Image + Text: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Full-width Image
+          name: full_image
+          widget: object
+          summary: "↕ Full-width Image: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Rich Text / Editorial Content
+          name: editorial
+          widget: object
+          summary: "↕ Rich Text / Editorial Content: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Callout
+          name: callout
+          widget: object
+          summary: "↕ Callout: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Quote / Testimonial
+          name: quote
+          widget: object
+          summary: "↕ Quote / Testimonial: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Card Grid
+          name: card_grid
+          widget: object
+          summary: "↕ Card Grid: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Icon / Benefit Grid
+          name: icon_grid
+          widget: object
+          summary: "↕ Icon / Benefit Grid: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: CTA Band
+          name: cta
+          widget: object
+          summary: "↕ CTA Band: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Comparison
+          name: comparison
+          widget: object
+          summary: "↕ Comparison: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Video
+          name: video
+          widget: object
+          summary: "↕ Video: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Divider
+          name: divider
+          widget: object
+          summary: "↕ Divider: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
+        - label: Spacer
+          name: spacer
+          widget: object
+          summary: "↕ Spacer: {{fields.heading}}"
+          fields:
+          - {label: Stable section ID, name: id, widget: string, hint: Required. Use a unique lowercase ID with hyphens; do not change it after publishing.}
+          - {label: Show section, name: enabled, widget: boolean, default: true}
+          - {label: Eyebrow, name: eyebrow, widget: string, required: false}
+          - {label: Heading, name: heading, widget: string, required: false}
+          - {label: Rich content, name: body, widget: markdown, required: false, buttons: [bold, italic, heading-two, heading-three, bulleted-list, numbered-list, link]}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - {label: Image caption, name: caption, widget: string, required: false}
+          - {label: Image focus, name: image_focus, widget: select, required: false, default: center, options: [center, top, bottom]}
+          - {label: Quote, name: quote, widget: markdown, required: false, buttons: [bold, italic, link]}
+          - {label: Attribution, name: attribution, widget: string, required: false}
+          - {label: Button label, name: button_label, widget: string, required: false}
+          - {label: Button destination, name: button_url, widget: string, required: false}
+          - {label: Video URL, name: video_url, widget: string, required: false, hint: YouTube or Vimeo only.}
+          - {label: Accessible video title, name: video_title, widget: string, required: false}
+          - label: Cards / benefits / comparison items
+            name: items
+            widget: list
+            required: false
+            summary: "↕ {{fields.heading}}"
+            fields:
+            - {label: Show item, name: enabled, widget: boolean, default: true}
+            - {label: Heading, name: heading, widget: string, required: false}
+            - {label: Content, name: body, widget: markdown, required: false, buttons: [bold, italic, bulleted-list, link]}
+            - {label: Image, name: image, widget: image, required: false}
+            - {label: Image alt text, name: image_alt, widget: string, required: false}
+          - label: Design presets
+            name: style
+            widget: object
+            collapsed: true
+            fields:
+            - {label: Background, name: background, widget: select, default: white, options: [forest, ivory, sage, copper, gold, charcoal, white, black, gray]}
+            - {label: Heading color, name: heading_color, widget: select, default: forest, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Body color, name: body_color, widget: select, default: charcoal, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Accent color, name: accent_color, widget: select, default: copper, options: [forest, ivory, sage, copper, gold, charcoal, white, black]}
+            - {label: Heading size, name: heading_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Body size, name: body_size, widget: select, default: standard, options: [small, standard, large]}
+            - {label: Alignment, name: alignment, widget: select, default: left, options: [left, center]}
+            - {label: Heading font, name: font, widget: select, default: playfair, options: [{label: Playfair Display, value: playfair}, {label: Inter, value: inter}]}
+            - {label: Section spacing, name: spacing, widget: select, default: standard, options: [compact, standard, spacious]}
     - label: Circles page comparison
       name: circles
       widget: object
@@ -143,21 +817,21 @@
         name: comparison
         widget: object
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
+        - {label: Show section, name: enabled, widget: boolean, default: true}
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
-        - {label: Intro, name: intro, widget: text}
+        - {label: Intro, name: intro, widget: markdown, buttons: [bold, italic, link]}
         - label: Comparison rows
           name: rows
           widget: list
-          field:
-            widget: object
-            fields:
-            - {label: Typical label, name: typical_label, widget: string}
-            - {label: Typical emphasis, name: typical, widget: text}
-            - {label: Typical question, name: typical_quote, widget: string, required: false}
-            - {label: Homeward label, name: homeward_label, widget: string}
-            - {label: Homeward emphasis, name: homeward, widget: text}
-            - {label: Homeward question, name: homeward_quote, widget: string, required: false}
-        - {label: Closing principle, name: close, widget: text}
-        - {label: Final note, name: final, widget: text}
+          summary: "↕ {{fields.typical}} / {{fields.homeward}}"
+          fields:
+          - {label: Show row, name: enabled, widget: boolean, default: true, required: false}
+          - {label: Typical label, name: typical_label, widget: string}
+          - {label: Typical emphasis, name: typical, widget: markdown, buttons: [bold, italic, link]}
+          - {label: Typical question, name: typical_quote, widget: string, required: false}
+          - {label: Homeward label, name: homeward_label, widget: string}
+          - {label: Homeward emphasis, name: homeward, widget: markdown, buttons: [bold, italic, link]}
+          - {label: Homeward question, name: homeward_quote, widget: string, required: false}
+        - {label: Closing principle, name: close, widget: markdown, buttons: [bold, italic, link]}
+        - {label: Final note, name: final, widget: markdown, buttons: [bold, italic, link]}

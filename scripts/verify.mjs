@@ -14,6 +14,9 @@ const circles = await read('dist/circles.html');
 const resources = await read('dist/resources.html');
 const lead = await read('netlify/functions/lead.mjs');
 const redirects = await read('_redirects');
+const v8Cms = await read('admin/v8-collection.yml');
+const v8Preview = await read('admin/preview.js');
+const v8Renderer = await read('scripts/render-v8-home-v6.mjs');
 
 assert(pkg.scripts.build.includes('scripts/build.mjs'), 'Build script must continue through scripts/build.mjs');
 assert(pkg.scripts.build.includes('v8-build-hook.mjs'), 'Build script must include the V8 source renderer hook');
@@ -25,16 +28,22 @@ assert(v8.homepage.hero.primary_url === '#interest', 'V8 hero primary CTA must t
 assert(v8.homepage.hero.secondary_label === 'See How a Circle Works', 'V8 hero secondary CTA is incorrect');
 assert(v8.homepage.hero.logistics.includes('Four weeks'), 'V8 hero logistics must say Four weeks');
 assert(v8.homepage.practice_bridge.outcomes.includes('Happiness'), 'V8 outcome line must include Happiness');
-assert(v8.homepage.gifts.items.length === 4, 'V8 Four Gifts must contain exactly four practices');
-assert(v8.homepage.difference.questions.length === 4, 'V8 Circle differentiation must contain four reflection questions');
-assert(v8.circles.comparison.rows.length === 7, 'V8 Circles comparison must contain seven comparison rows');
+assert(v8.homepage.gifts.items.length > 0, 'V8 practice list must contain the migrated content');
+assert(v8.homepage.gifts.items.every((item) => item.id), 'V8 practice cards must have stable IDs');
+assert(v8.homepage.finding_home.logistics.every((item) => item.id), 'Finding Home logistics must have stable IDs');
+assert(v8.homepage.section_order.every((item) => item.id && typeof item.enabled === 'boolean'), 'Homepage order entries must have stable IDs and visibility');
+assert(new Set(v8.homepage.section_order.map((item) => item.id)).size === v8.homepage.section_order.length, 'Homepage order contains duplicate IDs');
+assert(Array.isArray(v8.homepage.custom_sections), 'V8 custom section library must be available');
+assert(v8.circles.comparison.rows.length > 0, 'V8 Circles comparison must retain migrated rows');
 assert(index.includes('class="v6-hero"'), 'Generated homepage is missing the approved V6 hero');
 assert(index.includes(v8.homepage.hero.headline), 'Generated homepage is missing the V8 hero headline from source');
 assert(index.includes(v8.homepage.hero.primary_label), 'Generated homepage is missing the V8 primary CTA from source');
 assert(index.includes(v8.homepage.finding_home.heading), 'Generated homepage is missing Finding Home source content');
 assert(index.includes('Exercises for the Heart and Mind'), 'Generated homepage is missing the approved practice bridge');
 assert(index.includes('Happiness'), 'Generated homepage is missing the happiness outcome');
-assert(index.includes(v8.homepage.gifts.items[3].title), 'Generated homepage is missing the fourth V8 practice');
+for (const item of v8.homepage.gifts.items.filter((entry) => entry.enabled !== false)) {
+  assert(index.includes(item.title), `Generated homepage is missing V8 practice ${item.id}`);
+}
 assert(index.includes(v8.homepage.difference.heading), 'Generated homepage is missing Circle differentiation source content');
 assert(index.includes('Does any of this feel familiar?'), 'Generated homepage is missing the approved recognition heading');
 assert(index.includes('Any one of these is enough to begin.'), 'Generated homepage is missing the recognition closing line');
@@ -56,6 +65,17 @@ for (const key of ['AIRTABLE_TOKEN','AIRTABLE_BASE_ID','AIRTABLE_TABLE_ID','RESE
 }
 assert(lead.includes('https://api.airtable.com/v0/'), 'Lead function does not post to Airtable');
 assert(redirects.includes('/api/lead /.netlify/functions/lead 200'), 'Lead function redirect is missing');
+for (const component of ['text_image','image_text','full_image','editorial','callout','quote','card_grid','icon_grid','cta','comparison','video','divider','spacer']) {
+  assert(v8Cms.includes(`name: ${component}`), `V8 CMS is missing custom component ${component}`);
+}
+assert(v8Cms.includes('name: section_order'), 'V8 CMS is missing Homepage Section Order');
+assert(v8Preview.includes("registerPreviewTemplate('v8_front_door'"), 'V8 CMS preview is not registered');
+assert(v8Renderer.includes('repeat(auto-fit,minmax'), 'V8 repeatable grids are not count-flexible');
+const orderedPositions = v8.homepage.section_order.filter((item) => item.enabled).map((item) => {
+  const markers = { hero: 'class="v6-hero"', recognition: 'class="v6-recognition', practice_bridge: 'class="v6-practice', gifts: 'class="v6-gifts', difference: 'class="v6-circle', finding_home: 'class="v6-finding', journey: 'class="v6-journey', founder: 'class="v6-founder', fit: 'class="v6-fit', interest: 'id="interest"', faq: 'id="faq"' };
+  return markers[item.id] ? index.indexOf(markers[item.id]) : -1;
+}).filter((position) => position >= 0);
+assert(orderedPositions.every((position, i) => i === 0 || position > orderedPositions[i - 1]), 'Generated homepage does not follow V8 section order');
 assert(!await exists('scripts/apply-v8-front-door.mjs'), 'Obsolete post-build V8 override script still exists');
 assert(!await exists('scripts/v8-front-door.mjs'), 'Duplicate legacy V8 renderer still exists');
 console.log('Homeward V8/V6 production verification passed.');
