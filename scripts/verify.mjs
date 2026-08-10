@@ -9,8 +9,10 @@ const assert = (condition, message) => { if (!condition) throw new Error(message
 
 const pkg = JSON.parse(await read('package.json'));
 const v8 = JSON.parse(await read('content/v8.json'));
+const practicesV8 = JSON.parse(await read('content/practices-v8.json'));
 const index = await read('dist/index.html');
 const circles = await read('dist/circles.html');
+const practices = await read('dist/practices.html');
 const resources = await read('dist/resources.html');
 const lead = await read('netlify/functions/lead.mjs');
 const redirects = await read('_redirects');
@@ -22,6 +24,9 @@ assert(await exists('scripts/render-v8-home-v6.mjs'), 'Approved V6 homepage rend
 assert(await exists('assets/v8-home-v6.css'), 'Approved V6 homepage stylesheet is missing');
 assert(await exists('scripts/render-v8-circles-primary.mjs'), 'Primary V8 Circles renderer is missing');
 assert(await exists('assets/v8-circles-primary.css'), 'Primary V8 Circles stylesheet is missing');
+assert(await exists('scripts/render-v8-practices-primary.mjs'), 'Primary V8 Practices renderer is missing');
+assert(await exists('assets/v8-practices-primary.css'), 'Primary V8 Practices stylesheet is missing');
+assert(await exists('content/practices-v8.json'), 'V8 Practices content source is missing');
 assert(v8.homepage.hero.primary_label === 'Tell Us You’re Interested', 'V8 hero primary CTA is incorrect');
 assert(v8.homepage.hero.primary_url === '#interest', 'V8 hero primary CTA must target #interest');
 assert(v8.homepage.hero.secondary_label === 'See How a Circle Works', 'V8 hero secondary CTA is incorrect');
@@ -59,6 +64,24 @@ assert(circles.includes('A Circle may not be the best fit if'), 'Generated Circl
 assert(circles.includes('href="/#interest"'), 'Circles page interest CTAs must use the existing homepage interest form');
 assert(circles.includes('href="/connect.html"'), 'Circles page must link to the conversation page');
 assert(circles.includes('Practice the way. Explore honestly. Carry it into life.'), 'Circles page is missing the approved closing signature');
+
+assert(practices.includes('v8-practices-primary-css'), 'Generated Practices page is missing the primary Practices stylesheet');
+assert(practices.includes(practicesV8.hero.heading), 'Generated Practices page is missing the approved hero heading');
+assert(practices.includes(practicesV8.hero.emphasis), 'Generated Practices page is missing the hero emphasis');
+assert(practices.includes('Spiritual practices are exercises for the heart and mind.'), 'Generated Practices page is missing Why Practice Matters');
+assert(practices.includes('Joy &amp; Happiness'), 'Generated Practices page is missing the joy and happiness benefit');
+assert(practices.includes('10</strong><span>MINUTES A DAY'), 'Generated Practices page is missing the 10-minutes-a-day research feature');
+assert(practices.includes('47 trials'), 'Generated Practices page is missing the stress research card');
+assert(practices.includes('111 RCTs'), 'Generated Practices page is missing the cognition research card');
+assert(practices.includes('24,804 people'), 'Generated Practices page is missing the gratitude research card');
+assert(practices.includes('22% less'), 'Generated Practices page is missing the connection research card');
+assert(practices.includes('What we repeat becomes easier to return to.'), 'Generated Practices page is missing the formation progression');
+assert(practicesV8.library.items.every((item) => practices.includes(item.title)), 'Generated Practices page is missing one or more practice cards');
+assert(!practices.includes('Settle your body and become aware of your breathing.'), 'Practices overview should not include step-by-step practice instructions');
+assert(practices.includes('You can practice alone. Community helps the practice go deeper.'), 'Generated Practices page is missing the community section');
+assert(practices.includes('href="/circles.html"'), 'Practices page must link to the primary Circles page');
+assert(practices.includes('href="/#interest"'), 'Practices page must link to the existing interest form');
+assert(practices.includes('href="/resources.html"'), 'Practices page must link to Resources');
 
 assert(await exists('dist/resources.html'), 'Resources page was not built');
 assert(resources.length > 5000, 'Resources page appears incomplete');
