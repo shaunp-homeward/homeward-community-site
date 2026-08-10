@@ -6,6 +6,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFile(path.join(root, p), 'utf8');
 const exists = async (p) => { try { await fs.stat(path.join(root, p)); return true; } catch { return false; } };
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
+const enabledItems = (items = []) => Array.isArray(items) ? items.filter((item) => item && item.enabled !== false) : [];
+const idsUnique = (items = []) => {
+  const ids = items.map((item) => item?.id).filter(Boolean);
+  return ids.length === new Set(ids).size;
+};
 
 const pkg = JSON.parse(await read('package.json'));
 const v8 = JSON.parse(await read('content/v8.json'));
@@ -16,6 +21,10 @@ const practices = await read('dist/practices.html');
 const resources = await read('dist/resources.html');
 const lead = await read('netlify/functions/lead.mjs');
 const redirects = await read('_redirects');
+const v8Cms = await read('admin/v8-collection.yml');
+const preview = await read('admin/preview.js');
+const deployedCms = await read('dist/admin/config.yml');
+const runtimeConfig = await read('dist/admin/runtime-config.js');
 
 assert(pkg.scripts.build.includes('scripts/build.mjs'), 'Build script must continue through scripts/build.mjs');
 assert(pkg.scripts.build.includes('v8-build-hook.mjs'), 'Build script must include the V8 source renderer hook');
@@ -27,25 +36,74 @@ assert(await exists('assets/v8-circles-primary.css'), 'Primary V8 Circles styles
 assert(await exists('scripts/render-v8-practices-primary.mjs'), 'Primary V8 Practices renderer is missing');
 assert(await exists('assets/v8-practices-primary.css'), 'Primary V8 Practices stylesheet is missing');
 assert(await exists('content/practices-v8.json'), 'V8 Practices content source is missing');
+assert(await exists('docs/V8_CMS_ARCHITECTURE.md'), 'V8 CMS architecture documentation is missing');
+
+assert(Array.isArray(v8.homepage.section_order) && v8.homepage.section_order.length > 0, 'V8 homepage section order is missing');
+assert(idsUnique(v8.homepage.section_order), 'V8 section order contains duplicate stable IDs');
+for (const requiredId of ['hero','recognition','practice_bridge','gifts','difference','finding_home','journey','founder','fit','interest','faq']) {
+  assert(v8.homepage.section_order.some((item) => item.id === requiredId), `V8 section order is missing ${requiredId}`);
+}
+for (const list of [
+  v8.homepage.hero.facts,
+  v8.homepage.finding_home.logistics,
+  v8.homepage.recognition.items,
+  v8.homepage.practice_bridge.outcome_items,
+  v8.homepage.gifts.items,
+  v8.homepage.difference.features,
+  v8.circles.comparison.rows,
+]) {
+  assert(Array.isArray(list), 'A V8 flexible content list is missing');
+  assert(idsUnique(list), 'A V8 flexible content list contains duplicate stable IDs');
+}
+
+assert(v8Cms.includes('name: v8_front_door'), 'V8 CMS collection name is missing');
+assert(v8Cms.includes('file: content/v8.json'), 'V8 CMS must edit content/v8.json');
+assert(!v8Cms.includes('file: content/home.json'), 'V8 CMS collection must not edit content/home.json');
+assert(v8Cms.includes('name: section_order'), 'V8 CMS section ordering control is missing');
+assert(v8Cms.includes('name: custom_sections'), 'V8 CMS custom section library is missing');
+for (const type of ['text_image','image_text','full_width_image','editorial','callout','quote','card_grid','icon_grid','cta','comparison','video','divider','spacer']) {
+  assert(v8Cms.includes(`name: ${type}`), `V8 CMS component type ${type} is missing`);
+}
+assert(!/field:\s*\n\s*widget:\s*object\b/.test(v8Cms), 'V8 CMS contains an anonymous singular object field');
+assert(preview.includes("CMS.registerPreviewTemplate('v8_front_door', V8Preview)"), 'V8 preview is not registered for v8_front_door');
+assert(preview.includes("CMS.registerPreviewTemplate('v8', V8Preview)"), 'V8 preview is not registered for the V8 file entry');
+assert(deployedCms.includes('name: v8_front_door'), 'Generated CMS config is missing V8 collection');
+assert(deployedCms.includes('file: content/v8.json'), 'Generated CMS config is not targeting content/v8.json');
+assert(runtimeConfig.includes('window.__HOMEWARD_CMS_BRANCH'), 'Generated CMS runtime branch config is missing');
+
 assert(v8.homepage.hero.primary_label === 'Tell Us You’re Interested', 'V8 hero primary CTA is incorrect');
 assert(v8.homepage.hero.primary_url === '#interest', 'V8 hero primary CTA must target #interest');
 assert(v8.homepage.hero.secondary_label === 'See How a Circle Works', 'V8 hero secondary CTA is incorrect');
 assert(v8.homepage.hero.logistics.includes('Four weeks'), 'V8 hero logistics must say Four weeks');
 assert(v8.homepage.practice_bridge.outcomes.includes('Happiness'), 'V8 outcome line must include Happiness');
-assert(v8.homepage.gifts.items.length === 4, 'V8 Four Gifts must contain exactly four practices');
-assert(v8.homepage.difference.questions.length === 4, 'V8 Circle differentiation must contain four reflection questions');
-assert(index.includes('class="v6-hero"'), 'Generated homepage is missing the approved V6 hero');
+assert(enabledItems(v8.homepage.gifts.items).length >= 1, 'V8 gifts must contain at least one enabled practice');
+assert(v8.homepage.difference.questions.length >= 1, 'V8 Circle differentiation must contain reflection questions');
+
+assert(index.includes('class="v6-hero'), 'Generated homepage is missing the approved V6 hero');
 assert(index.includes(v8.homepage.hero.headline), 'Generated homepage is missing the V8 hero headline from source');
 assert(index.includes(v8.homepage.hero.primary_label), 'Generated homepage is missing the V8 primary CTA from source');
 assert(index.includes(v8.homepage.finding_home.heading), 'Generated homepage is missing Finding Home source content');
 assert(index.includes('Exercises for the Heart and Mind'), 'Generated homepage is missing the approved practice bridge');
 assert(index.includes('Happiness'), 'Generated homepage is missing the happiness outcome');
-assert(index.includes(v8.homepage.gifts.items[3].title), 'Generated homepage is missing the fourth V8 practice');
+const lastGift = enabledItems(v8.homepage.gifts.items).at(-1);
+assert(!lastGift || index.includes(lastGift.title), 'Generated homepage is missing an enabled V8 practice');
 assert(index.includes(v8.homepage.difference.heading), 'Generated homepage is missing Circle differentiation source content');
 assert(index.includes('Does any of this feel familiar?'), 'Generated homepage is missing the approved recognition heading');
 assert(index.includes('Any one of these is enough to begin.'), 'Generated homepage is missing the recognition closing line');
 assert(index.includes('v6-journey-benefit'), 'Generated homepage is missing the approved Journey benefit panel');
 assert(index.includes('Take the 5-Minute Spiritual Journey Reflection'), 'Journey CTA copy is incorrect');
+assert(index.includes('repeat(auto-fit,minmax(145px,1fr))'), 'Generated homepage is missing count-flexible V8 grid rules');
+
+const orderedIds = v8.homepage.section_order.filter((item) => item.enabled !== false).map((item) => item.id);
+let lastPosition = -1;
+for (const id of orderedIds) {
+  const marker = `data-v8-section="${id}"`;
+  const position = index.indexOf(marker);
+  if (position === -1) continue;
+  assert(position > lastPosition, `Generated homepage section order is incorrect at ${id}`);
+  lastPosition = position;
+}
+
 assert(index.includes('What are Christian meditation and contemplative prayer?'), 'Homepage FAQ is missing meditation/contemplation question');
 assert(index.includes('Do you draw from traditions outside Christianity?'), 'Homepage FAQ is missing outside-traditions question');
 assert(index.includes('Why is a conversation required before joining a Circle?'), 'Homepage FAQ is missing conversation question');
@@ -97,4 +155,5 @@ assert(lead.includes('https://api.airtable.com/v0/'), 'Lead function does not po
 assert(redirects.includes('/api/lead /.netlify/functions/lead 200'), 'Lead function redirect is missing');
 assert(!await exists('scripts/apply-v8-front-door.mjs'), 'Obsolete post-build V8 override script still exists');
 assert(!await exists('scripts/v8-front-door.mjs'), 'Duplicate legacy V8 renderer still exists');
-console.log('Homeward V8/V6 production verification passed.');
+
+console.log('Homeward V8/V6 production + CMS verification passed.');
