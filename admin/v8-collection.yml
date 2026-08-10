@@ -1,163 +1,1111 @@
 - name: v8_front_door
-  label: V8 Front Door
+  label: Homepage (V8)
   delete: false
   files:
   - name: v8
-    label: V8 Homepage & Circle Messaging
+    label: Homepage Builder
     file: content/v8.json
     format: json
     fields:
     - label: Homepage
       name: homepage
       widget: object
+      collapsed: false
       fields:
+      - label: Homepage section order
+        name: section_order
+        widget: list
+        collapsed: false
+        summary: '{{fields.id}}'
+        allow_add: true
+        allow_remove: true
+        allow_reorder: true
+        hint: Drag sections into the order you want. Turn Enabled off to hide a section. Protected sections removed from this
+          list safely fall back to the default order.
+        fields:
+        - label: Section ID
+          name: id
+          widget: string
+          hint: Built-in IDs include hero, recognition, practice_bridge, gifts, difference, finding_home, journey, practice_bears_fruit,
+            founder, fit, interest, faq. For a custom section, use its custom Stable ID.
+        - label: Enabled
+          name: enabled
+          widget: boolean
+          default: true
       - label: Hero
         name: hero
         widget: object
+        collapsed: false
         fields:
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Headline, name: headline, widget: string}
-        - {label: Emphasis, name: emphasis, widget: string}
-        - {label: Description, name: description, widget: text}
-        - {label: Primary CTA, name: primary_label, widget: string}
-        - {label: Primary destination, name: primary_url, widget: string}
-        - {label: Secondary CTA, name: secondary_label, widget: string}
-        - {label: Secondary destination, name: secondary_url, widget: string}
-        - {label: Logistics, name: logistics, widget: string}
-        - {label: Requirements, name: requirements, widget: string}
-        - {label: Hero image, name: image, widget: image}
-        - {label: Image alt text, name: image_alt, widget: string}
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Headline
+          name: headline
+          widget: string
+        - label: Emphasis
+          name: emphasis
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        - label: Primary CTA
+          name: primary_label
+          widget: string
+        - label: Primary destination
+          name: primary_url
+          widget: string
+        - label: Secondary CTA
+          name: secondary_label
+          widget: string
+        - label: Secondary destination
+          name: secondary_url
+          widget: string
+        - label: Legacy logistics line
+          name: logistics
+          widget: string
+          required: false
+        - label: Requirements line
+          name: requirements
+          widget: string
+          required: false
+        - label: Hero image
+          name: image
+          widget: image
+        - label: Image alt text
+          name: image_alt
+          widget: string
+        - label: Hero facts / icons
+          name: facts
+          widget: list
+          summary: '{{fields.line1}} {{fields.line2}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - &id003
+            label: Icon
+            name: icon
+            widget: select
+            options:
+            - pin
+            - wifi
+            - person
+            - heart
+            - coin
+            - headHeart
+            - prayer
+            - book
+            - question
+            - sunrise
+            - brain
+            - sun
+            - leaf
+            - people
+            - calendar
+            - chat
+            - cross
+            default: leaf
+            required: true
+          - label: First line
+            name: line1
+            widget: string
+          - label: Second line
+            name: line2
+            widget: string
+        - &id002
+          label: Design options
+          name: style
+          widget: object
+          collapsed: true
+          required: false
+          fields:
+          - label: Background
+            name: background
+            widget: select
+            options: &id001
+            - label: Default / Existing Design
+              value: default
+            - label: Deep Forest
+              value: forest
+            - label: Warm Ivory
+              value: ivory
+            - label: Living Sage
+              value: sage
+            - label: Aged Copper
+              value: copper
+            - label: Sunrise Gold
+              value: gold
+            - label: Charcoal
+              value: charcoal
+            - label: White
+              value: white
+            - label: Black
+              value: black
+            - label: Neutral Gray
+              value: gray
+            default: default
+            required: true
+          - label: Heading color
+            name: heading_color
+            widget: select
+            options: *id001
+            default: default
+            required: true
+          - label: Body text color
+            name: text_color
+            widget: select
+            options: *id001
+            default: default
+            required: true
+          - label: Accent color
+            name: accent_color
+            widget: select
+            options: *id001
+            default: default
+            required: true
+          - label: Heading size
+            name: heading_size
+            widget: select
+            options:
+            - label: Default
+              value: default
+            - label: Smaller
+              value: small
+            - label: Larger
+              value: large
+            default: default
+            required: true
+          - label: Body size
+            name: body_size
+            widget: select
+            options:
+            - label: Default
+              value: default
+            - label: Smaller
+              value: small
+            - label: Larger
+              value: large
+            default: default
+            required: true
+          - label: Text alignment
+            name: alignment
+            widget: select
+            options:
+            - label: Default
+              value: default
+            - label: Left
+              value: left
+            - label: Center
+              value: center
+            - label: Right
+              value: right
+            default: default
+            required: true
+          - label: Heading font
+            name: heading_font
+            widget: select
+            options:
+            - label: Default
+              value: default
+            - label: Playfair Display
+              value: playfair
+            - label: Inter
+              value: inter
+            default: default
+            required: true
+          - label: Section spacing
+            name: spacing
+            widget: select
+            options:
+            - label: Default
+              value: default
+            - label: Compact
+              value: compact
+            - label: Spacious
+              value: spacious
+            default: default
+            required: true
       - label: Finding Home / Season One
         name: finding_home
         widget: object
+        collapsed: true
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Season label, name: eyebrow, widget: string}
-        - {label: Program title, name: title, widget: string}
-        - {label: Tagline, name: heading, widget: string}
-        - {label: Body, name: body, widget: text}
-        - label: Logistics
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Season label
+          name: eyebrow
+          widget: string
+        - label: Program title
+          name: title
+          widget: string
+        - label: Tagline
+          name: heading
+          widget: string
+        - label: Body
+          name: body
+          widget: text
+        - label: Logistics / icon facts
           name: logistics
           widget: list
+          summary: '{{fields.label}} — {{fields.detail}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
           fields:
-          - {label: Main fact, name: label, widget: string}
-          - {label: Supporting detail, name: detail, widget: string}
-        - {label: Availability line, name: availability, widget: string}
-        - {label: CTA label, name: link_label, widget: string}
-        - {label: CTA destination, name: link_url, widget: string}
-      - label: Recognition
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Icon
+            name: icon
+            widget: select
+            options:
+            - pin
+            - wifi
+            - person
+            - heart
+            - coin
+            - headHeart
+            - prayer
+            - book
+            - question
+            - sunrise
+            - brain
+            - sun
+            - leaf
+            - people
+            - calendar
+            - chat
+            - cross
+            default: calendar
+            required: true
+          - label: Main fact
+            name: label
+            widget: string
+          - label: Supporting detail
+            name: detail
+            widget: string
+        - label: Availability line
+          name: availability
+          widget: string
+        - label: CTA label
+          name: link_label
+          widget: string
+        - label: CTA destination
+          name: link_url
+          widget: string
+        - *id002
+      - label: Invitation / Recognition
         name: recognition
         widget: object
+        collapsed: true
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Intro, name: intro, widget: text}
-        - label: Recognition questions
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Intro
+          name: intro
+          widget: text
+        - label: Recognition prompts
+          name: items
+          widget: list
+          summary: '{{fields.text}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Icon
+            name: icon
+            widget: select
+            options:
+            - pin
+            - wifi
+            - person
+            - heart
+            - coin
+            - headHeart
+            - prayer
+            - book
+            - question
+            - sunrise
+            - brain
+            - sun
+            - leaf
+            - people
+            - calendar
+            - chat
+            - cross
+            default: question
+            required: true
+          - label: Prompt
+            name: text
+            widget: text
+        - label: Legacy recognition questions
           name: questions
           widget: list
-          field: {label: Question, name: question, widget: text}
-        - label: Author names
+          collapsed: true
+          required: false
+          field:
+            label: Question
+            name: question
+            widget: text
+        - label: Legacy author names
           name: authors
           widget: list
-          field: {label: Author, name: author, widget: string}
-        - {label: Closing line, name: honest_line, widget: text}
+          collapsed: true
+          required: false
+          field:
+            label: Author
+            name: author
+            widget: string
+        - label: Closing line
+          name: honest_line
+          widget: text
+        - *id002
       - label: Exercises for the Heart and Mind
         name: practice_bridge
         widget: object
+        collapsed: true
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Body, name: body, widget: text}
-        - {label: Outcome line, name: outcomes, widget: string}
-        - {label: Supporting image, name: image, widget: image}
-        - {label: Image alt text, name: image_alt, widget: string}
-      - label: Four Gifts
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Body
+          name: body
+          widget: text
+        - label: Outcome line
+          name: outcomes
+          widget: string
+        - label: Supporting image
+          name: image
+          widget: image
+          required: false
+        - label: Image alt text
+          name: image_alt
+          widget: string
+          required: false
+        - label: Outcome icons
+          name: outcome_items
+          widget: list
+          summary: '{{fields.label}} {{fields.detail}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - *id003
+          - label: Main outcome
+            name: label
+            widget: string
+          - label: Second line
+            name: detail
+            widget: string
+            required: false
+        - *id002
+      - label: Four Gifts / Practice Cards
         name: gifts
         widget: object
+        collapsed: true
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Editorial bridge, name: bridge, widget: text}
-        - label: Gifts
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Editorial bridge
+          name: bridge
+          widget: text
+        - label: Practice cards
           name: items
           widget: list
-          field:
-            widget: object
-            fields:
-            - {label: Practice, name: title, widget: string}
-            - {label: Outcome, name: description, widget: text}
-            - {label: Image, name: image, widget: image}
-            - {label: Image alt text, name: image_alt, widget: string}
-      - label: Not Your Ordinary Small Group
+          summary: '{{fields.title}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Practice
+            name: title
+            widget: string
+          - label: Outcome
+            name: description
+            widget: text
+          - label: Image
+            name: image
+            widget: image
+            required: false
+          - label: Image alt text
+            name: image_alt
+            widget: string
+            required: false
+        - *id002
+      - label: A Circle is Different
         name: difference
         widget: object
+        collapsed: true
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
         - label: Paragraphs
           name: paragraphs
           widget: list
-          field: {label: Paragraph, name: paragraph, widget: text}
+          required: false
+          field:
+            label: Paragraph
+            name: paragraph
+            widget: text
         - label: Reflection questions
           name: questions
           widget: list
-          field: {label: Question, name: question, widget: string}
-        - {label: Signature, name: signature, widget: string}
-        - {label: Closing note, name: closing, widget: text}
-      - label: Journey Reflection
+          required: false
+          field:
+            label: Question
+            name: question
+            widget: string
+        - label: Circle differentiators
+          name: features
+          widget: list
+          summary: '{{fields.title}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - *id003
+          - label: Title
+            name: title
+            widget: string
+          - label: Description
+            name: description
+            widget: text
+        - label: Signature
+          name: signature
+          widget: string
+        - label: Closing note
+          name: closing
+          widget: text
+        - *id002
+      - label: Spiritual Journey Reflection
         name: journey
         widget: object
+        collapsed: true
         fields:
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Description, name: description, widget: text}
-        - {label: Spiral artwork, name: image, widget: image}
-        - {label: Benefits heading, name: benefit_heading, widget: string}
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Description
+          name: description
+          widget: text
+        - label: Spiral artwork
+          name: image
+          widget: image
+        - label: Benefits heading
+          name: benefit_heading
+          widget: string
         - label: Benefits
           name: benefit_items
           widget: list
-          field: {label: Benefit, name: benefit, widget: string}
-        - {label: Reassurance note, name: benefit_text, widget: text}
-        - {label: CTA label, name: cta_label, widget: string}
-        - {label: CTA destination, name: cta_url, widget: string}
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          field:
+            label: Benefit
+            name: benefit
+            widget: string
+        - label: Reassurance note
+          name: benefit_text
+          widget: text
+        - label: CTA label
+          name: cta_label
+          widget: string
+        - label: CTA destination
+          name: cta_url
+          widget: string
+        - *id002
       - label: Founder
         name: founder
         widget: object
+        collapsed: true
         fields:
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Image, name: image, widget: image}
-        - {label: Image alt text, name: image_alt, widget: string}
-        - {label: Short homepage bio, name: body, widget: text}
-        - {label: Link label, name: link_label, widget: string}
-        - {label: Link destination, name: link_url, widget: string}
+        - label: Show this section
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Image
+          name: image
+          widget: image
+          required: false
+        - label: Image alt text
+          name: image_alt
+          widget: string
+          required: false
+        - label: Short homepage bio
+          name: body
+          widget: text
+        - label: Link label
+          name: link_label
+          widget: string
+        - label: Link destination
+          name: link_url
+          widget: string
+        - *id002
+      - label: Optional custom sections
+        name: custom_sections
+        widget: list
+        types:
+        - name: text_image
+          label: Text + Image
+          widget: object
+          fields: &id004
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - &id006
+            label: Body
+            name: body
+            widget: richtext
+            required: false
+            buttons:
+            - bold
+            - italic
+            - link
+            - heading-two
+            - heading-three
+            - bulleted-list
+            - numbered-list
+            editor_components: []
+            sanitize_preview: true
+          - label: Image
+            name: image
+            widget: image
+            required: false
+          - label: Image alt text
+            name: image_alt
+            widget: string
+            required: false
+          - label: Caption
+            name: caption
+            widget: string
+            required: false
+          - &id005
+            label: Image focus
+            name: image_focus
+            widget: select
+            options:
+            - label: Center
+              value: center
+            - label: Top
+              value: top
+            - label: Bottom
+              value: bottom
+            default: center
+            required: false
+          - label: Button label
+            name: button_label
+            widget: string
+            required: false
+          - label: Button destination
+            name: button_url
+            widget: string
+            required: false
+          - *id002
+        - name: image_text
+          label: Image + Text
+          widget: object
+          fields: *id004
+        - name: full_width_image
+          label: Full-width Image
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - label: Image
+            name: image
+            widget: image
+            required: false
+          - label: Image alt text
+            name: image_alt
+            widget: string
+            required: false
+          - label: Caption
+            name: caption
+            widget: string
+            required: false
+          - *id005
+          - *id006
+          - *id002
+        - name: editorial
+          label: Editorial Content
+          widget: object
+          fields: &id007
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - *id006
+          - label: Button label
+            name: button_label
+            widget: string
+            required: false
+          - label: Button destination
+            name: button_url
+            widget: string
+            required: false
+          - *id002
+        - name: callout
+          label: Callout
+          widget: object
+          fields: *id007
+        - name: quote
+          label: Quote / Testimonial
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Quote
+            name: quote
+            widget: richtext
+            buttons:
+            - bold
+            - italic
+            - link
+            editor_components: []
+          - label: Attribution
+            name: attribution
+            widget: string
+            required: false
+          - *id002
+        - name: card_grid
+          label: Card Grid
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - *id006
+          - label: Cards
+            name: items
+            widget: list
+            summary: '{{fields.title}}'
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            fields:
+            - label: Stable ID
+              name: id
+              widget: string
+              hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+            - label: Show
+              name: enabled
+              widget: boolean
+              default: true
+            - label: Title
+              name: title
+              widget: string
+            - label: Body
+              name: body
+              widget: richtext
+              required: false
+              buttons:
+              - bold
+              - italic
+              - link
+              - bulleted-list
+              editor_components: []
+            - label: Image
+              name: image
+              widget: image
+              required: false
+            - label: Image alt text
+              name: image_alt
+              widget: string
+              required: false
+          - *id002
+        - name: icon_grid
+          label: Icon / Benefit Grid
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - *id006
+          - label: Items
+            name: items
+            widget: list
+            summary: '{{fields.title}}'
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            fields:
+            - label: Stable ID
+              name: id
+              widget: string
+              hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+            - label: Show
+              name: enabled
+              widget: boolean
+              default: true
+            - *id003
+            - label: Title
+              name: title
+              widget: string
+            - label: Body
+              name: body
+              widget: richtext
+              required: false
+              buttons:
+              - bold
+              - italic
+              - link
+              editor_components: []
+          - *id002
+        - name: cta
+          label: CTA Band
+          widget: object
+          fields: *id007
+        - name: comparison
+          label: Comparison
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - *id006
+          - label: Left heading
+            name: left_heading
+            widget: string
+          - label: Right heading
+            name: right_heading
+            widget: string
+          - label: Rows
+            name: rows
+            widget: list
+            summary: '{{fields.left}}'
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            fields:
+            - label: Stable ID
+              name: id
+              widget: string
+              hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+            - label: Show
+              name: enabled
+              widget: boolean
+              default: true
+            - label: Left
+              name: left
+              widget: text
+            - label: Right
+              name: right
+              widget: text
+          - *id002
+        - name: video
+          label: Video
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: 'Unique stable ID used by the section order. Example: service-fruit.'
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Eyebrow
+            name: eyebrow
+            widget: string
+            required: false
+          - label: Heading
+            name: heading
+            widget: string
+            required: false
+          - *id006
+          - label: Video embed URL
+            name: video_url
+            widget: string
+          - label: Video accessibility title
+            name: video_title
+            widget: string
+            required: false
+          - *id002
+        - name: divider
+          label: Divider
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - *id002
+        - name: spacer
+          label: Spacer
+          widget: object
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Spacer size
+            name: spacer_size
+            widget: select
+            options:
+            - label: Small
+              value: small
+            - label: Medium
+              value: medium
+            - label: Large
+              value: large
+            default: medium
+            required: true
+        allow_add: true
+        allow_remove: true
+        allow_reorder: true
+        collapsed: true
+        hint: Add an approved Homeward section type. Give it a unique Stable ID. To position it among built-in sections, add
+          that same ID to Homepage Section Order and drag it into place.
     - label: Circles page comparison
       name: circles
       widget: object
+      collapsed: true
       fields:
       - label: Comparison
         name: comparison
         widget: object
+        collapsed: false
         fields:
-        - {label: Enabled, name: enabled, widget: boolean, default: true}
-        - {label: Eyebrow, name: eyebrow, widget: string}
-        - {label: Heading, name: heading, widget: string}
-        - {label: Intro, name: intro, widget: text}
+        - label: Enabled
+          name: enabled
+          widget: boolean
+          default: true
+        - label: Eyebrow
+          name: eyebrow
+          widget: string
+        - label: Heading
+          name: heading
+          widget: string
+        - label: Intro
+          name: intro
+          widget: text
         - label: Comparison rows
           name: rows
           widget: list
-          field:
-            widget: object
-            fields:
-            - {label: Typical label, name: typical_label, widget: string}
-            - {label: Typical emphasis, name: typical, widget: text}
-            - {label: Typical question, name: typical_quote, widget: string, required: false}
-            - {label: Homeward label, name: homeward_label, widget: string}
-            - {label: Homeward emphasis, name: homeward, widget: text}
-            - {label: Homeward question, name: homeward_quote, widget: string, required: false}
-        - {label: Closing principle, name: close, widget: text}
-        - {label: Final note, name: final, widget: text}
+          summary: '{{fields.typical}} → {{fields.homeward}}'
+          allow_add: true
+          allow_remove: true
+          allow_reorder: true
+          fields:
+          - label: Stable ID
+            name: id
+            widget: string
+            hint: Stable ID. Use lowercase letters, numbers, and hyphens.
+          - label: Show
+            name: enabled
+            widget: boolean
+            default: true
+          - label: Typical label
+            name: typical_label
+            widget: string
+          - label: Typical emphasis
+            name: typical
+            widget: text
+          - label: Typical question
+            name: typical_quote
+            widget: string
+            required: false
+          - label: Homeward label
+            name: homeward_label
+            widget: string
+          - label: Homeward emphasis
+            name: homeward
+            widget: text
+          - label: Homeward question
+            name: homeward_quote
+            widget: string
+            required: false
+        - label: Closing principle
+          name: close
+          widget: text
+        - label: Final note
+          name: final
+          widget: text

@@ -1,4 +1,4 @@
-/* Homeward's Decap previews intentionally reuse the site's visual language rather than the CMS admin chrome. */
+/* Homeward Decap previews reuse the site's visual language rather than the CMS admin chrome. */
 (function () {
   const CMS = window.CMS;
   const createClass = window.createClass;
@@ -8,12 +8,22 @@
   CMS.registerPreviewStyle('/styles.css');
   CMS.registerPreviewStyle('/admin/preview.css');
 
-  const text = (entry, path, fallback = '') => entry.getIn(['data'].concat(path)) || fallback;
   const asset = (value, getAsset) => {
     if (!value) return '';
     try { return getAsset(value).toString(); } catch (_) { return String(value); }
   };
   const children = (items, renderer) => (items || []).map((item, index) => renderer(item, index));
+  const enabled = (items) => (items || []).filter(function (item) { return item && item.enabled !== false; });
+  const palette = {
+    forest: '#153A2E', ivory: '#FAF6EF', sage: '#6D7D6A', copper: '#B53A2A',
+    gold: '#E0A443', charcoal: '#333333', white: '#FFFFFF', black: '#000000', gray: '#EEEAE4'
+  };
+  const bgClass = () => '';
+  const bgStyle = (style) => {
+    const value = style && style.background;
+    if (!value || value === 'default' || !palette[value]) return undefined;
+    return { background: palette[value], color: ['forest','copper','charcoal','black'].includes(value) ? '#FAF6EF' : '#333333' };
+  };
 
   const HomePreview = createClass({
     render: function () {
@@ -45,7 +55,7 @@
           h('div', { className: 'cms-grid' }, children(recognition.questions, function (question, index) {
             return h('article', { className: 'cms-card', key: index },
               h('div', { className: 'cms-number' }, String(index + 1).padStart(2, '0')),
-              h('p', {}, question)
+              h('p', {}, typeof question === 'string' ? question : question?.text || '')
             );
           })),
           recognition.honest_line ? h('div', { className: 'cms-note' }, recognition.honest_line) : null
@@ -84,13 +94,85 @@
         h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
           h('p', { className: 'cms-eyebrow' }, journey.eyebrow || 'Journey'),
           h('h2', {}, journey.heading || ''),
-          h('p', {}, journey.description || ''),
-          journey.benefit_heading ? h('div', { className: 'cms-card' },
-            h('h3', {}, journey.benefit_heading),
-            h('ul', { className: 'cms-list' }, children(journey.benefit_items, function (item, index) { return h('li', { key: index }, item); })),
-            journey.benefit_text ? h('p', {}, journey.benefit_text) : null
-          ) : null
+          h('p', {}, journey.description || '')
         ))
+      );
+    }
+  });
+
+  const V8Preview = createClass({
+    render: function () {
+      const entry = this.props.entry;
+      const data = entry.get('data')?.toJS ? entry.get('data').toJS() : {};
+      const page = data.homepage || {};
+      const custom = Object.fromEntries((page.custom_sections || []).filter(function (item) { return item && item.id; }).map(function (item) { return [item.id, item]; }));
+      const defaults = ['hero', 'recognition', 'practice_bridge', 'gifts', 'difference', 'finding_home', 'journey', 'practice_bears_fruit', 'founder', 'fit', 'interest', 'faq'];
+      const configured = Array.isArray(page.section_order) ? page.section_order : [];
+      const seen = {};
+      const order = [];
+
+      configured.forEach(function (item) {
+        const id = typeof item === 'string' ? item : item && item.id;
+        if (!id || seen[id]) return;
+        seen[id] = true;
+        order.push({ id: id, enabled: typeof item === 'string' ? true : item.enabled !== false });
+      });
+      defaults.forEach(function (id) {
+        if (!seen[id]) {
+          seen[id] = true;
+          order.push({ id: id, enabled: true });
+        }
+      });
+      Object.keys(custom).forEach(function (id) {
+        if (!seen[id]) order.push({ id: id, enabled: true });
+      });
+
+      const section = (id, title, body, opts) => {
+        const options = opts || {};
+        const cls = 'cms-section' + (options.forest ? ' forest' : '') + bgClass(options.style);
+        return h('section', { className: cls, key: id, style: bgStyle(options.style) },
+          h('div', { className: 'cms-shell' },
+            h('span', { className: 'cms-pill' }, options.protected ? id + ' · protected structure' : id),
+            options.image ? h('img', { className: 'cms-image', src: asset(options.image, this.props.getAsset), alt: options.alt || '' }) : null,
+            title ? h('h2', {}, title) : null,
+            body ? h('p', {}, body) : null,
+            options.items ? h('div', { className: 'cms-grid' }, enabled(options.items).map(function (item, index) {
+              const scalar = typeof item === 'string';
+              const key = scalar ? index : (item.id || index);
+              const titleText = scalar ? item : (item.title || item.label || item.line1 || item.text || '');
+              const detailText = scalar ? '' : (item.description || item.detail || item.line2 || '');
+              return h('article', { className: 'cms-card', key: key },
+                !scalar && item.image ? h('img', { className: 'cms-image', src: asset(item.image, this.props.getAsset), alt: item.image_alt || '' }) : null,
+                h('h3', {}, titleText),
+                detailText ? h('p', {}, detailText) : null
+              );
+            })) : null
+          )
+        );
+      };
+
+      const renderers = {
+        hero: () => section('hero', page.hero?.headline, page.hero?.emphasis || page.hero?.description, { image: page.hero?.image, alt: page.hero?.image_alt, items: page.hero?.facts, style: page.hero?.style }),
+        recognition: () => section('recognition', page.recognition?.heading, page.recognition?.intro, { items: page.recognition?.items, style: page.recognition?.style }),
+        practice_bridge: () => section('practice_bridge', page.practice_bridge?.heading, page.practice_bridge?.body, { items: page.practice_bridge?.outcome_items, style: page.practice_bridge?.style }),
+        gifts: () => section('gifts', page.gifts?.heading, page.gifts?.bridge, { items: page.gifts?.items, style: page.gifts?.style }),
+        difference: () => section('difference', page.difference?.heading, page.difference?.closing, { items: page.difference?.features, style: page.difference?.style }),
+        finding_home: () => section('finding_home', page.finding_home?.title, page.finding_home?.heading, { items: page.finding_home?.logistics, style: page.finding_home?.style }),
+        journey: () => section('journey', page.journey?.heading, page.journey?.description, { image: page.journey?.image, items: page.journey?.benefit_items, style: page.journey?.style, forest: true }),
+        founder: () => section('founder', page.founder?.heading, page.founder?.body, { image: page.founder?.image, alt: page.founder?.image_alt, style: page.founder?.style }),
+        practice_bears_fruit: () => section('practice_bears_fruit', 'Practice Bears Fruit', 'Protected inherited section. Public markup remains controlled by the site renderer.', { protected: true }),
+        fit: () => section('fit', 'Fit / Not Fit', 'Protected inherited section. It can be reordered or hidden without generalizing its internal markup.', { protected: true }),
+        interest: () => section('interest', 'Interest / Lead Form', 'Protected inherited form and integration structure.', { protected: true }),
+        faq: () => section('faq', 'Frequently Asked Questions', 'Protected inherited FAQ behavior and accessibility structure.', { protected: true }),
+      };
+
+      return h('div', { className: 'cms-preview' },
+        order.filter(function (item) { return item.enabled !== false; }).map(function (item) {
+          if (renderers[item.id]) return renderers[item.id]();
+          const c = custom[item.id];
+          if (!c || c.enabled === false) return null;
+          return section(c.id, c.heading || c.type, c.body || c.quote || '', { image: c.image, alt: c.image_alt, items: c.items, style: c.style });
+        })
       );
     }
   });
@@ -126,6 +208,8 @@
   });
 
   CMS.registerPreviewTemplate('home', HomePreview);
+  CMS.registerPreviewTemplate('v8_front_door', V8Preview);
+  CMS.registerPreviewTemplate('v8', V8Preview);
   ['global', 'circles', 'practices', 'about', 'connect', 'vision', 'assessment'].forEach(function (name) {
     CMS.registerPreviewTemplate(name, GenericPreview);
   });
