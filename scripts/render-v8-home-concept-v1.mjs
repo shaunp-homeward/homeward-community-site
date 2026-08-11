@@ -15,14 +15,12 @@ export function renderHomeConceptV1(_sourceHtml) {
     html = html.replace('</head>', '<link href="/assets/homepage-concept-v1-polish.css?v=5" rel="stylesheet"/>\n</head>');
   }
   if (!html.includes('/assets/v8-launch-image-qa.css')) {
-    html = html.replace('</head>', '<link href="/assets/v8-launch-image-qa.css?v=1" rel="stylesheet"/>\n</head>');
+    html = html.replace('</head>', '<link href="/assets/v8-launch-image-qa.css?v=2" rel="stylesheet"/>\n</head>');
   }
 
   html = html.replace('<body>', '<body class="v8-home-launch">');
   html = html.replace(/<section class="recognition section">[\s\S]*?<\/section>/, recognition);
 
-  // Match the current Homeward header posture: conversation in the header,
-  // interest invitations in the page itself, and no persistent bottom bar.
   html = html.replace(
     '<a class="button button-copper header-cta" href="#interest">Tell us you’re interested</a>',
     '<a class="button button-copper header-cta" href="connect.html">Let\'s Talk</a>',
@@ -33,9 +31,6 @@ export function renderHomeConceptV1(_sourceHtml) {
   );
   html = html.replace(/<a class="mobile-sticky"[\s\S]*?<\/a>/, '');
 
-  // The original V1 concept referenced review thumbnails. Use existing full-size
-  // Homeward imagery for the homepage practice collage so desktop and mobile do
-  // not upscale thumbnail assets.
   const imageMap = new Map([
     ['/assets/review/practices/BP-A.jpg', '/assets/living-awake/contemplative-room.webp'],
     ['/assets/review/practices/BP-H.jpg', '/assets/sacred-search/path-sunrise.webp'],
