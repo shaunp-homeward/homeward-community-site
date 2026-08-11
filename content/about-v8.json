@@ -1,0 +1,113 @@
+{
+  "version": "8.0.7",
+  "hero": {
+    "eyebrow": "OUR STORY · WHY HOMEWARD EXISTS",
+    "heading": "I went looking for a faith I could actually live.",
+    "lead": "Homeward grew out of a long search: questions I could not ignore, years of study, retreats and monasteries across traditions, and an unexpected return to the Jesus I never really stopped loving.",
+    "question": "If God is love, is everyone who doesn’t believe exactly what I believe really going to hell?",
+    "support": "I could not find answers that satisfied both my mind and my heart. So I kept asking. Then I went looking.",
+    "images": [
+      {"src": "/assets/our-story/personal-stupa-group.jpg", "alt": "Shaun with fellow retreat participants during a season of spiritual exploration", "class": "stupa"},
+      {"src": "/assets/our-story/father-lawrence-freeman.jpg", "alt": "Father Laurence Freeman, one of the Christian contemplative voices encountered along Shaun's journey", "class": "teacher"},
+      {"src": "/assets/founder-headshot.jpg", "alt": "Shaun Pennington", "class": "founder"},
+      {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during a season of spiritual formation", "class": "archive"}
+    ]
+  },
+  "questions": {
+    "eyebrow": "THE QUESTIONS BEGAN EARLY",
+    "heading": "I loved Jesus. I wasn’t sure what to do with the answers I was given.",
+    "paragraphs": [
+      "I grew up evangelical. There was much in that world I still value: Scripture, prayer, service, the person of Jesus, and the conviction that faith should matter.",
+      "But some questions would not leave me alone. What happens to people in other religions? Is fear really the center of salvation? Why did a God of love sometimes sound so unlike the Jesus I encountered in the Gospels?",
+      "Rather than stop asking, I studied. I earned a degree with dual majors in Religious Studies and Anthropology and began trying to understand how human beings across cultures have sought God, meaning, transformation, and the sacred."
+    ],
+    "timeline": [
+      {"label": "Inherited faith", "title": "A real love for Jesus—and real questions.", "body": "I did not go searching because I stopped caring. I went searching because the questions mattered."},
+      {"label": "Study", "title": "Religion + anthropology.", "body": "Academic study gave me language for culture, belief, ritual, sacred texts, and the many ways people make meaning."},
+      {"label": "Practice", "title": "Monasteries, retreats, silence, meditation.", "body": "Eventually I wanted more than ideas. I wanted to know what spiritual practice actually did to a human life."}
+    ]
+  },
+  "search": {
+    "eyebrow": "SO I WENT LOOKING",
+    "heading": "Not for a new label. For depth.",
+    "paragraphs": [
+      "I traveled, stayed at monasteries and retreat centers, and practiced with people from Christian, Buddhist, Hindu, and non-denominational contemplative communities. I have done month-long retreat periods, 10-day silent meditation retreats, and retreats at places including Spirit Rock, Vajrapani, and Montserrat in Texas.",
+      "I learned the discipline of silence, attention, contemplation, solitude, and repeated practice. I did not adopt every belief I encountered. But I found practices that helped me become more awake—and, unexpectedly, helped me hear Christ again."
+    ],
+    "photos": [
+      {"src": "/assets/our-story/personal-hall.jpg", "alt": "A large meditation hall during Shaun's years of retreat practice", "caption": "Long retreat environments taught me what repetition, silence, and community can do to deepen a practice.", "contain": true},
+      {"src": "/assets/our-story/personal-stupa-group.jpg", "alt": "Shaun with retreat companions near a stupa", "caption": "The search was experiential: learning with people, sitting in practice, and asking what actually transforms a life."},
+      {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during spiritual formation", "caption": "I was learning across traditions without pretending that every tradition says the same thing."},
+      {"src": "/assets/our-story/father-lawrence-freeman.jpg", "alt": "Father Laurence Freeman", "caption": "Christian contemplative voices helped me see that silence and meditation were not foreign to Christianity—they were part of its own deep tradition."}
+    ]
+  },
+  "return": {
+    "eyebrow": "THE RETURN",
+    "heading": "My heart kept coming back to Christ.",
+    "paragraphs": [
+      "Through all of it, I kept praying to Jesus. The person and way of Christ remained the deepest gravitational center of my spiritual life—even when my old framework for Christianity no longer held together.",
+      "Then voices within the Christian contemplative tradition began opening a wider door. Richard Rohr’s The Universal Christ was especially important. It gave me a way to understand Christ, salvation, creation, and divine love that felt expansive without asking me to abandon Jesus.",
+      "The practices I encountered elsewhere did not replace Christ for me. They taught me ways of silence, attention, contemplation, and solitude that ultimately helped me return to Christ with a more open heart."
+    ],
+    "book_eyebrow": "A TURNING POINT",
+    "book_title": "The Universal Christ",
+    "book_body": "It reframed Christianity for me in a way that felt both more spacious and more deeply centered in Christ.",
+    "quote": "If I had heard Christianity framed this way earlier, I’m not sure I would have felt I needed to leave it to find depth."
+  },
+  "missing": {
+    "eyebrow": "THE MISSING PIECE",
+    "heading": "I came home with practices. I didn’t have people to practice with.",
+    "paragraph1": "A retreat can open something in you. Then you come home, the phone rings, work starts, the kids need something, traffic happens—and the practice can quietly disappear.",
+    "paragraph2": "What I wanted was remarkably simple: a few people who wanted to keep going. A place to sit in silence together, explore Scripture honestly, try a practice during the week, come back and talk about what actually happened, and grow into real friendship along the way.",
+    "signature": "That is why I’m starting Homeward."
+  },
+  "trust": {
+    "eyebrow": "YOU SHOULD KNOW WHO’S BEHIND THIS",
+    "heading": "A real person. A public life. No hidden spiritual persona.",
+    "lead": "Homeward is new. I think transparency matters more than pretending otherwise. I’m not asking you to trust an anonymous organization or a mysterious teacher.",
+    "cards": [
+      {"title": "A real-world life.", "body": "I lead Diamond Mattress, a fourth-generation family business. My professional history is public and easy to verify."},
+      {"title": "Study, not special authority.", "body": "I studied Religious Studies and Anthropology and have continued leadership, retreat, and personal-development work. I’m a serious student—not someone claiming spiritual perfection."},
+      {"title": "A husband, father, and fellow traveler.", "body": "I live an ordinary life with family, work, responsibilities, questions, and distractions. Homeward is meant for real life because that is where I need these practices too."},
+      {"title": "No hidden ladder.", "body": "Circles are currently offered at no cost. There is no secret teaching, expensive next level, pressure to agree, or expectation that Homeward replaces your church or tradition."}
+    ],
+    "linkedin_label": "View Shaun on LinkedIn ↗",
+    "linkedin_url": "https://www.linkedin.com/in/shaun-pennington-740a7417/",
+    "founder_image": "/assets/founder-headshot.jpg",
+    "founder_alt": "Shaun Pennington",
+    "community_heading": "Homeward should never depend on me seeming impressive.",
+    "community_paragraphs": [
+      "The point is not to build a community around Shaun. The point is to create a trustworthy container where people can experience God, practice the way of Jesus, ask honest questions, and support one another.",
+      "Over time, healthy community should become less founder-centered, not more."
+    ],
+    "is": [
+      "Jesus-centered and open to sincere seekers.",
+      "Practice-centered, not certainty-centered.",
+      "Built around honest conversation and lived experience.",
+      "A community you can participate in season by season.",
+      "Currently no cost to participate."
+    ],
+    "is_not": [
+      "A replacement for church, therapy, or professional care.",
+      "A debate club or a place where everyone must agree.",
+      "A secret spiritual system or personality cult.",
+      "A claim that every tradition teaches the same thing.",
+      "A finished institution pretending it already has everything figured out."
+    ],
+    "disclaimer": "The retreat centers, traditions, books, and teachers referenced here are part of Shaun’s personal spiritual history. Their inclusion does not imply endorsement of Homeward."
+  },
+  "final": {
+    "eyebrow": "IF THIS STORY SOUNDS A LITTLE LIKE YOURS",
+    "heading": "Maybe we should have a conversation.",
+    "lead": "You do not need to have your beliefs settled. You only need enough curiosity to explore what a practiced spiritual life could become.",
+    "steps": [
+      {"title": "Tell us you’re interested.", "body": "A short form. No commitment and no pressure."},
+      {"title": "Have a short conversation.", "body": "Ask questions, hear more about Homeward, and tell us what you’re looking for."},
+      {"title": "Find the right Circle.", "body": "We’ll look at location, schedule, online or in-person format, and fit."}
+    ],
+    "primary_label": "Tell Us You’re Interested",
+    "primary_url": "/#interest",
+    "secondary_label": "Have a Conversation",
+    "secondary_url": "/connect.html"
+  }
+}
