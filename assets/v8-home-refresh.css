@@ -61,6 +61,207 @@ body.v8-v6-home [data-v8-section="founder"] .v6-founder-grid a{
   margin-top:14px;
   font-weight:750;
 }
+
+/* Preferred Invitation from the reviewed Homepage Fresh Concept. */
+body.v8-v6-home .v8-preferred-recognition{
+  background:#FAF6EF;
+  padding:94px 0 86px;
+}
+body.v8-v6-home .v8-pref-shell{
+  width:min(1160px,calc(100% - 48px));
+  margin:0 auto;
+}
+body.v8-v6-home .v8-pref-eyebrow{
+  margin:0 0 14px;
+  color:#B53A2A;
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+body.v8-v6-home .v8-pref-recognition-head h2,
+body.v8-v6-home .v8-preferred-practices h2{
+  margin:0 0 15px;
+  color:#153A2E;
+  font-family:var(--serif,Georgia,serif);
+  font-size:clamp(2.45rem,4.4vw,4.2rem);
+  line-height:1.04;
+}
+body.v8-v6-home .v8-pref-recognition-head>p:last-child{
+  max-width:1020px;
+  color:#59635e;
+  font-size:1.08rem;
+  line-height:1.7;
+}
+body.v8-v6-home .v8-pref-recognition-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:22px;
+  margin-top:52px;
+}
+body.v8-v6-home .v8-pref-recognition-grid article{
+  min-height:315px;
+  padding:28px 24px;
+  background:#fff;
+  border:1px solid #ddd7cf;
+  border-radius:12px;
+}
+body.v8-v6-home .v8-pref-icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin-bottom:24px;
+  border:2px solid #B53A2A;
+  border-radius:50%;
+  color:#B53A2A;
+  font-family:Georgia,serif;
+  font-size:1.2rem;
+}
+body.v8-v6-home .v8-pref-recognition-grid p{
+  margin:0;
+  color:#153A2E;
+  font-size:1.08rem;
+  line-height:1.58;
+}
+body.v8-v6-home .v8-pref-recognition-grid strong{
+  font-weight:800;
+}
+body.v8-v6-home .v8-pref-recognition-close{
+  margin:42px auto 0;
+  text-align:center;
+  color:#B53A2A;
+  font-family:var(--serif,Georgia,serif);
+  font-weight:700;
+  font-size:1.18rem;
+}
+
+/* Preferred compact Practices section from the reviewed concept. */
+body.v8-v6-home .v8-preferred-practices{
+  background:#FAF6EF;
+  padding:92px 0;
+}
+body.v8-v6-home .v8-pref-practice-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+  gap:58px;
+  align-items:start;
+}
+body.v8-v6-home .v8-pref-practice-framing{
+  margin:4px 0 18px;
+  color:#153A2E;
+  font-family:var(--serif,Georgia,serif);
+  font-size:clamp(1.35rem,2.1vw,1.85rem);
+  line-height:1.25;
+  font-weight:800;
+}
+body.v8-v6-home .v8-pref-practice-copy>p{
+  color:#4f5a54;
+  font-size:1.03rem;
+  line-height:1.72;
+}
+body.v8-v6-home .v8-pref-practice-lead{
+  margin-bottom:12px;
+}
+body.v8-v6-home .v8-pref-benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:28px 0 24px;
+}
+body.v8-v6-home .v8-pref-benefit-grid>div{
+  padding:15px 16px;
+  background:#fff;
+  border:1px solid rgba(21,58,46,.11);
+  border-radius:9px;
+  color:#153A2E;
+  line-height:1.35;
+}
+body.v8-v6-home .v8-pref-research-teaser{
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:18px;
+  align-items:center;
+  margin:24px 0 18px;
+  padding:22px;
+  background:#153A2E;
+  color:#FAF6EF;
+  border-radius:11px;
+}
+body.v8-v6-home .v8-pref-research-number{
+  font-family:var(--serif,Georgia,serif);
+  font-size:3.6rem;
+  line-height:1;
+  color:#E0A443;
+  text-align:center;
+}
+body.v8-v6-home .v8-pref-research-teaser b{
+  display:block;
+  color:#E0A443;
+  font-size:.78rem;
+  letter-spacing:.11em;
+}
+body.v8-v6-home .v8-pref-research-teaser p{
+  margin:5px 0 0;
+  color:#f3eee7;
+  font-size:.9rem;
+  line-height:1.55;
+}
+body.v8-v6-home .v8-pref-research-note{
+  font-size:.88rem!important;
+}
+body.v8-v6-home .v8-pref-practice-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+body.v8-v6-home .v8-pref-practice-actions .button{
+  background:#B53A2A;
+  color:white;
+}
+body.v8-v6-home .v8-pref-text-link{
+  color:#B53A2A;
+  font-weight:750;
+}
+body.v8-v6-home .v8-pref-practice-collage{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding-top:30px;
+}
+body.v8-v6-home .v8-pref-practice-collage figure{
+  position:relative;
+  overflow:hidden;
+  margin:0;
+  min-height:230px;
+  border-radius:12px;
+  background:#ddd;
+}
+body.v8-v6-home .v8-pref-practice-collage img{
+  width:100%;
+  height:100%;
+  min-height:230px;
+  object-fit:cover;
+}
+body.v8-v6-home .v8-pref-practice-collage figcaption{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:38px 16px 14px;
+  color:white;
+  background:linear-gradient(transparent,rgba(9,28,23,.83));
+}
+body.v8-v6-home .v8-pref-practice-collage figcaption b,
+body.v8-v6-home .v8-pref-practice-collage figcaption span{
+  display:block;
+}
+body.v8-v6-home .v8-pref-practice-collage figcaption span{
+  margin-top:2px;
+  font-size:.78rem;
+  opacity:.9;
+}
+
 @media(max-width:900px){
   body.v8-v6-home [data-v8-section="recognition"] .v6-recognition-grid{
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
@@ -69,6 +270,9 @@ body.v8-v6-home [data-v8-section="founder"] .v6-founder-grid a{
     grid-template-columns:1fr;
   }
   body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card{min-height:0}
+  body.v8-v6-home .v8-pref-recognition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.v8-v6-home .v8-pref-practice-grid{grid-template-columns:1fr}
+  body.v8-v6-home .v8-pref-practice-collage{padding-top:0}
 }
 @media(max-width:600px){
   body.v8-v6-home [data-v8-section="recognition"] .v6-recognition-grid{
@@ -77,4 +281,15 @@ body.v8-v6-home [data-v8-section="founder"] .v6-founder-grid a{
   body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card{
     padding:22px;
   }
+  body.v8-v6-home .v8-preferred-recognition,
+  body.v8-v6-home .v8-preferred-practices{padding:64px 0}
+  body.v8-v6-home .v8-pref-shell{width:min(100% - 30px,1160px)}
+  body.v8-v6-home .v8-pref-recognition-grid{grid-template-columns:1fr;margin-top:34px}
+  body.v8-v6-home .v8-pref-recognition-grid article{min-height:0;padding:23px}
+  body.v8-v6-home .v8-pref-benefit-grid{grid-template-columns:1fr 1fr}
+  body.v8-v6-home .v8-pref-research-teaser{grid-template-columns:72px 1fr;padding:18px}
+  body.v8-v6-home .v8-pref-research-number{font-size:2.8rem}
+  body.v8-v6-home .v8-pref-practice-collage{grid-template-columns:1fr 1fr;gap:8px}
+  body.v8-v6-home .v8-pref-practice-collage figure,
+  body.v8-v6-home .v8-pref-practice-collage img{min-height:180px}
 }
