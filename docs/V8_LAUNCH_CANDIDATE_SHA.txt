@@ -1,0 +1,6 @@
+Homeward V8 final-review candidate
+Prepared: 2026-08-11
+Source branch: v8-four-week-front-door
+Candidate commit before this pointer file: 1165b69a1357acc813a3a80d52e6cc24c936345c
+
+This branch remains review-only. Do not merge or deploy main until Shaun approves the final review.
