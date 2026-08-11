@@ -4,6 +4,7 @@ import { renderCirclesPrimary } from './render-v8-circles-primary.mjs';
 import { renderPracticesPrimary } from './render-v8-practices-primary.mjs';
 import { renderAboutPrimary } from './render-v8-about-primary.mjs';
 import { applyCmsInlineFormatting } from './render-v8-inline-formatting.mjs';
+import { applySharedShell } from './render-v8-shared-shell.mjs';
 
 const originalWriteFile = fs.writeFile.bind(fs);
 const ensureStylesheet = (html, href) => {
@@ -26,6 +27,12 @@ const practiceImageMap = [
   ['/assets/review/practices/SE-H.jpg', '/assets/embodied-faith/community.webp'],
 ];
 
+const isPublicHtml = (name) => {
+  const normalized = String(name).replaceAll('\\', '/');
+  return normalized.includes('/dist/') && normalized.endsWith('.html')
+    && !normalized.includes('/dist/admin/') && !normalized.includes('/dist/drafts/');
+};
+
 fs.writeFile = async (file, data, ...rest) => {
   const name = String(file);
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
@@ -36,14 +43,16 @@ fs.writeFile = async (file, data, ...rest) => {
       '/assets/review/practices/BP-G.jpg',
       '/assets/living-awake/contemplative-room.webp',
     ]]);
-    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=2');
+    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/practices.html') || name.endsWith('\\dist\\practices.html')) {
     data = applyCmsInlineFormatting(renderPracticesPrimary(String(data)));
     data = replaceImages(data, practiceImageMap);
-    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=2');
+    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/about.html') || name.endsWith('\\dist\\about.html')) {
     data = applyCmsInlineFormatting(renderAboutPrimary(String(data)));
-    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=2');
+    data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   }
+
+  if (isPublicHtml(name)) data = applySharedShell(String(data), name);
   return originalWriteFile(file, data, ...rest);
 };
