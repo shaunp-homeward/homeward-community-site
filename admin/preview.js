@@ -12,166 +12,178 @@
     if (!value) return '';
     try { return getAsset(value).toString(); } catch (_) { return String(value); }
   };
-  const children = (items, renderer) => (items || []).map((item, index) => renderer(item, index));
   const enabled = (items) => (items || []).filter(function (item) { return item && item.enabled !== false; });
-  const palette = {
-    forest: '#153A2E', ivory: '#FAF6EF', sage: '#6D7D6A', copper: '#B53A2A',
-    gold: '#E0A443', charcoal: '#333333', white: '#FFFFFF', black: '#000000', gray: '#EEEAE4'
+  const text = (value) => String(value || '');
+  const rich = (value) => {
+    if (!value) return null;
+    return h('div', { className: 'hw-preview-rich' }, text(value).split(/\n\s*\n/).filter(Boolean).map(function (p, i) {
+      return h('p', { key: i }, p.replace(/\*\*|__|\*|_/g, ''));
+    }));
   };
-  const bgClass = () => '';
-  const bgStyle = (style) => {
-    const value = style && style.background;
-    if (!value || value === 'default' || !palette[value]) return undefined;
-    return { background: palette[value], color: ['forest','copper','charcoal','black'].includes(value) ? '#FAF6EF' : '#333333' };
-  };
+  const iconGlyph = (name) => ({
+    pin: '⌖', wifi: '⌁', person: '○', heart: '♡', coin: '◌', calendar: '□', people: '◎', leaf: '⌁', chat: '◇',
+    prayer: '◇', book: '▤', question: '?', sunrise: '☼', brain: '◉', sun: '☀', cross: '†', headHeart: '♡'
+  }[name] || '•');
+
+  const shell = (children, className) => h('div', { className: 'hw-shell ' + (className || '') }, children);
+  const eyebrow = (value) => value ? h('p', { className: 'hw-eyebrow' }, value) : null;
+  const button = (label, secondary) => label ? h('span', { className: 'button ' + (secondary ? 'button-secondary' : '') }, label) : null;
+  const cards = (items, render) => h('div', { className: 'hw-card-grid' }, enabled(items).map(render));
 
   const HomePreview = createClass({
     render: function () {
-      const entry = this.props.entry;
-      const data = entry.get('data')?.toJS ? entry.get('data').toJS() : {};
+      const data = this.props.entry.get('data')?.toJS ? this.props.entry.get('data').toJS() : {};
       const hero = data.hero || {};
-      const recognition = data.recognition || {};
-      const circles = data.circles || {};
-      const values = data.values || {};
-      const practices = data.practices || {};
-      const journey = data.journey || {};
-      const image = asset(circles.image || journey.image, this.props.getAsset);
-
       return h('div', { className: 'cms-preview' },
-        h('section', { className: 'cms-hero' }, h('div', { className: 'cms-shell' },
-          h('span', { className: 'cms-pill' }, 'Homeward · Live content preview'),
-          h('h1', {}, hero.headline || 'Your spiritual journey is yours.'),
-          hero.emphasis ? h('h1', {}, h('em', {}, hero.emphasis)) : null,
-          h('p', {}, hero.description || ''),
-          h('div', { className: 'cms-actions' },
-            hero.primary_label ? h('span', { className: 'cms-button' }, hero.primary_label) : null,
-            hero.secondary_label ? h('span', { className: 'cms-button secondary' }, hero.secondary_label) : null
-          )
-        )),
-        h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
-          h('p', { className: 'cms-eyebrow' }, recognition.eyebrow || 'Invitation'),
-          h('h2', {}, recognition.heading || 'You do not have to have it all figured out.'),
-          h('p', {}, recognition.intro || ''),
-          h('div', { className: 'cms-grid' }, children(recognition.questions, function (question, index) {
-            return h('article', { className: 'cms-card', key: index },
-              h('div', { className: 'cms-number' }, String(index + 1).padStart(2, '0')),
-              h('p', {}, typeof question === 'string' ? question : question?.text || '')
-            );
-          })),
-          recognition.honest_line ? h('div', { className: 'cms-note' }, recognition.honest_line) : null
-        )),
-        h('section', { className: 'cms-section forest' }, h('div', { className: 'cms-shell' },
-          h('p', { className: 'cms-eyebrow' }, circles.eyebrow || 'Homeward Circles'),
-          h('h2', {}, [circles.heading_line1, circles.heading_line2].filter(Boolean).join(' ')),
-          circles.description ? h('p', {}, circles.description) : null,
-          circles.differentiator_line ? h('div', { className: 'cms-note' }, circles.differentiator_line) : null,
-          image ? h('img', { className: 'cms-image', src: image, alt: circles.quote || 'Homeward Circle' }) : null,
-          h('div', { className: 'cms-grid' }, children(circles.steps, function (step, index) {
-            return h('article', { className: 'cms-card dark', key: index },
-              h('div', { className: 'cms-number' }, String(index + 1).padStart(2, '0')),
-              h('h3', {}, step.title || ''),
-              h('p', {}, step.description || '')
-            );
-          }))
-        )),
-        h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
-          h('p', { className: 'cms-eyebrow' }, values.eyebrow || 'Belong · Grow · Become'),
-          h('h2', {}, values.heading || ''),
-          h('p', {}, values.intro || ''),
-          h('div', { className: 'cms-grid' }, children(values.items, function (item, index) {
-            return h('article', { className: 'cms-card', key: index }, h('h3', {}, item.title || ''), h('p', {}, item.description || ''));
-          }))
-        )),
-        h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
-          h('p', { className: 'cms-eyebrow' }, practices.eyebrow || 'Practices'),
-          h('h2', {}, practices.heading || ''),
-          h('p', {}, practices.intro || ''),
-          h('div', { className: 'cms-grid' }, children(practices.items, function (item, index) {
-            if (item.show_on_homepage === false) return null;
-            return h('article', { className: 'cms-card', key: index }, h('h3', {}, item.title || ''), item.subtitle ? h('p', { className: 'cms-eyebrow' }, item.subtitle) : null, h('p', {}, item.description || ''));
-          }))
-        )),
-        h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
-          h('p', { className: 'cms-eyebrow' }, journey.eyebrow || 'Journey'),
-          h('h2', {}, journey.heading || ''),
-          h('p', {}, journey.description || '')
-        ))
+        h('section', { className: 'hw-hero hw-hero-simple' }, shell([
+          eyebrow('Homeward'), h('h1', {}, hero.headline || 'Homeward'), hero.emphasis ? h('h1', {}, h('em', {}, hero.emphasis)) : null,
+          h('p', { className: 'hw-lead' }, hero.description || '')
+        ]))
       );
     }
   });
 
   const V8Preview = createClass({
     render: function () {
-      const entry = this.props.entry;
-      const data = entry.get('data')?.toJS ? entry.get('data').toJS() : {};
+      const data = this.props.entry.get('data')?.toJS ? this.props.entry.get('data').toJS() : {};
       const page = data.homepage || {};
       const custom = Object.fromEntries((page.custom_sections || []).filter(function (item) { return item && item.id; }).map(function (item) { return [item.id, item]; }));
       const defaults = ['hero', 'recognition', 'practice_bridge', 'gifts', 'difference', 'finding_home', 'journey', 'practice_bears_fruit', 'founder', 'fit', 'interest', 'faq'];
       const configured = Array.isArray(page.section_order) ? page.section_order : [];
       const seen = {};
       const order = [];
-
       configured.forEach(function (item) {
         const id = typeof item === 'string' ? item : item && item.id;
         if (!id || seen[id]) return;
         seen[id] = true;
         order.push({ id: id, enabled: typeof item === 'string' ? true : item.enabled !== false });
       });
-      defaults.forEach(function (id) {
-        if (!seen[id]) {
-          seen[id] = true;
-          order.push({ id: id, enabled: true });
-        }
-      });
-      Object.keys(custom).forEach(function (id) {
-        if (!seen[id]) order.push({ id: id, enabled: true });
-      });
+      defaults.forEach(function (id) { if (!seen[id]) { seen[id] = true; order.push({ id: id, enabled: true }); } });
+      Object.keys(custom).forEach(function (id) { if (!seen[id]) order.push({ id: id, enabled: true }); });
 
-      const section = (id, title, body, opts) => {
-        const options = opts || {};
-        const cls = 'cms-section' + (options.forest ? ' forest' : '') + bgClass(options.style);
-        return h('section', { className: cls, key: id, style: bgStyle(options.style) },
-          h('div', { className: 'cms-shell' },
-            h('span', { className: 'cms-pill' }, options.protected ? id + ' · protected structure' : id),
-            options.image ? h('img', { className: 'cms-image', src: asset(options.image, this.props.getAsset), alt: options.alt || '' }) : null,
-            title ? h('h2', {}, title) : null,
-            body ? h('p', {}, body) : null,
-            options.items ? h('div', { className: 'cms-grid' }, enabled(options.items).map(function (item, index) {
-              const scalar = typeof item === 'string';
-              const key = scalar ? index : (item.id || index);
-              const titleText = scalar ? item : (item.title || item.label || item.line1 || item.text || '');
-              const detailText = scalar ? '' : (item.description || item.detail || item.line2 || '');
-              return h('article', { className: 'cms-card', key: key },
-                !scalar && item.image ? h('img', { className: 'cms-image', src: asset(item.image, this.props.getAsset), alt: item.image_alt || '' }) : null,
-                h('h3', {}, titleText),
-                detailText ? h('p', {}, detailText) : null
-              );
+      const hero = () => {
+        const s = page.hero || {};
+        const facts = enabled(s.fact_items || s.facts || []);
+        return h('section', { className: 'hw-hero', 'data-v8-section': 'hero' },
+          h('div', { className: 'hw-hero-media' }, [
+            s.image ? h('img', { src: asset(s.image, this.props.getAsset), alt: s.image_alt || '' }) : null,
+            h('div', { className: 'hw-hero-shade' })
+          ]),
+          shell(h('div', { className: 'hw-hero-copy' }, [
+            eyebrow(s.eyebrow),
+            h('h1', {}, [text(s.headline), s.emphasis ? h('em', {}, ' ' + s.emphasis) : null]),
+            rich(s.description),
+            h('div', { className: 'hw-actions' }, [button(s.primary_label), button(s.secondary_label, true)]),
+            facts.length ? h('div', { className: 'hw-facts' }, facts.map(function (item, i) {
+              return h('div', { className: 'hw-fact', key: item.id || i }, [
+                h('span', { className: 'hw-fact-icon' }, iconGlyph(item.icon)),
+                h('span', {}, [h('strong', {}, item.line1 || ''), item.line2 ? h('small', {}, item.line2) : null])
+              ]);
             })) : null
-          )
+          ]))
         );
       };
 
-      const renderers = {
-        hero: () => section('hero', page.hero?.headline, page.hero?.emphasis || page.hero?.description, { image: page.hero?.image, alt: page.hero?.image_alt, items: page.hero?.facts, style: page.hero?.style }),
-        recognition: () => section('recognition', page.recognition?.heading, page.recognition?.intro, { items: page.recognition?.items, style: page.recognition?.style }),
-        practice_bridge: () => section('practice_bridge', page.practice_bridge?.heading, page.practice_bridge?.body, { items: page.practice_bridge?.outcome_items, style: page.practice_bridge?.style }),
-        gifts: () => section('gifts', page.gifts?.heading, page.gifts?.bridge, { items: page.gifts?.items, style: page.gifts?.style }),
-        difference: () => section('difference', page.difference?.heading, page.difference?.closing, { items: page.difference?.features, style: page.difference?.style }),
-        finding_home: () => section('finding_home', page.finding_home?.title, page.finding_home?.heading, { items: page.finding_home?.logistics, style: page.finding_home?.style }),
-        journey: () => section('journey', page.journey?.heading, page.journey?.description, { image: page.journey?.image, items: page.journey?.benefit_items, style: page.journey?.style, forest: true }),
-        founder: () => section('founder', page.founder?.heading, page.founder?.body, { image: page.founder?.image, alt: page.founder?.image_alt, style: page.founder?.style }),
-        practice_bears_fruit: () => section('practice_bears_fruit', 'Practice Bears Fruit', 'Protected inherited section. Public markup remains controlled by the site renderer.', { protected: true }),
-        fit: () => section('fit', 'Fit / Not Fit', 'Protected inherited section. It can be reordered or hidden without generalizing its internal markup.', { protected: true }),
-        interest: () => section('interest', 'Interest / Lead Form', 'Protected inherited form and integration structure.', { protected: true }),
-        faq: () => section('faq', 'Frequently Asked Questions', 'Protected inherited FAQ behavior and accessibility structure.', { protected: true }),
+      const recognition = () => {
+        const s = page.recognition || {};
+        const qs = enabled(s.questions || s.items || []);
+        return h('section', { className: 'hw-section hw-invitation', 'data-v8-section': 'recognition' }, shell([
+          eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.intro),
+          qs.length ? h('div', { className: 'hw-question-list' }, qs.map(function (q, i) {
+            const body = typeof q === 'string' ? q : (q.text || q.question || '');
+            return h('div', { className: 'hw-question', key: q.id || i }, [h('span', {}, String(i + 1).padStart(2, '0')), h('p', {}, body)]);
+          })) : null,
+          s.honest_line ? h('p', { className: 'hw-closing-line' }, s.honest_line) : null
+        ]));
       };
 
-      return h('div', { className: 'cms-preview' },
+      const practiceBridge = () => {
+        const s = page.practice_bridge || {};
+        const outcomes = enabled(s.outcome_items || []);
+        return h('section', { className: 'hw-section hw-practice-bridge', 'data-v8-section': 'practice_bridge' }, shell([
+          h('div', { className: 'hw-split' }, [
+            h('div', {}, [eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.body), s.outcomes ? h('p', { className: 'hw-closing-line' }, s.outcomes) : null]),
+            s.image ? h('figure', { className: 'hw-figure' }, [h('img', { src: asset(s.image, this.props.getAsset), alt: s.image_alt || '' }), s.image_caption ? h('figcaption', {}, s.image_caption) : null]) : null
+          ]),
+          outcomes.length ? cards(outcomes, function (item, i) { return h('article', { className: 'hw-card', key: item.id || i }, [h('h3', {}, item.title || item.label || ''), h('p', {}, item.description || item.detail || '')]); }) : null
+        ]));
+      };
+
+      const gifts = () => {
+        const s = page.gifts || {};
+        return h('section', { className: 'hw-section hw-gifts', 'data-v8-section': 'gifts' }, shell([
+          eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.bridge || s.intro),
+          cards(s.items, function (item, i) { return h('article', { className: 'hw-gift-card', key: item.id || i }, [
+            item.image ? h('img', { src: asset(item.image, this.props.getAsset), alt: item.image_alt || '' }) : null,
+            h('div', {}, [h('span', { className: 'hw-card-icon' }, iconGlyph(item.icon)), h('h3', {}, item.title || ''), h('p', {}, item.description || item.detail || '')])
+          ]); })
+        ]));
+      };
+
+      const difference = () => {
+        const s = page.difference || {};
+        return h('section', { className: 'hw-section hw-difference', 'data-v8-section': 'difference' }, shell([
+          eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.intro || s.body),
+          cards(s.features || s.items, function (item, i) { return h('article', { className: 'hw-card', key: item.id || i }, [h('h3', {}, item.title || item.label || ''), h('p', {}, item.description || item.detail || '')]); }),
+          s.closing ? h('p', { className: 'hw-closing-line' }, s.closing) : null
+        ]));
+      };
+
+      const findingHome = () => {
+        const s = page.finding_home || {};
+        return h('section', { className: 'hw-section hw-season', 'data-v8-section': 'finding_home' }, shell(h('div', { className: 'hw-season-panel' }, [
+          eyebrow(s.eyebrow), h('p', { className: 'hw-season-title' }, s.title || ''), h('h2', {}, s.heading || ''), rich(s.body),
+          h('div', { className: 'hw-logistics' }, enabled(s.logistics).map(function (item, i) { return h('div', { className: 'hw-logistic', key: item.id || i }, [h('span', {}, iconGlyph(item.icon)), h('div', {}, [h('strong', {}, item.label || ''), h('small', {}, item.detail || '')])]); })),
+          s.availability ? h('p', { className: 'hw-availability' }, s.availability) : null,
+          button(s.link_label)
+        ])));
+      };
+
+      const journey = () => {
+        const s = page.journey || {};
+        return h('section', { className: 'hw-section hw-journey', 'data-v8-section': 'journey' }, shell(h('div', { className: 'hw-split' }, [
+          h('div', {}, [eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.description || s.body), s.cta_label ? button(s.cta_label) : null]),
+          s.image ? h('figure', { className: 'hw-figure' }, h('img', { src: asset(s.image, this.props.getAsset), alt: s.image_alt || '' })) : null
+        ])));
+      };
+
+      const founder = () => {
+        const s = page.founder || {};
+        return h('section', { className: 'hw-section hw-founder', 'data-v8-section': 'founder' }, shell(h('div', { className: 'hw-split' }, [
+          s.image ? h('figure', { className: 'hw-founder-photo' }, h('img', { src: asset(s.image, this.props.getAsset), alt: s.image_alt || '' })) : null,
+          h('div', {}, [eyebrow(s.eyebrow), h('h2', {}, s.heading || ''), rich(s.body), s.link_label ? button(s.link_label) : null])
+        ])));
+      };
+
+      const protectedSection = (id, title, body) => h('section', { className: 'hw-section hw-protected', 'data-v8-section': id }, shell([
+        h('span', { className: 'hw-protected-label' }, 'Live-site structure'), h('h2', {}, title), h('p', {}, body),
+        h('p', { className: 'hw-protected-note' }, 'This section keeps its production form/FAQ/integration markup when the site builds. Its position and visibility still follow the Homepage Builder.')
+      ]));
+
+      const customSection = (c) => {
+        if (!c || c.enabled === false) return null;
+        const type = c.type || 'content';
+        return h('section', { className: 'hw-section hw-custom hw-custom-' + type, 'data-v8-section': c.id }, shell([
+          eyebrow(c.eyebrow), h('h2', {}, c.heading || ''), rich(c.body || c.quote || ''),
+          c.image ? h('figure', { className: 'hw-figure' }, h('img', { src: asset(c.image, this.props.getAsset), alt: c.image_alt || '' })) : null,
+          c.items ? cards(c.items, function (item, i) { return h('article', { className: 'hw-card', key: item.id || i }, [h('h3', {}, item.title || item.label || ''), h('p', {}, item.description || item.detail || '')]); }) : null
+        ]));
+      };
+
+      const renderers = {
+        hero: hero, recognition: recognition, practice_bridge: practiceBridge, gifts: gifts, difference: difference,
+        finding_home: findingHome, journey: journey, founder: founder,
+        practice_bears_fruit: () => protectedSection('practice_bears_fruit', 'Practice Bears Fruit', 'The launch candidate keeps this established section from the public renderer.'),
+        fit: () => protectedSection('fit', 'Is Homeward a fit?', 'The launch candidate keeps the established fit / not-fit structure.'),
+        interest: () => protectedSection('interest', 'Tell us you’re interested', 'The launch candidate keeps the production lead form and integrations.'),
+        faq: () => protectedSection('faq', 'Frequently Asked Questions', 'The launch candidate keeps the production FAQ behavior and accessibility structure.')
+      };
+
+      return h('div', { className: 'cms-preview hw-launch-preview' },
         order.filter(function (item) { return item.enabled !== false; }).map(function (item) {
-          if (renderers[item.id]) return renderers[item.id]();
-          const c = custom[item.id];
-          if (!c || c.enabled === false) return null;
-          return section(c.id, c.heading || c.type, c.body || c.quote || '', { image: c.image, alt: c.image_alt, items: c.items, style: c.style });
+          const sectionData = page[item.id];
+          if (sectionData && sectionData.enabled === false) return null;
+          return renderers[item.id] ? renderers[item.id]() : customSection(custom[item.id]);
         })
       );
     }
@@ -179,38 +191,14 @@
 
   const GenericPreview = createClass({
     render: function () {
-      const entry = this.props.entry;
-      const data = entry.get('data')?.toJS ? entry.get('data').toJS() : {};
+      const data = this.props.entry.get('data')?.toJS ? this.props.entry.get('data').toJS() : {};
       const title = data.meta?.title || data.hero?.heading || data.heading || data.title || 'Homeward content';
-      const lead = data.hero?.lead || data.hero?.description || data.description || data.intro?.lead || '';
-      const sections = Object.keys(data).filter((key) => !['meta'].includes(key)).slice(0, 8);
-      return h('div', { className: 'cms-preview' },
-        h('section', { className: 'cms-hero' }, h('div', { className: 'cms-shell' },
-          h('span', { className: 'cms-pill' }, 'Homeward · Content preview'),
-          h('h1', {}, title),
-          lead ? h('p', {}, lead) : null
-        )),
-        h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' },
-          h('div', { className: 'cms-grid' }, sections.map(function (key) {
-            const value = data[key];
-            let body = '';
-            if (typeof value === 'string') body = value;
-            else if (Array.isArray(value)) body = value.map(function (item) { return typeof item === 'string' ? item : item?.title || item?.heading || item?.description || ''; }).filter(Boolean).join('\n');
-            else if (value && typeof value === 'object') body = Object.values(value).filter((item) => typeof item === 'string').slice(0, 4).join('\n');
-            return h('article', { className: 'cms-card', key: key },
-              h('p', { className: 'cms-eyebrow' }, key.replaceAll('_', ' ')),
-              h('p', {}, body || 'Structured content')
-            );
-          }))
-        ))
-      );
+      return h('div', { className: 'cms-preview' }, h('section', { className: 'hw-section' }, shell([h('h1', {}, title)])));
     }
   });
 
   CMS.registerPreviewTemplate('home', HomePreview);
   CMS.registerPreviewTemplate('v8_front_door', V8Preview);
   CMS.registerPreviewTemplate('v8', V8Preview);
-  ['global', 'circles', 'practices', 'about', 'connect', 'vision', 'assessment'].forEach(function (name) {
-    CMS.registerPreviewTemplate(name, GenericPreview);
-  });
+  ['global', 'circles', 'practices', 'about', 'connect', 'vision', 'assessment'].forEach(function (name) { CMS.registerPreviewTemplate(name, GenericPreview); });
 }());
