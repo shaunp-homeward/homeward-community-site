@@ -55,7 +55,7 @@
       });
     }());
   </script>
-  <!-- Single safe preview registration. Avoid loading the older duplicate V8 preview scripts. -->
-  <script src="/admin/preview-v8-safe.js"></script>
+  <!-- Single branch-aware V8 preview. Version query prevents stale browser-cached preview code. -->
+  <script src="/admin/preview-v8-safe.js?v=20260811-v8-launch"></script>
 </body>
 </html>
