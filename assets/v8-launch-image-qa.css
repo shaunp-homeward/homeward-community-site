@@ -1,0 +1,55 @@
+/* V8 launch-candidate image and responsive QA.
+   Purpose: prevent mobile crop/blank-image failures and keep historical photos intact. */
+
+/* Homepage recognition: four current Homeward questions, bold and balanced. */
+.v8-home-launch .recognition-grid-four{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.v8-home-launch .recognition-grid-four p{font-size:.9rem;line-height:1.55;color:#153A2E}
+.v8-home-launch .recognition-grid-four p strong{font-weight:700}
+.v8-home-launch .mobile-sticky{display:none!important}
+
+/* Keep images from exceeding their boxes or inheriting accidental intrinsic sizing. */
+.v8-home-launch img,
+body.v8-circles-primary img,
+body.v8-practices-primary img,
+body.v8-about-primary img{max-width:100%;display:block}
+
+@media(max-width:900px){
+  .v8-home-launch .recognition-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+  /* Homepage hero: show the whole group photo on mobile/tablet instead of forcing a crop. */
+  .v8-home-launch .hero-image-wrap{height:auto!important;min-height:0!important;background:#153A2E}
+  .v8-home-launch .hero-image-wrap img{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+
+  /* Circles hero: mobile should never crop away half the photograph. */
+  body.v8-circles-primary .cp-hero-image{min-height:0!important;height:auto!important;background:#FAF6EF}
+  body.v8-circles-primary .cp-hero-image:before{display:none!important}
+  body.v8-circles-primary .cp-hero-image img{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+
+  /* Practices hero: same rule; large photographs should retain their complete frame. */
+  body.v8-practices-primary .pp-hero-image{min-height:0!important;height:auto!important;background:#FAF6EF}
+  body.v8-practices-primary .pp-hero-image:before{display:none!important}
+  body.v8-practices-primary .pp-hero-image img{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+
+  /* Historical Our Story photos are deliberately contained instead of zoomed/cropped. */
+  body.v8-about-primary .ap-mosaic .ap-contain img,
+  body.v8-about-primary .ap-photo.contain img{object-fit:contain!important;object-position:center!important;background:#eee8df}
+}
+
+@media(max-width:640px){
+  .v8-home-launch .recognition-grid-four{grid-template-columns:1fr;gap:14px}
+  .v8-home-launch .recognition-grid-four article{display:grid;grid-template-columns:44px 1fr;gap:14px;text-align:left;align-items:start;padding:19px 20px}
+  .v8-home-launch .recognition-grid-four svg{width:38px;height:38px;margin:0}
+  .v8-home-launch .recognition-grid-four p{font-size:1rem;line-height:1.55}
+
+  /* Avoid blowing low-resolution historical photos up to full-screen crops. */
+  body.v8-about-primary .ap-mosaic{gap:8px}
+  body.v8-about-primary .ap-mosaic img{height:145px!important}
+  body.v8-about-primary .ap-mosaic .ap-contain img{padding:4px}
+  body.v8-about-primary .ap-photo img{height:250px!important}
+
+  /* Practice library tiles retain a predictable crop without stretching. */
+  body.v8-practices-primary .pp-practice-card img{width:100%;height:auto;aspect-ratio:4/2.7;object-fit:cover}
+  body.v8-practices-primary .pp-why-image img,
+  body.v8-practices-primary .pp-community-image img,
+  body.v8-circles-primary .cp-practice-image img{height:auto;object-fit:cover}
+}
