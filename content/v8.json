@@ -1,1 +1,623 @@
-{"homepage":{"section_order":[{"id":"hero","enabled":true},{"id":"recognition","enabled":true},{"id":"difference","enabled":true},{"id":"finding_home","enabled":true},{"id":"join_process","enabled":true},{"id":"join_cta","enabled":true},{"id":"practice_bridge","enabled":true},{"id":"gifts","enabled":true},{"id":"practices_cta","enabled":true},{"id":"founder","enabled":true},{"id":"fit","enabled":true},{"id":"interest","enabled":true},{"id":"journey","enabled":true},{"id":"faq","enabled":true},{"id":"remembering","enabled":false},{"id":"practice_bears_fruit","enabled":false}],"hero":{"enabled":true,"eyebrow":"HOMEWARD CIRCLES","headline":"You learned what to believe.","emphasis":"But were you ever taught how to practice?","description":"Homeward Circles are small, Jesus-centered communities where people practice the way of Jesus together through prayer, silence, Scripture, reflection, and honest conversation. Begin with one four-week season, then keep journeying as the practices and friendships deepen.","primary_label":"Tell Us You’re Interested","primary_url":"#interest","secondary_label":"See How a Circle Works","secondary_url":"circles.html","logistics":"Fort Worth + online · Six to eight people · Four-week seasons · No cost","requirements":"No church membership or settled beliefs required.","image":"assets/circles-home-v62.webp","image_alt":"Adults gathered together in a warm Homeward Circle conversation","facts":[{"id":"in-person","enabled":true,"icon":"pin","line1":"In person in","line2":"Fort Worth"},{"id":"online","enabled":true,"icon":"wifi","line1":"Online","line2":"Circles"},{"id":"membership","enabled":true,"icon":"person","line1":"No church","line2":"membership"},{"id":"beliefs","enabled":true,"icon":"heart","line1":"No settled beliefs","line2":"required"},{"id":"cost","enabled":true,"icon":"coin","line1":"No","line2":"cost"}],"style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"finding_home":{"enabled":true,"eyebrow":"SEASON ONE · FALL 2026","title":"Finding Home","heading":"A four-week beginning. An ongoing community.","body":"Finding Home is the first four-week season of Homeward Circles—a focused window to show up consistently, practice together, and build momentum. At the end there is a natural pause, not a graduation. Continue into future seasons as your practices, friendships, and spiritual life deepen.","logistics":[{"id":"begins","enabled":true,"icon":"calendar","label":"Begins the week","detail":"of Oct 13"},{"id":"duration","enabled":true,"icon":"calendar","label":"Four-week season","detail":"~90 minutes each week"},{"id":"people","enabled":true,"icon":"people","label":"Six to eight","detail":"people"},{"id":"location","enabled":true,"icon":"pin","label":"Fort Worth","detail":"+ online"},{"id":"cost","enabled":true,"icon":"coin","label":"No cost","detail":"to participate"}],"availability":"Evening Circles are forming now.","link_label":"Tell Us You’re Interested","link_url":"#interest","style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"recognition":{"enabled":true,"eyebrow":"THE INVITATION","heading":"Does any of this feel familiar?","intro":"Many of us have heard meaningful teachings about God, a Higher Power, love, and transformation. What we were missing was a way to practice them—and people to walk with us.","items":[{"id":"questions-doubts","enabled":true,"icon":"question","text":"You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?"},{"id":"experience-god","enabled":true,"icon":"heart","text":"You long to experience God—or a Higher Power—more deeply, not simply gather more religious information?"},{"id":"practical-formation","enabled":true,"icon":"sunrise","text":"You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?"},{"id":"shared-wisdom","enabled":true,"icon":"people","text":"You are looking for a community where people learn from one another without being required to reach all the same conclusions?"}],"questions":["You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?","You long to experience God—or a Higher Power—more deeply, not simply gather more religious information?","You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?","You are looking for a community where people learn from one another without being required to reach all the same conclusions?"],"authors":[],"honest_line":"You do not need settled beliefs—only an honest desire to explore, practice, and grow.","style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"practice_bridge":{"enabled":true,"eyebrow":"WHY PRACTICE MATTERS","heading":"Exercises for the heart and mind.","body":"We exercise our bodies to become stronger, healthier, and more capable. Spiritual practices train our inner life in much the same way—strengthening attention, opening the heart, and helping us return to God in the middle of ordinary life.\n\nOver time, the hope is a life marked by greater focus, more peace and steadiness, deeper connection, more joy and happiness, and a growing capacity to love and serve.\n\nModern research gives us another lens on the value of consistent practice: studies of meditation, gratitude, attention, and compassion suggest benefits for stress, focus, well-being, and connection. The deeper Christian aim is formation—becoming more available to God and love.","outcomes":"Focus · Peace · Joy · Happiness · Connection · Love","image":"assets/remembering-wonder-v6.webp","image_alt":"A quiet natural scene suggesting attention, wonder, and the inner life","outcome_items":[{"id":"focus","enabled":true,"icon":"brain","label":"Better Focus","detail":"& Clarity"},{"id":"peace","enabled":true,"icon":"heart","label":"More Peace","detail":"& Steadiness"},{"id":"joy","enabled":true,"icon":"sun","label":"More Joy","detail":"& Happiness"},{"id":"connection","enabled":true,"icon":"person","label":"Closer to God","detail":"& Others"},{"id":"serve","enabled":true,"icon":"leaf","label":"Ready to Love","detail":"& Serve"}],"style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"gifts":{"enabled":true,"eyebrow":"A FEW PRACTICES YOU’LL EXPERIENCE","heading":"Ancient practices. Everyday gifts.","bridge":"In a Circle, we do not just explain these practices—we experience them together, carry them into the week, and return to talk about what happened.","items":[{"id":"breath-prayer","enabled":true,"title":"Breath Prayer","description":"More peace. Less reactivity.","image":"/assets/review/practices/BP-A.jpg","image_alt":"A person seated comfortably with eyes closed in quiet breath prayer"},{"id":"gratitude","enabled":true,"title":"Gratitude","description":"More joy, appreciation, and happiness in ordinary life.","image":"/assets/review/practices/BP-H.jpg","image_alt":"A peaceful person practicing gratitude in a warm home setting"},{"id":"light-of-christ","enabled":true,"title":"Light of Christ","description":"More love, openness, and connection with God and others.","image":"/assets/review/practices/LC-B.jpg","image_alt":"A woman seated in gentle meditation beside a bright window, bathed in soft light"},{"id":"scripture-encounter","enabled":true,"title":"Scripture as Encounter","description":"More wisdom, meaning, and a deeper connection with God.","image":"/assets/review/practices/SE-G.jpg","image_alt":"Adults gathered around Scripture in warm conversation"}],"style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"difference":{"enabled":true,"eyebrow":"NOT YOUR ORDINARY SMALL GROUP","heading":"A Circle is different.","paragraphs":["Many Christian small groups naturally center on understanding Scripture and faith: <em>What does this passage teach? What do Christians believe? How should we understand this?</em>","Homeward adds another layer. We gather around practice, personal reflection, lived experience, and honest conversation.","<strong>Understanding matters.</strong> But spiritual formation asks another question: how does what we encounter in Scripture and prayer actually become part of the way we live?","Scripture remains important and Jesus remains at the center. A facilitator guides the experience, but does not function primarily as the person with the correct answer. People speak from their own experience, listen deeply to one another, and are not expected to debate, fix, correct, or force agreement. Anyone may pass.","We practice together during the gathering, carry a simple practice into ordinary life, and return to reflect on what we noticed. Four-week seasons give us a realistic rhythm to begin—and Homeward continues season by season."],"questions":["What are you noticing?","What is this stirring in you?","Where might God be inviting you?","What could you actually practice this week?"],"features":[{"id":"people","enabled":true,"icon":"people","title":"Six to eight people","description":"Small enough for everyone to be known."},{"id":"weeks","enabled":true,"icon":"calendar","title":"Four-week seasons","description":"A realistic rhythm to begin—and return to."},{"id":"practices","enabled":true,"icon":"leaf","title":"Ancient practices","description":"Meditation, prayer, Scripture, and silence."},{"id":"conversation","enabled":true,"icon":"chat","title":"Honest conversation","description":"No fixing, no debating—just real listening."},{"id":"jesus","enabled":true,"icon":"cross","title":"Jesus at the center","description":"We practice to grow in love of God and neighbor."}],"signature":"Practice the way. Explore honestly. Carry it into life.","closing":"Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others—and keep returning season by season.","style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"journey":{"enabled":true,"eyebrow":"Spiritual Journey Reflection","heading":"Where are you on your spiritual journey?","description":"Spiritual growth rarely moves in a straight line. We revisit familiar seasons with new questions, insight, and depth. This reflection helps you recognize what may be most alive in you now—and choose a meaningful next step.","image":"assets/spiritual-journey-spiral-v71.svg","benefit_heading":"What you’ll receive in about five minutes","benefit_items":["A clear name and description for the season you may be experiencing.","A personalized guide with spiritual practices suited to where you are.","Curated books, videos, podcasts, and resources for deeper exploration.","A practical next step to help you keep moving on your journey."],"benefit_text":"Private, reflective, and free—there are no scores, right answers, or beliefs you need to prove.","cta_label":"Take the 5-Minute Spiritual Journey Reflection","cta_url":"assessment.html","style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},"founder":{"enabled":true,"eyebrow":"MEET SHAUN","heading":"Why Homeward exists.","image":"assets/founder-headshot.jpg","image_alt":"Shaun Pennington, founder of Homeward","body":"After years of study, retreats, meditation, and contemplative practice, I came home with practices that had changed me—but I didn’t have people to keep practicing with. Homeward is the community I was looking for: a place to practice, ask honest questions, support one another, and grow into real friendship along the way.","link_label":"Read Shaun’s Story →","link_url":"about.html","style":{"background":"default","heading_color":"default","text_color":"default","accent_color":"default","heading_size":"default","body_size":"large","alignment":"default","heading_font":"default","spacing":"spacious"}},"custom_sections":[{"id":"join_process","enabled":true,"type":"icon_grid","eyebrow":"HOW JOINING A CIRCLE WORKS","heading":"A simple first step. No pressure.","body":"You do not have to decide whether Homeward is right for you before you reach out. We start with a little interest and a real conversation.","items":[{"id":"interest","enabled":true,"icon":"heart","title":"1. Tell us you’re interested","body":"A short form. No commitment. Just let us know what is drawing you toward Homeward."},{"id":"conversation","enabled":true,"icon":"chat","title":"2. Have a short conversation","body":"Ask questions, hear what a Circle feels like, and tell us what you are looking for."},{"id":"fit","enabled":true,"icon":"people","title":"3. We’ll help find your Circle","body":"We’ll look at location, schedule, online or in-person format, and fit."}],"style":{"background":"ivory","heading_color":"forest","text_color":"charcoal","accent_color":"copper","heading_size":"default","body_size":"default","alignment":"default","heading_font":"default","spacing":"default"}},{"id":"join_cta","enabled":true,"type":"cta","eyebrow":"READY TO TAKE THE FIRST STEP?","heading":"Tell us you’re interested.","body":"It takes only a couple of minutes and there is no commitment. Prefer to ask questions first? [Have a conversation about Homeward](/connect.html).","button_label":"Tell Us You’re Interested","button_url":"#interest","style":{"background":"white","heading_color":"forest","text_color":"charcoal","accent_color":"copper","heading_size":"small","body_size":"default","alignment":"default","heading_font":"default","spacing":"compact"}},{"id":"practices_cta","enabled":true,"type":"cta","eyebrow":"WANT TO GO DEEPER?","heading":"Explore the practices—and the research behind them.","body":"See what each Homeward practice is like, what it can help grow, and what modern research suggests about stress, focus, well-being, gratitude, and connection.","button_label":"Explore Practices & Research","button_url":"practices.html","style":{"background":"ivory","heading_color":"forest","text_color":"charcoal","accent_color":"copper","heading_size":"small","body_size":"default","alignment":"default","heading_font":"default","spacing":"compact"}}]},"circles":{"comparison":{"enabled":true,"eyebrow":"A DEEPER LOOK","heading":"Understanding matters. Homeward adds encounter, practice, and formation.","intro":"This isn’t a judgment on traditional groups. Many offer meaningful friendship, teaching, and Scripture study. A Homeward Circle builds on that foundation by making spiritual practice part of the experience.","rows":[{"id":"doctrine","enabled":true,"typical_label":"May emphasize","typical":"Understanding doctrine and beliefs.","typical_quote":"What is sin? Who is Jesus? What does this passage teach?","homeward_label":"Homeward emphasizes","homeward":"Practice, personal reflection, and spiritual formation.","homeward_quote":"What am I noticing? What is God inviting? How might I practice this?"},{"id":"scripture","enabled":true,"typical_label":"May emphasize","typical":"Discussing Scripture primarily to understand or interpret it.","homeward_label":"Homeward","homeward":"Engaging Scripture as both wisdom to understand and an encounter that can shape how we live."},{"id":"leader","enabled":true,"typical_label":"May emphasize","typical":"A leader teaching, explaining, or helping the group reach answers.","homeward_label":"Homeward","homeward":"A facilitator who participates, guides the process, and protects the quality of listening."},{"id":"sharing","enabled":true,"typical_label":"May emphasize","typical":"Sharing ideas, interpretations, and opinions.","homeward_label":"Homeward","homeward":"Speaking from lived experience, listening deeply, and reflecting personally."},{"id":"prayer","enabled":true,"typical_label":"May emphasize","typical":"Prayer primarily through words, requests, or discussion.","homeward_label":"Homeward","homeward":"Prayer that can also include meditation, silence, breath, attention, imagination, and receptive listening."},{"id":"meeting","enabled":true,"typical_label":"May emphasize","typical":"Much of the experience happening during the meeting.","homeward_label":"Homeward","homeward":"A simple practice carried into everyday life and brought back for reflection the following week."},{"id":"beliefs","enabled":true,"typical_label":"May emphasize","typical":"Shared beliefs or reaching similar conclusions as an important part of belonging.","homeward_label":"Homeward","homeward":"People exploring honestly without pressure to reach identical conclusions."}],"close":"We speak from experience. We listen without fixing. We make room for silence. We practice together. And anyone may pass.","final":"Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."}}}
+{
+  "homepage": {
+    "journey": {
+      "cta_url": "assessment.html",
+      "enabled": true,
+      "heading": "Where are you on your spiritual journey?",
+      "cta_label": "Take the 5-Minute Spiritual Journey Reflection",
+      "eyebrow": "Spiritual Journey Reflection",
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "benefit_text": "Private, reflective, and free—there are no scores, right answers, or beliefs you need to prove.",
+      "benefit_items": [
+        "A clear name and description for the season you may be experiencing.",
+        "A personalized guide with spiritual practices suited to where you are.",
+        "Curated books, videos, podcasts, and resources for deeper exploration.",
+        "A practical next step to help you keep moving on your journey."
+      ],
+      "benefit_heading": "What you’ll receive in about five minutes",
+      "image": "assets/spiritual-journey-spiral-v71.svg",
+      "description": "Spiritual growth rarely moves in a straight line. We revisit familiar seasons with new questions, insight, and depth. This reflection helps you recognize what may be most alive in you now—and choose a meaningful next step."
+    },
+    "gifts": {
+      "enabled": true,
+      "eyebrow": "A FEW PRACTICES YOU’LL EXPERIENCE",
+      "heading": "Ancient practices. Everyday gifts.",
+      "bridge": "In a Circle, we do not just explain these practices—we experience them together, carry them into the week, and return to talk about what happened.",
+      "items": [
+        {
+          "id": "breath-prayer",
+          "enabled": true,
+          "title": "Breath Prayer",
+          "description": "More peace. Less reactivity.",
+          "image": "/assets/review/practices/BP-A.jpg",
+          "image_alt": "A person seated comfortably with eyes closed in quiet breath prayer"
+        },
+        {
+          "id": "gratitude",
+          "enabled": true,
+          "title": "Gratitude",
+          "description": "More joy, appreciation, and happiness in ordinary life.",
+          "image": "/assets/review/practices/BP-H.jpg",
+          "image_alt": "A peaceful person practicing gratitude in a warm home setting"
+        },
+        {
+          "id": "light-of-christ",
+          "enabled": true,
+          "title": "Light of Christ",
+          "description": "More love, openness, and connection with God and others.",
+          "image": "/assets/review/practices/LC-B.jpg",
+          "image_alt": "A woman seated in gentle meditation beside a bright window, bathed in soft light"
+        },
+        {
+          "id": "scripture-encounter",
+          "enabled": true,
+          "title": "Scripture as Encounter",
+          "description": "More wisdom, meaning, and a deeper connection with God.",
+          "image": "/assets/review/practices/SE-G.jpg",
+          "image_alt": "Adults gathered around Scripture in warm conversation"
+        }
+      ],
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      }
+    },
+    "practice_bridge": {
+      "enabled": true,
+      "outcomes": "Focus · Peace · Joy · Happiness · Connection · Love",
+      "body": "We exercise our bodies to become stronger, healthier, and more capable. Spiritual practices train our inner life in much the same way—strengthening attention, opening the heart, and helping us return to God in the middle of ordinary life.\n\nOver time, the hope is a life marked by greater focus, more peace and steadiness, deeper connection, more joy and happiness, and a growing capacity to love and serve.\n\nModern research gives us another lens on the value of consistent practice: studies of meditation, gratitude, attention, and compassion suggest benefits for stress, focus, well-being, and connection. The deeper Christian aim is formation—becoming more available to God and love.",
+      "heading": "Exercises for the heart and mind.",
+      "image_alt": "A quiet natural scene suggesting attention, wonder, and the inner life",
+      "eyebrow": "WHY PRACTICE MATTERS",
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "outcome_items": [
+        {
+          "id": "focus",
+          "enabled": true,
+          "icon": "brain",
+          "label": "Better Focus",
+          "detail": "& Clarity"
+        },
+        {
+          "id": "peace",
+          "enabled": true,
+          "icon": "heart",
+          "label": "More Peace",
+          "detail": "& Steadiness"
+        },
+        {
+          "id": "joy",
+          "enabled": true,
+          "icon": "sun",
+          "label": "More Joy",
+          "detail": "& Happiness"
+        },
+        {
+          "id": "connection",
+          "enabled": true,
+          "icon": "person",
+          "label": "Closer to God",
+          "detail": "& Others"
+        },
+        {
+          "id": "serve",
+          "enabled": true,
+          "icon": "leaf",
+          "label": "Ready to Love",
+          "detail": "& Serve"
+        }
+      ],
+      "image": "assets/remembering-wonder-v6.webp"
+    },
+    "founder": {
+      "enabled": true,
+      "body": "After years of study, retreats, meditation, and contemplative practice, I came home with practices that had changed me—but I didn’t have people to keep practicing with. Homeward is the community I was looking for: a place to practice, ask honest questions, support one another, and grow into real friendship along the way.",
+      "heading": "Why Homeward exists.",
+      "image_alt": "Shaun Pennington, founder of Homeward",
+      "eyebrow": "MEET SHAUN",
+      "link_url": "about.html",
+      "link_label": "Read Shaun’s Story →",
+      "style": {
+        "spacing": "spacious",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "large"
+      },
+      "image": "assets/founder-headshot.jpg"
+    },
+    "section_order": [
+      {
+        "id": "hero",
+        "enabled": true
+      },
+      {
+        "id": "recognition",
+        "enabled": true
+      },
+      {
+        "id": "difference",
+        "enabled": true
+      },
+      {
+        "id": "finding_home",
+        "enabled": true
+      },
+      {
+        "id": "join_process",
+        "enabled": true
+      },
+      {
+        "id": "join_cta",
+        "enabled": true
+      },
+      {
+        "id": "practice_bridge",
+        "enabled": true
+      },
+      {
+        "id": "gifts",
+        "enabled": true
+      },
+      {
+        "id": "practices_cta",
+        "enabled": true
+      },
+      {
+        "id": "fit",
+        "enabled": true
+      },
+      {
+        "id": "founder",
+        "enabled": true
+      },
+      {
+        "id": "interest",
+        "enabled": true
+      },
+      {
+        "id": "journey",
+        "enabled": true
+      },
+      {
+        "id": "faq",
+        "enabled": true
+      },
+      {
+        "id": "remembering",
+        "enabled": false
+      },
+      {
+        "id": "practice_bears_fruit",
+        "enabled": false
+      }
+    ],
+    "finding_home": {
+      "enabled": true,
+      "body": "Finding Home is the first four-week season of Homeward Circles—a focused window to show up consistently, practice together, and build momentum. At the end there is a natural pause, not a graduation. Continue into future seasons as your practices, friendships, and spiritual life deepen.",
+      "heading": "A four-week beginning. An ongoing community.",
+      "eyebrow": "SEASON ONE · FALL 2026",
+      "link_url": "#interest",
+      "link_label": "Tell Us You’re Interested",
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "logistics": [
+        {
+          "id": "begins",
+          "enabled": true,
+          "icon": "calendar",
+          "label": "Begins the week",
+          "detail": "of Oct 13"
+        },
+        {
+          "id": "duration",
+          "enabled": true,
+          "icon": "calendar",
+          "label": "Four-week season",
+          "detail": "~90 minutes each week"
+        },
+        {
+          "id": "people",
+          "enabled": true,
+          "icon": "people",
+          "label": "Six to eight",
+          "detail": "people"
+        },
+        {
+          "id": "location",
+          "enabled": true,
+          "icon": "pin",
+          "label": "Fort Worth",
+          "detail": "+ online"
+        },
+        {
+          "id": "cost",
+          "enabled": true,
+          "icon": "coin",
+          "label": "No cost",
+          "detail": "to participate"
+        }
+      ],
+      "title": "Finding Home",
+      "availability": "Evening Circles are forming now."
+    },
+    "recognition": {
+      "items": [
+        {
+          "id": "questions-doubts",
+          "enabled": true,
+          "icon": "question",
+          "text": "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?"
+        },
+        {
+          "id": "experience-god",
+          "enabled": true,
+          "icon": "heart",
+          "text": "You long to experience God—or a Higher Power—more deeply, not simply gather more religious information?"
+        },
+        {
+          "id": "practical-formation",
+          "enabled": true,
+          "icon": "sunrise",
+          "text": "You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?"
+        },
+        {
+          "id": "shared-wisdom",
+          "enabled": true,
+          "icon": "people",
+          "text": "You are looking for a community where people learn from one another without being required to reach all the same conclusions?"
+        }
+      ],
+      "enabled": true,
+      "heading": "Does any of this feel familiar?",
+      "authors": [],
+      "eyebrow": "THE INVITATION",
+      "intro": "Many of us have heard meaningful teachings about God, a Higher Power, love, and transformation. What we were missing was a way to practice them—and people to walk with us.",
+      "questions": [
+        "You still feel drawn to God—or to the life and way of Jesus—but carry questions or doubts you have never been able to resolve?",
+        "You long to experience God—or a Higher Power—more deeply, not simply gather more religious information?",
+        "You want spiritual practices that help you become more present, peaceful, loving, and awake in everyday life?",
+        "You are looking for a community where people learn from one another without being required to reach all the same conclusions?"
+      ],
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "honest_line": "You do not need settled beliefs—only an honest desire to explore, practice, and grow."
+    },
+    "hero": {
+      "enabled": true,
+      "secondary_url": "circles.html",
+      "image_alt": "Adults gathered together in a warm Homeward Circle conversation",
+      "facts": [
+        {
+          "id": "in-person",
+          "enabled": true,
+          "icon": "pin",
+          "line1": "In person in",
+          "line2": "Fort Worth"
+        },
+        {
+          "id": "online",
+          "enabled": true,
+          "icon": "wifi",
+          "line1": "Online",
+          "line2": "Circles"
+        },
+        {
+          "id": "membership",
+          "enabled": true,
+          "icon": "person",
+          "line1": "No church",
+          "line2": "membership"
+        },
+        {
+          "id": "beliefs",
+          "enabled": true,
+          "icon": "heart",
+          "line1": "No settled beliefs",
+          "line2": "required"
+        },
+        {
+          "id": "cost",
+          "enabled": true,
+          "icon": "coin",
+          "line1": "No",
+          "line2": "cost"
+        }
+      ],
+      "secondary_label": "See How a Circle Works",
+      "eyebrow": "HOMEWARD CIRCLES",
+      "requirements": "No church membership or settled beliefs required.",
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "primary_url": "#interest",
+      "logistics": "Fort Worth + online · Six to eight people · Four-week seasons · No cost",
+      "headline": "You learned what to believe.",
+      "primary_label": "Tell Us You’re Interested",
+      "image": "assets/circles-home-v62.webp",
+      "emphasis": "But were you ever taught how to practice?",
+      "description": "Homeward Circles are small, Jesus-centered communities where people practice the way of Jesus together through prayer, silence, Scripture, reflection, and honest conversation. Begin with one four-week season, then keep journeying as the practices and friendships deepen."
+    },
+    "custom_sections": [
+      {
+        "id": "join_process",
+        "enabled": true,
+        "type": "icon_grid",
+        "eyebrow": "HOW JOINING A CIRCLE WORKS",
+        "heading": "A simple first step. No pressure.",
+        "body": "You do not have to decide whether Homeward is right for you before you reach out. We start with a little interest and a real conversation.",
+        "items": [
+          {
+            "id": "interest",
+            "enabled": true,
+            "icon": "heart",
+            "title": "1. Tell us you’re interested",
+            "body": "A short form. No commitment. Just let us know what is drawing you toward Homeward."
+          },
+          {
+            "id": "conversation",
+            "enabled": true,
+            "icon": "chat",
+            "title": "2. Have a short conversation",
+            "body": "Ask questions, hear what a Circle feels like, and tell us what you are looking for."
+          },
+          {
+            "id": "fit",
+            "enabled": true,
+            "icon": "people",
+            "title": "3. We’ll help find your Circle",
+            "body": "We’ll look at location, schedule, online or in-person format, and fit."
+          }
+        ],
+        "style": {
+          "spacing": "default",
+          "alignment": "default",
+          "heading_color": "forest",
+          "heading_font": "default",
+          "background": "ivory",
+          "accent_color": "copper",
+          "text_color": "charcoal",
+          "heading_size": "default",
+          "body_size": "default"
+        }
+      },
+      {
+        "enabled": true,
+        "body": "It takes only a couple of minutes and there is no commitment. Prefer to ask questions first? [Have a conversation about Homeward](/connect.html).",
+        "heading": "Tell us you’re interested.",
+        "button_url": "#interest",
+        "button_label": "Tell Us You’re Interested",
+        "eyebrow": "READY TO TAKE THE FIRST STEP?",
+        "style": {
+          "spacing": "compact",
+          "alignment": "default",
+          "heading_color": "forest",
+          "heading_font": "default",
+          "background": "white",
+          "accent_color": "copper",
+          "text_color": "charcoal",
+          "heading_size": "small",
+          "body_size": "default"
+        },
+        "type": "cta",
+        "id": "join_cta"
+      },
+      {
+        "enabled": true,
+        "body": "See what each Homeward practice is like, what it can help grow, and what modern research suggests about stress, focus, well-being, gratitude, and connection.",
+        "heading": "Explore the practices—and the research behind them.",
+        "button_url": "practices.html",
+        "button_label": "Explore Practices & Research",
+        "eyebrow": "WANT TO GO DEEPER?",
+        "style": {
+          "spacing": "compact",
+          "alignment": "default",
+          "heading_color": "forest",
+          "heading_font": "default",
+          "background": "ivory",
+          "accent_color": "copper",
+          "text_color": "charcoal",
+          "heading_size": "small",
+          "body_size": "default"
+        },
+        "type": "cta",
+        "id": "practices_cta"
+      }
+    ],
+    "difference": {
+      "enabled": true,
+      "heading": "A Circle is different.",
+      "paragraphs": [
+        "Many Christian small groups naturally center on understanding Scripture and faith: <em>What does this passage teach? What do Christians believe? How should we understand this?</em>",
+        "Homeward adds another layer. We gather around practice, personal reflection, lived experience, and honest conversation.",
+        "<strong>Understanding matters.</strong> But spiritual formation asks another question: how does what we encounter in Scripture and prayer actually become part of the way we live?",
+        "Scripture remains important and Jesus remains at the center. A facilitator guides the experience, but does not function primarily as the person with the correct answer. People speak from their own experience, listen deeply to one another, and are not expected to debate, fix, correct, or force agreement. Anyone may pass.",
+        "We practice together during the gathering, carry a simple practice into ordinary life, and return to reflect on what we noticed. Four-week seasons give us a realistic rhythm to begin—and Homeward continues season by season."
+      ],
+      "eyebrow": "NOT YOUR ORDINARY SMALL GROUP",
+      "questions": [
+        "What are you noticing?",
+        "What is this stirring in you?",
+        "Where might God be inviting you?",
+        "What could you actually practice this week?"
+      ],
+      "style": {
+        "spacing": "default",
+        "alignment": "default",
+        "heading_color": "default",
+        "heading_font": "default",
+        "background": "default",
+        "accent_color": "default",
+        "text_color": "default",
+        "heading_size": "default",
+        "body_size": "default"
+      },
+      "closing": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others—and keep returning season by season.",
+      "signature": "Practice the way. Explore honestly. Carry it into life.",
+      "features": [
+        {
+          "id": "people",
+          "enabled": true,
+          "icon": "people",
+          "title": "Six to eight people",
+          "description": "Small enough for everyone to be known."
+        },
+        {
+          "id": "weeks",
+          "enabled": true,
+          "icon": "calendar",
+          "title": "Four-week seasons",
+          "description": "A realistic rhythm to begin—and return to."
+        },
+        {
+          "id": "practices",
+          "enabled": true,
+          "icon": "leaf",
+          "title": "Ancient practices",
+          "description": "Meditation, prayer, Scripture, and silence."
+        },
+        {
+          "id": "conversation",
+          "enabled": true,
+          "icon": "chat",
+          "title": "Honest conversation",
+          "description": "No fixing, no debating—just real listening."
+        },
+        {
+          "id": "jesus",
+          "enabled": true,
+          "icon": "cross",
+          "title": "Jesus at the center",
+          "description": "We practice to grow in love of God and neighbor."
+        }
+      ]
+    }
+  },
+  "circles": {
+    "comparison": {
+      "enabled": true,
+      "eyebrow": "A DEEPER LOOK",
+      "heading": "Understanding matters. Homeward adds encounter, practice, and formation.",
+      "intro": "This isn’t a judgment on traditional groups. Many offer meaningful friendship, teaching, and Scripture study. A Homeward Circle builds on that foundation by making spiritual practice part of the experience.",
+      "rows": [
+        {
+          "id": "doctrine",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Understanding doctrine and beliefs.",
+          "typical_quote": "What is sin? Who is Jesus? What does this passage teach?",
+          "homeward_label": "Homeward emphasizes",
+          "homeward": "Practice, personal reflection, and spiritual formation.",
+          "homeward_quote": "What am I noticing? What is God inviting? How might I practice this?"
+        },
+        {
+          "id": "scripture",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Discussing Scripture primarily to understand or interpret it.",
+          "homeward_label": "Homeward",
+          "homeward": "Engaging Scripture as both wisdom to understand and an encounter that can shape how we live."
+        },
+        {
+          "id": "leader",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "A leader teaching, explaining, or helping the group reach answers.",
+          "homeward_label": "Homeward",
+          "homeward": "A facilitator who participates, guides the process, and protects the quality of listening."
+        },
+        {
+          "id": "sharing",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Sharing ideas, interpretations, and opinions.",
+          "homeward_label": "Homeward",
+          "homeward": "Speaking from lived experience, listening deeply, and reflecting personally."
+        },
+        {
+          "id": "prayer",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Prayer primarily through words, requests, or discussion.",
+          "homeward_label": "Homeward",
+          "homeward": "Prayer that can also include meditation, silence, breath, attention, imagination, and receptive listening."
+        },
+        {
+          "id": "meeting",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Much of the experience happening during the meeting.",
+          "homeward_label": "Homeward",
+          "homeward": "A simple practice carried into everyday life and brought back for reflection the following week."
+        },
+        {
+          "id": "beliefs",
+          "enabled": true,
+          "typical_label": "May emphasize",
+          "typical": "Shared beliefs or reaching similar conclusions as an important part of belonging.",
+          "homeward_label": "Homeward",
+          "homeward": "People exploring honestly without pressure to reach identical conclusions."
+        }
+      ],
+      "close": "We speak from experience. We listen without fixing. We make room for silence. We practice together. And anyone may pass.",
+      "final": "Homeward doesn’t replace church or traditional small groups. It offers another dimension many people have been missing: a place to actually practice the inner life with others."
+    }
+  }
+}
