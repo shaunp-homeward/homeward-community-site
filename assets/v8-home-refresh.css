@@ -1,0 +1,80 @@
+/* Homeward V8 homepage refresh polish — scoped to the V8 homepage only. */
+body.v8-v6-home [data-v8-section="recognition"] .v6-recognition-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:22px;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-shell{
+  max-width:1120px;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-cards{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card{
+  background:#fff;
+  border:1px solid rgba(21,58,46,.13);
+  border-radius:12px;
+  padding:28px;
+  min-height:220px;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card svg{
+  display:block;
+  width:44px;
+  height:44px;
+  margin:0 0 22px;
+  color:#B53A2A;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card h3{
+  margin:0 0 10px;
+  color:#153A2E;
+  font-family:var(--serif,Georgia,serif);
+  font-size:clamp(1.2rem,2vw,1.55rem);
+  line-height:1.2;
+}
+body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card p{
+  margin:0;
+  color:#4f5a54;
+  font-size:1rem;
+  line-height:1.65;
+}
+body.v8-v6-home [data-v8-section="join_cta"],
+body.v8-v6-home [data-v8-section="practices_cta"]{
+  border-top:1px solid rgba(21,58,46,.08);
+  border-bottom:1px solid rgba(21,58,46,.08);
+}
+body.v8-v6-home [data-v8-section="join_cta"] .hw-custom-shell,
+body.v8-v6-home [data-v8-section="practices_cta"] .hw-custom-shell{
+  gap:36px;
+}
+body.v8-v6-home [data-v8-section="founder"] .v6-founder-grid p{
+  font-size:clamp(1.08rem,1.7vw,1.24rem)!important;
+  line-height:1.75;
+  color:#435149;
+}
+body.v8-v6-home [data-v8-section="founder"] .v6-founder-grid a{
+  display:inline-block;
+  margin-top:14px;
+  font-weight:750;
+}
+@media(max-width:900px){
+  body.v8-v6-home [data-v8-section="recognition"] .v6-recognition-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  body.v8-v6-home [data-v8-section="join_process"] .hw-custom-cards{
+    grid-template-columns:1fr;
+  }
+  body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card{min-height:0}
+}
+@media(max-width:600px){
+  body.v8-v6-home [data-v8-section="recognition"] .v6-recognition-grid{
+    grid-template-columns:1fr!important;
+  }
+  body.v8-v6-home [data-v8-section="join_process"] .hw-custom-card{
+    padding:22px;
+  }
+}
