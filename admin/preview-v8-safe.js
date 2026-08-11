@@ -1,308 +1,154 @@
-/* High-fidelity V8 Decap preview. Keep this aligned with scripts/render-v8-home-v6.mjs. */
+/* V8 Decap preview aligned to the actual launch-candidate homepage template. */
 (function () {
   const CMS = window.CMS;
   const createClass = window.createClass;
   const h = window.h;
   if (!CMS || !createClass || !h) return;
 
-  CMS.registerPreviewStyle('/styles.css');
-  CMS.registerPreviewStyle('/assets/v8-home-v6.css');
-  CMS.registerPreviewStyle('/assets/v8-mobile-fix.css');
-  CMS.registerPreviewStyle('/admin/preview.css');
+  // IMPORTANT: the public launch candidate is built from homepage-concept-v1.html.
+  // Preview the same design system rather than the older v8-home-v6 renderer.
+  CMS.registerPreviewStyle('/assets/homepage-concept-v1.css?v=1');
+  CMS.registerPreviewStyle('/assets/homepage-concept-v1-polish.css?v=6');
+  CMS.registerPreviewStyle('/assets/v8-launch-image-qa.css?v=2');
 
   const list = (value) => Array.isArray(value) ? value : [];
   const enabled = (value) => list(value).filter((item) => item && item.enabled !== false);
   const text = (value) => String(value || '');
-  const cleanEmphasis = (value) => text(value).replace(/^But were you ever taught\s*/i, '');
-
   const asset = (value, getAsset) => {
     if (!value) return '';
-    if (typeof getAsset === 'function') {
-      try {
-        const resolved = getAsset(value);
-        if (resolved) return resolved.toString();
-      } catch (_) {}
-    }
+    try {
+      const resolved = getAsset && getAsset(value);
+      if (resolved) return resolved.toString();
+    } catch (_) {}
     const raw = String(value);
     if (/^(https?:|data:|blob:|\/)/i.test(raw)) return raw;
     return '/' + raw.replace(/^\.\//, '');
   };
+  const richText = (value) => text(value)
+    .replace(/<[^>]+>/g, '')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1');
 
-  const safeToken = (value) => /^[a-z0-9-]+$/i.test(String(value || '')) ? String(value).toLowerCase() : '';
-  const styleClasses = (style) => {
-    const classes = [];
-    [
-      ['background','hw-bg-'], ['heading_color','hw-heading-'], ['text_color','hw-text-'],
-      ['accent_color','hw-accent-'], ['heading_size','hw-heading-size-'], ['body_size','hw-body-size-'],
-      ['alignment','hw-align-'], ['heading_font','hw-font-'], ['spacing','hw-spacing-']
-    ].forEach(([key, prefix]) => {
-      const token = safeToken(style && style[key]);
-      if (token && token !== 'default') classes.push(prefix + token);
-    });
-    return classes.join(' ');
+  const iconPath = {
+    location: [['path',{d:'M24 43s12-11.5 12-24a12 12 0 1 0-24 0c0 12.5 12 24 12 24Z'}],['circle',{cx:24,cy:19,r:4.5}]],
+    pin: [['path',{d:'M24 43s12-11.5 12-24a12 12 0 1 0-24 0c0 12.5 12 24 12 24Z'}],['circle',{cx:24,cy:19,r:4.5}]],
+    wifi: [['path',{d:'M8 18c9-8 23-8 32 0M14 25c6-5 14-5 20 0M20 32c2.5-2 5.5-2 8 0'}],['circle',{cx:24,cy:38,r:2,fill:'currentColor',stroke:'none'}]],
+    person: [['circle',{cx:24,cy:15,r:7}],['path',{d:'M11 40c1-9 6-14 13-14s12 5 13 14'}]],
+    heart: [['path',{d:'M24 40 8.5 24.8C1.5 17.8 11.2 7.6 18.5 13L24 18l5.5-5c7.3-5.4 17 4.8 10 11.8L24 40Z'}]],
+    coin: [['circle',{cx:24,cy:24,r:18}],['path',{d:'M29.5 16.5c-2-1.7-8.7-2-10.7 1.8-2.6 5 9.6 4.3 10.4 9.1.6 4.1-6.9 6.4-11.7 2.2M24 11v26'}]],
+    dollar: [['circle',{cx:24,cy:24,r:18}],['path',{d:'M29.5 16.5c-2-1.7-8.7-2-10.7 1.8-2.6 5 9.6 4.3 10.4 9.1.6 4.1-6.9 6.4-11.7 2.2M24 11v26'}]],
+    people: [['circle',{cx:24,cy:14,r:6}],['circle',{cx:10,cy:19,r:5}],['circle',{cx:38,cy:19,r:5}],['path',{d:'M14 40c1-9 5-14 10-14s9 5 10 14M2 39c1-7 4-11 9-11 3 0 5 2 7 5m28 6c-1-7-4-11-9-11-3 0-5 2-7 5'}]],
+    calendar: [['rect',{x:7,y:10,width:34,height:31,rx:3}],['path',{d:'M7 19h34M16 6v8M32 6v8M14 26h5m5 0h5m5 0h1M14 33h5m5 0h5'}]],
+    leaf: [['path',{d:'M39 8C21 8 10 17 10 31c11 3 25-3 29-23Z'}],['path',{d:'M10 40c6-10 13-17 25-25'}]],
+    chat: [['path',{d:'M8 9h32v25H22L12 42v-8H8V9Z'}],['path',{d:'M16 20h16M16 26h11'}]],
+    cross: [['path',{d:'M24 5v38M13 16h22'}]],
+    question: [['circle',{cx:24,cy:24,r:18}],['path',{d:'M18.5 18c.8-4 3.7-6 7.5-6 4.3 0 7.5 2.8 7.5 6.7 0 5.4-6.8 5.9-8 10.2'}]],
+    sunrise: [['path',{d:'M6 35h36M11 29a13 13 0 0 1 26 0M24 5v8M8 13l6 6m26-6-6 6'}]],
+    brain: [['path',{d:'M22 9c-4-5-10-2-10 3-5 0-7 6-3 9-5 4-1 11 4 10 0 5 6 8 9 4V9Zm4 0c4-5 10-2 10 3 5 0 7 6 3 9 5 4 1 11-4 10 0 5-6 8-9 4V9Z'}]],
+    sun: [['circle',{cx:24,cy:24,r:8}],['path',{d:'M24 4v8m0 24v8M4 24h8m24 0h8M10 10l6 6m16 16 6 6m0-28-6 6M16 32l-6 6'}]],
   };
-
-  const esc = (value) => text(value)
-    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-
-  const safeHref = (value) => {
-    const href = text(value).trim();
-    return /^(https?:\/\/|mailto:|\/|#|[a-z0-9_.-]+\.html(?:#.*)?$)/i.test(href) ? href : '#';
-  };
-
-  const inlineMarkdown = (raw) => {
-    const links = [];
-    let value = text(raw).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
-      const token = '@@HWLINK' + links.length + '@@';
-      links.push('<a href="' + esc(safeHref(url)) + '">' + esc(label) + '</a>');
-      return token;
-    });
-    value = esc(value)
-      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      .replace(/__([^_]+)__/g, '<strong>$1</strong>')
-      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-      .replace(/_([^_]+)_/g, '<em>$1</em>');
-    links.forEach((link, i) => { value = value.replace('@@HWLINK' + i + '@@', link); });
-    return value;
-  };
-
-  const richHtml = (raw) => {
-    const lines = text(raw).replace(/\r/g, '').split('\n');
-    const chunks = [];
-    let bullets = [];
-    const flush = () => {
-      if (!bullets.length) return;
-      chunks.push('<ul>' + bullets.map((item) => '<li>' + inlineMarkdown(item) + '</li>').join('') + '</ul>');
-      bullets = [];
-    };
-    lines.forEach((line) => {
-      const bullet = line.match(/^\s*[-*]\s+(.+)$/);
-      if (bullet) { bullets.push(bullet[1]); return; }
-      flush();
-      const heading = line.match(/^(#{1,3})\s+(.+)$/);
-      if (heading) {
-        const level = Math.min(4, heading[1].length + 1);
-        chunks.push('<h' + level + '>' + inlineMarkdown(heading[2]) + '</h' + level + '>');
-      } else if (line.trim()) {
-        chunks.push('<p>' + inlineMarkdown(line.trim()) + '</p>');
-      }
-    });
-    flush();
-    return chunks.join('');
-  };
-
-  const rich = (value, className) => value
-    ? h('div', { className: className || '', dangerouslySetInnerHTML: { __html: richHtml(value) } })
-    : null;
-
-  const svg = {
-    pin:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 43s13-12 13-25a13 13 0 1 0-26 0c0 13 13 25 13 25Z"/><circle cx="24" cy="18" r="4"/></svg>',
-    wifi:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 18c10-9 24-9 34 0M13 25c7-6 15-6 22 0M19 32c3-3 7-3 10 0"/><circle cx="24" cy="39" r="1.8" fill="currentColor" stroke="none"/></svg>',
-    person:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="15" r="7"/><path d="M10 42c1-11 6-17 14-17s13 6 14 17"/></svg>',
-    heart:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41S8 32 8 19c0-6 4-10 10-10 4 0 6 2 6 5 1-3 3-5 7-5 6 0 10 4 10 10 0 13-17 22-17 22Z"/></svg>',
-    coin:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M28 16c-2-2-8-2-9 2-2 6 11 3 10 10-1 5-8 5-11 2M24 11v26"/></svg>',
-    headHeart:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 43v-8c-5-3-8-8-8-14C10 11 16 5 24 5s14 6 14 15c0 4-2 7-5 10v13"/><path d="M19 19c1.5-2.5 5.3-2.6 7 0 1.7-2.6 5.5-2.4 7 .1 2.3 4-3 7.7-7 10.6-4.2-3-9.3-6.7-7-10.7Z"/></svg>',
-    prayer:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 35c4-7 8-11 12-13 2-1 4 1 3 3l-4 7 5-3 7-9c1-2 4-2 5 0 1 1 1 3 0 5l-8 13c-1 2-4 3-7 3H11"/><path d="M14 12c2 2 3 4 3 7M24 7v9M34 12c-2 2-3 4-3 7"/></svg>',
-    book:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 10c7-2 13 0 19 5v26c-6-5-12-7-19-5ZM43 10c-7-2-13 0-19 5v26c6-5 12-7 19-5Z"/></svg>',
-    question:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M18 18c1-4 4-6 8-6 4 0 7 3 7 7 0 5-7 6-8 10"/><circle cx="25" cy="36" r="1.7" fill="currentColor" stroke="none"/></svg>',
-    sunrise:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 36h34M12 31a12 12 0 0 1 24 0M24 6v8M8 18l6 4M40 18l-6 4"/></svg>',
-    brain:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 40c-5 0-8-4-7-8-5-2-5-9 0-11-2-5 2-10 7-9 2-5 9-5 11-1 5-1 9 4 7 9 5 2 5 9 0 11 1 5-3 9-8 9"/><path d="M24 10v30M18 16c4 1 6 4 6 8M30 16c-4 1-6 4-6 8M16 29c4 0 7 2 8 6M32 29c-4 0-7 2-8 6"/></svg>',
-    sun:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8"/><path d="M24 3v9M24 36v9M3 24h9M36 24h9M9 9l7 7M32 32l7 7M39 9l-7 7M16 32l-7 7"/></svg>',
-    leaf:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38c16-2 25-11 28-28-16 2-25 11-28 28Z"/><path d="M14 34 34 14"/></svg>',
-    people:'<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="17" r="6"/><circle cx="33" cy="19" r="5"/><path d="M6 42c1-11 6-17 13-17s12 6 13 17M29 28c7-2 12 4 13 14"/></svg>',
-    calendar:'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="10" width="34" height="31" rx="3"/><path d="M14 5v10M34 5v10M7 19h34M14 26h6M26 26h6M14 33h6"/></svg>',
-    chat:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 8h34v25H23l-10 8v-8H7Z"/><circle cx="17" cy="20" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="20" r="1.5" fill="currentColor" stroke="none"/><circle cx="31" cy="20" r="1.5" fill="currentColor" stroke="none"/></svg>',
-    cross:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M21 5h6v13h10v6H27v19h-6V24H11v-6h10Z"/></svg>'
-  };
-  const icon = (name, fallback) => h('span', { className: 'cms-svg-icon', dangerouslySetInnerHTML: { __html: svg[name] || svg[fallback || 'leaf'] } });
+  const icon = (name) => h('svg', {viewBox:'0 0 48 48','aria-hidden':'true'}, ...(iconPath[name] || iconPath.leaf).map(([tag,props],i)=>h(tag,{...props,key:i})));
 
   const V8Preview = createClass({
-    getInitialState: function () { return { inherited: {} }; },
-    componentDidMount: function () {
-      const self = this;
-      fetch('/?cms-preview-source=' + Date.now(), { credentials: 'same-origin', cache: 'no-store' })
-        .then((response) => response.ok ? response.text() : Promise.reject(new Error('preview source unavailable')))
-        .then((html) => {
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          const inherited = {};
-          ['fit','interest','faq','practice_bears_fruit','remembering'].forEach((id) => {
-            const node = doc.querySelector('[data-v8-section="' + id + '"]');
-            if (node) inherited[id] = node.outerHTML;
-          });
-          self.setState({ inherited: inherited });
-        })
-        .catch(() => {});
-    },
     render: function () {
       const entry = this.props && this.props.entry;
       const getAsset = this.props && this.props.getAsset;
       const data = entry && entry.get && entry.get('data') && entry.get('data').toJS ? entry.get('data').toJS() : {};
       const page = data.homepage || {};
-      const custom = Object.fromEntries(list(page.custom_sections).filter((item) => item && item.id).map((item) => [item.id, item]));
-      const defaults = ['hero','recognition','practice_bridge','gifts','difference','finding_home','journey','practice_bears_fruit','founder','fit','interest','faq'];
-      const configured = list(page.section_order);
-      const seen = {};
-      const order = [];
-      configured.forEach((item) => {
-        const id = typeof item === 'string' ? item : item && item.id;
-        if (!id || seen[id]) return;
-        seen[id] = true;
-        order.push({ id: id, enabled: typeof item === 'string' ? true : item.enabled !== false });
-      });
-      defaults.forEach((id) => { if (!seen[id]) { seen[id] = true; order.push({ id: id, enabled: true }); } });
-      Object.keys(custom).forEach((id) => { if (!seen[id]) order.push({ id: id, enabled: true }); });
+      const customs = Object.fromEntries(list(page.custom_sections).filter(x=>x&&x.id).map(x=>[x.id,x]));
 
-      const hero = () => {
-        const d = page.hero || {};
-        const facts = enabled(d.facts);
-        return h('section', { className: ('v6-hero ' + styleClasses(d.style)).trim(), key: 'hero', 'data-v8-section': 'hero' },
-          h('div', { className: 'v6-hero-media' }, d.image ? h('img', { src: asset(d.image, getAsset), alt: d.image_alt || '' }) : null),
-          h('div', { className: 'v6-shell v6-hero-grid' }, h('div', { className: 'v6-hero-copy' },
-            h('p', { className: 'v6-eyebrow' }, 'THE MISSING HOW-TO OF SPIRITUAL LIFE'),
-            h('h1', {}, d.headline || '', h('br'), 'But were you ever taught ', h('span', { className: 'accent' }, cleanEmphasis(d.emphasis))),
-            h('p', { className: 'hero-desc' }, d.description || ''),
-            h('div', { className: 'v6-hero-facts' }, facts.map((item, i) => h('div', { className: 'v6-hero-fact', key: item.id || i }, icon(item.icon), h('span', {}, item.line1 || '', h('br'), h('strong', {}, item.line2 || ''))))),
-            h('div', { className: 'v6-hero-actions' }, d.primary_label ? h('span', { className: 'button' }, d.primary_label) : null, d.secondary_label ? h('span', { className: 'button button-secondary' }, d.secondary_label) : null),
-            h('p', { className: 'v6-hero-micro' }, 'Fall Circles are forming now. You can begin curious, uncertain, or simply ready to practice.')
-          ))
-        );
-      };
+      const hero = page.hero || {};
+      const recognition = page.recognition || {};
+      const difference = page.difference || {};
+      const finding = page.finding_home || {};
+      const join = customs.join_process || {};
+      const practice = page.practice_bridge || {};
+      const gifts = page.gifts || {};
+      const founder = page.founder || {};
+      const journey = page.journey || {};
 
-      const recognition = () => {
-        const d = page.recognition || {};
-        const items = enabled(d.items && d.items.length ? d.items : d.questions.map((q, i) => ({ id: 'q' + i, icon: 'question', text: q })));
-        return h('section', { className: ('v6-recognition v6-section ' + styleClasses(d.style)).trim(), key: 'recognition', 'data-v8-section': 'recognition' }, h('div', { className: 'v6-shell' },
-          h('div', { className: 'v6-recognition-head v6-center' }, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.heading || ''), h('p', { className: 'v6-lead' }, d.intro || '')),
-          h('div', { className: 'v6-recognition-grid' }, items.map((item, i) => h('div', { className: 'v6-recognition-item', key: item.id || i }, icon(item.icon, 'question'), h('p', {}, item.text || '')))),
-          h('p', { className: 'v6-recognition-end v6-center' }, d.honest_line || '')
-        ));
-      };
+      const heroFacts = enabled(hero.facts);
+      const recognitionItems = enabled(recognition.items);
+      const differenceItems = enabled(difference.features);
+      const logistics = enabled(finding.logistics);
+      const joinItems = enabled(join.items);
+      const giftItems = enabled(gifts.items).slice(0,4);
+      const outcomeItems = enabled(practice.outcome_items).slice(0,4);
 
-      const practice = () => {
-        const d = page.practice_bridge || {};
-        const outcomes = enabled(d.outcome_items);
-        return h('section', { className: ('v6-practice v6-section ' + styleClasses(d.style)).trim(), key: 'practice_bridge', 'data-v8-section': 'practice_bridge' }, h('div', { className: 'v6-shell' }, h('div', { className: 'v6-practice-grid' },
-          h('div', {}, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', { className: 'v6-practice-title' }, 'Spiritual Practices:', h('span', {}, 'Exercises for the Heart and Mind'))),
-          h('div', { className: 'v6-practice-copy' }, text(d.body).split(/\n\s*\n/).filter(Boolean).map((p, i) => h('p', { key: i }, p))),
-          h('div', { className: 'v6-outcome-grid' }, outcomes.map((item, i) => h('div', { className: 'v6-outcome', key: item.id || i }, icon(item.icon), h('div', {}, item.label || '', h('br'), item.detail || ''))))
-        )));
-      };
+      const heroSection = h('section',{className:'hero',key:'hero'},
+        h('div',{className:'hero-copy-panel'},h('div',{className:'hero-copy-inner'},
+          h('p',{className:'eyebrow'}, hero.eyebrow || 'THE MISSING HOW-TO OF SPIRITUAL LIFE'),
+          h('h1',{}, hero.headline || 'You learned what to believe.', h('br'), 'But were you ever taught', h('br'), h('span',{className:'hero-accent'}, richText(hero.emphasis).replace(/^But were you ever taught\s*/i,'') || 'how to practice?')),
+          h('p',{className:'hero-lead'}, richText(hero.description)),
+          h('div',{className:'hero-icon-row'}, heroFacts.map((it,i)=>h('div',{key:it.id||i},icon(it.icon),h('span',{},it.line1||'',h('br'),it.line2||'')))),
+          h('div',{className:'hero-actions'}, h('span',{className:'button button-copper'},hero.primary_label||'Tell Us You’re Interested'),h('span',{className:'button button-outline'},hero.secondary_label||'See How a Circle Works')),
+          h('p',{className:'hero-note'},'Fall Circles are forming now. You can begin curious, uncertain, or simply ready to practice.')
+        )),
+        h('div',{className:'hero-image-wrap'}, hero.image ? h('img',{src:asset(hero.image,getAsset),alt:hero.image_alt||''}) : null)
+      );
 
-      const gifts = () => {
-        const d = page.gifts || {};
-        const items = enabled(d.items);
-        return h('section', { className: ('v6-gifts v6-section ' + styleClasses(d.style)).trim(), key: 'gifts', 'data-v8-section': 'gifts' }, h('div', { className: 'v6-shell' },
-          h('div', { className: 'v6-gifts-head v6-center' }, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.heading || ''), h('p', { className: 'v6-lead' }, d.bridge || '')),
-          h('div', { className: 'v6-gift-grid' }, items.map((item, i) => h('article', { className: 'v6-gift', key: item.id || i },
-            h('div', { className: 'v6-gift-img' }, item.image ? h('img', { src: asset(item.image, getAsset), alt: item.image_alt || '' }) : null, h('span', { className: 'v6-gift-badge' }, i + 1)),
-            h('div', { className: 'v6-gift-copy' }, h('h3', {}, item.title || ''), h('p', {}, item.description || ''))
-          )))
-        ));
-      };
+      const recognitionSection = h('section',{className:'recognition section',key:'recognition'},h('div',{className:'shell narrow-wide'},
+        h('div',{className:'section-heading centered recognition-heading'},h('p',{className:'eyebrow'},recognition.eyebrow||'The Invitation'),h('h2',{},recognition.heading||'Does any of this feel familiar?'),h('p',{},'Maybe you know a lot about spiritual life—or maybe you simply want something deeper. Either way, understanding faith and actually living it are not quite the same thing.')),
+        h('div',{className:'recognition-grid recognition-grid-four'},recognitionItems.map((it,i)=>h('article',{key:it.id||i},icon(it.icon||'question'),h('p',{},h('strong',{},it.text||''))))),
+        h('p',{className:'recognition-close'},recognition.honest_line||'You do not need settled beliefs—only an honest desire to explore, practice, and grow.')
+      ));
 
-      const difference = () => {
-        const d = page.difference || {};
-        const items = enabled(d.features);
-        return h('section', { className: ('v6-circle v6-section ' + styleClasses(d.style)).trim(), key: 'difference', 'data-v8-section': 'difference' }, h('div', { className: 'v6-shell' },
-          h('div', { className: 'v6-circle-head v6-center' }, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.heading || ''), h('p', { className: 'v6-circle-sub' }, "It's not a class. It's a guided experience.")),
-          h('div', { className: 'v6-circle-grid' }, items.map((item, i) => h('div', { className: 'v6-circle-item', key: item.id || i }, icon(item.icon), h('strong', {}, item.title || ''), h('span', {}, item.description || '')))),
-          h('div', { className: 'v6-circle-body' }, h('p', {}, 'Understanding matters. Homeward adds encounter, personal reflection, practice, and formation—so Scripture and prayer become part of the way we actually live.'), h('p', { className: 'v6-signature' }, d.signature || ''), h('p', {}, d.closing || ''))
-        ));
-      };
+      const differenceSection = h('section',{className:'circle-different section',key:'difference'},h('div',{className:'shell narrow-wide'},
+        h('div',{className:'section-heading centered circle-different-heading'},h('p',{className:'eyebrow'},difference.eyebrow||'Not Your Ordinary Small Group'),h('h2',{},'Not just another small group. A place to practice.'),h('p',{className:'circle-subhead'},'A Circle is a guided community of practice—not a class and not a debate.')),
+        h('div',{className:'circle-icon-grid'},differenceItems.map((it,i)=>h('article',{key:it.id||i},icon(it.icon||'leaf'),h('h3',{},it.title||''),h('p',{},it.description||'')))),
+        h('div',{className:'circle-different-note'},h('p',{},'Traditional groups can offer meaningful friendship, teaching, and Scripture study. Homeward adds another layer: ',h('strong',{},'guided practice, lived experience, and a rhythm that continues between gatherings.')),h('p',{className:'circle-signature'},difference.signature||'Practice the way. Explore honestly. Carry it into life.'),h('span',{className:'button button-outline circle-page-cta'},'Explore the Full Circles Experience'))
+      ));
 
-      const finding = () => {
-        const d = page.finding_home || {};
-        const items = enabled(d.logistics);
-        return h('section', { className: ('v6-finding ' + styleClasses(d.style)).trim(), key: 'finding_home', 'data-v8-section': 'finding_home' }, h('div', { className: 'v6-shell' }, h('div', { className: 'v6-finding-card' },
-          h('div', { className: 'v6-finding-title' }, h('div', { className: 'botanical', dangerouslySetInnerHTML: { __html: '<svg viewBox="0 0 80 92" aria-hidden="true"><path d="M40 88V18M40 30C30 21 19 20 9 24c7 10 18 15 31 13M40 42c11-10 23-12 34-8-7 12-19 17-34 15M40 56c-12-9-25-9-34-4 8 10 19 15 34 12M40 68c10-9 21-10 32-6-7 10-18 15-32 13"/><path d="M22 20c5-10 11-15 18-18 7 4 13 10 17 19"/><path d="M19 88h42"/></svg>' } }), h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.title || ''), h('p', {}, d.heading || '')),
-          h('div', { className: 'v6-finding-right' }, h('div', { className: 'v6-finding-facts' }, items.map((item, i) => h('div', { className: 'v6-finding-fact', key: item.id || i }, icon(item.icon, 'calendar'), h('strong', {}, item.label || ''), h('small', {}, item.detail || '')))), h('div', { className: 'v6-finding-footer' }, h('p', {}, h('strong', {}, d.availability || ''), ' Exact days and times will be shared after your conversation.'), d.link_label ? h('span', { className: 'button' }, d.link_label) : null))
-        )));
-      };
+      const findingSection = h('section',{className:'season-wrap section-tight',key:'finding_home'},h('div',{className:'shell'},h('div',{className:'season-card'},
+        h('div',{className:'season-art'},h('img',{src:'/assets/homepage-finding-home-emblem.svg',alt:''})),
+        h('div',{className:'season-intro'},h('p',{className:'eyebrow'},finding.eyebrow||'YOUR FIRST SEASON · FALL 2026'),h('h2',{},finding.title||'Finding Home'),h('p',{className:'season-tagline'},'Start with four weeks.',h('br'),'Keep journeying together.')),
+        h('div',{className:'season-explainer'},h('p',{},h('strong',{},'Homeward is an ongoing community organized in four-week seasons.'),' Seasons make it easier to say yes, plan around real life, and show up consistently with the same people.'),h('div',{className:'season-path'},h('div',{},h('span',{},'01'),h('b',{},'Begin'),h('small',{},'Finding Home · 4 weeks')),h('em',{},'→'),h('div',{},h('span',{},'02'),h('b',{},'Reflect'),h('small',{},'Pause, integrate, choose what’s next')),h('em',{},'→'),h('div',{},h('span',{},'03'),h('b',{},'Continue'),h('small',{},'Future seasons deepen the journey'))),h('p',{className:'season-reassurance'},'The first four weeks are a beginning—not a graduation or finish line.')),
+        h('div',{className:'season-facts'},...logistics.map((it,i)=>h('div',{className:'fact',key:it.id||i},icon(it.icon||'calendar'),h('div',{},h('strong',{},it.label||''),h('small',{},it.detail||'')))),h('p',{className:'season-availability'},h('strong',{},finding.availability||'Evening Circles are forming now.'),' Exact days and times will be shared as groups form.')),
+        h('div',{className:'season-action'},h('span',{className:'button button-copper'},finding.link_label||'Tell Us You’re Interested'))
+      )));
 
-      const journey = () => {
-        const d = page.journey || {};
-        const items = list(d.benefit_items).map((item) => typeof item === 'string' ? item : item && item.text).filter(Boolean);
-        return h('section', { className: ('v6-journey v6-section ' + styleClasses(d.style)).trim(), key: 'journey', 'data-v8-section': 'journey' }, h('div', { className: 'v6-shell' }, h('div', { className: 'v6-journey-grid' },
-          h('div', { className: 'v6-journey-art' }, d.image ? h('img', { src: asset(d.image, getAsset), alt: 'A spiral illustrating recurring movements in the spiritual journey' }) : null),
-          h('div', {}, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.heading || ''), h('p', { className: 'v6-lead' }, d.description || ''), h('aside', { className: 'v6-journey-benefit' }, h('h3', {}, d.benefit_heading || ''), h('ul', {}, items.map((item, i) => h('li', { key: i }, h('span', { className: 'v6-check' }, '✓'), h('span', {}, item)))), h('p', { className: 'v6-journey-note' }, d.benefit_text || '')), h('div', { className: 'v6-journey-actions' }, d.cta_label ? h('span', { className: 'button' }, d.cta_label) : null))
-        )));
-      };
+      const joinSection = h('section',{className:'join-path section',key:'join_process'},h('div',{className:'shell narrow-wide'},
+        h('div',{className:'section-heading centered join-heading'},h('p',{className:'eyebrow'},join.eyebrow||'HOW JOINING A CIRCLE WORKS'),h('h2',{},'Three simple steps. No pressure.'),h('p',{},'You do not need to decide everything today. Interest starts a conversation—not a commitment.')),
+        h('div',{className:'join-grid'},joinItems.map((it,i)=>h('article',{key:it.id||i},h('span',{className:'join-number'},String(i+1).padStart(2,'0')),h('h3',{},(it.title||'').replace(/^\d+\.\s*/,'')),h('p',{},it.body||it.description||'')))),
+        h('div',{className:'join-actions'},h('span',{className:'button button-copper'},'Tell Us You’re Interested'),h('span',{className:'text-link'},'Have a Conversation ',h('span',{},'→')))
+      ));
 
-      const founder = () => {
-        const d = page.founder || {};
-        return h('section', { className: ('v6-founder ' + styleClasses(d.style)).trim(), key: 'founder', 'data-v8-section': 'founder' }, h('div', { className: 'v6-shell' }, h('div', { className: 'v6-founder-grid' },
-          d.image ? h('img', { src: asset(d.image, getAsset), alt: d.image_alt || '' }) : null,
-          h('div', {}, h('p', { className: 'v6-eyebrow' }, d.eyebrow || ''), h('h2', {}, d.heading || ''), h('p', {}, d.body || ''), d.link_label ? h('span', { className: 'cms-text-link' }, d.link_label) : null)
-        )));
-      };
+      const practiceSection = h('section',{className:'home-practices section',key:'practice_bridge'},h('div',{className:'shell practices-home-grid'},
+        h('div',{className:'practices-home-copy'},
+          h('p',{className:'eyebrow'},'PRACTICES FOR THE MIND AND HEART'),
+          h('h2',{},'Ancient practices. Everyday change.'),
+          h('p',{className:'practices-subhead'},h('strong',{},'Spiritual practices: exercises for the heart and mind.')),
+          h('p',{className:'practices-lead'},'We exercise our bodies because strength does not appear simply because we understand it. Spiritual practices work in a similar way: repeated prayer, meditation, gratitude, Scripture, and reflection train attention, openness, presence, and love.'),
+          h('p',{},'The point is not to become good at meditation. The point is to become more present, peaceful, joyful, resilient, loving—and rooted in God.'),
+          h('div',{className:'practice-benefit-grid'},outcomeItems.map((it,i)=>h('div',{key:it.id||i},icon(it.icon||'heart'),h('strong',{},it.label||'',h('br'),it.detail||'')))),
+          h('div',{className:'research-teaser'},h('span',{className:'research-number'},'10'),h('div',{},h('b',{},'MINUTES A DAY'),h('p',{},'One eight-week randomized trial found that a modest daily meditation rhythm reduced perceived stress. The broader research also points to benefits for attention, gratitude, well-being, and connection.'))),
+          h('p',{className:'research-note'},'Prayer is more than a wellness technique, and science cannot measure God. The Practices page shows the research carefully—and how Homeward brings these tools into a Jesus-centered spiritual life.'),
+          h('div',{className:'practice-cta-row'},h('span',{className:'button button-copper'},'Explore Practices + Research'),h('span',{className:'text-link'},'See the Practice Library ',h('span',{},'→')))
+        ),
+        h('div',{className:'practice-collage'},giftItems.map((it,i)=>h('figure',{className:'practice-tile tile-'+String.fromCharCode(97+i),key:it.id||i},it.image?h('img',{src:asset(it.image,getAsset),alt:it.image_alt||''}):null,h('figcaption',{},h('b',{},it.title||''),h('span',{},it.description||'')))))
+      ));
 
-      const customSection = (d) => {
-        if (!d || d.enabled === false) return null;
-        const id = d.id || 'custom';
-        const classes = ('hw-custom-section ' + styleClasses(d.style)).trim();
-        const eye = d.eyebrow ? h('p', { className: 'hw-eyebrow v6-eyebrow' }, d.eyebrow) : null;
-        const heading = d.heading ? h('h2', {}, d.heading) : null;
-        const body = rich(d.body, 'hw-custom-body');
-        const image = d.image ? h('figure', {}, h('img', { src: asset(d.image, getAsset), alt: d.image_alt || '' }), d.caption ? h('figcaption', {}, d.caption) : null) : null;
-        const cta = d.button_label ? h('span', { className: 'button' }, d.button_label) : null;
-        if (d.type === 'spacer') return h('section', { key: id, className: 'hw-custom-spacer-' + (['small','medium','large'].includes(d.spacer_size) ? d.spacer_size : 'medium'), 'data-v8-section': id });
-        if (d.type === 'divider') return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, h('hr', { className: 'hw-custom-divider' })));
-        if (d.type === 'quote') return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, h('blockquote', { className: 'hw-custom-quote', dangerouslySetInnerHTML: { __html: inlineMarkdown(d.quote || d.body || '') } }), d.attribution ? h('p', {}, '— ' + d.attribution) : null));
-        if (d.type === 'text_image' || d.type === 'image_text') {
-          const copy = h('div', {}, eye, heading, body, cta);
-          const children = d.type === 'image_text' ? [image, copy] : [copy, image];
-          return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, h('div', { className: 'hw-custom-grid' }, children)));
-        }
-        if (d.type === 'full_width_image') return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, eye, heading, image, body));
-        if (d.type === 'card_grid' || d.type === 'icon_grid') {
-          return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, eye, heading, body, h('div', { className: 'hw-custom-cards' }, enabled(d.items).map((item, i) => h('article', { className: 'hw-custom-card', key: item.id || i }, d.type === 'icon_grid' ? icon(item.icon) : (item.image ? h('img', { src: asset(item.image, getAsset), alt: item.image_alt || '' }) : null), h('h3', {}, item.title || ''), rich(item.body || ''))))));
-        }
-        if (d.type === 'cta' || d.type === 'callout') return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell hw-custom-cta' }, h('div', {}, eye, heading, body), cta));
-        if (d.type === 'comparison') {
-          const rows = enabled(d.rows);
-          return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, eye, heading, body, h('div', { className: 'hw-custom-comparison' }, h('div', {}, h('h3', {}, d.left_heading || ''), rows.map((r, i) => h('p', { key: i }, r.left || ''))), h('div', {}, h('h3', {}, d.right_heading || ''), rows.map((r, i) => h('p', { key: i }, r.right || ''))))));
-        }
-        if (d.type === 'video') return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, eye, heading, body, d.video_url ? h('div', { className: 'video-frame cms-video-placeholder' }, 'Video preview: ' + d.video_url) : null));
-        return h('section', { key: id, className: classes, 'data-v8-section': id }, h('div', { className: 'hw-custom-shell' }, eye, heading, body, cta));
-      };
+      const founderSection = h('section',{className:'founder founder-feature section',key:'founder'},h('div',{className:'shell founder-row'},
+        h('div',{className:'founder-image'},founder.image?h('img',{src:asset(founder.image,getAsset),alt:founder.image_alt||''}):null),
+        h('div',{className:'founder-copy'},h('p',{className:'eyebrow'},'WHY HOMEWARD EXISTS'),h('h2',{},'I came home with practices. I didn’t have people to practice with.'),h('p',{},richText(founder.body)),h('p',{className:'founder-trust'},'Religious Studies + Anthropology · decades of contemplative practice · husband, father, and business leader'),h('span',{className:'text-link'},'Read Shaun’s Story ',h('span',{},'→')))
+      ));
 
-      const inheritedSection = (id, title) => {
-        const html = this.state && this.state.inherited && this.state.inherited[id];
-        if (html) return h('div', { key: id, className: 'cms-live-fragment', dangerouslySetInnerHTML: { __html: html } });
-        return h('section', { key: id, className: 'cms-protected-fallback', 'data-v8-section': id }, h('div', { className: 'v6-shell' }, h('p', { className: 'v6-eyebrow' }, 'LIVE-SITE STRUCTURE'), h('h2', {}, title), h('p', {}, 'This production section is inherited from the current launch candidate and will appear here when the deployed page is available.')));
-      };
+      const fitSection = h('section',{className:'fit section-tight',key:'fit'},h('div',{className:'shell fit-intro'},h('p',{className:'eyebrow'},'COULD HOMEWARD BE A FIT?'),h('h2',{},'Openness matters more than certainty.'),h('p',{},'You do not have to arrive with settled beliefs. You do need a willingness to participate respectfully, practice, and listen.')),h('div',{className:'shell fit-shell'},h('div',{className:'fit-column fit-yes'},h('h2',{},'You may feel at home if…'),h('ul',{},h('li',{},'You are seeking depth, connection, and a more lived spiritual life.'),h('li',{},'You are willing to explore Jesus and Scripture respectfully, even if your beliefs are unsettled.'),h('li',{},'You can speak from your own experience, listen without fixing, and practice between gatherings.'))),h('div',{className:'fit-column fit-no'},h('h2',{},'A Circle may not be the best fit if…'),h('ul',{},h('li',{},'Your primary purpose is to debate, disprove, convert, or require agreement.'),h('li',{},'You want a class built around one expert supplying the correct answers.'),h('li',{},'You are not willing to respect confidentiality or the lived experience of other participants.')))),h('div',{className:'fit-link-row'},h('span',{className:'text-link'},'See the full Circle fit + FAQ ',h('span',{},'→'))));
 
-      const renderers = {
-        hero: hero, recognition: recognition, difference: difference, finding_home: finding,
-        practice_bridge: practice, gifts: gifts, founder: founder, journey: journey,
-        fit: () => inheritedSection('fit', 'Is Homeward a fit?'),
-        interest: () => inheritedSection('interest', 'Tell us you’re interested'),
-        faq: () => inheritedSection('faq', 'Frequently Asked Questions'),
-        practice_bears_fruit: () => inheritedSection('practice_bears_fruit', 'Practice Bears Fruit'),
-        remembering: () => inheritedSection('remembering', 'We gather to remember')
-      };
+      const interestSection = h('section',{className:'interest section',key:'interest'},h('div',{className:'shell interest-grid'},h('div',{className:'interest-copy'},h('p',{className:'eyebrow'},'You do not need to choose a group or make a commitment. Share a little about what you’re looking for, and we’ll follow up personally as Circles form.'),h('h2',{},'Tell us you’re interested.'),h('p',{},'You don’t need to have everything figured out. Share a little about what you’re looking for and we’ll follow up personally as Fall Circles form.'),h('div',{className:'interest-note'},h('strong',{},'Prefer to talk first?'),h('p',{},'Have a short conversation about Homeward. No pressure, no pitch—just a chance to ask questions and see whether a Circle feels right.'),h('span',{className:'text-link'},'Have a Short Conversation ',h('span',{},'→')))),h('div',{className:'interest-form'},h('label',{},'First name',h('input',{disabled:true})),h('label',{},'Email',h('input',{disabled:true})),h('label',{},'What are you hoping to find?',h('textarea',{disabled:true,rows:4})),h('span',{className:'button button-copper form-submit'},'Share My Interest'))));
 
-      return h('div', { className: 'v8-v6-home cms-preview-stage' }, order.filter((item) => item.enabled !== false).map((item) => {
-        const sectionData = page[item.id];
-        if (sectionData && sectionData.enabled === false) return null;
-        if (renderers[item.id]) return renderers[item.id]();
-        return customSection(custom[item.id]);
-      }));
+      const journeySection = h('section',{className:'journey',key:'journey'},h('div',{className:'shell journey-grid'},h('div',{className:'journey-art'},journey.image?h('img',{src:asset(journey.image,getAsset),alt:''}):null),h('div',{className:'journey-copy'},h('p',{className:'eyebrow gold'},journey.eyebrow||'Spiritual Journey Reflection'),h('h2',{},journey.heading||'Where are you on your spiritual journey?'),h('p',{},journey.description||''),h('div',{className:'journey-benefits-card'},h('h3',{},journey.benefit_heading||'What you’ll receive in about five minutes'),h('div',{className:'benefit-grid'},...list(journey.benefit_items).slice(0,4).map((it,i)=>h('div',{key:i},h('b',{},'✓'),h('span',{},typeof it==='string'?it:(it.text||''))))),h('p',{className:'journey-reassurance'},journey.benefit_text||'')),h('span',{className:'button button-ivory journey-cta'},journey.cta_label||'Take the 5-Minute Spiritual Journey Reflection'))));
+
+      const faqSection = h('section',{className:'warm-section section',key:'faq'},h('div',{className:'shell faq-shell'},h('div',{className:'section-heading centered'},h('p',{className:'eyebrow'},'QUESTIONS'),h('h2',{},'A few things people often ask.')),h('div',{className:'faq-list'},['Do I need to be a Christian?','What happens in a Circle?','Is there a cost?','Can I participate online?'].map((q,i)=>h('details',{key:i},h('summary',{},q),h('p',{},'This section uses the protected live FAQ structure on the published site.'))))));
+
+      return h('div',{className:'v8-home-launch'},heroSection,recognitionSection,differenceSection,findingSection,joinSection,practiceSection,founderSection,fitSection,interestSection,journeySection,faqSection);
     }
   });
 
-  const GenericPreview = createClass({
-    render: function () {
-      const entry = this.props && this.props.entry;
-      const data = entry && entry.get && entry.get('data') && entry.get('data').toJS ? entry.get('data').toJS() : {};
-      const title = data.meta?.title || data.hero?.heading || data.heading || data.title || 'Homeward content';
-      const lead = data.hero?.lead || data.hero?.description || data.description || data.intro?.lead || '';
-      return h('div', { className: 'cms-preview' }, h('section', { className: 'cms-section' }, h('div', { className: 'cms-shell' }, h('h1', {}, title), rich(lead))));
-    }
-  });
-
+  const GenericPreview = createClass({render:function(){return h('div',{style:{padding:'40px',fontFamily:'Inter, Arial, sans-serif'}},h('p',{},'Use Homepage (V8) — USE THIS for the launch homepage preview.'));}});
   CMS.registerPreviewTemplate('v8_front_door', V8Preview);
   CMS.registerPreviewTemplate('v8', V8Preview);
-  ['home','global','circles','practices','about','connect','vision','assessment'].forEach((name) => CMS.registerPreviewTemplate(name, GenericPreview));
+  ['home','global','circles','practices','about','connect','vision','assessment'].forEach((name)=>CMS.registerPreviewTemplate(name,GenericPreview));
 }());
