@@ -7,9 +7,10 @@ const read = (p) => fs.readFile(path.join(root, p), 'utf8');
 const exists = async (p) => { try { await fs.stat(path.join(root, p)); return true; } catch { return false; } };
 const assert = (ok, message) => { if (!ok) throw new Error(message); };
 
-const [index,circles,practices,about,lead,deployedCms,runtimeConfig] = await Promise.all([
+const [index,circles,practices,about,lead,deployedCms,runtimeConfig,sharedCss,globalCopy] = await Promise.all([
   read('dist/index.html'), read('dist/circles.html'), read('dist/practices.html'), read('dist/about.html'),
   read('netlify/functions/lead.mjs'), read('dist/admin/config.yml'), read('dist/admin/runtime-config.js'),
+  read('dist/assets/v8-shared-shell.css'), read('content/global.json'),
 ]);
 
 const questions = [
@@ -20,13 +21,31 @@ const questions = [
 ];
 for (const q of questions) assert(index.includes(q), `Homepage recognition question missing: ${q}`);
 assert(index.includes('recognition-grid-four'), 'Homepage is missing the four-question recognition layout');
-assert(index.includes("Let's Talk"), 'Homepage header is missing Let’s Talk');
+assert(index.includes('You do not need settled beliefs—only an honest desire to explore, practice, and grow.'), 'Homepage recognition closing line is missing');
+
+const pages = { index, circles, practices, about };
+for (const [page, html] of Object.entries(pages)) {
+  assert(html.includes('v8-site-header'), `${page} is missing the canonical shared header`);
+  assert(html.includes('/assets/v8-shared-shell.css'), `${page} is missing shared-shell CSS`);
+  assert(html.includes('/assets/v8-shared-shell.js'), `${page} is missing shared-shell JS`);
+  assert(html.includes('Let’s Talk'), `${page} header is missing the compact Let’s Talk CTA`);
+  assert(html.includes('Have a Conversation'), `${page} mobile navigation is missing the full conversation CTA`);
+  assert(html.includes('Tell Us You’re Interested'), `${page} mobile navigation is missing the primary interest CTA`);
+}
+assert(index.includes('href="/" class="is-active" aria-current="page"'), 'Homepage Home navigation is not active');
+assert(circles.includes('href="/circles.html" class="is-active" aria-current="page"'), 'Circles navigation is not active');
+assert(practices.includes('href="/practices.html" class="is-active" aria-current="page"'), 'Practices navigation is not active');
+assert(about.includes('href="/about.html" class="is-active" aria-current="page"'), 'Our Story navigation is not active');
+
+assert(sharedCss.includes('--hw-copper:#B53A2A'), 'Shared brand shell is missing exact Homeward copper #B53A2A');
+assert(!sharedCss.toLowerCase().includes('#b35a2a'), 'Shared brand shell contains the obsolete redder copper #B35A2A');
+assert(!globalCopy.toLowerCase().includes('primary_color=b35a2a'), 'Calendly still contains the obsolete copper');
+assert(globalCopy.toLowerCase().includes('primary_color=b53a2a'), 'Calendly does not use approved copper');
+
 assert(!index.includes('class="mobile-sticky"'), 'Persistent mobile interest bar should not be present');
-assert(index.includes('menu-button'), 'Homepage mobile menu button is missing');
 assert(index.includes('Not just another small group. A place to practice.'), 'Homepage Circle framing is missing');
 assert(index.includes('Three simple steps. No pressure.'), 'Homepage joining process is missing');
 assert(index.includes('Spiritual practices: exercises for the heart and mind.'), 'Homepage practice framing is missing');
-assert(index.includes('Tell us you’re interested.'), 'Homepage interest form heading is missing');
 assert(index.includes('Where are you on your spiritual journey?'), 'Homepage Journey Reflection is missing');
 
 for (const field of ['firstName','lastName','email','zip','gathering_preference','draw','newsletter']) {
@@ -45,21 +64,21 @@ assert(practices.includes('/assets/v8-launch-image-qa.css'), 'Practices image QA
 assert(about.includes('I went looking for a faith I could actually live.'), 'Our Story primary page is missing');
 assert(about.includes('/assets/v8-launch-image-qa.css'), 'Our Story image QA stylesheet is missing');
 
-// The tiny review thumbnails caused soft/broken-looking renders on phones. Launch pages
-// should resolve to full-size site imagery instead.
 for (const html of [index,circles,practices]) {
   assert(!html.includes('/assets/review/practices/'), 'A launch page still references a low-resolution practice review thumbnail');
 }
 
-const pages = { index, circles, practices, about };
 for (const [page, html] of Object.entries(pages)) {
   const refs = [...html.matchAll(/(?:src|href)=["'](\/assets\/[^"'#?]+|assets\/[^"'#?]+)["']/g)].map((m)=>m[1].replace(/^\//,''));
   for (const ref of new Set(refs)) assert(await exists(ref), `${page} references missing asset: ${ref}`);
 }
 
+assert(await exists('assets/library'), 'Reusable image library folder is missing');
+assert(await exists('assets/library/IMAGE_LIBRARY.md'), 'Image library inventory is missing');
 assert(deployedCms.includes('name: v8_front_door'), 'Generated CMS is missing the V8 collection');
 assert(runtimeConfig.includes('window.__HOMEWARD_CMS_BRANCH'), 'CMS runtime branch selection is missing');
 assert(await exists('admin/v8-collection.yml'), 'V8 CMS schema is missing');
 assert(await exists('docs/V8_LAUNCH_READINESS.md'), 'Launch-readiness handoff is missing');
+assert(await exists('FINAL_LAUNCH_CANDIDATE_MANIFEST.md'), 'Final launch-candidate manifest is missing');
 
 console.log('Homeward V8 launch-candidate verification passed.');
