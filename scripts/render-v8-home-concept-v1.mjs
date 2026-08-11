@@ -12,7 +12,7 @@ export function renderHomeConceptV1(_sourceHtml) {
   // Keep the approved Concept V1 intact and layer targeted polish separately so
   // future revisions remain easy to compare and roll back.
   if (!html.includes('/assets/homepage-concept-v1-polish.css')) {
-    html = html.replace('</head>', '<link href="/assets/homepage-concept-v1-polish.css?v=2" rel="stylesheet"/>\n</head>');
+    html = html.replace('</head>', '<link href="/assets/homepage-concept-v1-polish.css?v=3" rel="stylesheet"/>\n</head>');
   }
 
   // Header should invite conversation rather than compete with the main interest CTA.
