@@ -1,0 +1,128 @@
+/* V8 mobile containment fixes. Loaded after the main V8 stylesheet. */
+@media (max-width: 680px) {
+  html,
+  body.v8-v6-home {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body.v8-v6-home .v6-shell {
+    width: calc(100% - 32px) !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.v8-v6-home .v6-hero,
+  body.v8-v6-home .v6-hero-grid,
+  body.v8-v6-home .v6-hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.v8-v6-home .v6-hero {
+    min-height: auto;
+  }
+
+  body.v8-v6-home .v6-hero-grid {
+    display: block;
+    min-height: auto;
+  }
+
+  body.v8-v6-home .v6-hero-copy {
+    padding: 48px 0 38px;
+  }
+
+  body.v8-v6-home .v6-hero .v6-eyebrow {
+    max-width: 100%;
+    font-size: .66rem;
+    line-height: 1.35;
+    letter-spacing: .14em;
+  }
+
+  body.v8-v6-home .v6-hero h1 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: clamp(2.42rem, 11vw, 3.25rem);
+    line-height: 1.01;
+    letter-spacing: -.03em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  body.v8-v6-home .v6-hero h1 .accent {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  body.v8-v6-home .v6-hero p.hero-desc {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 22px;
+    font-size: .94rem;
+    line-height: 1.58;
+    overflow-wrap: break-word;
+  }
+
+  /* Override the flexible desktop builder rule on phones. */
+  body.v8-v6-home .v6-hero-facts {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px 0;
+    margin-top: 26px;
+  }
+
+  body.v8-v6-home .v6-hero-fact {
+    min-width: 0;
+    padding: 0 8px;
+    border-right: 0;
+    font-size: .72rem;
+  }
+
+  body.v8-v6-home .v6-hero-fact:nth-child(odd) {
+    border-right: 1px solid rgba(250,246,239,.2);
+  }
+
+  body.v8-v6-home .v6-hero-fact:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: 0;
+  }
+
+  body.v8-v6-home .v6-hero-fact svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  body.v8-v6-home .v6-hero-actions {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  body.v8-v6-home .v6-hero-actions .button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  body.v8-v6-home .v6-hero-micro {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  body.v8-v6-home .v6-hero h1 {
+    font-size: clamp(2.25rem, 10.8vw, 2.85rem);
+  }
+}
