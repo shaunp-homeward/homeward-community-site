@@ -36,13 +36,22 @@ Secondary relational CTA: **Have a Conversation** → Conversation / Connect.
 
 ## Shared navigation
 
-The final candidate uses one build-time canonical header shell across public pages, with the same logo lockup, navigation order, compact Let’s Talk header CTA, mobile hamburger, and active-page state. Active major sections use `aria-current="page"` plus subtle copper emphasis.
+The final candidate uses one build-time canonical header shell across public pages, with the same logo lockup, navigation order, compact Let’s Talk header CTA, mobile hamburger, and active-page state. Active major sections use `aria-current="page"` plus subtle copper emphasis. Journey Reflection and its six journey-stage pages are treated as part of the Journey navigation section.
 
 ## Image QA
 
 Primary launch pages map selection/review thumbnails to full-size existing site imagery. Shared responsive QA prevents aggressive mobile hero cropping and preserves historical Our Story photography with contained framing where appropriate.
 
-A curated reusable repository library is available under `assets/library/`. A separate offline archive created during this pass contains every byte-unique image actually recoverable in the current workspace: 194 unique images from 240 files discovered. That offline archive is broader than the production repository library.
+A curated reusable repository library is available under `assets/library/`.
+
+A separate offline archive, `Homeward_All_Recoverable_Image_Library_2026-08-11.zip`, contains every byte-unique image actually recoverable from the current ChatGPT workspace plus image files recoverable inside available Homeward ZIP packages:
+
+- 280 byte-unique images
+- 437 duplicate copies collapsed
+- 113.8 MB of unique image data
+- 120 raster images flagged below 700 px wide or 400 px high
+
+The offline archive is intentionally broader than the production repository library and includes an image manifest and duplicate report. Images from older conversations that are not present in the repository, current workspace, or available ZIP packages cannot be truthfully claimed as recovered.
 
 ## Integrations that must survive promotion
 
