@@ -42,6 +42,24 @@ assert(!sharedCss.toLowerCase().includes('#b35a2a'), 'Shared brand shell contain
 assert(!globalCopy.toLowerCase().includes('primary_color=b35a2a'), 'Calendly still contains the obsolete copper');
 assert(globalCopy.toLowerCase().includes('primary_color=b53a2a'), 'Calendly does not use approved copper');
 
+// The normalization pass runs at the end of npm run build. No generated HTML/CSS/JS
+// should retain the old redder copper literal or its legacy RGB shadow equivalent.
+const generatedTextExtensions = new Set(['.html','.css','.js','.json','.svg','.xml','.txt']);
+const obsoleteColorHits = [];
+async function scanGenerated(dir) {
+  for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) { await scanGenerated(full); continue; }
+    if (!generatedTextExtensions.has(path.extname(entry.name).toLowerCase())) continue;
+    const text = await fs.readFile(full, 'utf8');
+    if (/#b35a2a/i.test(text) || /rgba\(179\s*,\s*90\s*,\s*42\s*,/i.test(text) || /rgb\(179\s*,\s*90\s*,\s*42\s*\)/i.test(text)) {
+      obsoleteColorHits.push(path.relative(path.join(root,'dist'), full));
+    }
+  }
+}
+await scanGenerated(path.join(root,'dist'));
+assert(obsoleteColorHits.length === 0, `Generated site still contains obsolete copper in: ${obsoleteColorHits.join(', ')}`);
+
 assert(!index.includes('class="mobile-sticky"'), 'Persistent mobile interest bar should not be present');
 assert(index.includes('Not just another small group. A place to practice.'), 'Homepage Circle framing is missing');
 assert(index.includes('Three simple steps. No pressure.'), 'Homepage joining process is missing');
