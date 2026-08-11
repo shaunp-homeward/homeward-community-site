@@ -9,6 +9,16 @@ const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
+const journeyPages = new Set([
+  'assessment.html',
+  'inherited-faith.html',
+  'honest-questions.html',
+  'sacred-search.html',
+  'new-foundations.html',
+  'embodied-faith.html',
+  'living-awake.html',
+]);
+
 const currentSectionFor = (filename = '') => {
   const normalized = String(filename).replaceAll('\\', '/').toLowerCase();
   const base = normalized.split('/').at(-1) || '';
@@ -16,7 +26,7 @@ const currentSectionFor = (filename = '') => {
   if (base === 'circles.html') return 'circles';
   if (base === 'practices.html') return 'practices';
   if (base === 'about.html') return 'story';
-  if (normalized.includes('/journey/') || base.includes('assessment') || base.includes('journey')) return 'journey';
+  if (journeyPages.has(base) || normalized.includes('/journey/') || base.includes('assessment') || base.includes('journey')) return 'journey';
   return '';
 };
 
@@ -28,7 +38,7 @@ const navItems = [
   ['story', '/about.html', () => globalCopy.navigation.story],
 ];
 
-const navLink = ([id, href, label], active, mobile = false) => {
+const navLink = ([id, href, label], active) => {
   const isActive = id === active;
   const cls = isActive ? ' class="is-active"' : '';
   const current = isActive ? ' aria-current="page"' : '';
@@ -49,7 +59,7 @@ const headerHtml = (active) => `
     <button class="v8-menu-button" type="button" aria-expanded="false" aria-label="Open navigation" data-v8-menu-button><span></span><span></span><span></span></button>
   </div>
   <nav class="v8-mobile-nav" aria-label="Mobile navigation" data-v8-mobile-menu hidden>
-    ${navItems.map((item) => navLink(item, active, true)).join('')}
+    ${navItems.map((item) => navLink(item, active)).join('')}
     <div class="v8-mobile-actions">
       <a class="v8-mobile-primary" href="/#interest" data-event="circle_interest_click">${esc(globalCopy.navigation.interest)}</a>
       <a class="v8-mobile-secondary" href="/connect.html" data-event="start_conversation_click">${esc(globalCopy.navigation.conversation)}</a>
