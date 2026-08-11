@@ -47,16 +47,16 @@ The files under `assets/review/practices/` were selection/review thumbnails, inc
 
 ## Recoverable ChatGPT/workspace image archive
 
-A separate downloadable archive was created during this launch pass from every image file actually recoverable in the current workspace:
+A separate downloadable archive was created during this final launch pass from every image file actually recoverable in the current workspace **plus image files recoverable inside the Homeward ZIP packages available in the workspace**:
 
-- Files discovered: **240**
-- Byte-unique images archived: **194**
-- Duplicate copies collapsed: **46**
-- Approximate unique image data: **89.0 MB**
-- Raster images flagged below 700 px wide or 400 px high: **101**
+- Archive: `Homeward_All_Recoverable_Image_Library_2026-08-11.zip`
+- Byte-unique images archived: **280**
+- Duplicate copies collapsed: **437**
+- Unique image data: **113.8 MB**
+- Raster images flagged below 700 px wide or 400 px high: **120**
 
-That offline archive contains source masters, alternate practice images, historical/personal source files, renders, and other recovered Homeward visual material. It is broader than this production repository library.
+The offline archive contains source masters, alternate practice images, historical/personal source files, renders, images preserved inside prior design ZIP packages, and other recovered Homeward visual material. It is intentionally broader than this production repository library. It also includes a CSV manifest and duplicate report.
 
 ### Important limitation
 
-The GitHub connector used for this cleanup can safely copy existing repository image blobs, but it does not expose a normal bulk local-file upload action. Therefore this repository folder catalogs/copies the useful image files already in GitHub, while the complete set of 194 recoverable workspace images is preserved in the downloadable offline archive. Images from older ChatGPT conversations that are not present in either the repository or current workspace cannot be truthfully claimed as recovered.
+The GitHub connector used for this cleanup can safely copy existing repository image blobs, but it does not expose a practical bulk upload path for the full 100+ MB recovered workspace library. Therefore this repository folder catalogs/copies the useful image files already in GitHub, while the complete set of **280** recoverable unique workspace images is preserved in the downloadable offline archive. Images from older ChatGPT conversations that are not present in either the repository, current workspace, or recoverable ZIP packages cannot be truthfully claimed as recovered.
