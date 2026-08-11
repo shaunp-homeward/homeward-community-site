@@ -12,7 +12,7 @@ export function renderHomeConceptV1(_sourceHtml) {
   let html = approvedHomepage;
 
   if (!html.includes('/assets/homepage-concept-v1-polish.css')) {
-    html = html.replace('</head>', '<link href="/assets/homepage-concept-v1-polish.css?v=5" rel="stylesheet"/>\n</head>');
+    html = html.replace('</head>', '<link href="/assets/homepage-concept-v1-polish.css?v=6" rel="stylesheet"/>\n</head>');
   }
   if (!html.includes('/assets/v8-launch-image-qa.css')) {
     html = html.replace('</head>', '<link href="/assets/v8-launch-image-qa.css?v=2" rel="stylesheet"/>\n</head>');
@@ -20,6 +20,13 @@ export function renderHomeConceptV1(_sourceHtml) {
 
   html = html.replace('<body>', '<body class="v8-home-launch">');
   html = html.replace(/<section class="recognition section">[\s\S]*?<\/section>/, recognition);
+
+  // Preserve the approved Practices framing from Draft 2.1 as a bold bridge before the explanatory copy.
+  const practiceHeading = '<h2>Ancient practices. Everyday change.</h2>';
+  const practiceSubhead = '<p class="practices-subhead"><strong>Spiritual practices: exercises for the heart and mind.</strong></p>';
+  if (html.includes(practiceHeading) && !html.includes('Spiritual practices: exercises for the heart and mind.')) {
+    html = html.replace(practiceHeading, `${practiceHeading}${practiceSubhead}`);
+  }
 
   html = html.replace(
     '<a class="button button-copper header-cta" href="#interest">Tell us you’re interested</a>',
