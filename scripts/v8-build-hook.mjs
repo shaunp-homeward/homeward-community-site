@@ -17,6 +17,7 @@ fs.writeFile = async (file, data, ...rest) => {
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
     data = applyCmsInlineFormatting(renderHomePrimary(String(data)));
     data = ensureStylesheet(data, '/assets/v8-mobile-fix.css');
+    data = ensureStylesheet(data, '/assets/v8-home-refresh.css');
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
     data = applyCmsInlineFormatting(renderCirclesPrimary(String(data)));
   } else if (name.endsWith('/dist/practices.html') || name.endsWith('\\dist\\practices.html')) {
