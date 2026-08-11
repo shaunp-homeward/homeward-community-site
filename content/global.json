@@ -12,7 +12,7 @@
     "practices": "Practices",
     "journey": "Journey",
     "story": "Our Story",
-    "interest": "I'm Interested",
+    "interest": "Tell Us You’re Interested",
     "conversation": "Have a Conversation",
     "mobile_conversation": "Let’s Talk"
   },
@@ -25,7 +25,7 @@
     "story": "Our Story",
     "vision": "Future Vision",
     "connect_heading": "Connect",
-    "interest": "Tell Us You're Interested",
+    "interest": "Tell Us You’re Interested",
     "conversation": "Have a Conversation",
     "conversation_details": "Conversation Details",
     "privacy": "Privacy"
@@ -34,7 +34,7 @@
     "aria_label": "Homeward interest invitation",
     "heading": "Does Homeward resonate with you?",
     "text": "Let us know what interests you. No commitment required.",
-    "interest_button": "I'm Interested",
+    "interest_button": "Tell Us You’re Interested",
     "conversation_button": "Have a Conversation",
     "dismiss_label": "Dismiss"
   },
@@ -42,7 +42,7 @@
     "modal_label": "Schedule a short Homeward conversation",
     "iframe_title": "Schedule a 30-minute Homeward conversation",
     "close_label": "Close calendar",
-    "embed_url": "https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&embed_type=Inline&hide_event_type_details=1&background_color=faf6ef&text_color=153a2e&primary_color=b35a2a",
+    "embed_url": "https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&embed_type=Inline&hide_event_type_details=1&background_color=faf6ef&text_color=153a2e&primary_color=b53a2a",
     "external_url": "https://calendly.com/s-pennington/30-min-discovery-call"
   },
   "lightbox": {
