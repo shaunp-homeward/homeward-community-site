@@ -1,15 +1,14 @@
-/* V8 Decap preview aligned to the actual launch-candidate homepage template. */
+/* V8 Decap preview aligned to the staging homepage hierarchy refinement. */
 (function () {
   const CMS = window.CMS;
   const createClass = window.createClass;
   const h = window.h;
   if (!CMS || !createClass || !h) return;
 
-  // IMPORTANT: the public launch candidate is built from homepage-concept-v1.html.
-  // Preview the same design system rather than the older v8-home-v6 renderer.
   CMS.registerPreviewStyle('/assets/homepage-concept-v1.css?v=1');
   CMS.registerPreviewStyle('/assets/homepage-concept-v1-polish.css?v=6');
   CMS.registerPreviewStyle('/assets/v8-launch-image-qa.css?v=2');
+  CMS.registerPreviewStyle('/assets/homepage-v8-hierarchy-refinement.css?v=2');
 
   const list = (value) => Array.isArray(value) ? value : [];
   const enabled = (value) => list(value).filter((item) => item && item.enabled !== false);
@@ -51,6 +50,18 @@
   };
   const icon = (name) => h('svg', {viewBox:'0 0 48 48','aria-hidden':'true'}, ...(iconPath[name] || iconPath.leaf).map(([tag,props],i)=>h(tag,{...props,key:i})));
 
+  const findingWeeks = [
+    {number:'01',movement:'WELCOME + STILLNESS',title:'Learn to Return',description:'Begin with safety, welcome, and a first experience of stillness. Learn that distraction is normal—and returning is the practice.',practice:'Breath Prayer → Light of Christ',scripture:'Luke 15:1–7'},
+    {number:'02',movement:'STORY + LISTENING',title:'Share the Journey',description:'Build trust through spiritual stories and sacred listening. Belong without fixing, debating, or needing everyone to agree.',practice:'Maranatha → Gratitude Meditation',scripture:'John 4:4–26'},
+    {number:'03',movement:'PRAYER AS LISTENING',title:'Open to Presence',description:'Explore prayer as listening and receiving—not only speaking or striving. Practice becoming receptive to God in the present moment.',practice:'Breath Prayer → Inspired Reading → Light of Christ',scripture:'John 1:1–15'},
+    {number:'04',movement:'INTEGRATION + RHYTHM',title:'Carry It Into Life',description:'Integrate what you have experienced, choose a simple Sacred Rhythm, and decide how you want to keep journeying.',practice:'Centering Prayer + Daily Reflection',scripture:'John 15:1–17'},
+  ];
+  const circlePillars = [
+    {icon:'leaf',title:'Practice together',description:'Meditation, prayer, Scripture, silence, gratitude, and reflection—guided, not just discussed.'},
+    {icon:'chat',title:'Explore honestly',description:'Speak from experience. Listen without fixing. Questions are welcome; agreement is not required.'},
+    {icon:'calendar',title:'Carry it into life',description:'Try the practice in ordinary life, notice what changes, then return and reflect together.'},
+  ];
+
   const V8Preview = createClass({
     render: function () {
       const entry = this.props && this.props.entry;
@@ -71,11 +82,15 @@
 
       const heroFacts = enabled(hero.facts);
       const recognitionItems = enabled(recognition.items);
-      const differenceItems = enabled(difference.features);
       const logistics = enabled(finding.logistics);
       const joinItems = enabled(join.items);
       const giftItems = enabled(gifts.items).slice(0,4);
       const outcomeItems = enabled(practice.outcome_items).slice(0,4);
+      const effectiveJoinItems = joinItems.length ? joinItems.slice(0,3) : [
+        {title:'Tell us you’re interested.',body:'Complete a short form. It takes a couple of minutes and there is no commitment.'},
+        {title:'Have a short conversation.',body:'Ask questions, hear what a Circle feels like, and tell us what you’re looking for.'},
+        {title:'We’ll help find your Circle.',body:'We’ll look at location, schedule, online or in-person format, and fit.'},
+      ];
 
       const heroSection = h('section',{className:'hero',key:'hero'},
         h('div',{className:'hero-copy-panel'},h('div',{className:'hero-copy-inner'},
@@ -95,26 +110,6 @@
         h('p',{className:'recognition-close'},recognition.honest_line||'You do not need settled beliefs—only an honest desire to explore, practice, and grow.')
       ));
 
-      const differenceSection = h('section',{className:'circle-different section',key:'difference'},h('div',{className:'shell narrow-wide'},
-        h('div',{className:'section-heading centered circle-different-heading'},h('p',{className:'eyebrow'},difference.eyebrow||'Not Your Ordinary Small Group'),h('h2',{},'Not just another small group. A place to practice.'),h('p',{className:'circle-subhead'},'A Circle is a guided community of practice—not a class and not a debate.')),
-        h('div',{className:'circle-icon-grid'},differenceItems.map((it,i)=>h('article',{key:it.id||i},icon(it.icon||'leaf'),h('h3',{},it.title||''),h('p',{},it.description||'')))),
-        h('div',{className:'circle-different-note'},h('p',{},'Traditional groups can offer meaningful friendship, teaching, and Scripture study. Homeward adds another layer: ',h('strong',{},'guided practice, lived experience, and a rhythm that continues between gatherings.')),h('p',{className:'circle-signature'},difference.signature||'Practice the way. Explore honestly. Carry it into life.'),h('span',{className:'button button-outline circle-page-cta'},'Explore the Full Circles Experience'))
-      ));
-
-      const findingSection = h('section',{className:'season-wrap section-tight',key:'finding_home'},h('div',{className:'shell'},h('div',{className:'season-card'},
-        h('div',{className:'season-art'},h('img',{src:'/assets/homepage-finding-home-emblem.svg',alt:''})),
-        h('div',{className:'season-intro'},h('p',{className:'eyebrow'},finding.eyebrow||'YOUR FIRST SEASON · FALL 2026'),h('h2',{},finding.title||'Finding Home'),h('p',{className:'season-tagline'},'Start with four weeks.',h('br'),'Keep journeying together.')),
-        h('div',{className:'season-explainer'},h('p',{},h('strong',{},'Homeward is an ongoing community organized in four-week seasons.'),' Seasons make it easier to say yes, plan around real life, and show up consistently with the same people.'),h('div',{className:'season-path'},h('div',{},h('span',{},'01'),h('b',{},'Begin'),h('small',{},'Finding Home · 4 weeks')),h('em',{},'→'),h('div',{},h('span',{},'02'),h('b',{},'Reflect'),h('small',{},'Pause, integrate, choose what’s next')),h('em',{},'→'),h('div',{},h('span',{},'03'),h('b',{},'Continue'),h('small',{},'Future seasons deepen the journey'))),h('p',{className:'season-reassurance'},'The first four weeks are a beginning—not a graduation or finish line.')),
-        h('div',{className:'season-facts'},...logistics.map((it,i)=>h('div',{className:'fact',key:it.id||i},icon(it.icon||'calendar'),h('div',{},h('strong',{},it.label||''),h('small',{},it.detail||'')))),h('p',{className:'season-availability'},h('strong',{},finding.availability||'Evening Circles are forming now.'),' Exact days and times will be shared as groups form.')),
-        h('div',{className:'season-action'},h('span',{className:'button button-copper'},finding.link_label||'Tell Us You’re Interested'))
-      )));
-
-      const joinSection = h('section',{className:'join-path section',key:'join_process'},h('div',{className:'shell narrow-wide'},
-        h('div',{className:'section-heading centered join-heading'},h('p',{className:'eyebrow'},join.eyebrow||'HOW JOINING A CIRCLE WORKS'),h('h2',{},'Three simple steps. No pressure.'),h('p',{},'You do not need to decide everything today. Interest starts a conversation—not a commitment.')),
-        h('div',{className:'join-grid'},joinItems.map((it,i)=>h('article',{key:it.id||i},h('span',{className:'join-number'},String(i+1).padStart(2,'0')),h('h3',{},(it.title||'').replace(/^\d+\.\s*/,'')),h('p',{},it.body||it.description||'')))),
-        h('div',{className:'join-actions'},h('span',{className:'button button-copper'},'Tell Us You’re Interested'),h('span',{className:'text-link'},'Have a Conversation ',h('span',{},'→')))
-      ));
-
       const practiceSection = h('section',{className:'home-practices section',key:'practice_bridge'},h('div',{className:'shell practices-home-grid'},
         h('div',{className:'practices-home-copy'},
           h('p',{className:'eyebrow'},'PRACTICES FOR THE MIND AND HEART'),
@@ -130,24 +125,43 @@
         h('div',{className:'practice-collage'},giftItems.map((it,i)=>h('figure',{className:'practice-tile tile-'+String.fromCharCode(97+i),key:it.id||i},it.image?h('img',{src:asset(it.image,getAsset),alt:it.image_alt||''}):null,h('figcaption',{},h('b',{},it.title||''),h('span',{},it.description||'')))))
       ));
 
+      const differenceSection = h('section',{className:'circle-different section',key:'difference'},h('div',{className:'shell narrow-wide'},
+        h('div',{className:'section-heading centered circle-different-heading'},h('p',{className:'eyebrow'},difference.eyebrow||'Not Your Ordinary Small Group'),h('h2',{},'Not just another small group. A place to practice.'),h('p',{className:'circle-subhead'},'A Circle is a guided community of practice—not a class and not a debate.')),
+        h('div',{className:'circle-icon-grid v9-circle-grid'},circlePillars.map((it,i)=>h('article',{key:i},icon(it.icon),h('h3',{},it.title),h('p',{},it.description)))),
+        h('div',{className:'circle-different-note'},h('p',{},'Rooted in Jesus, Homeward adds another layer to meaningful friendship and Scripture: ',h('strong',{},'guided practice, lived experience, and a rhythm that continues between gatherings.')),h('p',{className:'circle-signature'},difference.signature||'Practice the way. Explore honestly. Carry it into life.'),h('span',{className:'button button-outline circle-page-cta'},'See How Circles Work'))
+      ));
+
+      const findingSection = h('section',{className:'season-wrap section-tight',key:'finding_home'},h('div',{className:'shell'},h('div',{className:'season-card v9-season-card'},
+        h('div',{className:'season-intro v9-season-intro'},
+          h('div',{className:'season-art'},h('img',{src:'/assets/homepage-finding-home-emblem.svg',alt:''})),
+          h('div',{},h('p',{className:'eyebrow'},finding.eyebrow||'YOUR FIRST SEASON · FALL 2026'),h('h2',{},finding.title||'Finding Home'),h('p',{className:'season-tagline'},'A four-week practice journey.'),h('p',{className:'v9-season-lead'},'Finding Home is your first taste of a Homeward Circle: four gatherings that ignite a spiritual practice and a community—teaching a few core practices deeply enough that you can actually use them in everyday life.'))
+        ),
+        h('div',{className:'finding-weeks'},findingWeeks.map((week)=>h('article',{className:'finding-week',key:week.number},h('div',{className:'finding-week-top'},h('span',{className:'finding-week-number'},week.number),h('span',{className:'finding-week-movement'},week.movement)),h('h3',{},week.title),h('p',{},week.description),h('small',{},h('strong',{},'Practice: '),week.practice,h('br'),h('strong',{},'Scripture: '),week.scripture)))),
+        h('p',{className:'season-reassurance v9-season-reassurance'},'The first four weeks are a beginning—not a graduation or finish line. You leave with a small repertoire of practices, a home base for prayer, and a clearer sense of whether you want to keep journeying with the community.'),
+        h('div',{className:'season-facts v9-season-facts'},...logistics.map((it,i)=>h('div',{className:'fact',key:it.id||i},icon(it.icon||'calendar'),h('div',{},h('strong',{},it.label||''),h('small',{},it.detail||'')))),h('p',{className:'season-availability'},h('strong',{},finding.availability||'Evening Circles are forming now.'),' Exact days and times will be shared as groups form.'))
+      )));
+
+      const fitSection = h('section',{className:'fit section-tight',key:'fit'},h('div',{className:'shell fit-intro'},h('p',{className:'eyebrow'},'COULD HOMEWARD BE A FIT?'),h('h2',{},'Openness matters more than certainty.'),h('p',{},'You do not have to arrive with settled beliefs. You do need a willingness to participate respectfully, practice, and listen.')),h('div',{className:'shell fit-shell'},h('div',{className:'fit-column fit-yes'},h('h2',{},'You may feel at home if…'),h('ul',{},h('li',{},'You are seeking depth, connection, and a more lived spiritual life.'),h('li',{},'You are willing to explore Jesus and Scripture respectfully, even if your beliefs are unsettled.'),h('li',{},'You can speak from your own experience, listen without fixing, and practice between gatherings.'))),h('div',{className:'fit-column fit-no'},h('h2',{},'A Circle may not be the best fit if…'),h('ul',{},h('li',{},'Your primary purpose is to debate, disprove, convert, or require agreement.'),h('li',{},'You want a class built around one expert supplying the correct answers.'),h('li',{},'You are not willing to respect confidentiality or the lived experience of other participants.')))),h('div',{className:'fit-link-row'},h('span',{className:'text-link'},'See the full Circle fit + FAQ ',h('span',{},'→'))));
+
       const founderSection = h('section',{className:'founder founder-feature section',key:'founder'},h('div',{className:'shell founder-row'},
         h('div',{className:'founder-image'},founder.image?h('img',{src:asset(founder.image,getAsset),alt:founder.image_alt||''}):null),
         h('div',{className:'founder-copy'},h('p',{className:'eyebrow'},'WHY HOMEWARD EXISTS'),h('h2',{},'I came home with practices. I didn’t have people to practice with.'),h('p',{},richText(founder.body)),h('p',{className:'founder-trust'},'Religious Studies + Anthropology · decades of contemplative practice · husband, father, and business leader'),h('span',{className:'text-link'},'Read Shaun’s Story ',h('span',{},'→')))
       ));
 
-      const fitSection = h('section',{className:'fit section-tight',key:'fit'},h('div',{className:'shell fit-intro'},h('p',{className:'eyebrow'},'COULD HOMEWARD BE A FIT?'),h('h2',{},'Openness matters more than certainty.'),h('p',{},'You do not have to arrive with settled beliefs. You do need a willingness to participate respectfully, practice, and listen.')),h('div',{className:'shell fit-shell'},h('div',{className:'fit-column fit-yes'},h('h2',{},'You may feel at home if…'),h('ul',{},h('li',{},'You are seeking depth, connection, and a more lived spiritual life.'),h('li',{},'You are willing to explore Jesus and Scripture respectfully, even if your beliefs are unsettled.'),h('li',{},'You can speak from your own experience, listen without fixing, and practice between gatherings.'))),h('div',{className:'fit-column fit-no'},h('h2',{},'A Circle may not be the best fit if…'),h('ul',{},h('li',{},'Your primary purpose is to debate, disprove, convert, or require agreement.'),h('li',{},'You want a class built around one expert supplying the correct answers.'),h('li',{},'You are not willing to respect confidentiality or the lived experience of other participants.')))),h('div',{className:'fit-link-row'},h('span',{className:'text-link'},'See the full Circle fit + FAQ ',h('span',{},'→'))));
-
-      const interestSection = h('section',{className:'interest section',key:'interest'},h('div',{className:'shell interest-grid'},h('div',{className:'interest-copy'},h('p',{className:'eyebrow'},'You do not need to choose a group or make a commitment. Share a little about what you’re looking for, and we’ll follow up personally as Circles form.'),h('h2',{},'Tell us you’re interested.'),h('p',{},'You don’t need to have everything figured out. Share a little about what you’re looking for and we’ll follow up personally as Fall Circles form.'),h('div',{className:'interest-note'},h('strong',{},'Prefer to talk first?'),h('p',{},'Have a short conversation about Homeward. No pressure, no pitch—just a chance to ask questions and see whether a Circle feels right.'),h('span',{className:'text-link'},'Have a Short Conversation ',h('span',{},'→')))),h('div',{className:'interest-form'},h('label',{},'First name',h('input',{disabled:true})),h('label',{},'Email',h('input',{disabled:true})),h('label',{},'What are you hoping to find?',h('textarea',{disabled:true,rows:4})),h('span',{className:'button button-copper form-submit'},'Share My Interest'))));
+      const interestSection = h('section',{className:'interest section v9-interest',key:'interest'},h('div',{className:'shell'},
+        h('div',{className:'interest-join'},h('div',{className:'section-heading centered'},h('p',{className:'eyebrow'},'HOW JOINING A CIRCLE WORKS'),h('h2',{},'Three simple steps. No pressure.'),h('p',{},'Interest starts a conversation—not a commitment.')),h('div',{className:'join-grid v9-join-grid'},effectiveJoinItems.map((it,i)=>h('article',{key:i},h('span',{className:'join-number'},String(i+1).padStart(2,'0')),h('h3',{},(it.title||'').replace(/^\d+\.\s*/,'')),h('p',{},it.body||it.description||''))))),
+        h('div',{className:'interest-grid'},h('div',{className:'interest-copy'},h('p',{className:'eyebrow'},'READY TO EXPLORE A CIRCLE?'),h('h2',{},'Tell us you’re interested.'),h('p',{},'You do not need to choose a group or make a commitment. Share a little about what you’re looking for and we’ll follow up personally as Fall Circles form.'),h('div',{className:'interest-note'},h('strong',{},'Prefer to talk first?'),h('p',{},'Have a short conversation about Homeward. No pressure, no pitch—just a chance to ask questions and see whether a Circle feels right.'),h('span',{className:'text-link'},'Have a Short Conversation ',h('span',{},'→')))),h('div',{className:'interest-form'},h('label',{},'First name',h('input',{disabled:true})),h('label',{},'Email',h('input',{disabled:true})),h('label',{},'What are you hoping to find?',h('textarea',{disabled:true,rows:4})),h('span',{className:'button button-copper form-submit'},'Tell Us You’re Interested')))
+      ));
 
       const journeySection = h('section',{className:'journey',key:'journey'},h('div',{className:'shell journey-grid'},h('div',{className:'journey-art'},journey.image?h('img',{src:asset(journey.image,getAsset),alt:''}):null),h('div',{className:'journey-copy'},h('p',{className:'eyebrow gold'},journey.eyebrow||'Spiritual Journey Reflection'),h('h2',{},journey.heading||'Where are you on your spiritual journey?'),h('p',{},journey.description||''),h('div',{className:'journey-benefits-card'},h('h3',{},journey.benefit_heading||'What you’ll receive in about five minutes'),h('div',{className:'benefit-grid'},...list(journey.benefit_items).slice(0,4).map((it,i)=>h('div',{key:i},h('b',{},'✓'),h('span',{},typeof it==='string'?it:(it.text||''))))),h('p',{className:'journey-reassurance'},journey.benefit_text||'')),h('span',{className:'button button-ivory journey-cta'},journey.cta_label||'Take the 5-Minute Spiritual Journey Reflection'))));
 
       const faqSection = h('section',{className:'warm-section section',key:'faq'},h('div',{className:'shell faq-shell'},h('div',{className:'section-heading centered'},h('p',{className:'eyebrow'},'QUESTIONS'),h('h2',{},'A few things people often ask.')),h('div',{className:'faq-list'},['Do I need to be a Christian?','What happens in a Circle?','Is there a cost?','Can I participate online?'].map((q,i)=>h('details',{key:i},h('summary',{},q),h('p',{},'This section uses the protected live FAQ structure on the published site.'))))));
 
-      return h('div',{className:'v8-home-launch'},heroSection,recognitionSection,differenceSection,findingSection,joinSection,practiceSection,founderSection,fitSection,interestSection,journeySection,faqSection);
+      return h('div',{className:'v8-home-launch v8-hierarchy-refinement'},heroSection,recognitionSection,practiceSection,differenceSection,findingSection,fitSection,founderSection,interestSection,journeySection,faqSection);
     }
   });
 
-  const GenericPreview = createClass({render:function(){return h('div',{style:{padding:'40px',fontFamily:'Inter, Arial, sans-serif'}},h('p',{},'Use Homepage (V8) — USE THIS for the launch homepage preview.'));}});
+  const GenericPreview = createClass({render:function(){return h('div',{style:{padding:'40px',fontFamily:'Inter, Arial, sans-serif'}},h('p',{},'Use Homepage (V8) — USE THIS for the staging homepage preview.'));}});
   CMS.registerPreviewTemplate('v8_front_door', V8Preview);
   CMS.registerPreviewTemplate('v8', V8Preview);
   ['home','global','circles','practices','about','connect','vision','assessment'].forEach((name)=>CMS.registerPreviewTemplate(name,GenericPreview));
