@@ -66,45 +66,10 @@ const renderDifference = () => {
   return `<section class="circle-different section" id="circle-difference"><div class="shell narrow-wide"><div class="section-heading centered circle-different-heading"><p class="eyebrow">${esc(d.eyebrow || 'Not Your Ordinary Small Group')}</p><h2>${esc(heading)}</h2><p class="circle-subhead">A Circle is a guided community of practice—not a class and not a debate.</p></div><div class="circle-icon-grid v9-circle-grid">${pillars.map((it)=>`<article>${icon(it.icon)}<h3>${esc(it.title)}</h3><p>${esc(it.description)}</p></article>`).join('')}</div><div class="circle-different-note"><p>Rooted in Jesus, Homeward adds another layer to meaningful friendship and Scripture: <strong>guided practice, lived experience, and a rhythm that continues between gatherings.</strong></p><p class="circle-signature">${esc(d.signature || 'Practice the way. Explore honestly. Carry it into life.')}</p><a class="button button-outline circle-page-cta" href="circles.html">See How Circles Work</a></div></div></section>`;
 };
 
-const findingWeeks = [
-  {
-    number: '01',
-    movement: 'LEARN TO RETURN',
-    title: 'Learn to Return',
-    description: 'Begin with safety, welcome, and a first experience of stillness. Learn that distraction is normal—and returning is the practice.',
-    practice: 'Breath Prayer → Light of Christ',
-    scripture: 'Luke 15:1–7',
-  },
-  {
-    number: '02',
-    movement: 'SHARE THE JOURNEY',
-    title: 'Share the Journey',
-    description: 'Build trust through spiritual stories and sacred listening. Belong without fixing, debating, or needing everyone to agree.',
-    practice: 'Maranatha → Gratitude Meditation',
-    scripture: 'John 4:4–26',
-  },
-  {
-    number: '03',
-    movement: 'OPEN TO PRESENCE',
-    title: 'Open to Presence',
-    description: 'Explore prayer as listening and receiving—not only speaking or striving. Practice becoming receptive to God in the present moment.',
-    practice: 'Breath Prayer → Inspired Reading → Light of Christ',
-    scripture: 'John 1:1–15',
-  },
-  {
-    number: '04',
-    movement: 'CARRY IT INTO LIFE',
-    title: 'Carry It Into Life',
-    description: 'Integrate what you have experienced, choose a simple Sacred Rhythm, and decide how you want to keep journeying.',
-    practice: 'Centering Prayer + Daily Reflection',
-    scripture: 'John 15:1–17',
-  },
-];
-
 const renderFinding = () => {
   const f = v8.homepage?.finding_home || {};
   const logistics = enabled(f.logistics);
-  return `<section class="season-wrap section-tight"><div class="shell"><div class="season-card v9-season-card"><div class="season-intro v9-season-intro"><div class="season-art"><img src="/assets/homepage-finding-home-emblem.svg" alt=""/></div><div><p class="eyebrow">${esc(legacyOr(f.eyebrow, 'SEASON ONE · FALL 2026', 'YOUR FIRST SEASON · FALL 2026'))}</p><h2>${esc(f.title || 'Finding Home')}</h2><p class="season-tagline">A four-week practice journey.</p><p class="v9-season-lead">Finding Home is your first taste of a Homeward Circle: four gatherings that ignite a spiritual practice and a community—teaching a few core practices deeply enough that you can actually use them in everyday life.</p></div></div><div class="finding-weeks">${findingWeeks.map((week)=>`<article class="finding-week"><div class="finding-week-top"><span class="finding-week-number">${week.number}</span><span class="finding-week-movement">${esc(week.movement)}</span></div><h3>${esc(week.title)}</h3><p>${esc(week.description)}</p><small><strong>Practice:</strong> ${esc(week.practice)}<br/><strong>Scripture:</strong> ${esc(week.scripture)}</small></article>`).join('')}</div><p class="season-reassurance v9-season-reassurance">The first four weeks are a beginning—not a graduation or finish line. You leave with a small repertoire of practices, a home base for prayer, and a clearer sense of whether you want to keep journeying with the community.</p><div class="season-facts v9-season-facts">${logistics.map((it)=>`<div class="fact">${icon(it.icon || 'calendar')}<div><strong>${esc(it.label || '')}</strong><small>${esc(it.detail || '')}</small></div></div>`).join('')}<p class="season-availability"><strong>${esc(f.availability || 'Evening Circles are forming now.')}</strong> Exact days and times will be shared as groups form.</p></div></div></div></section>`;
+  return `<section class="season-wrap section-tight"><div class="shell"><div class="season-card v9-season-card"><div class="season-intro v9-season-intro"><div class="season-art"><img src="/assets/homepage-finding-home-emblem.svg" alt=""/></div><div><p class="eyebrow">${esc(legacyOr(f.eyebrow, 'SEASON ONE · FALL 2026', 'YOUR FIRST SEASON · FALL 2026'))}</p><h2>${esc(f.title || 'Finding Home')}</h2><p class="season-tagline">A four-week beginning. An ongoing community.</p><p class="v9-season-lead">Finding Home is the first four-week season of Homeward Circles—a simple way to experience the rhythm before deciding whether you want to continue. You’ll practice together, engage Scripture reflectively, share honestly, and carry simple practices into everyday life.</p></div></div><p class="season-reassurance v9-season-reassurance">Four weeks is a beginning, not a graduation. We guide you through the details inside the Circle; if the experience is life-giving, future seasons deepen the practices and relationships.</p><div class="season-facts v9-season-facts">${logistics.map((it)=>`<div class="fact">${icon(it.icon || 'calendar')}<div><strong>${esc(it.label || '')}</strong><small>${esc(it.detail || '')}</small></div></div>`).join('')}<p class="season-availability"><strong>${esc(f.availability || 'Evening Circles are forming now.')}</strong> Exact days and times will be shared as groups form.</p></div><div class="season-learn-more"><a class="text-link" href="circles.html">Learn more about Finding Home and Circles <span>→</span></a></div></div></div></section>`;
 };
 
 const renderFounder = () => {
@@ -121,7 +86,7 @@ const renderInterest = () => {
     { title: 'Have a short conversation.', body: 'Ask questions, hear what a Circle feels like, and tell us what you’re looking for.' },
     { title: 'We’ll help find your Circle.', body: 'We’ll look at location, schedule, online or in-person format, and fit.' },
   ];
-  return `<section class="interest section v9-interest" id="interest"><div class="shell"><div class="interest-join"><div class="section-heading centered"><p class="eyebrow">HOW JOINING A CIRCLE WORKS</p><h2>Three simple steps. No pressure.</h2><p>Interest starts a conversation—not a commitment.</p></div><div class="join-grid v9-join-grid">${joinItems.slice(0,3).map((it,index)=>`<article><span class="join-number">${String(index+1).padStart(2,'0')}</span><h3>${esc(String(it.title || '').replace(/^[0-9]+[.]\s*/,''))}</h3><p>${esc(it.body || it.description || '')}</p></article>`).join('')}</div></div><div class="interest-grid"><div class="interest-copy"><p class="eyebrow">READY TO EXPLORE A CIRCLE?</p><h2>Tell us you’re interested.</h2><p>You do not need to choose a group or make a commitment. Share a little about what you’re looking for and we’ll follow up personally as Fall Circles form.</p><div class="interest-note"><strong>Prefer to talk first?</strong><p>Have a short conversation about Homeward. No pressure, no pitch—just a chance to ask questions and see whether a Circle feels right.</p><a class="text-link" href="connect.html">Have a Short Conversation <span>→</span></a></div></div><form class="interest-form" id="interest-form"><input type="hidden" name="form_type" value="interest"/><input type="hidden" name="interest" value="I'm interested in joining a Circle"/><input type="hidden" name="landing_page" id="landing-page-field" value=""/><input type="hidden" name="referrer" id="referrer-field" value=""/><div class="form-row"><label>First name<input name="firstName" required/></label><label>Last name<input name="lastName" required/></label></div><label>Email<input name="email" type="email" required/></label><div class="form-row"><label>ZIP code<input name="zip"/></label><label>Circle format<select name="gathering_preference"><option>I'm open</option><option>In person — Fort Worth</option><option>Online</option></select></label></div><label>What are you hoping to find?<textarea name="draw" rows="4" placeholder="A deeper connection with God, community, honest conversation, practices for everyday life..."></textarea></label><label class="checkbox"><input name="newsletter" type="checkbox" value="yes"/><span>Keep me updated about upcoming Circles and Homeward resources.</span></label><button class="button button-copper form-submit" type="submit">Tell Us You’re Interested</button><p class="form-privacy">No spam. No pressure. We’ll only use this information to follow up about Homeward.</p><p class="form-message" role="status" aria-live="polite" hidden></p></form></div></div></section>`;
+  return `<section class="interest section v9-interest" id="interest"><div class="shell"><div class="interest-join"><div class="section-heading centered"><p class="eyebrow">CURIOUS ABOUT A CIRCLE?</p><h2>Here’s what happens if you want to explore one.</h2><p>Sharing interest is not a commitment. We start with a real conversation.</p></div><div class="join-grid v9-join-grid">${joinItems.slice(0,3).map((it,index)=>`<article><span class="join-number">${String(index+1).padStart(2,'0')}</span><h3>${esc(String(it.title || '').replace(/^[0-9]+[.]\s*/,''))}</h3><p>${esc(it.body || it.description || '')}</p></article>`).join('')}</div></div><div class="interest-grid"><div class="interest-copy"><p class="eyebrow">START WHERE YOU ARE</p><h2>Tell us what interests you.</h2><p>Maybe you’re curious about a Circle, want to explore the practices, or would rather begin with a conversation. Raise your hand here and we’ll follow up personally—no pressure and no assumption that you are signing up for anything.</p><div class="interest-note"><strong>Prefer to talk first?</strong><p>Have a short conversation about Homeward. No pressure, no pitch—just a chance to ask questions and see what feels useful.</p><a class="text-link" href="connect.html">Have a Short Conversation <span>→</span></a></div></div><form class="interest-form" id="interest-form"><input type="hidden" name="form_type" value="interest"/><input type="hidden" name="landing_page" id="landing-page-field" value=""/><input type="hidden" name="referrer" id="referrer-field" value=""/><div class="form-row"><label>First name<input name="firstName" required/></label><label>Last name<input name="lastName" required/></label></div><label>Email<input name="email" type="email" required/></label><label>What are you interested in?<select name="interest" required><option value="" selected disabled>Select an option</option><option>I'm interested in joining a Circle</option><option>I'd like to learn more about Homeward</option><option>I'm interested in spiritual practices and resources</option><option>I'm not sure — let's start with a conversation</option></select></label><div class="form-row"><label>ZIP code<input name="zip"/></label><label>If you join a Circle, what format could work?<select name="gathering_preference"><option value="" selected>Select an option</option><option>In person in Fort Worth</option><option>Online</option><option>Either in person in Fort Worth or online</option><option>Not sure — let's start with a conversation</option></select></label></div><label>What are you hoping to find?<textarea name="draw" rows="4" placeholder="A deeper connection with God, community, honest conversation, practices for everyday life..."></textarea></label><label class="checkbox"><input name="newsletter" type="checkbox" value="yes"/><span>Keep me updated about upcoming Circles and Homeward resources.</span></label><button class="button button-copper form-submit" type="submit">Share My Interest</button><p class="form-privacy">No spam. No pressure. We’ll only use this information to follow up about Homeward.</p><p class="form-message" role="status" aria-live="polite" hidden></p></form></div></div></section>`;
 };
 
 const renderJourney = () => {
@@ -156,7 +121,7 @@ export function renderHomeConceptV1(_sourceHtml) {
     html = html.replace('</head>', '<link href="/assets/v8-launch-image-qa.css?v=2" rel="stylesheet"/>\n</head>');
   }
   if (!html.includes('/assets/homepage-v8-hierarchy-refinement.css')) {
-    html = html.replace('</head>', '<link href="/assets/homepage-v8-hierarchy-refinement.css?v=2" rel="stylesheet"/>\n</head>');
+    html = html.replace('</head>', '<link href="/assets/homepage-v8-hierarchy-refinement.css?v=3" rel="stylesheet"/>\n</head>');
   }
 
   html = html.replace('<body>', '<body class="v8-home-launch v8-hierarchy-refinement">');
