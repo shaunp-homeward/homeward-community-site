@@ -45,7 +45,12 @@ const navLink = ([id, href, label], active) => {
   return `<a href="${href}"${cls}${current}>${esc(label())}</a>`;
 };
 
-const headerHtml = (active) => `
+const headerHtml = (active) => {
+  const isHome = active === 'home';
+  const headerHref = isHome ? '/#interest' : '/connect.html';
+  const headerLabel = isHome ? globalCopy.navigation.interest : globalCopy.navigation.mobile_conversation;
+  const headerEvent = isHome ? 'circle_interest_click' : 'start_conversation_click';
+  return `
 <header class="v8-site-header" data-v8-shared-header>
   <div class="v8-header-inner">
     <a class="v8-brand" href="/" aria-label="Homeward home">
@@ -55,7 +60,7 @@ const headerHtml = (active) => `
     <nav class="v8-desktop-nav" aria-label="Primary navigation">
       ${navItems.map((item) => navLink(item, active)).join('')}
     </nav>
-    <a class="v8-header-cta" href="/connect.html" data-event="start_conversation_click">${esc(globalCopy.navigation.mobile_conversation)}</a>
+    <a class="v8-header-cta" href="${headerHref}" data-event="${headerEvent}">${esc(headerLabel)}</a>
     <button class="v8-menu-button" type="button" aria-expanded="false" aria-label="Open navigation" data-v8-menu-button><span></span><span></span><span></span></button>
   </div>
   <nav class="v8-mobile-nav" aria-label="Mobile navigation" data-v8-mobile-menu hidden>
@@ -66,6 +71,7 @@ const headerHtml = (active) => `
     </div>
   </nav>
 </header>`;
+};
 
 export function applySharedShell(sourceHtml, filename = '') {
   let html = String(sourceHtml);
