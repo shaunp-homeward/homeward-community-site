@@ -31,7 +31,8 @@ for (const [page, html] of Object.entries(pages)) {
   assert(html.includes('Have a Conversation'), `${page} mobile navigation is missing the full conversation CTA`);
   assert(html.includes('Tell Us You’re Interested'), `${page} mobile navigation is missing the primary interest CTA`);
 }
-assert(index.includes('class="v8-header-cta" href="/#interest"'), 'Homepage header is not using interest as the primary conversion CTA');
+assert(index.includes('v8-header-cta-desktop') && index.includes('href="/#interest"'), 'Homepage desktop header is not using interest as the primary conversion CTA');
+assert(index.includes('v8-header-cta-mobile') && index.includes('href="/connect.html"') && index.includes('Let’s Talk'), 'Homepage mobile header is not using the compact Let’s Talk CTA');
 for (const html of [circles,practices,about]) assert(html.includes('Let’s Talk'), 'Secondary page header is missing the compact Let’s Talk CTA');
 assert(index.includes('href="/" class="is-active" aria-current="page"'), 'Homepage Home navigation is not active');
 assert(circles.includes('href="/circles.html" class="is-active" aria-current="page"'), 'Circles navigation is not active');
@@ -66,21 +67,14 @@ assert(index.includes('See the Practice Library'), 'Homepage practice-library CT
 assert(index.includes('Not just another small group. A place to practice.'), 'Homepage Circle framing is missing');
 assert(index.includes('Practice together') && index.includes('Explore honestly') && index.includes('Carry it into life'), 'Homepage three-pillar Circle framing is incomplete');
 assert(!index.includes('class="join-path section"'), 'Standalone joining section should have been removed from the homepage');
-assert(index.includes('Three simple steps. No pressure.'), 'Joining process is missing from the final interest section');
+assert(index.includes('Here’s what happens if you want to explore one.'), 'Softer Circle process framing is missing from the final interest section');
 assert(index.includes('Spiritual practices: exercises for the heart and mind.'), 'Homepage practice framing is missing');
 assert(index.includes('Where are you on your spiritual journey?'), 'Homepage Journey Reflection is missing');
 
-const weekChecks = [
-  ['Learn to Return','Luke 15:1–7','Breath Prayer → Light of Christ'],
-  ['Share the Journey','John 4:4–26','Maranatha → Gratitude Meditation'],
-  ['Open to Presence','John 1:1–15','Breath Prayer → Inspired Reading → Light of Christ'],
-  ['Carry It Into Life','John 15:1–17','Centering Prayer + Daily Reflection'],
-];
-for (const [title, scripture, practice] of weekChecks) {
-  assert(index.includes(title), `Finding Home week missing: ${title}`);
-  assert(index.includes(scripture), `Finding Home scripture missing: ${scripture}`);
-  assert(index.includes(practice), `Finding Home practice missing: ${practice}`);
-}
+assert(index.includes('A four-week beginning. An ongoing community.'), 'Finding Home high-level offer is missing');
+assert(index.includes('Learn more about Finding Home and Circles'), 'Finding Home learning CTA is missing');
+assert(!index.includes('class="finding-week"'), 'Detailed Finding Home week cards should not appear on the homepage');
+assert(!index.includes('Luke 15:1–7') && !index.includes('John 4:4–26') && !index.includes('John 1:1–15') && !index.includes('John 15:1–17'), 'Uncontextualized weekly scripture detail should not appear on the homepage');
 
 const hierarchy = [
   'class="recognition section"',
@@ -100,9 +94,22 @@ for (const marker of hierarchy) {
   last = pos;
 }
 
-for (const field of ['firstName','lastName','email','zip','gathering_preference','draw','newsletter']) {
+for (const field of ['firstName','lastName','email','interest','zip','gathering_preference','draw','newsletter']) {
   assert(index.includes(`name="${field}"`), `Homepage form field ${field} is missing`);
 }
+assert(index.includes('<option value="" selected disabled>Select an option</option>'), 'Interest selector is missing its non-selection placeholder');
+for (const option of [
+  "I'm interested in joining a Circle",
+  "I'd like to learn more about Homeward",
+  "I'm interested in spiritual practices and resources",
+  "I'm not sure — let's start with a conversation",
+  'In person in Fort Worth',
+  'Online',
+  'Either in person in Fort Worth or online',
+]) assert(index.includes(option), `Homepage interest/form option missing: ${option}`);
+assert(index.includes('If you join a Circle, what format could work?'), 'Circle format question does not preserve the low-commitment framing');
+assert(index.includes('Share My Interest'), 'Softer form submit label is missing');
+
 for (const key of ['AIRTABLE_TOKEN','AIRTABLE_BASE_ID','AIRTABLE_TABLE_ID','RESEND_API_KEY']) {
   assert(lead.includes(key), `Lead function is missing ${key}`);
 }
