@@ -1,0 +1,227 @@
+/* V8 hierarchy refinement — staging only
+   Conversion sequence: problem → hope → method → community → offer → fit → trust → action. */
+
+.v8-hierarchy-refinement .home-practices {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.v8-hierarchy-refinement .v9-circle-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 34px;
+}
+
+.v8-hierarchy-refinement .v9-circle-grid article {
+  padding: 0 18px;
+}
+
+.v8-hierarchy-refinement .v9-circle-grid h3 {
+  font-size: 1.12rem;
+}
+
+.v8-hierarchy-refinement .v9-circle-grid p {
+  font-size: .84rem;
+  line-height: 1.62;
+}
+
+.v8-hierarchy-refinement .v9-season-card {
+  display: block;
+  padding: 44px 46px;
+}
+
+.v8-hierarchy-refinement .v9-season-intro {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  max-width: 900px;
+}
+
+.v8-hierarchy-refinement .v9-season-intro .season-art img {
+  width: 76px;
+  margin: 3px 0 0;
+}
+
+.v8-hierarchy-refinement .v9-season-intro .season-intro h2,
+.v8-hierarchy-refinement .v9-season-intro h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: 8px;
+}
+
+.v8-hierarchy-refinement .v9-season-intro .season-tagline {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  margin-bottom: 13px;
+}
+
+.v8-hierarchy-refinement .v9-season-lead {
+  max-width: 780px;
+  margin: 0;
+  color: #59635e;
+  font-size: .94rem;
+  line-height: 1.7;
+}
+
+.v8-hierarchy-refinement .finding-weeks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 32px 0 24px;
+}
+
+.v8-hierarchy-refinement .finding-week {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px 20px 20px;
+  min-height: 245px;
+  display: flex;
+  flex-direction: column;
+}
+
+.v8-hierarchy-refinement .finding-week-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.v8-hierarchy-refinement .finding-week-number {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-weight: 700;
+  font-size: .72rem;
+}
+
+.v8-hierarchy-refinement .finding-week-movement {
+  color: var(--copper);
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-align: right;
+}
+
+.v8-hierarchy-refinement .finding-week h3 {
+  font-size: 1.18rem;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.v8-hierarchy-refinement .finding-week p {
+  color: #59635e;
+  font-size: .78rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.v8-hierarchy-refinement .finding-week small {
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  color: #68716c;
+  font-size: .67rem;
+  line-height: 1.45;
+}
+
+.v8-hierarchy-refinement .finding-week small strong {
+  color: var(--forest);
+}
+
+.v8-hierarchy-refinement .v9-season-reassurance {
+  text-align: center;
+  max-width: 760px;
+  margin: 4px auto 28px;
+  font-size: .9rem;
+}
+
+.v8-hierarchy-refinement .v9-season-facts {
+  grid-column: auto;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.v8-hierarchy-refinement .interest-join {
+  max-width: 1040px;
+  margin: 0 auto 52px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--line);
+}
+
+.v8-hierarchy-refinement .interest-join .section-heading {
+  margin-bottom: 30px;
+}
+
+.v8-hierarchy-refinement .v9-join-grid article {
+  background: var(--forest);
+  border: 1px solid rgba(21,58,46,.22);
+  box-shadow: 0 8px 24px rgba(21,58,46,.08);
+}
+
+.v8-hierarchy-refinement .v9-join-grid h3 {
+  color: #fff;
+}
+
+.v8-hierarchy-refinement .v9-join-grid p {
+  color: #dce4df;
+}
+
+.v8-hierarchy-refinement .v9-interest .interest-copy .eyebrow {
+  margin-bottom: 10px;
+}
+
+.v8-hierarchy-refinement .v9-interest .interest-copy h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 980px) {
+  .v8-hierarchy-refinement .finding-weeks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .v8-hierarchy-refinement .v9-season-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .v8-hierarchy-refinement .v9-circle-grid {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .v8-hierarchy-refinement .v9-circle-grid,
+  .v8-hierarchy-refinement .finding-weeks,
+  .v8-hierarchy-refinement .v9-season-facts,
+  .v8-hierarchy-refinement .v9-join-grid,
+  .v8-hierarchy-refinement .v9-interest .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v8-hierarchy-refinement .v9-season-card {
+    padding: 30px 22px;
+  }
+
+  .v8-hierarchy-refinement .v9-season-intro {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .v8-hierarchy-refinement .v9-season-intro .season-art img {
+    width: 64px;
+  }
+
+  .v8-hierarchy-refinement .finding-week {
+    min-height: 0;
+  }
+
+  .v8-hierarchy-refinement .interest-join {
+    margin-bottom: 38px;
+    padding-bottom: 38px;
+  }
+}
