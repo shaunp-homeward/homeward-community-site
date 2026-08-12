@@ -59,21 +59,9 @@ const renderDifference = () => {
   const d = v8.homepage?.difference || {};
   const heading = legacyOr(d.heading, 'A Circle is different.', 'Not just another small group. A place to practice.');
   const pillars = [
-    {
-      icon: 'leaf',
-      title: 'Practice together',
-      description: 'Meditation, prayer, Scripture, silence, gratitude, and reflection—guided, not just discussed.',
-    },
-    {
-      icon: 'chat',
-      title: 'Explore honestly',
-      description: 'Speak from experience. Listen without fixing. Questions are welcome; agreement is not required.',
-    },
-    {
-      icon: 'calendar',
-      title: 'Carry it into life',
-      description: 'Try the practice in ordinary life, notice what changes, then return and reflect together.',
-    },
+    { icon: 'leaf', title: 'Practice together', description: 'Meditation, prayer, Scripture, silence, gratitude, and reflection—guided, not just discussed.' },
+    { icon: 'chat', title: 'Explore honestly', description: 'Speak from experience. Listen without fixing. Questions are welcome; agreement is not required.' },
+    { icon: 'calendar', title: 'Carry it into life', description: 'Try the practice in ordinary life, notice what changes, then return and reflect together.' },
   ];
   return `<section class="circle-different section" id="circle-difference"><div class="shell narrow-wide"><div class="section-heading centered circle-different-heading"><p class="eyebrow">${esc(d.eyebrow || 'Not Your Ordinary Small Group')}</p><h2>${esc(heading)}</h2><p class="circle-subhead">A Circle is a guided community of practice—not a class and not a debate.</p></div><div class="circle-icon-grid v9-circle-grid">${pillars.map((it)=>`<article>${icon(it.icon)}<h3>${esc(it.title)}</h3><p>${esc(it.description)}</p></article>`).join('')}</div><div class="circle-different-note"><p>Rooted in Jesus, Homeward adds another layer to meaningful friendship and Scripture: <strong>guided practice, lived experience, and a rhythm that continues between gatherings.</strong></p><p class="circle-signature">${esc(d.signature || 'Practice the way. Explore honestly. Carry it into life.')}</p><a class="button button-outline circle-page-cta" href="circles.html">See How Circles Work</a></div></div></section>`;
 };
@@ -81,38 +69,42 @@ const renderDifference = () => {
 const findingWeeks = [
   {
     number: '01',
-    movement: 'ARRIVE',
-    title: 'The Invitation Home',
-    description: 'Arrive without needing to perform or have everything figured out.',
-    practice: 'Arrival silence + guided breath prayer',
+    movement: 'LEARN TO RETURN',
+    title: 'Learn to Return',
+    description: 'Begin with safety, welcome, and a first experience of stillness. Learn that distraction is normal—and returning is the practice.',
+    practice: 'Breath Prayer → Light of Christ',
+    scripture: 'Luke 15:1–7',
   },
   {
     number: '02',
-    movement: 'BELONG',
-    title: 'Belonging Before Certainty',
-    description: 'Experience belonging without pretending, fixing, or agreeing on everything.',
-    practice: 'Attentive listening without fixing or correcting',
+    movement: 'SHARE THE JOURNEY',
+    title: 'Share the Journey',
+    description: 'Build trust through spiritual stories and sacred listening. Belong without fixing, debating, or needing everyone to agree.',
+    practice: 'Maranatha → Gratitude Meditation',
+    scripture: 'John 4:4–26',
   },
   {
     number: '03',
-    movement: 'AWAKEN',
-    title: 'Becoming Present',
-    description: 'Notice hurry, distraction, and inner noise—and practice becoming present to God.',
-    practice: 'Centering prayer or silent prayer',
+    movement: 'OPEN TO PRESENCE',
+    title: 'Open to Presence',
+    description: 'Explore prayer as listening and receiving—not only speaking or striving. Practice becoming receptive to God in the present moment.',
+    practice: 'Breath Prayer → Inspired Reading → Light of Christ',
+    scripture: 'John 1:1–15',
   },
   {
     number: '04',
-    movement: 'TELL THE TRUTH',
-    title: 'The Courage to Be Honest',
-    description: 'Bring doubt, grief, longing, failure, and unanswered questions into honest reflection.',
-    practice: 'Honest reflection + spiritual journaling',
+    movement: 'CARRY IT INTO LIFE',
+    title: 'Carry It Into Life',
+    description: 'Integrate what you have experienced, choose a simple Sacred Rhythm, and decide how you want to keep journeying.',
+    practice: 'Centering Prayer + Daily Reflection',
+    scripture: 'John 15:1–17',
   },
 ];
 
 const renderFinding = () => {
   const f = v8.homepage?.finding_home || {};
   const logistics = enabled(f.logistics);
-  return `<section class="season-wrap section-tight"><div class="shell"><div class="season-card v9-season-card"><div class="season-intro v9-season-intro"><div class="season-art"><img src="/assets/homepage-finding-home-emblem.svg" alt=""/></div><div><p class="eyebrow">${esc(legacyOr(f.eyebrow, 'SEASON ONE · FALL 2026', 'YOUR FIRST SEASON · FALL 2026'))}</p><h2>${esc(f.title || 'Finding Home')}</h2><p class="season-tagline">Four weeks to arrive, belong, awaken, and tell the truth.</p><p class="v9-season-lead">Finding Home is your first taste of a Homeward Circle: four gatherings designed to help you experience belonging, honest conversation, contemplative practice, and a more lived way of following Jesus.</p></div></div><div class="finding-weeks">${findingWeeks.map((week)=>`<article class="finding-week"><div class="finding-week-top"><span class="finding-week-number">${week.number}</span><span class="finding-week-movement">${esc(week.movement)}</span></div><h3>${esc(week.title)}</h3><p>${esc(week.description)}</p><small><strong>Practice:</strong> ${esc(week.practice)}</small></article>`).join('')}</div><p class="season-reassurance v9-season-reassurance">The first four weeks are a beginning—not a graduation or finish line. If the rhythm is life-giving, future seasons keep deepening the journey.</p><div class="season-facts v9-season-facts">${logistics.map((it)=>`<div class="fact">${icon(it.icon || 'calendar')}<div><strong>${esc(it.label || '')}</strong><small>${esc(it.detail || '')}</small></div></div>`).join('')}<p class="season-availability"><strong>${esc(f.availability || 'Evening Circles are forming now.')}</strong> Exact days and times will be shared as groups form.</p></div></div></div></section>`;
+  return `<section class="season-wrap section-tight"><div class="shell"><div class="season-card v9-season-card"><div class="season-intro v9-season-intro"><div class="season-art"><img src="/assets/homepage-finding-home-emblem.svg" alt=""/></div><div><p class="eyebrow">${esc(legacyOr(f.eyebrow, 'SEASON ONE · FALL 2026', 'YOUR FIRST SEASON · FALL 2026'))}</p><h2>${esc(f.title || 'Finding Home')}</h2><p class="season-tagline">A four-week practice journey.</p><p class="v9-season-lead">Finding Home is your first taste of a Homeward Circle: four gatherings that ignite a spiritual practice and a community—teaching a few core practices deeply enough that you can actually use them in everyday life.</p></div></div><div class="finding-weeks">${findingWeeks.map((week)=>`<article class="finding-week"><div class="finding-week-top"><span class="finding-week-number">${week.number}</span><span class="finding-week-movement">${esc(week.movement)}</span></div><h3>${esc(week.title)}</h3><p>${esc(week.description)}</p><small><strong>Practice:</strong> ${esc(week.practice)}<br/><strong>Scripture:</strong> ${esc(week.scripture)}</small></article>`).join('')}</div><p class="season-reassurance v9-season-reassurance">The first four weeks are a beginning—not a graduation or finish line. You leave with a small repertoire of practices, a home base for prayer, and a clearer sense of whether you want to keep journeying with the community.</p><div class="season-facts v9-season-facts">${logistics.map((it)=>`<div class="fact">${icon(it.icon || 'calendar')}<div><strong>${esc(it.label || '')}</strong><small>${esc(it.detail || '')}</small></div></div>`).join('')}<p class="season-availability"><strong>${esc(f.availability || 'Evening Circles are forming now.')}</strong> Exact days and times will be shared as groups form.</p></div></div></div></section>`;
 };
 
 const renderFounder = () => {
@@ -164,7 +156,7 @@ export function renderHomeConceptV1(_sourceHtml) {
     html = html.replace('</head>', '<link href="/assets/v8-launch-image-qa.css?v=2" rel="stylesheet"/>\n</head>');
   }
   if (!html.includes('/assets/homepage-v8-hierarchy-refinement.css')) {
-    html = html.replace('</head>', '<link href="/assets/homepage-v8-hierarchy-refinement.css?v=1" rel="stylesheet"/>\n</head>');
+    html = html.replace('</head>', '<link href="/assets/homepage-v8-hierarchy-refinement.css?v=2" rel="stylesheet"/>\n</head>');
   }
 
   html = html.replace('<body>', '<body class="v8-home-launch v8-hierarchy-refinement">');
@@ -178,8 +170,6 @@ export function renderHomeConceptV1(_sourceHtml) {
   html = replaceSection(html, 'journey', renderJourney());
 
   html = reorderHomepage(html);
-
-  // Keep one consistent primary conversion action: interest. Conversation remains a secondary learning path.
   html = html.replace(/<a class="mobile-sticky"[\s\S]*?<\/a>/, '');
 
   const imageMap = new Map([
