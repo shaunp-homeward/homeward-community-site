@@ -15,12 +15,13 @@ const attr = esc;
 
 const btn = (label, url, secondary = false) => `<a class="pp-btn ${secondary ? 'pp-btn-ghost' : 'pp-btn-primary'}" href="${attr(url)}">${esc(label)}</a>`;
 const lightBtn = (label, url) => `<a class="pp-btn pp-btn-light" href="${attr(url)}">${esc(label)}</a>`;
+const picture = (desktop, mobile, alt) => `<picture>${mobile ? `<source media="(max-width: 900px)" srcset="${attr(mobile)}">` : ''}<img src="${attr(desktop)}" alt="${attr(alt)}"></picture>`;
 
 const main = `
 <main>
 <section class="pp-hero"><div class="pp-hero-grid">
   <div class="pp-hero-copy"><div class="pp-hero-copy-inner"><p class="pp-eyebrow">${esc(data.hero.eyebrow)}</p><h1>${esc(data.hero.heading)}<em>${esc(data.hero.emphasis)}</em></h1><p class="pp-lead">${esc(data.hero.lead)}</p><p class="pp-hero-promise">${esc(data.hero.promise)}</p><div class="pp-actions">${btn(data.hero.primary_label,data.hero.primary_url)}${btn(data.hero.secondary_label,data.hero.secondary_url,true)}</div></div></div>
-  <div class="pp-hero-image"><img src="${attr(data.hero.image)}" alt="${attr(data.hero.image_alt)}"></div>
+  <div class="pp-hero-image">${picture(data.hero.image, data.hero.image_mobile, data.hero.image_alt)}</div>
 </div></section>
 
 <section class="pp-why pp-section"><div class="pp-shell"><div class="pp-why-grid"><figure class="pp-why-image"><img src="${attr(data.why.image)}" alt="${attr(data.why.image_alt)}"></figure><div class="pp-why-copy"><p class="pp-eyebrow">${esc(data.why.eyebrow)}</p><h2>${esc(data.why.heading)}</h2><p class="pp-lead">${esc(data.why.body)}</p><p class="pp-why-signature">${esc(data.why.signature)}</p></div></div><div class="pp-benefits">${data.why.benefits.map((b)=>`<article class="pp-benefit"><span>✓</span><h3>${esc(b.title)}</h3><p>${esc(b.body)}</p></article>`).join('')}</div></div></section>

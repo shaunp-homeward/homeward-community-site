@@ -1,0 +1,31 @@
+{
+  "title": "Homeward Website Photo Guide",
+  "intro": "Use high-resolution JPG or WebP images. The site uses object-fit cropping, so the most important rule is to keep faces and key subjects away from the extreme edges. You usually need one flexible image; only the large Circles and Practices hero images have an optional separate mobile crop.",
+  "general": [
+    "Export JPG or WebP at 80–90% quality. Aim for roughly 300–700 KB when practical; avoid multi-megabyte originals.",
+    "Keep faces and important details inside the center 60–70% of the frame so responsive cropping has room to work.",
+    "Do not place text inside photographs. Website text should remain HTML for accessibility and mobile scaling.",
+    "Landscape and square photos are usually safer than very narrow portrait images unless the CMS specifically calls for a portrait crop."
+  ],
+  "homepage": [
+    "Homepage hero: 1600×1200 px or larger (4:3 works well). Keep the group or main subject centered; one flexible crop is normally sufficient.",
+    "Homepage practice/collage images: 1200×900 to 1200×1200 px. Keep subjects centered because the tiles crop responsively.",
+    "Homepage founder photo: about 1400×1200 px. A slightly landscape or near-square composition works best."
+  ],
+  "circles": [
+    "Circles hero desktop: 1600×1600 px or larger, near-square with generous breathing room. The desktop panel is tall and crops with object-fit: cover.",
+    "Circles hero mobile (optional): 1600×1200 px, 4:3 landscape. Use this only when the desktop crop loses a face or important subject on phones.",
+    "Why-practice photo: 1600×1200 px, 4:3. One crop works on desktop and mobile."
+  ],
+  "practices": [
+    "Practices hero desktop: 1600×1600 px or larger, near-square with the person or focal point near center.",
+    "Practices hero mobile (optional): 1600×1200 px, 4:3 landscape. Leave blank if the desktop image already crops well on phones.",
+    "Why-practice and community photos: 1600×1200 px, 4:3.",
+    "Practice Library card photos: 1600×1080 px, roughly 3:2. Keep the focal point centered vertically."
+  ],
+  "story": [
+    "Our Story hero mosaic photos: 1200×900 px or larger, roughly 4:3. The mosaic crops each image differently, so keep faces near center.",
+    "Journey photo carousel: 1400×1000 px or larger, 4:3-ish. One photo can be marked as contain when preserving the full original is more important than filling the frame.",
+    "Founder/trust portrait: 1200×1350 px or larger, near 8:9 portrait. Keep head and shoulders centered; on tablets/phones the same image becomes a wider crop."
+  ]
+}
