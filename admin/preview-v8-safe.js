@@ -8,7 +8,7 @@
   CMS.registerPreviewStyle('/assets/homepage-concept-v1.css?v=1');
   CMS.registerPreviewStyle('/assets/homepage-concept-v1-polish.css?v=6');
   CMS.registerPreviewStyle('/assets/v8-launch-image-qa.css?v=2');
-  CMS.registerPreviewStyle('/assets/homepage-v8-hierarchy-refinement.css?v=1');
+  CMS.registerPreviewStyle('/assets/homepage-v8-hierarchy-refinement.css?v=2');
 
   const list = (value) => Array.isArray(value) ? value : [];
   const enabled = (value) => list(value).filter((item) => item && item.enabled !== false);
@@ -51,10 +51,10 @@
   const icon = (name) => h('svg', {viewBox:'0 0 48 48','aria-hidden':'true'}, ...(iconPath[name] || iconPath.leaf).map(([tag,props],i)=>h(tag,{...props,key:i})));
 
   const findingWeeks = [
-    {number:'01',movement:'ARRIVE',title:'The Invitation Home',description:'Arrive without needing to perform or have everything figured out.',practice:'Arrival silence + guided breath prayer'},
-    {number:'02',movement:'BELONG',title:'Belonging Before Certainty',description:'Experience belonging without pretending, fixing, or agreeing on everything.',practice:'Attentive listening without fixing or correcting'},
-    {number:'03',movement:'AWAKEN',title:'Becoming Present',description:'Notice hurry, distraction, and inner noise—and practice becoming present to God.',practice:'Centering prayer or silent prayer'},
-    {number:'04',movement:'TELL THE TRUTH',title:'The Courage to Be Honest',description:'Bring doubt, grief, longing, failure, and unanswered questions into honest reflection.',practice:'Honest reflection + spiritual journaling'},
+    {number:'01',movement:'WELCOME + STILLNESS',title:'Learn to Return',description:'Begin with safety, welcome, and a first experience of stillness. Learn that distraction is normal—and returning is the practice.',practice:'Breath Prayer → Light of Christ',scripture:'Luke 15:1–7'},
+    {number:'02',movement:'STORY + LISTENING',title:'Share the Journey',description:'Build trust through spiritual stories and sacred listening. Belong without fixing, debating, or needing everyone to agree.',practice:'Maranatha → Gratitude Meditation',scripture:'John 4:4–26'},
+    {number:'03',movement:'PRAYER AS LISTENING',title:'Open to Presence',description:'Explore prayer as listening and receiving—not only speaking or striving. Practice becoming receptive to God in the present moment.',practice:'Breath Prayer → Inspired Reading → Light of Christ',scripture:'John 1:1–15'},
+    {number:'04',movement:'INTEGRATION + RHYTHM',title:'Carry It Into Life',description:'Integrate what you have experienced, choose a simple Sacred Rhythm, and decide how you want to keep journeying.',practice:'Centering Prayer + Daily Reflection',scripture:'John 15:1–17'},
   ];
   const circlePillars = [
     {icon:'leaf',title:'Practice together',description:'Meditation, prayer, Scripture, silence, gratitude, and reflection—guided, not just discussed.'},
@@ -134,10 +134,10 @@
       const findingSection = h('section',{className:'season-wrap section-tight',key:'finding_home'},h('div',{className:'shell'},h('div',{className:'season-card v9-season-card'},
         h('div',{className:'season-intro v9-season-intro'},
           h('div',{className:'season-art'},h('img',{src:'/assets/homepage-finding-home-emblem.svg',alt:''})),
-          h('div',{},h('p',{className:'eyebrow'},finding.eyebrow||'YOUR FIRST SEASON · FALL 2026'),h('h2',{},finding.title||'Finding Home'),h('p',{className:'season-tagline'},'Four weeks to arrive, belong, awaken, and tell the truth.'),h('p',{className:'v9-season-lead'},'Finding Home is your first taste of a Homeward Circle: four gatherings designed to help you experience belonging, honest conversation, contemplative practice, and a more lived way of following Jesus.'))
+          h('div',{},h('p',{className:'eyebrow'},finding.eyebrow||'YOUR FIRST SEASON · FALL 2026'),h('h2',{},finding.title||'Finding Home'),h('p',{className:'season-tagline'},'A four-week practice journey.'),h('p',{className:'v9-season-lead'},'Finding Home is your first taste of a Homeward Circle: four gatherings that ignite a spiritual practice and a community—teaching a few core practices deeply enough that you can actually use them in everyday life.'))
         ),
-        h('div',{className:'finding-weeks'},findingWeeks.map((week)=>h('article',{className:'finding-week',key:week.number},h('div',{className:'finding-week-top'},h('span',{className:'finding-week-number'},week.number),h('span',{className:'finding-week-movement'},week.movement)),h('h3',{},week.title),h('p',{},week.description),h('small',{},h('strong',{},'Practice: '),week.practice)))),
-        h('p',{className:'season-reassurance v9-season-reassurance'},'The first four weeks are a beginning—not a graduation or finish line. If the rhythm is life-giving, future seasons keep deepening the journey.'),
+        h('div',{className:'finding-weeks'},findingWeeks.map((week)=>h('article',{className:'finding-week',key:week.number},h('div',{className:'finding-week-top'},h('span',{className:'finding-week-number'},week.number),h('span',{className:'finding-week-movement'},week.movement)),h('h3',{},week.title),h('p',{},week.description),h('small',{},h('strong',{},'Practice: '),week.practice,h('br'),h('strong',{},'Scripture: '),week.scripture)))),
+        h('p',{className:'season-reassurance v9-season-reassurance'},'The first four weeks are a beginning—not a graduation or finish line. You leave with a small repertoire of practices, a home base for prayer, and a clearer sense of whether you want to keep journeying with the community.'),
         h('div',{className:'season-facts v9-season-facts'},...logistics.map((it,i)=>h('div',{className:'fact',key:it.id||i},icon(it.icon||'calendar'),h('div',{},h('strong',{},it.label||''),h('small',{},it.detail||'')))),h('p',{className:'season-availability'},h('strong',{},finding.availability||'Evening Circles are forming now.'),' Exact days and times will be shared as groups form.'))
       )));
 
