@@ -1,0 +1,632 @@
+- name: v8_pages
+  label: Other Pages (V8) — EDIT THESE
+  delete: false
+  editor:
+    preview: false
+  files:
+  - name: photo_guide
+    label: Photo Guide — Read First
+    file: content/cms-photo-guide.json
+    format: json
+    fields:
+    - {label: Title, name: title, widget: string}
+    - {label: Overview, name: intro, widget: text}
+    - label: General photo rules
+      name: general
+      widget: list
+      field: {label: Rule, name: rule, widget: text}
+    - label: Homepage photo sizes
+      name: homepage
+      widget: list
+      field: {label: Guidance, name: guidance, widget: text}
+    - label: Circles photo sizes
+      name: circles
+      widget: list
+      field: {label: Guidance, name: guidance, widget: text}
+    - label: Practices photo sizes
+      name: practices
+      widget: list
+      field: {label: Guidance, name: guidance, widget: text}
+    - label: Our Story photo sizes
+      name: story
+      widget: list
+      field: {label: Guidance, name: guidance, widget: text}
+
+  - name: circles_v8
+    label: Circles Page (V8)
+    file: content/circles-v8.json
+    format: json
+    fields:
+    - {label: Version, name: version, widget: string, hint: Technical version label. Normally leave unchanged.}
+    - label: Search and sharing
+      name: meta
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Browser title, name: title, widget: string}
+      - {label: Search description, name: description, widget: text}
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Emphasized line, name: emphasis, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Season line, name: season_line, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+      - label: Logistics chips
+        name: facts
+        widget: list
+        field: {label: Chip, name: chip, widget: string}
+      - label: Hero photo — desktop
+        name: image
+        widget: image
+        hint: Recommended 1600×1600 px or larger, near-square. Keep faces and the main subject in the center 60–70% because the desktop panel crops tall.
+      - label: Hero photo — mobile crop (optional)
+        name: image_mobile
+        widget: image
+        required: false
+        hint: Optional 1600×1200 px 4:3 crop for phones. Leave blank if the desktop image already crops well on mobile.
+      - {label: Hero photo description, name: image_alt, widget: string}
+    - label: Circle Loop
+      name: loop
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Four loop steps
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 4
+        max: 4
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Closing line, name: closing, widget: text}
+    - label: Why practice matters
+      name: practice
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Body, name: body, widget: text}
+      - label: Photo
+        name: image
+        widget: image
+        hint: Recommended 1600×1200 px, 4:3. One crop is used on desktop and mobile.
+      - {label: Photo description, name: image_alt, widget: string}
+      - label: Benefits
+        name: benefits
+        widget: list
+        allow_add: true
+        allow_delete: true
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: Four-week seasons
+      name: season
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Season cards
+        name: items
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: How we talk together
+      name: conversation
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Pull quote, name: quote, widget: text}
+      - label: Conversation principles
+        name: principles
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: Mid-page conversation invitation
+      name: mid_cta
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Text, name: body, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary link, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+    - label: Gathering agenda + sample
+      name: agenda
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Gathering rhythm
+        name: items
+        widget: list
+        summary: '{{fields.time}} — {{fields.title}}'
+        fields:
+        - {label: Time, name: time, widget: string}
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Sample-session dropdown label, name: sample_summary, widget: string}
+      - label: Sample-session rows
+        name: sample_items
+        widget: list
+        collapsed: true
+        summary: '{{fields.time}} — {{fields.title}}'
+        fields:
+        - {label: Time, name: time, widget: string}
+        - {label: Title, name: title, widget: string}
+        - {label: Body, name: body, widget: text, required: false}
+        - label: Questions
+          name: questions
+          widget: list
+          required: false
+          field: {label: Question, name: question, widget: text}
+    - label: Tools for the spiritual life
+      name: tools
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Practice cards
+        name: items
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Closing line, name: closing, widget: text}
+    - label: Small-group comparison
+      name: comparison
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Left-column heading, name: left_heading, widget: string}
+      - label: Left-column items
+        name: left_items
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Homeward-column heading, name: right_heading, widget: string}
+      - label: Homeward-column items
+        name: right_items
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Closing note, name: note, widget: text}
+    - label: How joining works
+      name: join
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Three steps
+        name: items
+        widget: list
+        allow_add: false
+        allow_delete: false
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+        - {label: Optional link label, name: link_label, widget: string, required: false}
+        - {label: Optional link destination, name: link_url, widget: string, required: false}
+    - label: Fit section
+      name: fit
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Positive heading, name: fit_heading, widget: string}
+      - label: Positive items
+        name: fit_items
+        widget: list
+        field: {label: Item, name: item, widget: text}
+      - {label: Not-fit heading, name: not_heading, widget: string}
+      - label: Not-fit items
+        name: not_items
+        widget: list
+        field: {label: Item, name: item, widget: text}
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+      - {label: Final note, name: note, widget: text}
+
+  - name: practices_v8
+    label: Practices Page (V8)
+    file: content/practices-v8.json
+    format: json
+    fields:
+    - {label: Version, name: version, widget: string, hint: Technical version label. Normally leave unchanged.}
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Emphasized line, name: emphasis, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Promise line, name: promise, widget: text}
+      - label: Hero photo — desktop
+        name: image
+        widget: image
+        hint: Recommended 1600×1600 px or larger, near-square. Keep the person or focal point near center because desktop crops tall.
+      - label: Hero photo — mobile crop (optional)
+        name: image_mobile
+        widget: image
+        required: false
+        hint: Optional 1600×1200 px 4:3 crop. Leave blank when the desktop image already works well on phones.
+      - {label: Photo description, name: image_alt, widget: string}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+    - label: Why practice matters
+      name: why
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Body, name: body, widget: text}
+      - {label: Signature line, name: signature, widget: string}
+      - label: Photo
+        name: image
+        widget: image
+        hint: Recommended 1600×1200 px, 4:3. One crop works across desktop and mobile.
+      - {label: Photo description, name: image_alt, widget: string}
+      - label: Benefits
+        name: benefits
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: Research section
+      name: research
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: intro, widget: text}
+      - label: Featured study
+        name: daily
+        widget: object
+        fields:
+        - {label: Number, name: number, widget: string}
+        - {label: Unit, name: unit, widget: string}
+        - {label: Kicker, name: kicker, widget: string}
+        - {label: Study summary, name: body, widget: text}
+        - {label: Caution / note, name: note, widget: text}
+        - label: Facts
+          name: facts
+          widget: list
+          field: {label: Fact, name: fact, widget: string}
+        - {label: Study URL, name: source, widget: string}
+      - label: Research cards
+        name: cards
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Statistic, name: stat, widget: string}
+        - {label: Title, name: title, widget: string}
+        - {label: Summary, name: body, widget: text}
+        - label: Tags
+          name: tags
+          widget: list
+          field: {label: Tag, name: tag, widget: string}
+        - {label: Source URL, name: source, widget: string}
+      - label: Benefit words
+        name: benefits
+        widget: list
+        field: {label: Benefit, name: benefit, widget: string}
+      - {label: Homeward translation, name: translation, widget: text}
+      - {label: Resources link label, name: resources_label, widget: string}
+      - {label: Resources link destination, name: resources_url, widget: string}
+    - label: Formation sequence
+      name: formation
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: intro, widget: text}
+      - label: Steps
+        name: steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: Practice Library
+      name: library
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: intro, widget: text}
+      - label: Practice cards
+        name: items
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Practice name, name: title, widget: string}
+        - {label: Tradition label, name: tradition, widget: string}
+        - {label: Short description, name: snapshot, widget: text}
+        - {label: What it can grow, name: growth, widget: text}
+        - label: Photo
+          name: image
+          widget: image
+          hint: Recommended 1600×1080 px, roughly 3:2. Keep the focal point centered vertically because cards crop to about 1.48:1.
+        - {label: Photo description, name: image_alt, widget: string}
+    - label: Join a Circle section
+      name: join
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Steps
+        name: steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+    - label: Practice in community
+      name: community
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Photo
+        name: image
+        widget: image
+        hint: Recommended 1600×1200 px, 4:3. One crop works across desktop and mobile.
+      - {label: Photo description, name: image_alt, widget: string}
+      - label: Community points
+        name: points
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Signature line, name: signature, widget: text}
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
+
+  - name: about_v8
+    label: Our Story Page (V8)
+    file: content/about-v8.json
+    format: json
+    fields:
+    - {label: Version, name: version, widget: string, hint: Technical version label. Normally leave unchanged.}
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Big question, name: question, widget: text}
+      - {label: Supporting line, name: support, widget: text}
+      - label: Hero mosaic photos
+        name: images
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 4
+        max: 4
+        summary: '{{fields.alt}}'
+        fields:
+        - label: Photo
+          name: src
+          widget: image
+          hint: Recommended 1200×900 px or larger, roughly 4:3. Keep faces near center because each mosaic tile crops differently.
+        - {label: Photo description, name: alt, widget: string}
+        - label: Mosaic position
+          name: class
+          widget: select
+          options: [stupa, teacher, founder, archive]
+          hint: Technical layout position. Normally leave unchanged.
+    - label: The questions began early
+      name: questions
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Story paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - label: Timeline
+        name: timeline
+        widget: list
+        summary: '{{fields.label}} — {{fields.title}}'
+        fields:
+        - {label: Stage label, name: label, widget: string}
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+    - label: So I went looking
+      name: search
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - label: Journey photo carousel
+        name: photos
+        widget: list
+        summary: '{{fields.caption}}'
+        fields:
+        - label: Photo
+          name: src
+          widget: image
+          hint: Recommended 1400×1000 px or larger, roughly 4:3. Keep the subject centered. Use Preserve full image for archival photos that should not be cropped.
+        - {label: Photo description, name: alt, widget: string}
+        - {label: Caption, name: caption, widget: text}
+        - {label: Preserve full image instead of cropping, name: contain, widget: boolean, default: false}
+    - label: The return
+      name: return
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - {label: Book small heading, name: book_eyebrow, widget: string}
+      - {label: Book title, name: book_title, widget: string}
+      - {label: Book explanation, name: book_body, widget: text}
+      - {label: Pull quote, name: quote, widget: text}
+    - label: The missing piece
+      name: missing
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: First paragraph, name: paragraph1, widget: text}
+      - {label: Second paragraph, name: paragraph2, widget: text}
+      - {label: Signature line, name: signature, widget: string}
+    - label: Trust + founder section
+      name: trust
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Trust cards
+        name: cards
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: LinkedIn button label, name: linkedin_label, widget: string}
+      - {label: LinkedIn URL, name: linkedin_url, widget: string}
+      - label: Founder photo
+        name: founder_image
+        widget: image
+        hint: Recommended 1200×1350 px or larger, near 8:9 portrait. Keep head and shoulders centered; the same image becomes a wider crop on phones/tablets.
+      - {label: Founder photo description, name: founder_alt, widget: string}
+      - {label: Community heading, name: community_heading, widget: string}
+      - label: Community paragraphs
+        name: community_paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - label: Homeward is
+        name: is
+        widget: list
+        field: {label: Item, name: item, widget: text}
+      - label: Homeward is not
+        name: is_not
+        widget: list
+        field: {label: Item, name: item, widget: text}
+      - {label: Disclaimer, name: disclaimer, widget: text}
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Three steps
+        name: steps
+        widget: list
+        allow_add: false
+        allow_delete: false
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}
