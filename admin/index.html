@@ -31,9 +31,9 @@
         }
       }
 
-      const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'staging';
+      const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'cms-staging-v8';
       const branch = hostBranch || configuredBranch;
-      const safeBranch = branch === 'main' ? 'staging' : branch;
+      const safeBranch = branch === 'main' ? 'cms-staging-v8' : branch;
       const siteUrl = window.location.origin;
       const init = window.initCMS;
 
@@ -55,7 +55,7 @@
       });
     }());
   </script>
-  <!-- Single branch-aware V8 preview. Version query prevents stale browser-cached preview code. -->
-  <script src="/admin/preview-v8-safe.js?v=20260812-hierarchy-refinement-2"></script>
+  <!-- Single branch-aware V8 homepage preview. Other V8 pages use the branch-deploy preview. -->
+  <script src="/admin/preview-v8-safe.js?v=20260812-v8-pages-photo-controls"></script>
 </body>
 </html>
