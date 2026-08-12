@@ -21,11 +21,16 @@ if (form) {
     event.preventDefault();
     const button = form.querySelector('button[type="submit"]');
     const message = form.querySelector('.form-message');
-    const originalLabel = button?.textContent || 'Tell Us You’re Interested';
+    const originalLabel = button?.textContent || 'Share My Interest';
     if (button) { button.disabled = true; button.textContent = 'Sending…'; }
     if (message) { message.hidden = true; message.textContent = ''; }
     try {
       const body = new FormData(form);
+      const gatheringChoice = String(body.get('gathering_preference') || '');
+      const interestChoice = String(body.get('interest') || '');
+      if (/conversation/i.test(gatheringChoice) && !/conversation/i.test(interestChoice)) {
+        body.set('interest', `${interestChoice} — let's start with a conversation`);
+      }
       const response = await fetch('/api/lead', { method: 'POST', body });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.ok === false) throw new Error(result.error || 'Unable to send');
