@@ -47,9 +47,9 @@ const navLink = ([id, href, label], active) => {
 
 const headerHtml = (active) => {
   const isHome = active === 'home';
-  const headerHref = isHome ? '/#interest' : '/connect.html';
-  const headerLabel = isHome ? globalCopy.navigation.interest : globalCopy.navigation.mobile_conversation;
-  const headerEvent = isHome ? 'circle_interest_click' : 'start_conversation_click';
+  const desktopHref = isHome ? '/#interest' : '/connect.html';
+  const desktopLabel = isHome ? globalCopy.navigation.interest : globalCopy.navigation.mobile_conversation;
+  const desktopEvent = isHome ? 'circle_interest_click' : 'start_conversation_click';
   return `
 <header class="v8-site-header" data-v8-shared-header>
   <div class="v8-header-inner">
@@ -60,7 +60,8 @@ const headerHtml = (active) => {
     <nav class="v8-desktop-nav" aria-label="Primary navigation">
       ${navItems.map((item) => navLink(item, active)).join('')}
     </nav>
-    <a class="v8-header-cta" href="${headerHref}" data-event="${headerEvent}">${esc(headerLabel)}</a>
+    <a class="v8-header-cta v8-header-cta-desktop" href="${desktopHref}" data-event="${desktopEvent}">${esc(desktopLabel)}</a>
+    <a class="v8-header-cta v8-header-cta-mobile" href="/connect.html" data-event="start_conversation_click">Let’s Talk</a>
     <button class="v8-menu-button" type="button" aria-expanded="false" aria-label="Open navigation" data-v8-menu-button><span></span><span></span><span></span></button>
   </div>
   <nav class="v8-mobile-nav" aria-label="Mobile navigation" data-v8-mobile-menu hidden>
@@ -79,7 +80,7 @@ export function applySharedShell(sourceHtml, filename = '') {
   const active = currentSectionFor(filename);
   html = html.replace(/<header\b[\s\S]*?<\/header>/i, headerHtml(active));
   if (!html.includes('/assets/v8-shared-shell.css')) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v8-shared-shell.css?v=1">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v8-shared-shell.css?v=2">\n</head>');
   }
   if (!html.includes('/assets/v8-shared-shell.js')) {
     html = html.replace('</body>', '<script src="/assets/v8-shared-shell.js?v=1" defer></script>\n</body>');
