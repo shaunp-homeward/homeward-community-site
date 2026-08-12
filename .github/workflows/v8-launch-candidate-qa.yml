@@ -1,9 +1,14 @@
-name: V8 Launch Candidate QA
+name: V8 Site QA
 
 on:
   push:
     branches:
       - v8-four-week-front-door
+      - cms-staging-v8
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Checkout exact candidate commit
+      - name: Checkout exact commit
         uses: actions/checkout@v4
 
       - name: Use Node 20
@@ -25,19 +30,19 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Verify launch candidate
+      - name: Verify V8 site
         run: npm run verify
 
       - name: Create complete source backup ZIP
         shell: bash
         run: |
-          zip -rq Homeward_V8_Final_Launch_Candidate.zip . \
-            -x '.git/*' 'node_modules/*' '.netlify/*' 'Homeward_V8_Final_Launch_Candidate.zip'
+          zip -rq Homeward_V8_Site_Backup.zip . \
+            -x '.git/*' 'node_modules/*' '.netlify/*' 'Homeward_V8_Site_Backup.zip'
 
       - name: Upload source backup
         uses: actions/upload-artifact@v4
         with:
-          name: Homeward_V8_Final_Launch_Candidate
-          path: Homeward_V8_Final_Launch_Candidate.zip
+          name: Homeward_V8_Site_Backup
+          path: Homeward_V8_Site_Backup.zip
           if-no-files-found: error
           retention-days: 30
