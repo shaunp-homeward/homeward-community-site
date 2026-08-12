@@ -14,7 +14,6 @@
   --hw-charcoal:#333333;
 }
 
-/* Enforce the approved copper on primary actions after legacy/page CSS loads. */
 .button:not(.button-secondary):not(.button-light):not(.button-ghost-light):not(.button-outline):not(.button-ivory):not(.button-light-outline),
 .button-copper,
 .cp-btn-primary,
@@ -49,6 +48,7 @@
 .v8-desktop-nav a.is-active,.v8-desktop-nav a[aria-current='page']{color:var(--hw-copper)}
 .v8-header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:10px 16px;border-radius:999px;background:var(--hw-copper);border:1px solid var(--hw-copper);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;line-height:1;white-space:nowrap;box-shadow:0 8px 20px rgba(181,58,42,.16)}
 .v8-header-cta:hover{box-shadow:0 11px 25px rgba(181,58,42,.22)}
+.v8-header-cta-mobile{display:none}
 .v8-menu-button{display:none;width:40px;height:40px;align-items:center;justify-content:center;gap:4px;flex-direction:column;border:0;background:transparent;color:var(--hw-forest);padding:0;cursor:pointer}
 .v8-menu-button span{display:block;width:22px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
 .v8-menu-button[aria-expanded='true'] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
@@ -69,15 +69,16 @@
 }
 
 @media(max-width:980px){
-  .v8-header-inner{width:min(100% - 24px,1180px);grid-template-columns:minmax(0,1fr) auto auto;gap:7px;height:84px}
+  .v8-header-inner{width:min(100% - 24px,1180px);grid-template-columns:minmax(0,1fr) auto auto;gap:7px;height:78px}
   .v8-desktop-nav{display:none}
   .v8-menu-button{display:inline-flex}
   .v8-brand{gap:10px;overflow:hidden}
-  .v8-brand-mark{width:50px;height:50px;flex-basis:50px}
-  .v8-brand-copy{width:140px;overflow:hidden}
-  .v8-brand-copy strong{font-size:1.2rem;letter-spacing:.145em;overflow:hidden;text-overflow:clip}
-  .v8-brand-copy small{font-size:.53rem;letter-spacing:.085em;margin-top:5px;overflow:hidden;text-overflow:clip}
-  .v8-header-cta{padding:10px 14px;font-size:.8rem}
+  .v8-brand-mark{width:46px;height:46px;flex-basis:46px}
+  .v8-brand-copy{width:136px;overflow:hidden}
+  .v8-brand-copy strong{font-size:1.16rem;letter-spacing:.14em;overflow:hidden;text-overflow:clip}
+  .v8-brand-copy small{font-size:.51rem;letter-spacing:.08em;margin-top:5px;overflow:hidden;text-overflow:clip}
+  .v8-header-cta-desktop{display:none}
+  .v8-header-cta-mobile{display:inline-flex;min-height:36px;padding:8px 11px;font-size:.74rem;box-shadow:0 6px 16px rgba(181,58,42,.14)}
   .v8-mobile-nav[data-open='true']{display:block}
 }
 
@@ -86,12 +87,12 @@
 }
 
 @media(max-width:374px){
-  .v8-header-inner{width:min(100% - 14px,1180px);gap:4px}
+  .v8-header-inner{width:min(100% - 14px,1180px);gap:4px;height:74px}
   .v8-brand{gap:7px}
-  .v8-brand-mark{width:45px;height:45px;flex-basis:45px}
-  .v8-brand-copy{width:126px}
-  .v8-brand-copy strong{font-size:1.07rem;letter-spacing:.115em}
-  .v8-brand-copy small{font-size:.47rem;letter-spacing:.075em;margin-top:4px}
-  .v8-header-cta{padding:9px 11px;font-size:.74rem}
-  .v8-menu-button{width:36px;height:36px}
+  .v8-brand-mark{width:42px;height:42px;flex-basis:42px}
+  .v8-brand-copy{width:122px}
+  .v8-brand-copy strong{font-size:1.02rem;letter-spacing:.11em}
+  .v8-brand-copy small{font-size:.46rem;letter-spacing:.07em;margin-top:4px}
+  .v8-header-cta-mobile{min-height:34px;padding:7px 9px;font-size:.7rem}
+  .v8-menu-button{width:34px;height:34px}
 }
