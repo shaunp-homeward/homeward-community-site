@@ -31,9 +31,9 @@
         }
       }
 
-      const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'cms-staging-v8';
+      const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'v8-four-week-front-door';
       const branch = hostBranch || configuredBranch;
-      const safeBranch = branch === 'main' ? 'cms-staging-v8' : branch;
+      const safeBranch = branch === 'main' ? 'v8-four-week-front-door' : branch;
       const siteUrl = window.location.origin;
       const init = window.initCMS;
 
@@ -56,6 +56,6 @@
     }());
   </script>
   <!-- Single branch-aware V8 homepage preview. Other V8 pages use the branch-deploy preview. -->
-  <script src="/admin/preview-v8-safe.js?v=20260812-v8-pages-photo-controls"></script>
+  <script src="/admin/preview-v8-safe.js?v=20260812-v8-pages-photo-controls-2"></script>
 </body>
 </html>
