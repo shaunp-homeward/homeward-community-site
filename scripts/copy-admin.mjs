@@ -82,6 +82,13 @@ v8PagesCollection = v8PagesCollection
   .replace('      - label: Homeward-column items', '      - label: Homeward distinctions')
   .replace('      - {label: Closing note, name: note, widget: text}', '      - {label: Respectful context note, name: note, widget: text}');
 
+// The three-stage Our Story timeline (Inherited Faith / Study / Practice) is retired from
+// the active page. Keep it recoverable in about-v8.json/backups, but hide it in the CMS.
+v8PagesCollection = v8PagesCollection.replace(
+  /\n      - label: Timeline\n        name: timeline\n        widget: list\n        summary: '\{\{fields\.label\}\} — \{\{fields\.title\}\}'\n        fields:\n        - \{label: Stage label, name: label, widget: string\}\n        - \{label: Title, name: title, widget: string\}\n        - \{label: Description, name: body, widget: text\}/,
+  ''
+);
+
 v8PagesCollection = v8PagesCollection.split('\n').flatMap((line) => {
   if (line.trim() !== 'widget: text') return [line];
   const indent = line.match(/^\s*/)?.[0] || '';
