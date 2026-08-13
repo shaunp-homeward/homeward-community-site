@@ -1,0 +1,87 @@
+/* Circles hierarchy + mobile-density refinement. Layered after v8-circles-primary.css. */
+.cp-section{padding:clamp(64px,7vw,92px) 0}
+.cp-section-head{margin-bottom:38px}
+
+/* Hero facts: compact, scannable, and icon-led. */
+.cp-logistics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;align-items:start}
+.cp-logistics span+span:before{content:none!important;margin:0!important}
+.cp-logistic{display:flex;align-items:center;gap:9px;min-width:0;color:#5f6962}
+.cp-logistic-icon{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:1px solid rgba(181,58,42,.25);border-radius:50%;color:var(--cp-copper);background:rgba(255,255,255,.48)}
+.cp-logistic-icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.cp-logistic-label{font-size:.78rem;line-height:1.35}
+
+/* Learning CTAs interrupt less than another conversion band. */
+.cp-practice-actions,.cp-tools-actions{display:flex;justify-content:center;margin-top:30px}
+.cp-practice-actions .cp-text-link,.cp-tools-actions .cp-text-link{display:inline-flex;align-items:center;min-height:42px;padding:0 4px;border-bottom:1px solid rgba(21,58,46,.24)}
+
+/* Slightly tighter card rhythm across the page. */
+.cp-loop-grid{margin-top:34px}
+.cp-benefits{margin-top:38px}
+.cp-season-grid,.cp-compare-grid{margin-top:32px}
+.cp-fit-grid{margin-top:34px}
+.cp-join-grid{margin-top:34px}
+
+@media(max-width:900px){
+  .cp-logistics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cp-compare-grid{display:grid;grid-template-columns:1fr}
+  .cp-compare-homeward{order:-1}
+}
+
+@media(max-width:640px){
+  .cp-section{padding:52px 0}
+  .cp-section-head{margin-bottom:28px}
+  .cp-section-head.cp-center{text-align:left}
+  .cp-center .cp-lead{margin-left:0;margin-right:0}
+
+  .cp-hero-copy{padding-bottom:36px}
+  .cp-logistics{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 10px;margin-top:20px;padding-top:16px}
+  .cp-logistic{gap:8px}
+  .cp-logistic-icon{flex-basis:26px;width:26px;height:26px}
+  .cp-logistic-icon svg{width:14px;height:14px}
+  .cp-logistic-label{font-size:.76rem}
+
+  /* Number and title share one line instead of consuming separate rows. */
+  .cp-loop-grid{gap:10px;margin-top:26px}
+  .cp-loop-card{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:10px;row-gap:7px;min-height:0;padding:19px 18px 20px}
+  .cp-loop-card b{grid-column:1;grid-row:1;align-self:center;margin:0;font-size:.82rem;line-height:1;color:var(--cp-gold);letter-spacing:.05em}
+  .cp-loop-card h3{grid-column:2;grid-row:1;align-self:center;margin:0;font-size:1.2rem}
+  .cp-loop-card p{grid-column:2;grid-row:2;margin:0;line-height:1.55}
+  .cp-loop-close{font-size:1.18rem;margin-top:26px;text-align:left}
+
+  /* Check icon sits beside the benefit rather than above it. */
+  .cp-benefits{grid-template-columns:1fr;gap:9px;margin-top:28px}
+  .cp-benefit{display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:10px;row-gap:5px;min-height:0;padding:17px 16px 18px}
+  .cp-benefit span{grid-column:1;grid-row:1 / span 2;align-self:start;width:28px;height:28px;margin:0;font-size:.78rem}
+  .cp-benefit h3{grid-column:2;grid-row:1;margin:0;font-size:1.05rem}
+  .cp-benefit p{grid-column:2;grid-row:2;margin:0}
+  .cp-practice-actions,.cp-tools-actions{justify-content:flex-start;margin-top:24px}
+
+  .cp-compare-col{padding:23px 20px 12px}
+  .cp-compare-col>h3{font-size:1.28rem;margin-bottom:12px}
+  .cp-compare-col article{padding:15px 0}
+  .cp-compare-note{text-align:left;margin-top:22px}
+
+  .cp-fit-grid{gap:12px;margin-top:26px}
+  .cp-fit-card{padding:24px 20px 18px}
+  .cp-fit-kicker{margin-bottom:14px}
+  .cp-fit-icon{width:38px;height:38px}
+  .cp-fit-card li{padding-top:13px;padding-bottom:13px}
+
+  .cp-practice-grid{gap:32px}
+
+  .cp-principle{grid-template-columns:38px 1fr;gap:12px;padding:18px 0}
+  .cp-principle b{width:34px;height:34px;font-size:.82rem}
+
+  .cp-agenda-row{padding:18px 0}
+
+  .cp-season-grid,.cp-tools-grid{gap:10px;margin-top:26px}
+  .cp-season-card,.cp-tool{padding:20px 18px}
+
+  /* Joining steps use the same compact inline number/title grammar. */
+  .cp-join-grid{gap:10px;margin-top:26px}
+  .cp-join-card{display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:11px;row-gap:7px;min-height:0;padding:21px 19px}
+  .cp-join-card b{grid-column:1;grid-row:1;align-self:start;width:34px;height:34px;margin:0;font-size:.82rem}
+  .cp-join-card h3{grid-column:2;grid-row:1;align-self:center;margin:0;font-size:1.18rem}
+  .cp-join-card p{grid-column:2;grid-row:2;margin:0}
+  .cp-join-card a{grid-column:2;grid-row:3;margin-top:3px}
+}
