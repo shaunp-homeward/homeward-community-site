@@ -114,8 +114,8 @@ for (const key of ['AIRTABLE_TOKEN','AIRTABLE_BASE_ID','AIRTABLE_TABLE_ID','RESE
   assert(lead.includes(key), `Lead function is missing ${key}`);
 }
 
-assert(circles.includes('Not just another small group.'), 'Circles primary page is missing');
-assert(circles.includes('How joining a Circle works'), 'Circles joining flow is missing');
+assert(circles.includes('v8-circles-primary') && circles.includes('class="cp-hero"'), 'Circles primary page is missing');
+assert(circles.includes('class="cp-join cp-section"'), 'Circles joining flow is missing');
 assert(circles.includes('/assets/v8-launch-image-qa.css'), 'Circles image QA stylesheet is missing');
 assert(practices.includes('Train the inner life.'), 'Practices primary page is missing');
 assert(practices.includes('10</strong><span>MINUTES A DAY'), 'Practices research section is missing');
