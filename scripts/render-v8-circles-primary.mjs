@@ -71,7 +71,7 @@ export function renderCirclesPrimary(sourceHtml = '') {
     if (/\bclass=["']/i.test(m)) return m.replace(/class=["']([^"']*)["']/, (mm, cls) => `class="${cls} v8-circles-primary"`);
     return `<body${attrs} class="v8-circles-primary">`;
   });
-  if (!html.includes('v8-circles-primary.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v8-circles-primary.css"><link rel="stylesheet" href="/assets/v8-circles-hierarchy-tightening.css?v=2"></head>');
+  if (!html.includes('v8-circles-primary.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v8-circles-primary.css"><link rel="stylesheet" href="/assets/v8-circles-hierarchy-tightening.css?v=3"></head>');
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${esc(data.meta.title)}</title>`);
   html = html.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${attr(data.meta.description)}">`);
   return html;
