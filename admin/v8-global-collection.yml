@@ -1,0 +1,51 @@
+- name: v8_global
+  label: Site Header, Navigation & Footer (V8)
+  delete: false
+  editor:
+    preview: false
+  files:
+  - name: global_v8
+    label: Header, Menu & Footer
+    file: content/global.json
+    format: json
+    fields:
+    - label: Navigation menu
+      name: navigation
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Home, name: home, widget: string}
+      - {label: Circles, name: circles, widget: string}
+      - {label: Practices, name: practices, widget: string}
+      - {label: Journey Reflection, name: journey, widget: string, hint: Used in the desktop header and mobile menu.}
+      - {label: Our Story, name: story, widget: string}
+      - {label: Interest button, name: interest, widget: string}
+      - {label: Conversation button, name: conversation, widget: string}
+      - {label: Mobile conversation label, name: mobile_conversation, widget: string}
+    - label: Brand & footer basics
+      name: brand
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Brand name, name: name, widget: string}
+      - {label: Brand subline, name: subline, widget: string}
+      - {label: Footer description, name: footer_description, widget: text}
+      - {label: Mission line, name: mission, widget: string}
+      - {label: Copyright line, name: copyright, widget: string}
+    - label: Footer links
+      name: footer
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Explore heading, name: explore_heading, widget: string}
+      - {label: Circles, name: circles, widget: string}
+      - {label: Practices, name: practices, widget: string}
+      - {label: Journey Reflection, name: journey, widget: string}
+      - {label: Resources, name: resources, widget: string}
+      - {label: Our Story, name: story, widget: string}
+      - {label: Future Vision, name: vision, widget: string}
+      - {label: Connect heading, name: connect_heading, widget: string}
+      - {label: Interest, name: interest, widget: string}
+      - {label: Conversation, name: conversation, widget: string}
+      - {label: Conversation details, name: conversation_details, widget: string}
+      - {label: Privacy, name: privacy, widget: string}

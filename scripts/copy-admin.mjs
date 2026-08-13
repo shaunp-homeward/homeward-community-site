@@ -56,6 +56,16 @@ v8Collection = v8Collection.split('\n').flatMap((line) => {
   return richTextLines.map((entry) => indent + entry);
 }).join('\n');
 
+// Site-wide V8 header, navigation, and footer labels live in global.json.
+const v8GlobalCollectionPath = path.join(source, 'v8-global-collection.yml');
+let v8GlobalCollection = await fs.readFile(v8GlobalCollectionPath, 'utf8');
+
+v8GlobalCollection = v8GlobalCollection.split('\n').flatMap((line) => {
+  if (line.trim() !== 'widget: text') return [line];
+  const indent = line.match(/^\s*/)?.[0] || '';
+  return richTextLines.map((entry) => indent + entry);
+}).join('\n');
+
 // Circles, Practices, Our Story, and the Photo Guide are maintained in their own V8 collection.
 const v8PagesCollectionPath = path.join(source, 'v8-pages-collection.yml');
 let v8PagesCollection = await fs.readFile(v8PagesCollectionPath, 'utf8');
@@ -80,7 +90,7 @@ v8PagesCollection = v8PagesCollection.split('\n').flatMap((line) => {
 
 // Put the current V8 editors first. Legacy content remains below them for compatibility only.
 if (!config.includes('name: v8_front_door')) {
-  config = config.replace('collections:\n', `collections:\n${v8Collection.trim()}\n${v8PagesCollection.trim()}\n`);
+  config = config.replace('collections:\n', `collections:\n${v8Collection.trim()}\n${v8GlobalCollection.trim()}\n${v8PagesCollection.trim()}\n`);
 }
 await fs.writeFile(configPath, config);
 
