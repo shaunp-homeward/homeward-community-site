@@ -26,10 +26,12 @@
 .cp-difference-context{max-width:930px;margin:26px 0 0;padding:20px 22px;border-left:4px solid rgba(181,58,42,.45);background:#fbfaf7}
 .cp-difference-context p{margin:0;font-size:.92rem;line-height:1.7;color:#5d665f}
 
-/* Learning CTAs: lighter secondary buttons that stay clearly below conversion CTAs. */
+/* Learning CTAs: visible secondary buttons, intentionally lighter than conversion CTAs. */
 .cp-practice-actions,.cp-tools-actions{display:flex;justify-content:center;margin-top:28px}
-.cp-practice-actions .cp-text-link,.cp-tools-actions .cp-text-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border:1px solid rgba(21,58,46,.3);border-radius:8px;background:rgba(255,255,255,.52);color:var(--cp-forest);text-decoration:none;font-weight:750;transition:background .18s ease,border-color .18s ease,transform .18s ease}
-.cp-practice-actions .cp-text-link:hover,.cp-tools-actions .cp-text-link:hover{background:#fff;border-color:rgba(21,58,46,.48);transform:translateY(-1px)}
+.cp-practice-actions .cp-text-link,.cp-tools-actions .cp-text-link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1.5px solid rgba(21,58,46,.42);border-radius:8px;color:var(--cp-forest);text-decoration:none;font-weight:750;box-shadow:0 1px 2px rgba(21,58,46,.05);transition:background .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.cp-practice-actions .cp-text-link{background:#fff}
+.cp-tools-actions .cp-text-link{background:var(--cp-ivory)}
+.cp-practice-actions .cp-text-link:hover,.cp-tools-actions .cp-text-link:hover{background:#fff;border-color:rgba(21,58,46,.62);box-shadow:0 3px 8px rgba(21,58,46,.08);transform:translateY(-1px)}
 
 /* Practice benefits stay substantial but no longer dominate the page vertically. */
 .cp-benefits{margin-top:36px}
