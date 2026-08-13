@@ -1,12 +1,12 @@
 {
-  "version": "8.1.1",
+  "version": "8.2.0",
   "meta": {
     "title": "Homeward Circles — Practice the Spiritual Life Together",
     "description": "Homeward Circles are free, leader-facilitated four-week groups in Fort Worth and online where people practice Christian meditation, explore Scripture honestly, and carry the way of Jesus into everyday life."
   },
   "hero": {
     "eyebrow": "Homeward Circles",
-    "heading": "Not just another small group.",
+    "heading": "A different kind of spiritual community.",
     "emphasis": "A place to practice.",
     "lead": "Homeward Circles are small, Jesus-centered communities where we practice together, learn from lived experience, and carry spiritual practices into everyday life.",
     "season_line": "<strong>An ongoing community, gathered in four-week seasons.</strong> A season gives us enough time to build a rhythm, show up consistently, and go deeper together—without asking anyone to commit forever.",
@@ -22,20 +22,20 @@
   "loop": {
     "eyebrow": "The Circle Loop",
     "heading": "Practice. Live it. Come back. Go deeper.",
-    "lead": "The Circle is not only what happens in the room. Formation grows in the rhythm between gathering and everyday life.",
+    "lead": "Formation grows in a simple rhythm between gathering and everyday life.",
     "items": [
-      {"title": "Practice together", "body": "Experience a guided practice together so you know what it feels like—not simply what it means."},
-      {"title": "Reflect together", "body": "Share what you noticed. Listen without fixing. Learn from the lived experience and wisdom of the group."},
-      {"title": "Carry it into life", "body": "Use one simple practice during the week—in work, relationships, stress, gratitude, prayer, conflict, or quiet."},
-      {"title": "Return and deepen", "body": "Come back with real experience: what helped, what was difficult, what surprised you, and what you are learning."}
+      {"title": "Practice together", "body": "Experience a guided practice together."},
+      {"title": "Reflect together", "body": "Share what you noticed and listen deeply."},
+      {"title": "Carry it into life", "body": "Use the practice in ordinary life during the week."},
+      {"title": "Return and deepen", "body": "Come back with real experience and learn from it together."}
     ],
     "closing": "Community helps a practice become something you can actually return to."
   },
   "practice": {
     "eyebrow": "Why practice matters",
     "heading": "Spiritual practices are exercises for the heart and mind.",
-    "lead": "We do not practice breath prayer simply to become good at breath prayer. Like exercise for the body, repeated spiritual practice trains attention, awareness, response, openness, and our capacity to love.",
-    "body": "Over time, the hope is a life that feels more grounded, awake, connected, joyful, and receptive to God. Practicing with others adds encouragement, perspective, shared wisdom, and motivation to keep returning.",
+    "lead": "We practice not to master a technique but to be formed by it. Like exercise for the body, repeated spiritual practice trains attention, awareness, response, openness, and our capacity to love.",
+    "body": "Over time, the hope is a life that feels more grounded, awake, connected, joyful, and receptive to God. Practicing with others adds encouragement, perspective, shared wisdom, and a rhythm that helps us keep returning.",
     "image": "/assets/review/practices/BP-G.jpg",
     "image_alt": "A person seated comfortably with eyes closed, practicing quiet breath prayer",
     "benefits": [
@@ -47,30 +47,30 @@
     ]
   },
   "season": {
-    "eyebrow": "What is a season?",
-    "heading": "Homeward is ongoing. Circles move in four-week seasons.",
-    "lead": "A season is a focused four-week window to show up consistently, practice together, and build momentum. At the end there is a natural pause—not a graduation. You can continue into future seasons as your practices and relationships deepen.",
+    "eyebrow": "The four-week season",
+    "heading": "Enough time to build a rhythm. A natural place to pause.",
+    "lead": "Circles gather in focused four-week seasons. The same people return, practice together, and build trust; then there is a natural pause before the next season.",
     "items": [
-      {"title": "A realistic commitment", "body": "Four weeks is easier to plan around work, travel, family, and real life."},
-      {"title": "Consistency creates depth", "body": "The same people return together, allowing trust and spiritual rhythm to grow."},
-      {"title": "No graduation", "body": "Four weeks is a season—not the end of Homeward or your spiritual journey."},
-      {"title": "Season by season", "body": "Future seasons can deepen familiar practices and introduce new tools for the spiritual life."}
+      {"title": "Four weeks", "body": "A realistic starting commitment that can fit around work, travel, family, and real life."},
+      {"title": "Same people", "body": "Consistency allows trust and spiritual rhythm to grow."},
+      {"title": "Natural pause", "body": "A season ends without calling the journey finished."},
+      {"title": "Keep going", "body": "Future seasons deepen familiar practices and introduce new ones."}
     ]
   },
   "conversation": {
     "eyebrow": "How we talk together",
     "heading": "A different kind of conversation.",
-    "lead": "The facilitator guides the process, but does not lecture or supply the approved conclusion. We learn through Scripture, practice, deep listening, and one another’s lived experience.",
+    "lead": "The facilitator guides the process without lecturing or supplying the approved conclusion. We learn through practice, Scripture, deep listening, and one another’s lived experience.",
     "quote": "“What did you notice?” matters more than “Who has the best answer?”",
     "principles": [
       {"title": "Speak from your own experience", "body": "Share what you are noticing, learning, wondering, resisting, or trying—not what someone else should believe."},
       {"title": "Listen without fixing", "body": "No cross-talk, rescuing, debating, or correcting. Anyone may pass."},
-      {"title": "Let Scripture open the room", "body": "Scripture gives us a shared center and doorway into honest exploration."},
+      {"title": "Let Scripture open the room", "body": "Scripture offers wisdom and a doorway into conversation—not a test of doctrinal agreement."},
       {"title": "Learn from the wisdom in the room", "body": "Insight can emerge through every participant’s lived experience—not only from the facilitator."}
     ]
   },
   "mid_cta": {
-    "eyebrow": "Curious about Circles?",
+    "eyebrow": "[Archived — not currently shown] Curious about Circles?",
     "heading": "You don’t have to decide anything today.",
     "body": "Ask questions, hear what a Circle feels like, and tell us what you’re looking for.",
     "primary_label": "Have a Conversation About Circles",
@@ -81,7 +81,7 @@
   "agenda": {
     "eyebrow": "What happens when we gather?",
     "heading": "A guided 90 minutes with an engaging, unhurried pace.",
-    "lead": "You will not spend the whole evening listening to a talk. A Circle moves between settling, practice, Scripture or story, honest conversation, and a simple rhythm to carry into the week.",
+    "lead": "A Circle moves between settling, practice, Scripture or story, honest conversation, and a simple rhythm to carry into the week.",
     "items": [
       {"time": "15–20 min", "title": "Arrive & reconnect", "body": "Settle in, get to know one another, and become present."},
       {"time": "8–10 min", "title": "Practice together", "body": "Experience a guided contemplative practice together."},
@@ -89,7 +89,7 @@
       {"time": "25–30 min", "title": "Honest conversation", "body": "Speak from experience, listen deeply, and learn from the group."},
       {"time": "~10 min", "title": "Carry it home & blessing", "body": "Choose a practice for the week and close together."}
     ],
-    "sample_summary": "See a full sample gathering: Week One — The Invitation Home",
+    "sample_summary": "[Archived — not currently shown] See a full sample gathering: Week One — The Invitation Home",
     "sample_items": [
       {"time": "Welcome · ~20 min", "title": "Settling in and getting to know each other", "body": "We settle in and begin with a simple question: <em>What drew you here?</em> Everyone is welcome to share, or to pass.", "questions": []},
       {"time": "Practice · ~8 min", "title": "A guided breath prayer", "body": "A simple practice that steadies the mind and helps us become present to God—with us and within us. As we breathe, we grow more grounded, open, and loving.<br>Breathing in: <em>Here I am.</em><br>Breathing out: <em>You are here.</em>", "questions": []},
@@ -101,8 +101,8 @@
   },
   "tools": {
     "eyebrow": "Tools for the spiritual life",
-    "heading": "Leave each season with practices you can actually use.",
-    "lead": "The goal is not more information. It is a growing spiritual tool belt: practices you know how to return to in real life—and a community that helps you keep using them until they become part of your rhythm.",
+    "heading": "Practices you can actually use.",
+    "lead": "Each season introduces a few simple practices you can return to in real life.",
     "items": [
       {"title": "Breath Prayer", "body": "Return to presence and steadiness."},
       {"title": "Gratitude", "body": "Train attention toward goodness, joy, happiness, and wonder."},
@@ -113,23 +113,23 @@
   },
   "comparison": {
     "eyebrow": "What makes a Circle different",
-    "heading": "Same desire for community. A different center of gravity.",
-    "lead": "Traditional small groups can offer friendship, learning, and support. Homeward Circles emphasize formation through practice and lived experience.",
-    "left_heading": "Many small groups emphasize…",
+    "heading": "A community built around practice and lived experience.",
+    "lead": "Homeward Circles are not built around reaching the same answer. We practice together, pay attention to what happens in real life, and learn from one another along the way.",
+    "left_heading": "[Archived — not currently shown] Many small groups emphasize…",
     "left_items": [
       {"title": "Learning about faith", "body": "Teaching, study, discussion, interpretation."},
       {"title": "Talking through ideas", "body": "Opinions, questions, agreement, explanation."},
       {"title": "The meeting itself", "body": "The group experience is often concentrated in the weekly gathering."},
       {"title": "A leader with content", "body": "The leader may carry most of the teaching or answers."}
     ],
-    "right_heading": "A Homeward Circle emphasizes…",
+    "right_heading": "What a Homeward Circle emphasizes",
     "right_items": [
-      {"title": "Practicing the spiritual life", "body": "We actually meditate, pray, listen, reflect, and engage Scripture together."},
-      {"title": "Speaking from lived experience", "body": "We learn through what we are noticing and how the practice is meeting real life."},
-      {"title": "Practice between gatherings", "body": "What happens Tuesday morning matters as much as what happens in the Circle."},
-      {"title": "A facilitator who holds the process", "body": "The facilitator creates safety, rhythm, and depth without becoming the person with all the answers."}
+      {"title": "Practice, not only discussion", "body": "We meditate, pray, listen, reflect, and engage Scripture together—not just talk about these practices."},
+      {"title": "Lived experience, not prescribed answers", "body": "We share what we notice, question, resist, and discover, learning from the wisdom in the room."},
+      {"title": "Scripture as invitation", "body": "Scripture gives us wisdom and a shared starting point for conversation without requiring everyone to reach the same doctrinal conclusion."},
+      {"title": "Daily life matters", "body": "The practice continues between gatherings, where ordinary life becomes part of formation."}
     ],
-    "note": "This comparison is not a criticism of traditional groups. Homeward is designed to add a form of spiritual formation many people have never been given: a place to learn how to practice."
+    "note": "Many Christian groups center on teaching, Bible study, and helping people understand what Christians believe. That can be meaningful. Homeward Circles intentionally emphasize another dimension of formation: practicing together, sharing from lived experience, and carrying those practices into daily life."
   },
   "join": {
     "eyebrow": "How joining a Circle works",
@@ -148,18 +148,16 @@
     "fit_heading": "You may feel at home if…",
     "fit_items": [
       "You are seeking depth, connection, and a more lived spiritual life.",
-      "You are open to God, a Higher Power, or the possibility of something beyond yourself.",
-      "You are willing to explore Jesus and Scripture respectfully, even if your beliefs are unsettled.",
+      "You are open to God, a Higher Power, or the possibility of something beyond yourself—and willing to explore Jesus and Scripture respectfully.",
       "You can speak from your own experience and listen without needing to correct others.",
       "You are willing to practice between gatherings and support others on the journey."
     ],
     "not_heading": "A Circle may not be the best fit if…",
     "not_items": [
       "Your primary purpose is to debate, disprove, convert, or require agreement from others.",
-      "You are unwilling to participate respectfully in Jesus-centered practices.",
+      "You are unwilling to participate respectfully in Jesus-centered practices or respect other people’s lived experience and confidentiality.",
       "You want a class built around one expert supplying the correct answers.",
       "You are looking for group therapy or professional mental-health treatment.",
-      "You cannot respect confidentiality or the lived experience of other participants.",
       "You are looking for a drop-in group rather than a four-week shared journey."
     ]
   },
