@@ -1,15 +1,15 @@
 {
-  "version": "8.1.0",
+  "version": "8.1.1",
   "meta": {
     "title": "Homeward Circles — Practice the Spiritual Life Together",
-    "description": "Homeward Circles are small, Jesus-centered communities where people practice together, reflect honestly, and carry spiritual formation into everyday life."
+    "description": "Homeward Circles are free, leader-facilitated four-week groups in Fort Worth and online where people practice Christian meditation, explore Scripture honestly, and carry the way of Jesus into everyday life."
   },
   "hero": {
     "eyebrow": "Homeward Circles",
     "heading": "Not just another small group.",
     "emphasis": "A place to practice.",
     "lead": "Homeward Circles are small, Jesus-centered communities where we practice together, learn from lived experience, and carry spiritual practices into everyday life.",
-    "season_line": "An ongoing community, gathered in four-week seasons. A season gives us enough time to build a rhythm, show up consistently, and go deeper together—without asking anyone to commit forever.",
+    "season_line": "<strong>An ongoing community, gathered in four-week seasons.</strong> A season gives us enough time to build a rhythm, show up consistently, and go deeper together—without asking anyone to commit forever.",
     "primary_label": "Tell Us You’re Interested",
     "primary_url": "/#interest",
     "secondary_label": "Have a Conversation",
@@ -91,12 +91,12 @@
     ],
     "sample_summary": "See a full sample gathering: Week One — The Invitation Home",
     "sample_items": [
-      {"time": "Welcome · ~20 min", "title": "Settling in and getting to know each other", "body": "We settle in and begin with a simple question: What drew you here? Everyone is welcome to share, or to pass.", "questions": []},
-      {"time": "Practice · ~8 min", "title": "A guided breath prayer", "body": "A simple practice that steadies the mind and helps us become present to God—with us and within us. Breathing in: Here I am. Breathing out: You are here.", "questions": []},
+      {"time": "Welcome · ~20 min", "title": "Settling in and getting to know each other", "body": "We settle in and begin with a simple question: <em>What drew you here?</em> Everyone is welcome to share, or to pass.", "questions": []},
+      {"time": "Practice · ~8 min", "title": "A guided breath prayer", "body": "A simple practice that steadies the mind and helps us become present to God—with us and within us. As we breathe, we grow more grounded, open, and loving.<br>Breathing in: <em>Here I am.</em><br>Breathing out: <em>You are here.</em>", "questions": []},
       {"time": "Explore · ~15 min", "title": "A story and reflection", "body": "A short, familiar story Jesus told—the son who comes home to a father running to meet him—and an open, honest conversation about God, grace, and how each of us hears it.", "questions": []},
-      {"time": "Conversation · ~30 min", "title": "Honest conversation", "body": "", "questions": ["When you hear the word home, what image or longing comes to mind?", "Where do you most long to experience welcome or belonging?", "What do you make of a love that runs to meet us before we have figured it all out?"]},
-      {"time": "For the week · ~5 min", "title": "A practice to carry home", "body": "A few minutes of breath prayer on a few days this week, using the same words: Here I am. You are here.", "questions": []},
-      {"time": "Blessing · ~5 min", "title": "A simple blessing", "body": "We each offer a word for how we are leaving, and close with a blessing: May you know you are received before you have everything figured out—and may you notice the presence of God on the road ahead.", "questions": []}
+      {"time": "Conversation · ~30 min", "title": "Honest conversation", "body": "", "questions": ["When you hear the word <em>home</em>, what image or longing comes to mind?", "Where do you most long to experience welcome or belonging?", "What do you make of a love that runs to meet us before we have figured it all out?"]},
+      {"time": "For the week · ~5 min", "title": "A practice to carry home", "body": "A few minutes of breath prayer on a few days this week, using the same words: <em>Here I am. You are here.</em>", "questions": []},
+      {"time": "Blessing · ~5 min", "title": "A simple blessing", "body": "We each offer a word for how we are leaving, and close with a blessing: <em>May you know you are received before you have everything figured out—and may you notice the presence of God on the road ahead.</em>", "questions": []}
     ]
   },
   "tools": {

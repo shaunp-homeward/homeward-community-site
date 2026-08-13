@@ -10,15 +10,21 @@ const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 const attr = esc;
+const inline = (value = '') => esc(value)
+  .replaceAll('&lt;strong&gt;', '<strong>').replaceAll('&lt;/strong&gt;', '</strong>')
+  .replaceAll('&lt;em&gt;', '<em>').replaceAll('&lt;/em&gt;', '</em>')
+  .replaceAll('&lt;br&gt;', '<br>').replaceAll('&lt;br/&gt;', '<br/>');
 
 const btn = (label, url, secondary = false) => `<a class="cp-btn ${secondary ? 'cp-btn-ghost' : 'cp-btn-primary'}" href="${attr(url)}">${esc(label)}</a>`;
 const lightBtn = (label, url) => `<a class="cp-btn cp-btn-light" href="${attr(url)}">${esc(label)}</a>`;
-const picture = (desktop, mobile, alt) => `<picture>${mobile ? `<source media="(max-width: 900px)" srcset="${attr(mobile)}">` : ''}<img src="${attr(desktop)}" alt="${attr(alt)}"></picture>`;
+const picture = (desktop, mobile, alt) => mobile
+  ? `<picture><source media="(max-width: 900px)" srcset="${attr(mobile)}"><img src="${attr(desktop)}" alt="${attr(alt)}"></picture>`
+  : `<img src="${attr(desktop)}" alt="${attr(alt)}">`;
 const cards = (items = [], className, numbered = false) => items.map((item, i) => `<article class="${className}">${numbered ? `<b>${String(i + 1).padStart(2, '0')}</b>` : ''}<h3>${esc(item.title)}</h3><p>${esc(item.body)}</p></article>`).join('');
 
 const sampleItems = (data.agenda.sample_items || []).map((item) => {
-  const questions = item.questions?.length ? `<ul>${item.questions.map((q) => `<li>${esc(q)}</li>`).join('')}</ul>` : '';
-  return `<div class="cp-sample-row"><div class="cp-sample-time">${esc(item.time)}</div><div><h4>${esc(item.title)}</h4>${item.body ? `<p>${esc(item.body)}</p>` : ''}${questions}</div></div>`;
+  const questions = item.questions?.length ? `<ul>${item.questions.map((q) => `<li>${inline(q)}</li>`).join('')}</ul>` : '';
+  return `<div class="cp-sample-row"><div class="cp-sample-time">${esc(item.time)}</div><div><h4>${esc(item.title)}</h4>${item.body ? `<p>${inline(item.body)}</p>` : ''}${questions}</div></div>`;
 }).join('');
 
 const fitItems = (data.fit.fit_items || []).map((item) => `<li>${esc(item)}</li>`).join('');
@@ -27,7 +33,7 @@ const notFitItems = (data.fit.not_items || []).map((item) => `<li>${esc(item)}</
 const main = `
 <main>
 <section class="cp-hero"><div class="cp-hero-grid">
-  <div class="cp-hero-copy"><div class="cp-hero-copy-inner"><p class="cp-eyebrow">${esc(data.hero.eyebrow)}</p><h1>${esc(data.hero.heading)}<em>${esc(data.hero.emphasis)}</em></h1><p class="cp-lead">${esc(data.hero.lead)}</p><p class="cp-season-line">${esc(data.hero.season_line)}</p><div class="cp-actions">${btn(data.hero.primary_label,data.hero.primary_url)}${btn(data.hero.secondary_label,data.hero.secondary_url,true)}</div><div class="cp-logistics">${data.hero.facts.map((fact)=>`<span>${esc(fact)}</span>`).join('')}</div></div></div>
+  <div class="cp-hero-copy"><div class="cp-hero-copy-inner"><p class="cp-eyebrow">${esc(data.hero.eyebrow)}</p><h1>${esc(data.hero.heading)}<em>${esc(data.hero.emphasis)}</em></h1><p class="cp-lead">${esc(data.hero.lead)}</p><p class="cp-season-line">${inline(data.hero.season_line)}</p><div class="cp-actions">${btn(data.hero.primary_label,data.hero.primary_url)}${btn(data.hero.secondary_label,data.hero.secondary_url,true)}</div><div class="cp-logistics">${data.hero.facts.map((fact)=>`<span>${esc(fact)}</span>`).join('')}</div></div></div>
   <div class="cp-hero-image">${picture(data.hero.image, data.hero.image_mobile, data.hero.image_alt)}</div>
 </div></section>
 

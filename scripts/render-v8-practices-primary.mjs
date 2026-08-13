@@ -15,7 +15,9 @@ const attr = esc;
 
 const btn = (label, url, secondary = false) => `<a class="pp-btn ${secondary ? 'pp-btn-ghost' : 'pp-btn-primary'}" href="${attr(url)}">${esc(label)}</a>`;
 const lightBtn = (label, url) => `<a class="pp-btn pp-btn-light" href="${attr(url)}">${esc(label)}</a>`;
-const picture = (desktop, mobile, alt) => `<picture>${mobile ? `<source media="(max-width: 900px)" srcset="${attr(mobile)}">` : ''}<img src="${attr(desktop)}" alt="${attr(alt)}"></picture>`;
+const picture = (desktop, mobile, alt) => mobile
+  ? `<picture><source media="(max-width: 900px)" srcset="${attr(mobile)}"><img src="${attr(desktop)}" alt="${attr(alt)}"></picture>`
+  : `<img src="${attr(desktop)}" alt="${attr(alt)}">`;
 
 const main = `
 <main>
