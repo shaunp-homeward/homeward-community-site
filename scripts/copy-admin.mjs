@@ -71,14 +71,14 @@ if (!config.includes('name: v8_front_door')) {
 }
 await fs.writeFile(configPath, config);
 
-// Production CMS writes to a dedicated V8 staging branch so content can be reviewed
-// on a branch deploy before promotion to main. Branch-deploy CMS instances write to
-// their own branch, which keeps previews self-contained.
+// Production CMS writes to the established V8 staging branch so content can be reviewed
+// on the existing Netlify branch deploy before promotion to main. Branch-deploy CMS instances
+// write to their own branch, which keeps previews self-contained.
 const context = process.env.CONTEXT || '';
 const requestedBranch = process.env.BRANCH || '';
 const cmsBranch = context === 'production' || requestedBranch === 'main'
-  ? 'cms-staging-v8'
-  : (requestedBranch || 'cms-staging-v8');
+  ? 'v8-four-week-front-door'
+  : (requestedBranch || 'v8-four-week-front-door');
 
 await fs.writeFile(
   path.join(dist, 'runtime-config.js'),
