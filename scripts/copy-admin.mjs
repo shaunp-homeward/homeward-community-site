@@ -59,6 +59,19 @@ v8Collection = v8Collection.split('\n').flatMap((line) => {
 // Circles, Practices, Our Story, and the Photo Guide are maintained in their own V8 collection.
 const v8PagesCollectionPath = path.join(source, 'v8-pages-collection.yml');
 let v8PagesCollection = await fs.readFile(v8PagesCollectionPath, 'utf8');
+
+// Keep retired Circles content recoverable in source JSON/backups without cluttering
+// the active CMS editor. These fields no longer affect the rendered V8 Circles page.
+v8PagesCollection = v8PagesCollection
+  .replace(/\n    - label: Mid-page conversation invitation\n[\s\S]*?(?=\n    - label: Gathering agenda \+ sample)/, '')
+  .replace(/\n      - \{label: Sample-session dropdown label,[\s\S]*?(?=\n    - label: Tools for the spiritual life)/, '')
+  .replace(/\n      - \{label: Left-column heading,[\s\S]*?(?=\n      - \{label: Homeward-column heading)/, '')
+  .replace('    - label: Gathering agenda + sample', '    - label: Gathering rhythm')
+  .replace('    - label: Small-group comparison', '    - label: What makes a Circle different')
+  .replace('      - {label: Homeward-column heading, name: right_heading, widget: string}', '      - {label: Distinction heading, name: right_heading, widget: string}')
+  .replace('      - label: Homeward-column items', '      - label: Homeward distinctions')
+  .replace('      - {label: Closing note, name: note, widget: text}', '      - {label: Respectful context note, name: note, widget: text}');
+
 v8PagesCollection = v8PagesCollection.split('\n').flatMap((line) => {
   if (line.trim() !== 'widget: text') return [line];
   const indent = line.match(/^\s*/)?.[0] || '';
