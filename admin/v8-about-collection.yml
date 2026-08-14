@@ -1,0 +1,157 @@
+- name: v8_about
+  label: Our Story (V8) — EDIT THIS
+  delete: false
+  editor:
+    preview: false
+  files:
+  - name: about_v8
+    label: Our Story Page
+    file: content/about-v8.json
+    format: json
+    fields:
+    - {label: Version, name: version, widget: string, hint: Technical version label. Normally leave unchanged.}
+    - label: Hero
+      name: hero
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - {label: Big question, name: question, widget: text}
+      - {label: Bold response, name: support, widget: text}
+      - {label: Search preview line, name: after_support, widget: text}
+      - label: Hero mosaic photos
+        name: images
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 4
+        max: 4
+        summary: '{{fields.alt}}'
+        fields:
+        - {label: Photo, name: src, widget: image}
+        - {label: Photo description, name: alt, widget: string}
+        - {label: Mosaic position, name: class, widget: select, options: [stupa, teacher, founder, archive]}
+    - label: The questions began early
+      name: questions
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Story paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+    - label: So I went looking
+      name: search
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - label: Journey photos
+        name: photos
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 4
+        max: 4
+        summary: '{{fields.caption}}'
+        fields:
+        - {label: Photo, name: src, widget: image}
+        - {label: Photo description, name: alt, widget: string}
+        - {label: Caption, name: caption, widget: text}
+        - {label: Preserve full image instead of cropping, name: contain, widget: boolean, default: false}
+      - {label: Start-where-you-are callout, name: note, widget: text}
+    - label: The return
+      name: return
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - {label: Book small heading, name: book_eyebrow, widget: string}
+      - {label: Book title, name: book_title, widget: string}
+      - {label: Book explanation, name: book_body, widget: text}
+      - {label: Pull quote, name: quote, widget: text}
+    - label: The missing piece
+      name: missing
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - label: Paragraphs
+        name: paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - {label: Signature line, name: signature, widget: string}
+    - label: About Shaun + why I feel called
+      name: trust
+      widget: object
+      collapsed: false
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Three credibility cards
+        name: cards
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: LinkedIn button label, name: linkedin_label, widget: string}
+      - {label: LinkedIn URL, name: linkedin_url, widget: string}
+      - {label: Founder photo, name: founder_image, widget: image}
+      - {label: Founder photo description, name: founder_alt, widget: string}
+      - {label: Calling small heading, name: founder_eyebrow, widget: string}
+      - {label: Calling heading, name: founder_heading, widget: string}
+      - label: Calling paragraphs
+        name: founder_paragraphs
+        widget: list
+        field: {label: Paragraph, name: paragraph, widget: text}
+      - {label: Gratitude pull quote, name: founder_quote, widget: text}
+      - {label: Short Homeward definition, name: summary, widget: text}
+      - {label: Personal-history disclaimer, name: disclaimer, widget: text}
+    - label: Final invitation
+      name: final
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Small heading, name: eyebrow, widget: string}
+      - {label: Heading, name: heading, widget: string}
+      - {label: Intro, name: lead, widget: text}
+      - label: Three steps
+        name: steps
+        widget: list
+        allow_add: false
+        allow_delete: false
+        allow_reorder: false
+        min: 3
+        max: 3
+        summary: '{{fields.title}}'
+        fields:
+        - {label: Title, name: title, widget: string}
+        - {label: Description, name: body, widget: text}
+      - {label: Primary button, name: primary_label, widget: string}
+      - {label: Primary destination, name: primary_url, widget: string}
+      - {label: Secondary button, name: secondary_label, widget: string}
+      - {label: Secondary destination, name: secondary_url, widget: string}

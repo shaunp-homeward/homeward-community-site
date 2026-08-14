@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node --import ./scripts/v8-build-hook.mjs scripts/build.mjs && node scripts/copy-admin.mjs && node scripts/copy-drafts.mjs && node scripts/normalize-v8-brand.mjs",
     "dev": "npx netlify dev",
-    "verify": "node scripts/verify-v8-launch.mjs",
+    "verify": "node scripts/verify-v8-launch.mjs && node scripts/verify-about-links.mjs",
     "verify:legacy": "node scripts/verify.mjs"
   },
   "engines": {
