@@ -22,7 +22,8 @@ for (const href of hrefs) {
 
   const [rawPath, fragment] = href.split('#');
   let targetHtml;
-  if (!rawPath || rawPath === '/') targetHtml = 'index.html';
+  if (!rawPath && fragment) targetHtml = 'about.html';
+  else if (!rawPath || rawPath === '/') targetHtml = 'index.html';
   else if (rawPath.endsWith('/')) targetHtml = `${rawPath.replace(/^\//,'')}index.html`;
   else targetHtml = rawPath.replace(/^\//,'');
 
