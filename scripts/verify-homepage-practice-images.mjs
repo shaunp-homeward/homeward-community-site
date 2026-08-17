@@ -20,8 +20,13 @@ const expected = [
 for (const [title, src] of expected) {
   assert(section.includes(title), `Homepage practice card missing: ${title}`);
   assert(section.includes(src), `Homepage practice card is not using production master: ${title}`);
-  const asset = path.join(root, src.replace(/^\//, ''));
-  await fs.stat(asset).catch(() => { throw new Error(`Production practice image is missing: ${src}`); });
+
+  const relative = src.replace(/^\//, '');
+  const asset = path.join(root, 'dist', relative);
+  const bytes = await fs.readFile(asset).catch(() => { throw new Error(`Deployed production practice image is missing: ${src}`); });
+  assert(bytes.length > 12, `Deployed practice image is unexpectedly small: ${src}`);
+  assert(bytes.subarray(0, 4).toString('ascii') === 'RIFF', `Practice image is not a valid RIFF/WebP file: ${src}`);
+  assert(bytes.subarray(8, 12).toString('ascii') === 'WEBP', `Practice image is not a valid WebP file: ${src}`);
 }
 
 for (const obsolete of [
@@ -33,4 +38,4 @@ for (const obsolete of [
   assert(!section.includes(obsolete), `Homepage practice section still contains obsolete QA substitution: ${obsolete}`);
 }
 
-console.log('Homepage practice image verification passed: CMS-selected visuals use production masters.');
+console.log('Homepage practice image verification passed: production masters are present in dist and valid WebP files.');
