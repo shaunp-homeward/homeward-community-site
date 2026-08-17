@@ -23,17 +23,91 @@ const replaceImagesInSection = (html, className, entries) => {
   );
   return String(html).replace(pattern, (section) => replaceImages(section, entries));
 };
+const replaceSectionContent = (html, className, transform) => {
+  const pattern = new RegExp(
+    `<section\\b[^>]*class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/section>`,
+    'i',
+  );
+  return String(html).replace(pattern, (section) => transform(section));
+};
+const esc = (value = '') => String(value)
+  .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+const publicPath = (value = '') => {
+  const src = String(value || '');
+  if (!src) return '';
+  return src.startsWith('/') ? src : `/${src}`;
+};
+const legacyOr = (value, legacyValue, launchValue) => {
+  if (value == null || value === '' || value === legacyValue) return launchValue;
+  return value;
+};
 
-// Compatibility only for the four legacy thumbnail paths already stored in the
-// homepage CMS. They resolve to the same approved images at production resolution.
-// Any new image selected in the CMS is not in this map and therefore renders exactly
-// as selected, so future CMS image edits flow through without a hidden override.
-const homepageLegacyPracticeImageMap = [
+// Final homepage practice-card compatibility. render-v8-home-concept-v1 still contains
+// an older QA substitution map, so catch both the legacy CMS thumbnails and those
+// intermediate QA paths here and resolve them to the approved production masters.
+const homepagePracticeImageMap = [
   ['/assets/review/practices/BP-A.jpg', '/assets/practices/home-breath-prayer.webp'],
   ['/assets/review/practices/BP-H.jpg', '/assets/practices/home-gratitude.webp'],
   ['/assets/review/practices/LC-B.jpg', '/assets/practices/home-light-of-christ.webp'],
   ['/assets/review/practices/SE-G.jpg', '/assets/practices/home-scripture-encounter.webp'],
+  ['/assets/living-awake/contemplative-room.webp', '/assets/practices/home-breath-prayer.webp'],
+  ['/assets/sacred-search/path-sunrise.webp', '/assets/practices/home-gratitude.webp'],
+  ['/assets/honest-questions/opening-light.webp', '/assets/practices/home-light-of-christ.webp'],
+  ['/assets/new-foundations/quiet-reading-room.webp', '/assets/practices/home-scripture-encounter.webp'],
 ];
+
+const updateHomepageHero = async (html) => {
+  const v8 = JSON.parse(await fs.readFile(new URL('../content/v8.json', import.meta.url), 'utf8'));
+  const hero = v8.homepage?.hero || {};
+
+  const headline = legacyOr(
+    hero.headline,
+    'You learned what to believe.',
+    'Spiritual life is more than belief.',
+  );
+  const emphasis = legacyOr(
+    hero.emphasis,
+    'But were you ever taught how to practice?',
+    'It’s something we practice—together.',
+  );
+  const description = legacyOr(
+    hero.description,
+    'Homeward Circles are small, Jesus-centered communities where people practice the way of Jesus together through prayer, silence, Scripture, reflection, and honest conversation. Begin with one four-week season, then keep journeying as the practices and friendships deepen.',
+    'Homeward Circles are small, guided communities for people who want a deeper spiritual life. Through contemplative prayer, meditation, scripture, silence, reflection, and honest conversation, we practice the way of Jesus together—learning to become more present to God, ourselves, and one another, and to carry that presence into everyday life. Begin with one four-week season.',
+  );
+
+  const prefix = 'It’s something ';
+  const emphasisMarkup = emphasis.startsWith(prefix)
+    ? `${esc(prefix)}<span class="hero-accent">${esc(emphasis.slice(prefix.length))}</span>`
+    : `<span class="hero-accent">${esc(emphasis)}</span>`;
+
+  return replaceSectionContent(html, 'hero', (section) => {
+    let output = section;
+    output = output.replace(/<p class="eyebrow">[\s\S]*?<\/p>/i, `<p class="eyebrow">${esc(hero.eyebrow || 'HOMEWARD CIRCLES')}</p>`);
+    output = output.replace(/<h1>[\s\S]*?<\/h1>/i, `<h1>${esc(headline)}<br/>${emphasisMarkup}</h1>`);
+    output = output.replace(/<p class="hero-lead">[\s\S]*?<\/p>/i, `<p class="hero-lead">${esc(description)}</p>`);
+
+    if (hero.primary_label || hero.primary_url || hero.secondary_label || hero.secondary_url) {
+      const primaryLabel = esc(hero.primary_label || 'Tell Us You’re Interested');
+      const primaryUrl = esc(hero.primary_url || '#interest');
+      const secondaryLabel = esc(hero.secondary_label || 'See How a Circle Works');
+      const secondaryUrl = esc(hero.secondary_url || 'circles.html');
+      output = output.replace(
+        /<div class="hero-actions">[\s\S]*?<\/div>/i,
+        `<div class="hero-actions"><a class="button button-copper" href="${primaryUrl}">${primaryLabel}</a><a class="button button-outline" href="${secondaryUrl}">${secondaryLabel}</a></div>`,
+      );
+    }
+
+    if (hero.image) {
+      output = output.replace(
+        /<div class="hero-image-wrap"><img[^>]*><\/div>/i,
+        `<div class="hero-image-wrap"><img src="${esc(publicPath(hero.image))}" alt="${esc(hero.image_alt || 'Adults gathered together in a warm Homeward Circle conversation')}"/></div>`,
+      );
+    }
+    return output;
+  });
+};
 
 const isPublicHtml = (name) => {
   const normalized = String(name).replaceAll('\\', '/');
@@ -45,7 +119,8 @@ fs.writeFile = async (file, data, ...rest) => {
   const name = String(file);
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
     data = renderHomeConceptV1(String(data));
-    data = replaceImagesInSection(data, 'home-practices', homepageLegacyPracticeImageMap);
+    data = replaceImagesInSection(data, 'home-practices', homepagePracticeImageMap);
+    data = await updateHomepageHero(String(data));
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
     data = applyCmsInlineFormatting(renderCirclesPrimary(String(data)));
     data = replaceImages(data, [[
