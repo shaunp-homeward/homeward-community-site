@@ -1,5 +1,5 @@
 {
-  "version": "8.1.1",
+  "version": "8.1.2",
   "hero": {
     "eyebrow": "HOMEWARD PRACTICES",
     "heading": "Train the inner life.",
@@ -103,7 +103,7 @@
         "snapshot": "Use the ancient prayer ‘Come, Lord Jesus’ as a gentle point of return when attention scatters.",
         "growth": "Attention · surrender · silence · openness",
         "image": "/assets/practices/maranatha-prayer.webp",
-        "image_alt": "A woman seated quietly with eyes closed in Christian meditation"
+        "image_alt": "A man seated quietly with eyes closed in Christian meditation"
       },
       {
         "title": "Inspired Reading",
@@ -127,7 +127,7 @@
         "snapshot": "Remember gifts, people, beauty, and ordinary goodness before God until gratitude becomes easier to notice.",
         "growth": "Joy · appreciation · hope · generosity",
         "image": "/assets/practices/home-gratitude.webp",
-        "image_alt": "A person smiling gently with a hand over the heart in gratitude"
+        "image_alt": "An older woman smiling gently with a hand over her heart in gratitude"
       }
     ]
   },
@@ -147,8 +147,8 @@
     "eyebrow": "WHY PRACTICE IN COMMUNITY?",
     "heading": "Practice alone can help. Practice together goes deeper.",
     "lead": "A Circle adds guidance, shared reflection, spiritual friendship, and a recurring place to learn from what is actually happening in your life.",
-    "image": "/assets/circles-page-v6.webp",
-    "image_alt": "Adults seated together in a warm living room Circle",
+    "image": "/assets/circles-home-v62.webp",
+    "image_alt": "A diverse group of adults gathered on a couch in a warm living room Circle",
     "points": [
       {"title": "We normalize the struggle.", "body": "Distraction and difficulty become something to work with, not a reason to quit."},
       {"title": "We learn from lived experience.", "body": "Another person may notice something you would never have seen alone."},
