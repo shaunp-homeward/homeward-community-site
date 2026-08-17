@@ -87,7 +87,7 @@ await fs.writeFile(configPath, config);
 const context = process.env.CONTEXT || '';
 const requestedBranch = process.env.BRANCH || '';
 const cmsBranch = context === 'production' || requestedBranch === 'main'
-  ? 'v8-four-week-front-door'
+  ? 'main'
   : (requestedBranch || 'v8-four-week-front-door');
 
 await fs.writeFile(
