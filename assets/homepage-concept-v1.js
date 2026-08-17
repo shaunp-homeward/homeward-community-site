@@ -53,9 +53,3 @@ if (sticky && interest && 'IntersectionObserver' in window) {
   }, { threshold: .08 });
   observer.observe(interest);
 }
-
-// V8 copy preview: use clearer practice names on the homepage collage.
-const gratitudeTitle = document.querySelector('.practice-tile.tile-b figcaption b');
-const lightOfChristTitle = document.querySelector('.practice-tile.tile-c figcaption b');
-if (gratitudeTitle) gratitudeTitle.textContent = 'Gratitude Practices';
-if (lightOfChristTitle) lightOfChristTitle.textContent = 'Light of Christ Meditation';
