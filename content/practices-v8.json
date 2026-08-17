@@ -1,12 +1,12 @@
 {
-  "version": "8.1.0",
+  "version": "8.1.1",
   "hero": {
     "eyebrow": "HOMEWARD PRACTICES",
     "heading": "Train the inner life.",
     "emphasis": "Become more fully alive.",
     "lead": "Ancient Christian practices train attention, open the heart, and help us become more present to God and the life right in front of us.",
     "promise": "The point is not to become good at meditation. The point is to become more present, peaceful, joyful, resilient, loving—and rooted in God.",
-    "image": "/assets/review/practices/LC-F.jpg",
+    "image": "/assets/practices/home-light-of-christ.webp",
     "image_alt": "A woman seated quietly in warm light, practicing contemplative prayer",
     "primary_label": "Explore the Practices",
     "primary_url": "#practice-library",
@@ -18,8 +18,8 @@
     "heading": "Spiritual practices are exercises for the heart and mind.",
     "body": "We exercise the body because strength does not appear simply because we understand it. In the same way, prayer, meditation, gratitude, Scripture, and reflection train attention, openness, presence, and love through practice.",
     "signature": "In Homeward, practice is not the destination. Love is.",
-    "image": "/assets/review/practices/BP-G.jpg",
-    "image_alt": "A person seated comfortably with eyes closed in a quiet breath prayer",
+    "image": "/assets/practices/home-breath-prayer.webp",
+    "image_alt": "A person seated quietly with a hand near the heart, practicing breath prayer",
     "benefits": [
       {"title": "Peace & Steadiness", "body": "Respond rather than react."},
       {"title": "Joy & Happiness", "body": "Notice goodness, gratitude, beauty, and delight."},
@@ -86,47 +86,47 @@
         "tradition": "Guided Christian meditation",
         "snapshot": "Receive Christ’s love and allow that love to widen toward others.",
         "growth": "Receptivity · compassion · love · connection with God",
-        "image": "/assets/review/practices/LC-F.jpg",
-        "image_alt": "Warm sunlight bathing a person in contemplative prayer"
+        "image": "/assets/practices/home-light-of-christ.webp",
+        "image_alt": "A woman seated quietly in warm light during contemplative prayer"
       },
       {
         "title": "Breath Prayer",
         "tradition": "Prayer joined to breathing",
         "snapshot": "Join a simple prayer to your breath, giving the mind and heart a gentle place to return.",
         "growth": "Steadiness · focus · presence",
-        "image": "/assets/review/practices/BP-G.jpg",
-        "image_alt": "A person practicing quiet breath prayer"
+        "image": "/assets/practices/home-breath-prayer.webp",
+        "image_alt": "A person practicing breath prayer with a hand near the heart"
       },
       {
         "title": "Maranatha Prayer",
         "tradition": "Christian meditation",
         "snapshot": "Use the ancient prayer ‘Come, Lord Jesus’ as a gentle point of return when attention scatters.",
         "growth": "Attention · surrender · silence · openness",
-        "image": "/assets/review/practices/BP-A.jpg",
-        "image_alt": "A person seated comfortably with eyes closed in meditation"
+        "image": "/assets/practices/maranatha-prayer.webp",
+        "image_alt": "A woman seated quietly with eyes closed in Christian meditation"
       },
       {
         "title": "Inspired Reading",
         "tradition": "Scripture as encounter",
         "snapshot": "Read Scripture slowly and receptively, listening for the word, image, question, or invitation that meets your life.",
         "growth": "Wisdom · meaning · discernment · curiosity",
-        "image": "/assets/review/practices/SE-G.jpg",
-        "image_alt": "People gathered around Scripture in warm, thoughtful conversation"
+        "image": "/assets/practices/home-scripture-encounter.webp",
+        "image_alt": "A person reading an open Bible slowly and attentively"
       },
       {
         "title": "Daily Reflection",
         "tradition": "Noticing God in your day",
         "snapshot": "Review the day with compassion, noticing where you felt alive, closed, grateful, reactive, loved, or invited to grow.",
         "growth": "Self-awareness · integration · honesty · growth",
-        "image": "/assets/review/practices/BP-H.jpg",
-        "image_alt": "A quiet reflective moment in a warm home setting"
+        "image": "/assets/practices/daily-reflection.webp",
+        "image_alt": "A journal, pen, and candle prepared for quiet daily reflection"
       },
       {
         "title": "Prayer of Gratitude",
         "tradition": "Prayerful remembering",
         "snapshot": "Remember gifts, people, beauty, and ordinary goodness before God until gratitude becomes easier to notice.",
         "growth": "Joy · appreciation · hope · generosity",
-        "image": "/assets/review/practices/GR-D.jpg",
+        "image": "/assets/practices/home-gratitude.webp",
         "image_alt": "A person smiling gently with a hand over the heart in gratitude"
       }
     ]
@@ -147,8 +147,8 @@
     "eyebrow": "WHY PRACTICE IN COMMUNITY?",
     "heading": "Practice alone can help. Practice together goes deeper.",
     "lead": "A Circle adds guidance, shared reflection, spiritual friendship, and a recurring place to learn from what is actually happening in your life.",
-    "image": "/assets/review/practices/SE-H.jpg",
-    "image_alt": "Three adults gathered around Scripture and conversation in a warm home setting",
+    "image": "/assets/circles-page-v6.webp",
+    "image_alt": "Adults seated together in a warm living room Circle",
     "points": [
       {"title": "We normalize the struggle.", "body": "Distraction and difficulty become something to work with, not a reason to quit."},
       {"title": "We learn from lived experience.", "body": "Another person may notice something you would never have seen alone."},
