@@ -33,7 +33,6 @@
 
       const configuredBranch = window.__HOMEWARD_CMS_BRANCH || 'v8-four-week-front-door';
       const branch = hostBranch || configuredBranch;
-      const safeBranch = branch === 'main' ? 'v8-four-week-front-door' : branch;
       const siteUrl = window.location.origin;
       const init = window.initCMS;
 
@@ -44,7 +43,7 @@
       init({
         config: {
           backend: {
-            branch: safeBranch,
+            branch,
           },
           site_url: siteUrl,
           display_url: siteUrl,
