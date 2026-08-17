@@ -36,16 +36,6 @@ const homepagePracticeImageMap = [
   ['/assets/new-foundations/quiet-reading-room.webp', '/assets/practices/home-scripture-encounter.webp'],
 ];
 
-const practiceImageMap = [
-  ['/assets/review/practices/LC-F.jpg', '/assets/honest-questions/opening-light.webp'],
-  ['/assets/review/practices/BP-G.jpg', '/assets/living-awake/contemplative-room.webp'],
-  ['/assets/review/practices/BP-A.jpg', '/assets/honest-questions/quiet-room.webp'],
-  ['/assets/review/practices/SE-G.jpg', '/assets/new-foundations/quiet-reading-room.webp'],
-  ['/assets/review/practices/BP-H.jpg', '/assets/embodied-faith/embodied-life.webp'],
-  ['/assets/review/practices/GR-D.jpg', '/assets/sacred-search/path-sunrise.webp'],
-  ['/assets/review/practices/SE-H.jpg', '/assets/embodied-faith/community.webp'],
-];
-
 const isPublicHtml = (name) => {
   const normalized = String(name).replaceAll('\\', '/');
   return normalized.includes('/dist/') && normalized.endsWith('.html')
@@ -65,8 +55,9 @@ fs.writeFile = async (file, data, ...rest) => {
     ]]);
     data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/practices.html') || name.endsWith('\\dist\\practices.html')) {
+    // Practices images now come directly from content/practices-v8.json so CMS image
+    // selections are the rendered source of truth. Do not substitute them after render.
     data = applyCmsInlineFormatting(renderPracticesPrimary(String(data)));
-    data = replaceImages(data, practiceImageMap);
     data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/about.html') || name.endsWith('\\dist\\about.html')) {
     data = applyCmsInlineFormatting(renderAboutPrimary(String(data)));
