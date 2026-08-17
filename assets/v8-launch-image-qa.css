@@ -11,10 +11,17 @@ body.v8-circles-primary img,
 body.v8-practices-primary img,
 body.v8-about-primary img{max-width:100%;display:block}
 
-/* The first two About hero tiles and the historical retreat carousel photos are
-   archival images. Preserve the whole frame rather than zooming into low-resolution originals. */
-body.v8-about-primary .ap-mosaic .ap-tile:nth-child(1) img,
-body.v8-about-primary .ap-mosaic .ap-tile:nth-child(2) img,
+/* Our Story hero: make the founder portrait the first/top-left anchor and let the
+   wide retreat group carry the larger top-right tile. */
+body.v8-about-primary .ap-mosaic{grid-template-columns:.84fr 1.16fr}
+body.v8-about-primary .ap-mosaic .ap-tile.founder{grid-column:1!important;grid-row:1!important}
+body.v8-about-primary .ap-mosaic .ap-tile.group{grid-column:2!important;grid-row:1!important}
+body.v8-about-primary .ap-mosaic .ap-tile.teacher{grid-column:1!important;grid-row:2!important}
+body.v8-about-primary .ap-mosaic .ap-tile.archive{grid-column:2!important;grid-row:2!important}
+body.v8-about-primary .ap-mosaic .ap-tile.group img{object-fit:contain!important;object-position:center!important;background:#eee8df;padding:6px}
+
+/* Historical retreat carousel photos should preserve the whole frame rather than
+   zooming away context. */
 body.v8-about-primary .ap-carousel .ap-photo:nth-child(1) img,
 body.v8-about-primary .ap-carousel .ap-photo:nth-child(2) img,
 body.v8-about-primary .ap-carousel .ap-photo:nth-child(4) img{object-fit:contain!important;object-position:center!important;background:#eee8df}
@@ -45,7 +52,7 @@ body.v8-about-primary .ap-carousel .ap-photo:nth-child(4) img{object-fit:contain
 
   /* On phones, every historical tile uses contain so no face, person, monastery,
      or meditation-hall edge disappears outside the viewport. */
-  body.v8-about-primary .ap-mosaic{gap:8px}
+  body.v8-about-primary .ap-mosaic{grid-template-columns:1fr 1fr!important;gap:8px}
   body.v8-about-primary .ap-mosaic img{height:145px!important;object-fit:contain!important;object-position:center!important;background:#eee8df;padding:3px}
   body.v8-about-primary .ap-photo img{height:250px!important;object-fit:contain!important;object-position:center!important;background:#eee8df}
 
