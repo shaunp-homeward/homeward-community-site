@@ -1,5 +1,5 @@
 {
-  "version": "8.1.0",
+  "version": "8.1.1",
   "hero": {
     "eyebrow": "OUR STORY · WHY HOMEWARD EXISTS",
     "heading": "I went looking for a faith I could actually live.",
@@ -8,9 +8,9 @@
     "support": "I could not find answers that satisfied both my mind and my heart. So I kept asking. Then I went looking.",
     "after_support": "That search eventually led through years of study, monasteries, retreat centers, extended silent practice, and contemplative communities across traditions—and, unexpectedly, back toward Christ.",
     "images": [
-      {"src": "/assets/our-story/personal-stupa-group.jpg", "alt": "Shaun with fellow retreat participants during a season of spiritual exploration", "class": "stupa"},
-      {"src": "/assets/our-story/father-lawrence-freeman.jpg", "alt": "Father Laurence Freeman during Shaun's contemplative journey", "class": "teacher"},
       {"src": "/assets/founder-headshot.jpg", "alt": "Shaun Pennington", "class": "founder"},
+      {"src": "/assets/our-story/group-wide.webp", "alt": "Shaun with monks and fellow retreat participants during a season of spiritual exploration", "class": "group"},
+      {"src": "/assets/our-story/laurence-freeman.webp", "alt": "Father Laurence Freeman during Shaun's contemplative journey", "class": "teacher"},
       {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during a season of spiritual formation", "class": "archive"}
     ]
   },
@@ -30,10 +30,10 @@
       "Over the years I spent months in retreat environments—monasteries, retreat centers, extended silent practice, and communities shaped by Christian meditation, Buddhist mindfulness, contemplative prayer, and other traditions. This wasn’t casual curiosity. I wanted to understand what sustained practice actually does to a life."
     ],
     "photos": [
-      {"src": "/assets/our-story/personal-hall.jpg", "alt": "A large meditation hall during Shaun's years of retreat practice", "caption": "Extended retreat environments taught me what repetition, silence, and community can do once practice becomes real.", "contain": true},
-      {"src": "/assets/our-story/personal-stupa-group.jpg", "alt": "Shaun with retreat companions near a stupa", "caption": "The search was experiential: learning with people, practicing, and asking what actually transforms us.", "contain": true},
+      {"src": "/assets/our-story/personal-hall.webp", "alt": "A large meditation hall during Shaun's years of retreat practice", "caption": "Extended retreat environments taught me what repetition, silence, and community can do once practice becomes real.", "contain": true},
+      {"src": "/assets/our-story/personal-sitting.webp", "alt": "Shaun seated in meditation during a retreat", "caption": "The search was experiential: learning with people, practicing, and asking what actually transforms us.", "contain": true},
       {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during spiritual formation", "caption": "I learned across traditions without pretending that every tradition teaches the same thing.", "contain": false},
-      {"src": "/assets/our-story/father-lawrence-freeman.jpg", "alt": "Father Laurence Freeman", "caption": "Christian contemplative teachers helped me rediscover silence and meditation within Christianity itself.", "contain": false}
+      {"src": "/assets/our-story/laurence-freeman.webp", "alt": "Father Laurence Freeman", "caption": "Christian contemplative teachers helped me rediscover silence and meditation within Christianity itself.", "contain": false}
     ],
     "note": "You don’t need any of this experience to begin. One reason I’m building Homeward is so people can taste the depth of these practices in ordinary life. No meditation experience or theological expertise is required. Start where you are."
   },
