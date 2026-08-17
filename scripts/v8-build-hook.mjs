@@ -16,25 +16,6 @@ const replaceImages = (html, entries) => {
   for (const [from, to] of entries) output = output.replaceAll(from, to);
   return output;
 };
-const replaceImagesInSection = (html, className, entries) => {
-  const pattern = new RegExp(
-    `<section\\b[^>]*class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/section>`,
-    'i',
-  );
-  return String(html).replace(pattern, (section) => replaceImages(section, entries));
-};
-
-// The homepage CMS still references the original review thumbnails for these four
-// practice cards. render-v8-home-concept-v1 historically swapped them to unrelated
-// launch-QA imagery. Restore the exact same visual selections with production-size
-// masters, scoped only to the homepage practice section. Any future CMS image that
-// does not use one of the legacy thumbnail paths flows through unchanged.
-const homepagePracticeImageMap = [
-  ['/assets/living-awake/contemplative-room.webp', '/assets/practices/home-breath-prayer.webp'],
-  ['/assets/sacred-search/path-sunrise.webp', '/assets/practices/home-gratitude.webp'],
-  ['/assets/honest-questions/opening-light.webp', '/assets/practices/home-light-of-christ.webp'],
-  ['/assets/new-foundations/quiet-reading-room.webp', '/assets/practices/home-scripture-encounter.webp'],
-];
 
 const isPublicHtml = (name) => {
   const normalized = String(name).replaceAll('\\', '/');
@@ -45,8 +26,9 @@ const isPublicHtml = (name) => {
 fs.writeFile = async (file, data, ...rest) => {
   const name = String(file);
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
+    // Homepage images are rendered directly from content/v8.json. The CMS-selected
+    // paths are the source of truth; do not substitute different images after render.
     data = renderHomeConceptV1(String(data));
-    data = replaceImagesInSection(data, 'home-practices', homepagePracticeImageMap);
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
     data = applyCmsInlineFormatting(renderCirclesPrimary(String(data)));
     data = replaceImages(data, [[
