@@ -16,6 +16,24 @@ const replaceImages = (html, entries) => {
   for (const [from, to] of entries) output = output.replaceAll(from, to);
   return output;
 };
+const replaceImagesInSection = (html, className, entries) => {
+  const pattern = new RegExp(
+    `<section\\b[^>]*class=["'][^"']*\\b${className}\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/section>`,
+    'i',
+  );
+  return String(html).replace(pattern, (section) => replaceImages(section, entries));
+};
+
+// Compatibility only for the four legacy thumbnail paths already stored in the
+// homepage CMS. They resolve to the same approved images at production resolution.
+// Any new image selected in the CMS is not in this map and therefore renders exactly
+// as selected, so future CMS image edits flow through without a hidden override.
+const homepageLegacyPracticeImageMap = [
+  ['/assets/review/practices/BP-A.jpg', '/assets/practices/home-breath-prayer.webp'],
+  ['/assets/review/practices/BP-H.jpg', '/assets/practices/home-gratitude.webp'],
+  ['/assets/review/practices/LC-B.jpg', '/assets/practices/home-light-of-christ.webp'],
+  ['/assets/review/practices/SE-G.jpg', '/assets/practices/home-scripture-encounter.webp'],
+];
 
 const isPublicHtml = (name) => {
   const normalized = String(name).replaceAll('\\', '/');
@@ -26,9 +44,8 @@ const isPublicHtml = (name) => {
 fs.writeFile = async (file, data, ...rest) => {
   const name = String(file);
   if (name.endsWith('/dist/index.html') || name.endsWith('\\dist\\index.html')) {
-    // Homepage images are rendered directly from content/v8.json. The CMS-selected
-    // paths are the source of truth; do not substitute different images after render.
     data = renderHomeConceptV1(String(data));
+    data = replaceImagesInSection(data, 'home-practices', homepageLegacyPracticeImageMap);
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
     data = applyCmsInlineFormatting(renderCirclesPrimary(String(data)));
     data = replaceImages(data, [[
@@ -37,8 +54,8 @@ fs.writeFile = async (file, data, ...rest) => {
     ]]);
     data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/practices.html') || name.endsWith('\\dist\\practices.html')) {
-    // Practices images now come directly from content/practices-v8.json so CMS image
-    // selections are the rendered source of truth. Do not substitute them after render.
+    // Practices images come directly from content/practices-v8.json. CMS image
+    // selections are the rendered source of truth; do not substitute them after render.
     data = applyCmsInlineFormatting(renderPracticesPrimary(String(data)));
     data = ensureStylesheet(data, '/assets/v8-launch-image-qa.css?v=3');
   } else if (name.endsWith('/dist/about.html') || name.endsWith('\\dist\\about.html')) {
