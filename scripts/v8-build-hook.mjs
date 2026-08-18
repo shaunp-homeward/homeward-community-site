@@ -118,7 +118,7 @@ fs.writeFile = async (file, data, ...rest) => {
     data = renderHomeConceptV1(String(data));
     data = replaceImagesInSection(data, 'home-practices', homepagePracticeImageMap);
     data = await updateHomepageHero(String(data));
-    data = ensureStylesheet(data, '/assets/v8-hero-no-underline.css?v=1');
+    data = ensureStylesheet(data, '/assets/v8-hero-no-underline.css?v=2');
   } else if (name.endsWith('/dist/circles.html') || name.endsWith('\\dist\\circles.html')) {
     data = applyCmsInlineFormatting(renderCirclesPrimary(String(data)));
     data = replaceImages(data, [[
