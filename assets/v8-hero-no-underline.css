@@ -1,2 +1,9 @@
-/* V8 homepage hero: retain copper italic emphasis but remove the decorative underline flourish. */
-.hero .hero-accent::after{display:none!important;content:none!important;}
+/* V8 homepage hero — Version B: warm gold emphasis with clean, high-contrast typography. */
+.hero .hero-accent{
+  color:var(--gold)!important;
+  font-style:normal!important;
+}
+.hero .hero-accent::after{
+  display:none!important;
+  content:none!important;
+}
