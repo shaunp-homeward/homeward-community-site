@@ -69,7 +69,7 @@ const updateHomepageHero = async (html) => {
   const emphasis = legacyOr(
     hero.emphasis,
     'But were you ever taught how to practice?',
-    'It’s something we practice—together.',
+    'It’s something we practice together.',
   );
   const description = legacyOr(
     hero.description,
@@ -77,10 +77,7 @@ const updateHomepageHero = async (html) => {
     'Homeward Circles are small, guided communities for people who want a deeper spiritual life. Through contemplative prayer, meditation, scripture, silence, reflection, and honest conversation, we practice the way of Jesus together—learning to become more present to God, ourselves, and one another, and to carry that presence into everyday life. Begin with one four-week season.',
   );
 
-  const prefix = 'It’s something ';
-  const emphasisMarkup = emphasis.startsWith(prefix)
-    ? `${esc(prefix)}<span class="hero-accent">${esc(emphasis.slice(prefix.length))}</span>`
-    : `<span class="hero-accent">${esc(emphasis)}</span>`;
+  const emphasisMarkup = `<span class="hero-accent">${esc(emphasis)}</span>`;
 
   return replaceSectionContent(html, 'hero', (section) => {
     let output = section;
