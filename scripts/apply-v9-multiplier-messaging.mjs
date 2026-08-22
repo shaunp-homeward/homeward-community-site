@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { applySharedShell } from './render-v8-shared-shell.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -12,7 +13,7 @@ const sectionPattern = (className) => new RegExp(
 
 const addStylesheet = (html) => {
   if (html.includes('/assets/v9-multiplier-messaging.css')) return html;
-  return html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-multiplier-messaging.css?v=1">\n</head>');
+  return html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-multiplier-messaging.css?v=2">\n</head>');
 };
 
 const addChurchNav = (html, isChurchPage = false) => {
@@ -42,18 +43,22 @@ const updateHero = (html) => html.replace(sectionPattern('hero'), (section) => {
 const updatePractices = (html) => html.replace(sectionPattern('home-practices'), (section) => {
   let output = section;
   output = output.replace(/<p class="eyebrow">[\s\S]*?<\/p>/i, '<p class="eyebrow">WHY PRACTICE MATTERS</p>');
-  output = output.replace(/<h2>[\s\S]*?<\/h2>/i, '<h2>Spiritual exercises for the inner life.</h2>');
+  output = output.replace(/<h2>[\s\S]*?<\/h2>/i, '<h2>Spiritual exercises for the heart and mind.</h2>');
   output = output.replace(
     /<p class="practices-subhead">[\s\S]*?<\/p>/i,
     '<p class="practices-subhead"><strong>Ancient practices for everyday life.</strong></p>',
   );
   output = output.replace(
     /<p class="practices-lead">[\s\S]*?<\/p>/i,
-    '<p class="practices-lead">Just as physical exercise strengthens the body through repetition, spiritual exercises train attention, openness, presence, and love. Homeward draws from ancient Christian practices—contemplative prayer, meditation, Scripture, gratitude, silence, and reflection—and makes them simple enough to practice in ordinary life. Over time, the hope is not simply to get better at a technique, but to become more present to God, ourselves, and one another; more peaceful and less reactive; more connected, joyful, loving, and ready to serve.</p>',
+    '<p class="practices-lead"><strong>We exercise our bodies to grow stronger through repeated practice. The heart and mind are formed through practice, too.</strong> Contemplative prayer, meditation, Scripture, gratitude, silence, and reflection train our attention, deepen awareness, and help us return to God in the middle of ordinary life. Over time, these ancient Christian practices can help us become more present and less reactive, more peaceful and steady, more connected and joyful, and increasingly able to love and serve.</p>',
+  );
+  output = output.replace(
+    /<p>The goal is formation:[\s\S]*?<\/p>/i,
+    '<p><strong>The goal is not to master a technique. It is formation:</strong> becoming more attentive to God, more free in how we respond, and more able to carry presence, compassion, and love into the places we actually live.</p>',
   );
   output = output.replace(
     /<p>The point is not to become good at meditation\.[\s\S]*?<\/p>/i,
-    '<p>The goal is formation: becoming the kind of people who can notice God more readily, respond with greater freedom, and carry love into the places we actually live.</p>',
+    '<p><strong>The goal is not to master a technique. It is formation:</strong> becoming more attentive to God, more free in how we respond, and more able to carry presence, compassion, and love into the places we actually live.</p>',
   );
   return output;
 });
@@ -86,18 +91,19 @@ const partnerSection = `
 
 const injectPartnerSection = (html) => {
   if (html.includes('id="for-churches"')) return html;
-  return html.replace(/<section\b[^>]*class=["'][^"']*\bhome-practices\b/i, `${partnerSection}\n<section class="home-practices`);
+  return html.replace(sectionPattern('season-wrap'), (section) => `${section}\n${partnerSection}`);
 };
 
 const processHtml = async (filePath) => {
   let html = await fs.readFile(filePath, 'utf8');
   const base = path.basename(filePath).toLowerCase();
+  if (base === 'churches.html') html = applySharedShell(html, filePath);
   html = addStylesheet(html);
   html = addChurchNav(html, base === 'churches.html');
   if (base === 'index.html') {
     html = updateHero(html);
-    html = injectPartnerSection(html);
     html = updatePractices(html);
+    html = injectPartnerSection(html);
   }
   await fs.writeFile(filePath, html, 'utf8');
 };
