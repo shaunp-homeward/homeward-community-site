@@ -76,10 +76,13 @@ v8PagesCollection = makeRich(v8PagesCollection);
 const v8AboutCollectionPath = path.join(source, 'v8-about-collection.yml');
 let v8AboutCollection = makeRich(await fs.readFile(v8AboutCollectionPath, 'utf8'));
 
+const v9LiveCollectionPath = path.join(source, 'v9-live-collection.yml');
+let v9LiveCollection = makeRich(await fs.readFile(v9LiveCollectionPath, 'utf8'));
+
 if (!config.includes('name: v8_front_door')) {
   config = config.replace(
     'collections:\n',
-    `collections:\n${v8Collection.trim()}\n${v8GlobalCollection.trim()}\n${v8AboutCollection.trim()}\n${v8PagesCollection.trim()}\n`
+    `collections:\n${v9LiveCollection.trim()}\n${v8Collection.trim()}\n${v8GlobalCollection.trim()}\n${v8AboutCollection.trim()}\n${v8PagesCollection.trim()}\n`
   );
 }
 await fs.writeFile(configPath, config);
