@@ -1,7 +1,17 @@
 .partner-page .partner-hero .shell{max-width:900px}
 .partner-page .partner-hero-actions{gap:12px}
-.partner-page .secondary-cta{background:transparent;color:#153A2E;border-color:rgba(21,58,46,.45)}
-.partner-page .secondary-cta:hover{background:rgba(21,58,46,.06);border-color:#153A2E}
+/* Secondary CTAs: clearly visible, deliberately subordinate to copper primary actions. */
+.partner-page .secondary-cta{background:#fff;color:#153A2E;border:1.5px solid rgba(21,58,46,.62);box-shadow:0 6px 18px rgba(21,58,46,.07)}
+.partner-page .secondary-cta:hover{background:#153A2E;color:#FAF6EF;border-color:#153A2E;box-shadow:0 10px 24px rgba(21,58,46,.14)}
+/* Dark hero needs the inverse treatment. */
+.partner-page .partner-hero .secondary-cta{background:rgba(250,246,239,.06);color:#FAF6EF;border-color:rgba(250,246,239,.78);box-shadow:none}
+.partner-page .partner-hero .secondary-cta:hover{background:#FAF6EF;color:#153A2E;border-color:#FAF6EF}
+/* Practices CTA lives inside the forest benefit panel, so give it a warm-ivory fill. */
+.partner-page .partner-benefit-panel .secondary-cta{background:#FAF6EF;color:#153A2E;border-color:#FAF6EF;box-shadow:0 8px 22px rgba(0,0,0,.14)}
+.partner-page .partner-benefit-panel .secondary-cta:hover{background:#fff;color:#153A2E;border-color:#fff;transform:translateY(-2px)}
+/* Gold final CTA area gets a crisp ivory/forest secondary action. */
+.partner-page .partner-final-cta .secondary-cta{background:#FAF6EF;color:#153A2E;border-color:#153A2E;box-shadow:0 6px 18px rgba(21,58,46,.08)}
+.partner-page .partner-final-cta .secondary-cta:hover{background:#153A2E;color:#FAF6EF}
 .partner-page .partner-section-cta,.partner-page .pilot-review-actions,.partner-page .leader-cta{display:flex;justify-content:center;gap:14px;align-items:center;flex-wrap:wrap;margin-top:28px}
 .partner-page .churches-wide-image{margin:34px auto 0;max-width:1120px;border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(35,31,24,.11);background:#e9e0d2}
 .partner-page .churches-wide-image img{display:block;width:100%;height:390px;object-fit:cover;object-position:center 48%}
@@ -16,8 +26,8 @@
 .partner-page .leader-renewal-review-media img{width:100%;height:100%;min-height:320px;display:block;object-fit:cover;object-position:50% center}
 .partner-page .leader-renewal-intro strong{color:#FAF6EF}
 .partner-page .leader-renewal-review-cta{margin-top:24px}
-.partner-page .button-outline-light{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(250,246,239,.58);color:#FAF6EF;background:rgba(250,246,239,.03);border-radius:999px;padding:12px 18px;text-decoration:none;font-weight:700;transition:.2s ease}
-.partner-page .button-outline-light:hover{background:rgba(250,246,239,.1);border-color:rgba(250,246,239,.85)}
+.partner-page .button-outline-light{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(250,246,239,.78);color:#FAF6EF;background:rgba(250,246,239,.05);border-radius:999px;padding:12px 18px;text-decoration:none;font-weight:700;transition:.2s ease}
+.partner-page .button-outline-light:hover{background:#FAF6EF;color:#153A2E;border-color:#FAF6EF}
 .partner-page .after-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px;border-top:1px solid rgba(21,58,46,.14);border-bottom:1px solid rgba(21,58,46,.14)}
 .partner-page .after-option{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:26px 24px}
 .partner-page .after-option + .after-option{border-left:1px solid rgba(21,58,46,.14)}
