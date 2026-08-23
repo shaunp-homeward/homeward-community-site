@@ -13,6 +13,9 @@
 .v9-partner-cards span{grid-column:1;grid-row:1;color:#B53A2A;font-weight:700;font-size:.82rem;letter-spacing:.12em;padding-top:5px}
 .v9-partner-cards h3{grid-column:2;grid-row:1;color:#153A2E;margin:0}
 .v9-partner-cards p{grid-column:2;grid-row:2;color:#4c4c4c;margin:0}
+.v9-partner-action-row{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px;padding-top:28px;border-top:1px solid rgba(250,246,239,.14)}
+.v9-partner-action-row .v9-partner-meta{flex-basis:100%;text-align:center;margin:0}
+.v9-partner-action-row .button-copper{box-shadow:0 10px 28px rgba(0,0,0,.16)}
 
 .partner-page .shell{width:min(1180px,calc(100% - 48px));margin-inline:auto}
 .partner-page .partner-hero{background:#153A2E;color:#FAF6EF;padding:88px 0 72px}
@@ -60,23 +63,45 @@
 .partner-page .partner-faq details{background:#fff;border:1px solid rgba(21,58,46,.14);border-radius:14px;padding:18px 20px}
 .partner-page .partner-faq summary{cursor:pointer;font-weight:700;color:#153A2E}
 .partner-page .partner-faq p{margin:12px 0 0}
-.partner-page .partner-final-cta{text-align:center;background:#E0A443;padding:64px 24px}
+.partner-page .partner-final-cta{background:#E0A443;padding:70px 0;text-align:left}
 .partner-page .partner-final-cta h2{color:#153A2E}
+.partner-page .partner-interest-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(380px,1.1fr);gap:50px;align-items:start}
+.partner-page .partner-interest-copy p{max-width:620px}
+.partner-page .partner-interest-copy .eyebrow{color:#153A2E}
+.partner-page .partner-interest-copy .text-link{display:inline-block;margin-top:16px;color:#153A2E}
+.partner-page .partner-form-reassurance{margin-top:22px;padding:16px 18px;border-left:3px solid #B53A2A;background:rgba(250,246,239,.44)}
+.partner-page .partner-interest-form{background:#fff;border-radius:22px;padding:30px;box-shadow:0 16px 42px rgba(21,58,46,.16)}
+.partner-page .partner-interest-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.partner-page .partner-interest-form label{display:grid;gap:7px;margin-bottom:15px;font-size:.9rem;font-weight:700;color:#153A2E}
+.partner-page .partner-interest-form input,.partner-page .partner-interest-form textarea{width:100%;box-sizing:border-box;border:1px solid rgba(21,58,46,.22);border-radius:10px;background:#fff;padding:12px 13px;font:inherit;color:#333}
+.partner-page .partner-interest-form input:focus,.partner-page .partner-interest-form textarea:focus{outline:2px solid rgba(181,58,42,.28);border-color:#B53A2A}
+.partner-page .partner-interest-form .checkbox{display:flex;grid-template-columns:auto 1fr;align-items:flex-start;gap:10px;font-weight:500;color:#4c4c4c}
+.partner-page .partner-interest-form .checkbox input{width:auto;margin-top:4px}
+.partner-page .partner-interest-form .form-submit{width:100%;margin-top:6px}
+.partner-page .partner-interest-form .form-privacy{font-size:.82rem;color:#666;margin:12px 0 0;text-align:center}
+.partner-page .partner-interest-form .form-message{margin:14px 0 0;padding:12px;border-radius:10px;background:#FAF6EF;color:#153A2E;font-size:.9rem}
+.partner-page .partner-interest-form .form-message.is-error{background:#fff1ed;color:#8d2d21}
 .partner-page .partner-footer{padding:28px 24px;text-align:center;background:#153A2E;color:rgba(250,246,239,.76)}
 
 @media(max-width:900px){
-  .v9-partner-grid,.partner-page .partner-exercise-grid{grid-template-columns:1fr;gap:32px}
+  .v9-partner-grid,.partner-page .partner-exercise-grid,.partner-page .partner-interest-grid{grid-template-columns:1fr;gap:32px}
   .partner-page .partner-grid-3,.partner-page .partner-grid-4{grid-template-columns:1fr 1fr}
   .partner-page .pilot-facts{grid-template-columns:1fr 1fr}
   .partner-page .leader-renewal-points{grid-template-columns:1fr}
+  .partner-page .partner-interest-copy{max-width:760px}
 }
 @media(max-width:620px){
   .v9-partner-section{padding-top:64px;padding-bottom:64px}
   .v9-partner-lead{font-size:1.08rem}
+  .v9-partner-action-row{justify-content:flex-start}
+  .v9-partner-action-row .v9-partner-meta{text-align:left}
   .partner-page .shell{width:min(100% - 30px,1180px)}
   .partner-page .partner-hero{padding:64px 0 52px}
   .partner-page .partner-section{padding:56px 0}
   .partner-page .partner-grid-3,.partner-page .partner-grid-4,.partner-page .pilot-facts{grid-template-columns:1fr}
   .partner-page .partner-dark-card,.partner-page .partner-benefit-panel{padding:28px 22px}
   .partner-page .partner-card{padding:20px}
+  .partner-page .partner-final-cta{padding:56px 0}
+  .partner-page .partner-interest-form{padding:22px 18px}
+  .partner-page .partner-interest-form .form-row{grid-template-columns:1fr;gap:0}
 }
