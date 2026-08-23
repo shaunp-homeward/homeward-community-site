@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node --import ./scripts/v8-build-hook.mjs scripts/build.mjs && node scripts/copy-admin.mjs && node scripts/copy-drafts.mjs && node scripts/normalize-v8-brand.mjs && node scripts/apply-v9-multiplier-messaging.mjs",
+    "build": "node --import ./scripts/v8-build-hook.mjs scripts/build.mjs && node scripts/copy-admin.mjs && node scripts/copy-drafts.mjs && node scripts/normalize-v8-brand.mjs && node scripts/apply-v9-multiplier-messaging.mjs && node scripts/verify-v9-cms.mjs",
     "dev": "npx netlify dev",
-    "verify": "node scripts/verify-v8-launch.mjs && node scripts/verify-about-links.mjs && node scripts/verify-homepage-practice-images.mjs",
+    "verify": "node scripts/verify-v8-launch.mjs && node scripts/verify-about-links.mjs && node scripts/verify-homepage-practice-images.mjs && node scripts/verify-v9-cms.mjs",
     "verify:legacy": "node scripts/verify.mjs"
   },
   "engines": {
