@@ -25,21 +25,9 @@
       "callout": "Experience it first. Tell us what serves your people. Help us make it better.",
       "after": "If the experience bears fruit, we can explore helping one of your leaders learn to carry a Homeward Circle forward.",
       "steps": [
-        {
-          "number": "01",
-          "title": "Experience it",
-          "description": "Let Homeward facilitate the first Circle so leaders can participate rather than manage another program."
-        },
-        {
-          "number": "02",
-          "title": "See what serves",
-          "description": "Notice what deepens practice, connection, listening, and everyday spiritual formation for your people."
-        },
-        {
-          "number": "03",
-          "title": "Carry it forward",
-          "description": "If the experience is life-giving, explore a simple pathway for one of your leaders to apprentice and lead."
-        }
+        {"number": "01", "title": "Experience it", "description": "Let Homeward facilitate the first Circle so leaders can participate rather than manage another program."},
+        {"number": "02", "title": "See what serves", "description": "Notice what deepens practice, connection, listening, and everyday spiritual formation for your people."},
+        {"number": "03", "title": "Carry it forward", "description": "If the experience is life-giving, explore a simple pathway for one of your leaders to learn to lead."}
       ],
       "primary_label": "Explore a Circle for Your Community",
       "secondary_label": "Talk with Shaun",
@@ -119,30 +107,28 @@
     },
     "after": {
       "eyebrow": "AFTER FOUR WEEKS",
-      "heading": "There is a pause—not a pressure campaign.",
+      "heading": "Pause. Notice what served. Then decide what comes next.",
+      "intro": "The practices remain useful whether the group continues or not. If there is energy for more, there are a few natural ways forward.",
       "items": [
-        {"number":"01","title":"Stop","description":"The practices remain yours. Nothing automatically continues."},
-        {"number":"02","title":"Continue","description":"Join another Homeward season if the experience is serving the group."},
-        {"number":"03","title":"Host","description":"Offer another Circle to a different group in your community."},
-        {"number":"04","title":"Lead","description":"Identify someone who wants to apprentice and learn to facilitate a Homeward Circle."}
+        {"number":"01","title":"Carry it forward","description":"Use the practices personally or bring them into existing groups, staff rhythms, retreats, pastoral care, and prayer."},
+        {"number":"02","title":"Continue together","description":"Join another Homeward season if the experience is serving the group."},
+        {"number":"03","title":"Host another Circle","description":"Offer the experience to another group in your church or community when there is genuine interest."}
       ]
     },
     "leadership": {
-      "eyebrow": "FROM PARTICIPANT TO FACILITATOR",
+      "eyebrow": "LEADING A CIRCLE",
       "heading": "The best way to understand a Circle is to experience one.",
-      "intro": "Potential leaders are formed through practice and apprenticeship—not handed a binder and sent away.",
+      "intro": "Some participants will naturally feel drawn to create this kind of space for others. Homeward helps them learn the facilitation rhythm, leader posture, and guardrails that protect the experience.",
       "items": [
-        {"number":"01","title":"Experience","description":"Participate fully in a Circle and learn the rhythm from the inside."},
-        {"number":"02","title":"Apprentice","description":"See the facilitation choices, leader posture, and guardrails that protect the experience."},
-        {"number":"03","title":"Co-lead","description":"Guide portions of a Circle with an experienced leader present."},
-        {"number":"04","title":"Lead","description":"Facilitate a Homeward Circle while remaining connected to an ongoing community of leaders."}
+        {"number":"01","title":"Experience it first","description":"Participate fully in a Circle and learn the rhythm from the inside."},
+        {"number":"02","title":"Learn to lead","description":"Learn the practices, facilitation posture, and guardrails; practice leading with support; then facilitate a Circle while staying connected to Homeward."}
       ]
     },
     "posture": {
       "eyebrow": "OUR POSTURE",
       "heading": "Rooted in Jesus. Open to honest questions.",
       "lead": "Homeward draws from Scripture and the Christian contemplative tradition. Jesus remains at the center.",
-      "body": "At the same time, participants are not required to pretend certainty, arrive with identical theology, or debate their way toward agreement. We create room to pray, practice, listen, question, explore Scripture, and grow in love of God and neighbor together."
+      "body": "At the same time, participants are not required to pretend certainty, arrive with identical theology, or debate their way toward agreement. We create room to pray, practice, listen, question, explore Scripture, and grow in love of God and neighbor together. The goal is not agreement for its own sake. The hoped-for fruit is greater love of God and neighbor."
     },
     "faq": {
       "eyebrow": "COMMON QUESTIONS",
@@ -153,7 +139,7 @@
         {"question":"Do participants have to agree doctrinally?","answer":"No. Homeward creates room for honest questions and different stages of faith without abandoning its Christian center."},
         {"question":"What does it cost?","answer":"Nothing. The initial pilot is free to the church and participants."},
         {"question":"How much work will this create for our staff?","answer":"Very little for the initial pilot. Homeward facilitates the experience and provides the materials. Your main task is helping identify the people and a workable gathering time or place."},
-        {"question":"Can one of our people eventually lead it?","answer":"Yes. Developing thoughtful Circle leaders through experience, apprenticeship, and co-leading is part of Homeward’s long-term model."},
+        {"question":"Can one of our people eventually lead it?","answer":"Yes. The best path is to experience a Circle first, then learn the facilitation rhythm, leader posture, practices, and guardrails with support from Homeward."},
         {"question":"Does Homeward compete with our church?","answer":"No. The goal is to strengthen spiritual formation and community within and around the church, not replace congregational life."}
       ]
     },
