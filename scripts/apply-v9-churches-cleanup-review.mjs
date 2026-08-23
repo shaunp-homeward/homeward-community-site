@@ -17,7 +17,7 @@ const esc = (value) => String(value ?? '')
 let html = await fs.readFile(filePath, 'utf8');
 
 if (!html.includes('/assets/v9-churches-cleanup-review.css')) {
-  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=6">\n</head>');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=7">\n</head>');
 }
 
 const locateSection = (marker) => {
@@ -42,7 +42,7 @@ const replaceSectionContaining = (marker, replacement) => {
   return true;
 };
 
-// HERO — return to the original, confident text-first opening.
+// HERO — restore the strong original text-first opening.
 replaceSectionContaining('class="partner-hero"', `
 <section class="partner-hero">
   <div class="shell">
@@ -51,13 +51,13 @@ replaceSectionContaining('class="partner-hero"', `
     <p class="lead">${esc(c.hero.lead)}</p>
     <div class="partner-hero-actions">
       <a class="button button-copper" href="#partner-interest">${esc(c.hero.primary_label)}</a>
-      <a class="button button-outline" href="/connect.html">${esc(c.hero.secondary_label)}</a>
+      <a class="button button-outline secondary-cta" href="/connect.html">${esc(c.hero.secondary_label)}</a>
     </div>
     <p class="partner-meta">${esc(c.hero.meta)}</p>
   </div>
 </section>`);
 
-// EXPERIENCE — preserve the original rhythm, then add one warm visual moment and a clear secondary CTA.
+// EXPERIENCE — preserve the original cards, add one warm editorial image, and keep the CTA secondary.
 const experienceCards = c.experience.items
   .map((item) => `<article class="partner-card"><span class="number">${esc(item.number)}</span><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></article>`)
   .join('');
@@ -70,18 +70,18 @@ replaceSectionContaining(c.experience.eyebrow, `
       <p>${esc(c.experience.intro)}</p>
     </div>
     <div class="partner-grid-3">${experienceCards}</div>
-    <figure class="partner-visual-break">
+    <figure class="churches-wide-image">
       <img src="/assets/churches-circle-warm-v9.webp" alt="A small group gathered around Scripture in warm conversation"/>
     </figure>
     <div class="partner-section-cta">
-      <a class="button button-outline" href="/circles.html">See How a Circle Works</a>
+      <a class="button button-outline secondary-cta" href="/circles.html">See How a Circle Works</a>
     </div>
   </div>
 </section>`);
 
 // HOW HOMEWARD FITS intentionally remains the original V9 section.
 
-// PRACTICE — keep the original composition and make the research/practices action unmistakably clickable.
+// PRACTICE — put the research/practices CTA directly below the benefits people receive.
 const benefits = c.practice.benefits
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -96,19 +96,24 @@ replaceSectionContaining(c.practice.eyebrow, `
         <p>${esc(c.practice.body)}</p>
         <div class="practice-callout"><strong>${esc(c.practice.callout_bold)}</strong> ${esc(c.practice.callout_body)}</div>
         <p>${esc(c.practice.closing)}</p>
-        <div class="practice-review-cta">
-          <a class="button button-outline" href="/practices.html">Explore the Practices &amp; Research</a>
-        </div>
       </div>
-      <aside class="partner-benefit-panel">
-        <p class="eyebrow">${esc(c.practice.benefits_eyebrow)}</p>
-        <div class="partner-benefit-list">${benefits}</div>
-      </aside>
+      <div class="practice-side">
+        <aside class="partner-benefit-panel">
+          <p class="eyebrow">${esc(c.practice.benefits_eyebrow)}</p>
+          <div class="partner-benefit-list">${benefits}</div>
+          <div class="practice-review-cta">
+            <a class="button button-outline secondary-cta" href="/practices.html">Explore the Practices &amp; Research</a>
+          </div>
+        </aside>
+        <figure class="practice-editorial-image">
+          <img src="/assets/practices/home-scripture-encounter.webp" alt="Scripture and reflection as shared practice"/>
+        </figure>
+      </div>
     </div>
   </div>
 </section>`);
 
-// PASTOR / LEADER RENEWAL — keep the original copy and add the seated pastor/leader image here, where it carries meaning.
+// PASTOR / LEADER RENEWAL — retain the strong original copy and add the seated pastor image.
 const renewalPoints = c.renewal.points
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -135,7 +140,7 @@ replaceSectionContaining(c.renewal.eyebrow, `
   </div>
 </section>`);
 
-// PILOT — preserve the original strong invitation and give both actions proper button treatment.
+// PILOT — only the pilot action is copper; conversation remains secondary.
 const pilotFacts = c.pilot.facts
   .map((item) => `<div class="pilot-fact"><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -154,48 +159,45 @@ replaceSectionContaining(c.pilot.eyebrow, `
     </div>
     <div class="pilot-review-actions">
       <a class="button button-copper" href="#partner-interest">Explore a Free Pilot</a>
-      <a class="button button-outline" href="/connect.html">Talk with Shaun</a>
+      <a class="button button-outline secondary-cta" href="/connect.html">Talk with Shaun</a>
     </div>
   </div>
 </section>`);
 
-// AFTER FOUR WEEKS — retain the original clarity, reduce four choices to the three that matter most.
+// AFTER FOUR WEEKS — simple, confident, and not overloaded.
 replaceSectionContaining(c.after.eyebrow, `
 <section class="partner-section alt">
   <div class="shell">
     <div class="section-heading centered">
       <p class="eyebrow">AFTER FOUR WEEKS</p>
-      <h2>Pause. Notice what served. Decide what comes next.</h2>
-      <p>The practices remain useful whether the group continues or not. If there is energy for more, the next step can stay simple.</p>
+      <h2>Pause. Notice what served. Then decide what comes next.</h2>
+      <p>The practices remain useful whether the group continues or not. If there is energy for more, there are a few natural ways forward.</p>
     </div>
-    <div class="after-card-grid">
-      <article class="partner-card after-card">
+    <div class="after-options">
+      <div class="after-option">
         <span class="number">01</span>
-        <h3>Carry it forward</h3>
-        <p>Use the practices personally or bring them into existing groups, staff rhythms, retreats, pastoral care, and prayer.</p>
-      </article>
-      <article class="partner-card after-card">
+        <div><h3>Carry it forward</h3><p>Use the practices personally or bring them into existing groups, staff rhythms, retreats, pastoral care, and prayer.</p></div>
+      </div>
+      <div class="after-option">
         <span class="number">02</span>
-        <h3>Continue together</h3>
-        <p>Join another Homeward season if the experience is serving the group.</p>
-      </article>
-      <article class="partner-card after-card">
+        <div><h3>Continue together</h3><p>Join another Homeward season if the experience is serving the group.</p></div>
+      </div>
+      <div class="after-option">
         <span class="number">03</span>
-        <h3>Host another Circle</h3>
-        <p>Offer the experience to another group in your church or community when there is genuine interest.</p>
-      </article>
+        <div><h3>Host another Circle</h3><p>Offer the experience to another group in your church or community when there is genuine interest.</p></div>
+      </div>
     </div>
   </div>
 </section>`);
 
-// LEADERSHIP — restore the strongest original line, then simplify the path to two movements.
+// LEADERSHIP — restore the strongest original idea, simplified to two movements.
 replaceSectionContaining(c.leadership.eyebrow, `
-<section class="partner-section">
+<section class="partner-section leader-section">
   <div class="shell">
     <div class="section-heading centered">
       <p class="eyebrow">LEADING A CIRCLE</p>
       <h2>The best way to understand a Circle is to experience one.</h2>
-      <p><strong>Experience it first. Then learn to lead.</strong> For people who feel drawn to facilitate, Homeward provides a simple path to learn the practices, leader posture, and guardrails that protect the experience.</p>
+      <p>Some participants will naturally feel drawn to create this kind of space for others. Homeward helps them learn the facilitation rhythm, leader posture, and guardrails that protect the experience.</p>
     </div>
     <div class="leader-two-step">
       <article>
@@ -207,15 +209,16 @@ replaceSectionContaining(c.leadership.eyebrow, `
       <article>
         <span class="number">02</span>
         <h3>Learn to lead</h3>
-        <p>Learn the facilitation rhythm and practices, lead with support, and stay connected to Homeward as you create this kind of space for others.</p>
+        <p>Learn the practices, facilitation posture, and guardrails; practice leading with support; then facilitate a Circle while staying connected to Homeward.</p>
       </article>
+    </div>
+    <div class="leader-cta">
+      <a class="button button-outline secondary-cta" href="#partner-interest">Explore Leading a Circle</a>
     </div>
   </div>
 </section>`);
 
-// OUR POSTURE intentionally remains the original clean V9 treatment.
-
-// FAQ — retain the highest-value questions and remove apprenticeship terminology.
+// FAQ — keep the highest-value questions and avoid apprenticeship language.
 const faqWanted = [
   'Is Homeward Christian?',
   'Will this replace our current small groups?',
@@ -229,7 +232,7 @@ const faqItems = faqWanted
   .filter(Boolean)
   .map((item) => {
     const answer = item.question === 'Can one of our people eventually lead it?'
-      ? 'Yes. The best path is to experience a Circle first, then learn the facilitation rhythm, practices, leader posture, and guardrails with support from Homeward.'
+      ? 'Yes. The best path is to experience a Circle first, then learn the facilitation rhythm, leader posture, practices, and guardrails with support from Homeward.'
       : item.answer;
     return `<details><summary>${esc(item.question)}</summary><p>${esc(answer)}</p></details>`;
   })
@@ -245,11 +248,11 @@ replaceSectionContaining(c.faq.eyebrow, `
   </div>
 </section>`);
 
-// Make the final conversational action visually intentional rather than an inline text link.
+// Final conversational option is a secondary outline button, never copper.
 html = html.replace(
   '<a class="text-link" href="/connect.html">Prefer to talk first? Talk with Shaun <span>→</span></a>',
-  '<a class="button button-outline partner-final-talk-button" href="/connect.html">Prefer to talk first? Talk with Shaun</a>'
+  '<a class="button button-outline secondary-cta partner-final-talk-button" href="/connect.html">Prefer to talk first? Talk with Shaun</a>'
 );
 
 await fs.writeFile(filePath, html, 'utf8');
-console.log('Applied V9 Churches & Communities creative-director review v6 overlay.');
+console.log('Applied V9 Churches & Communities creative-director review v7 overlay.');
