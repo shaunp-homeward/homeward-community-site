@@ -13,14 +13,24 @@ const sectionPattern = (className) => new RegExp(
 
 const addStylesheet = (html) => {
   if (html.includes('/assets/v9-multiplier-messaging.css')) return html;
-  return html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-multiplier-messaging.css?v=2">\n</head>');
+  return html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-multiplier-messaging.css?v=3">\n</head>');
 };
 
 const addChurchNav = (html, isChurchPage = false) => {
   const link = `<a href="/churches.html"${isChurchPage ? ' class="is-active" aria-current="page"' : ''}>For Churches &amp; Communities</a>`;
   const inject = (navClass, source) => source.replace(
     new RegExp(`(<nav\\b[^>]*class=["'][^"']*\\b${navClass}\\b[^"']*["'][^>]*>)([\\s\\S]*?)(<\\/nav>)`, 'i'),
-    (match, open, inner, close) => inner.includes('/churches.html') ? match : `${open}${inner}${link}${close}`,
+    (match, open, inner, close) => {
+      if (inner.includes('/churches.html')) return match;
+      const practicesLink = /(<a\\b[^>]*href=["']\\/practices\\.html["'][^>]*>[\\s\\S]*?<\\/a>)/i;
+      if (practicesLink.test(inner)) {
+        return `${open}${inner.replace(practicesLink, `$1${link}`)}${close}`;
+      }
+      if (inner.includes('v8-mobile-actions')) {
+        return `${open}${inner.replace(/(<div\\b[^>]*class=["'][^"']*\\bv8-mobile-actions\\b)/i, `${link}$1`)}${close}`;
+      }
+      return `${open}${inner}${link}${close}`;
+    },
   );
   let output = inject('v8-desktop-nav', html);
   output = inject('v8-mobile-nav', output);
@@ -74,17 +84,17 @@ const partnerSection = `
         <p>Your people will encounter contemplative prayer, meditation, Scripture, deeper listening, and simple practices they can carry into everyday life. You do not need to buy a curriculum or launch a new ministry.</p>
         <p class="v9-partner-callout"><strong>Experience it first. Tell us what serves your people. Help us make it better.</strong></p>
         <p>If the experience bears fruit, we can explore helping one of your leaders learn to carry a Homeward Circle forward.</p>
-        <div class="v9-partner-actions">
-          <a class="button button-ivory" href="/churches.html">Explore a Circle for Your Community</a>
-          <a class="text-link light" href="/connect.html">Talk with Shaun <span>→</span></a>
-        </div>
-        <p class="v9-partner-meta">Free · Four weeks · Homeward-facilitated · Minimal staff preparation</p>
       </div>
       <div class="v9-partner-cards">
         <article><span>01</span><h3>Experience it</h3><p>Let Homeward facilitate the first Circle so leaders can participate rather than manage another program.</p></article>
         <article><span>02</span><h3>See what serves</h3><p>Notice what deepens practice, connection, listening, and everyday spiritual formation for your people.</p></article>
         <article><span>03</span><h3>Carry it forward</h3><p>If the experience is life-giving, explore a simple pathway for one of your leaders to apprentice and lead.</p></article>
       </div>
+    </div>
+    <div class="v9-partner-action-row">
+      <a class="button button-copper" href="/churches.html">Explore a Circle for Your Community</a>
+      <a class="text-link light" href="/connect.html">Talk with Shaun <span>→</span></a>
+      <p class="v9-partner-meta">Free · Four weeks · Homeward-facilitated · Minimal staff preparation</p>
     </div>
   </div>
 </section>`;
