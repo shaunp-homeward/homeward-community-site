@@ -169,6 +169,7 @@
         fields:
         - {label: Eyebrow, name: eyebrow, widget: string}
         - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
         - label: Options
           name: items
           widget: list
@@ -176,7 +177,7 @@
           - {label: Number, name: number, widget: string}
           - {label: Title, name: title, widget: string}
           - {label: Description, name: description, widget: text}
-      - label: Participant to facilitator
+      - label: Leading a Circle
         name: leadership
         widget: object
         collapsed: true
