@@ -17,7 +17,7 @@ const esc = (value) => String(value ?? '')
 let html = await fs.readFile(filePath, 'utf8');
 
 if (!html.includes('/assets/v9-churches-cleanup-review.css')) {
-  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=8">\n</head>');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=9">\n</head>');
 }
 
 const locateSection = (marker) => {
@@ -42,7 +42,6 @@ const replaceSectionContaining = (marker, replacement) => {
   return true;
 };
 
-// HERO — keep the confident text-first opening; no hero image.
 replaceSectionContaining('class="partner-hero"', `
 <section class="partner-hero">
   <div class="shell">
@@ -57,7 +56,6 @@ replaceSectionContaining('class="partner-hero"', `
   </div>
 </section>`);
 
-// EXPERIENCE — one broad, human Circle image after the benefits of the experience.
 const experienceCards = c.experience.items
   .map((item) => `<article class="partner-card"><span class="number">${esc(item.number)}</span><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></article>`)
   .join('');
@@ -79,9 +77,6 @@ replaceSectionContaining(c.experience.eyebrow, `
   </div>
 </section>`);
 
-// HOW HOMEWARD FITS intentionally remains the original V9 section.
-
-// PRACTICE — research/practices CTA sits directly beneath the Presence / Peace / Connection / Love benefits.
 const benefits = c.practice.benefits
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -113,7 +108,6 @@ replaceSectionContaining(c.practice.eyebrow, `
   </div>
 </section>`);
 
-// PASTOR / LEADER RENEWAL — use an existing, verified Circle-conversation asset so the image cannot break.
 const renewalPoints = c.renewal.points
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -140,7 +134,6 @@ replaceSectionContaining(c.renewal.eyebrow, `
   </div>
 </section>`);
 
-// PILOT — only the pilot action is copper; conversation remains secondary.
 const pilotFacts = c.pilot.facts
   .map((item) => `<div class="pilot-fact"><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -164,53 +157,35 @@ replaceSectionContaining(c.pilot.eyebrow, `
   </div>
 </section>`);
 
-// AFTER FOUR WEEKS — simple, confident, and not overloaded.
+const afterOptions = c.after.items
+  .map((item) => `<div class="after-option"><span class="number">${esc(item.number)}</span><div><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></div></div>`)
+  .join('');
 replaceSectionContaining(c.after.eyebrow, `
 <section class="partner-section alt">
   <div class="shell">
     <div class="section-heading centered">
-      <p class="eyebrow">AFTER FOUR WEEKS</p>
-      <h2>Pause. Notice what served. Then decide what comes next.</h2>
-      <p>The practices remain useful whether the group continues or not. If there is energy for more, there are a few natural ways forward.</p>
+      <p class="eyebrow">${esc(c.after.eyebrow)}</p>
+      <h2>${esc(c.after.heading)}</h2>
+      <p>${esc(c.after.intro)}</p>
     </div>
-    <div class="after-options">
-      <div class="after-option">
-        <span class="number">01</span>
-        <div><h3>Carry it forward</h3><p>Use the practices personally or bring them into existing groups, staff rhythms, retreats, pastoral care, and prayer.</p></div>
-      </div>
-      <div class="after-option">
-        <span class="number">02</span>
-        <div><h3>Continue together</h3><p>Join another Homeward season if the experience is serving the group.</p></div>
-      </div>
-      <div class="after-option">
-        <span class="number">03</span>
-        <div><h3>Host another Circle</h3><p>Offer the experience to another group in your church or community when there is genuine interest.</p></div>
-      </div>
-    </div>
+    <div class="after-options">${afterOptions}</div>
   </div>
 </section>`);
 
-// LEADERSHIP — strong original idea, simplified to two movements.
+const leadershipCards = c.leadership.items
+  .map((item) => `<article><span class="number">${esc(item.number)}</span><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></article>`);
 replaceSectionContaining(c.leadership.eyebrow, `
 <section class="partner-section leader-section">
   <div class="shell">
     <div class="section-heading centered">
-      <p class="eyebrow">LEADING A CIRCLE</p>
-      <h2>The best way to understand a Circle is to experience one.</h2>
-      <p>Some participants will naturally feel drawn to create this kind of space for others. Homeward helps them learn the facilitation rhythm, leader posture, and guardrails that protect the experience.</p>
+      <p class="eyebrow">${esc(c.leadership.eyebrow)}</p>
+      <h2>${esc(c.leadership.heading)}</h2>
+      <p>${esc(c.leadership.intro)}</p>
     </div>
     <div class="leader-two-step">
-      <article>
-        <span class="number">01</span>
-        <h3>Experience it first</h3>
-        <p>Participate fully in a Circle and learn the rhythm from the inside.</p>
-      </article>
+      ${leadershipCards[0] ?? ''}
       <div class="leader-arrow" aria-hidden="true">→</div>
-      <article>
-        <span class="number">02</span>
-        <h3>Learn to lead</h3>
-        <p>Learn the practices, facilitation posture, and guardrails; practice leading with support; then facilitate a Circle while staying connected to Homeward.</p>
-      </article>
+      ${leadershipCards[1] ?? ''}
     </div>
     <div class="leader-cta">
       <a class="button button-outline secondary-cta" href="#partner-interest">Explore Leading a Circle</a>
@@ -218,7 +193,6 @@ replaceSectionContaining(c.leadership.eyebrow, `
   </div>
 </section>`);
 
-// FAQ — keep the highest-value questions and avoid apprenticeship terminology.
 const faqWanted = [
   'Is Homeward Christian?',
   'Will this replace our current small groups?',
@@ -230,12 +204,7 @@ const faqByQuestion = new Map(c.faq.items.map((item) => [item.question, item]));
 const faqItems = faqWanted
   .map((q) => faqByQuestion.get(q))
   .filter(Boolean)
-  .map((item) => {
-    const answer = item.question === 'Can one of our people eventually lead it?'
-      ? 'Yes. The best path is to experience a Circle first, then learn the facilitation rhythm, leader posture, practices, and guardrails with support from Homeward.'
-      : item.answer;
-    return `<details><summary>${esc(item.question)}</summary><p>${esc(answer)}</p></details>`;
-  })
+  .map((item) => `<details><summary>${esc(item.question)}</summary><p>${esc(item.answer)}</p></details>`)
   .join('');
 replaceSectionContaining(c.faq.eyebrow, `
 <section class="partner-section">
@@ -248,11 +217,10 @@ replaceSectionContaining(c.faq.eyebrow, `
   </div>
 </section>`);
 
-// Final conversational option is a secondary outline button, never copper.
 html = html.replace(
   '<a class="text-link" href="/connect.html">Prefer to talk first? Talk with Shaun <span>→</span></a>',
   '<a class="button button-outline secondary-cta partner-final-talk-button" href="/connect.html">Prefer to talk first? Talk with Shaun</a>'
 );
 
 await fs.writeFile(filePath, html, 'utf8');
-console.log('Applied V9 Churches & Communities image-fix review v8 overlay.');
+console.log('Applied V9 Churches & Communities CMS-linked live overlay.');
