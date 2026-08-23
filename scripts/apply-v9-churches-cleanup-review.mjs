@@ -17,7 +17,7 @@ const esc = (value) => String(value ?? '')
 let html = await fs.readFile(filePath, 'utf8');
 
 if (!html.includes('/assets/v9-churches-cleanup-review.css')) {
-  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=7">\n</head>');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=8">\n</head>');
 }
 
 const locateSection = (marker) => {
@@ -42,7 +42,7 @@ const replaceSectionContaining = (marker, replacement) => {
   return true;
 };
 
-// HERO — restore the strong original text-first opening.
+// HERO — keep the confident text-first opening; no hero image.
 replaceSectionContaining('class="partner-hero"', `
 <section class="partner-hero">
   <div class="shell">
@@ -57,7 +57,7 @@ replaceSectionContaining('class="partner-hero"', `
   </div>
 </section>`);
 
-// EXPERIENCE — preserve the original cards, add one warm editorial image, and keep the CTA secondary.
+// EXPERIENCE — one broad, human Circle image after the benefits of the experience.
 const experienceCards = c.experience.items
   .map((item) => `<article class="partner-card"><span class="number">${esc(item.number)}</span><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></article>`)
   .join('');
@@ -71,7 +71,7 @@ replaceSectionContaining(c.experience.eyebrow, `
     </div>
     <div class="partner-grid-3">${experienceCards}</div>
     <figure class="churches-wide-image">
-      <img src="/assets/churches-circle-warm-v9.webp" alt="A small group gathered around Scripture in warm conversation"/>
+      <img src="/assets/circle-community.jpg" alt="A small group gathered in warm conversation" loading="lazy"/>
     </figure>
     <div class="partner-section-cta">
       <a class="button button-outline secondary-cta" href="/circles.html">See How a Circle Works</a>
@@ -81,7 +81,7 @@ replaceSectionContaining(c.experience.eyebrow, `
 
 // HOW HOMEWARD FITS intentionally remains the original V9 section.
 
-// PRACTICE — put the research/practices CTA directly below the benefits people receive.
+// PRACTICE — research/practices CTA sits directly beneath the Presence / Peace / Connection / Love benefits.
 const benefits = c.practice.benefits
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -106,14 +106,14 @@ replaceSectionContaining(c.practice.eyebrow, `
           </div>
         </aside>
         <figure class="practice-editorial-image">
-          <img src="/assets/practices/home-scripture-encounter.webp" alt="Scripture and reflection as shared practice"/>
+          <img src="/assets/practices/home-scripture-encounter.webp" alt="Scripture and reflection as shared practice" loading="lazy"/>
         </figure>
       </div>
     </div>
   </div>
 </section>`);
 
-// PASTOR / LEADER RENEWAL — retain the strong original copy and add the seated pastor image.
+// PASTOR / LEADER RENEWAL — use an existing, verified Circle-conversation asset so the image cannot break.
 const renewalPoints = c.renewal.points
   .map((item) => `<div><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`)
   .join('');
@@ -132,7 +132,7 @@ replaceSectionContaining(c.renewal.eyebrow, `
           </div>
         </div>
         <figure class="leader-renewal-review-media">
-          <img src="/assets/churches-pastor-renewal-v9.webp" alt="A pastor or ministry leader seated as a participant, listening with others"/>
+          <img src="/assets/embodied-faith/circle-conversation.webp" alt="A ministry leader seated as a participant in conversation with others" loading="lazy"/>
         </figure>
       </div>
       <div class="leader-renewal-points">${renewalPoints}</div>
@@ -190,7 +190,7 @@ replaceSectionContaining(c.after.eyebrow, `
   </div>
 </section>`);
 
-// LEADERSHIP — restore the strongest original idea, simplified to two movements.
+// LEADERSHIP — strong original idea, simplified to two movements.
 replaceSectionContaining(c.leadership.eyebrow, `
 <section class="partner-section leader-section">
   <div class="shell">
@@ -218,7 +218,7 @@ replaceSectionContaining(c.leadership.eyebrow, `
   </div>
 </section>`);
 
-// FAQ — keep the highest-value questions and avoid apprenticeship language.
+// FAQ — keep the highest-value questions and avoid apprenticeship terminology.
 const faqWanted = [
   'Is Homeward Christian?',
   'Will this replace our current small groups?',
@@ -255,4 +255,4 @@ html = html.replace(
 );
 
 await fs.writeFile(filePath, html, 'utf8');
-console.log('Applied V9 Churches & Communities creative-director review v7 overlay.');
+console.log('Applied V9 Churches & Communities image-fix review v8 overlay.');
