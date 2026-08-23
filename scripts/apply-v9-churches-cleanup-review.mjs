@@ -17,17 +17,29 @@ const esc = (value) => String(value ?? '')
 let html = await fs.readFile(filePath, 'utf8');
 
 if (!html.includes('/assets/v9-churches-cleanup-review.css')) {
-  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=1">\n</head>');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=2">\n</head>');
 }
 
-const replaceSectionContaining = (marker, replacement) => {
+const locateSection = (marker) => {
   const markerIndex = html.indexOf(marker);
-  if (markerIndex < 0) throw new Error(`Could not find churches review marker: ${marker}`);
+  if (markerIndex < 0) {
+    console.warn(`Churches cleanup review: marker not found, leaving section unchanged: ${marker}`);
+    return null;
+  }
   const start = html.lastIndexOf('<section', markerIndex);
   const close = html.indexOf('</section>', markerIndex);
-  if (start < 0 || close < 0) throw new Error(`Could not resolve section around marker: ${marker}`);
-  const end = close + '</section>'.length;
-  html = `${html.slice(0, start)}${replacement}${html.slice(end)}`;
+  if (start < 0 || close < 0) {
+    console.warn(`Churches cleanup review: section bounds not found, leaving unchanged: ${marker}`);
+    return null;
+  }
+  return { start, end: close + '</section>'.length };
+};
+
+const replaceSectionContaining = (marker, replacement) => {
+  const range = locateSection(marker);
+  if (!range) return false;
+  html = `${html.slice(0, range.start)}${replacement}${html.slice(range.end)}`;
+  return true;
 };
 
 const removeSectionContaining = (marker) => replaceSectionContaining(marker, '');
@@ -59,7 +71,7 @@ replaceSectionContaining('class="partner-hero"', `
       </div>
       <p class="partner-meta">${esc(c.hero.meta)}</p>
     </div>
-    <figure class="partner-hero-review-media"><img src="/assets/circle-community-v6.webp" alt="A small Homeward-style Circle gathered in conversation"/></figure>
+    <figure class="partner-hero-review-media"><img src="/assets/circle-community-v6.webp" alt="A small Homeward Circle gathered in conversation"/></figure>
   </div>
 </section>`);
 
@@ -84,8 +96,8 @@ replaceSectionContaining(c.practice.eyebrow, `
         </aside>
         <div class="practice-image-strip" aria-label="Examples of Homeward spiritual practices">
           <img src="/assets/practices/home-light-of-christ.webp" alt="Light of Christ practice"/>
-          <img src="/assets/practices/home-scripture-encounter.webp" alt="Scripture as encounter practice"/>
-          <img src="/assets/practices/home-breath-prayer.webp" alt="Breath prayer practice"/>
+          <img src="/assets/practices/home-scripture-encounter.webp" alt="Scripture as Encounter practice"/>
+          <img src="/assets/practices/home-breath-prayer.webp" alt="Breath Prayer practice"/>
         </div>
       </div>
     </div>
@@ -105,7 +117,7 @@ replaceSectionContaining(c.renewal.eyebrow, `
           <p>${esc(c.renewal.body)}</p>
           <p class="leader-renewal-review-cta"><a class="button-outline-light" href="#partner-interest">Explore a Circle for Your Leaders</a></p>
         </div>
-        <figure class="leader-renewal-review-media"><img src="/assets/remembering-community-v62.webp" alt="A leader participating and listening in community"/></figure>
+        <figure class="leader-renewal-review-media"><img src="/assets/remembering-community-v62.webp" alt="People listening and participating together in community"/></figure>
       </div>
       <div class="leader-renewal-points">${renewalPoints}</div>
     </div>
@@ -141,7 +153,7 @@ replaceSectionContaining(c.after.eyebrow, `
     <div class="section-heading centered">
       <p class="eyebrow">IF IT BEARS FRUIT</p>
       <h2>There’s a path forward—without pressure.</h2>
-      <p>${esc(c.after.heading)} The church and participants decide what happens next.</p>
+      <p><strong>${esc(c.after.heading)}</strong> The church and participants decide what happens next.</p>
     </div>
     <div class="fruitful-grid">
       <article class="fruitful-path">
@@ -163,7 +175,7 @@ replaceSectionContaining(c.posture.eyebrow, `
   <div class="shell partner-narrow">
     <p class="eyebrow">${esc(c.posture.eyebrow)}</p>
     <h2>${esc(c.posture.heading)}</h2>
-    <p class="lead">${esc(c.posture.lead)}</p>
+    <p class="lead"><strong>${esc(c.posture.lead)}</strong></p>
     <p>${esc(c.posture.body)}</p>
     <p class="posture-fruit"><strong>The goal is not agreement for its own sake. The hoped-for fruit is greater love of God and neighbor.</strong></p>
   </div>
