@@ -1,0 +1,244 @@
+- name: v9_live_copy
+  label: Live V9 Copy — EDIT THIS
+  delete: false
+  files:
+  - name: v9_live
+    label: Homepage V9 + Churches & Communities
+    file: content/v9-live.json
+    format: json
+    fields:
+    - label: Navigation
+      name: navigation
+      widget: object
+      collapsed: true
+      fields:
+      - {label: Churches & Communities label, name: churches, widget: string}
+    - label: Homepage V9
+      name: homepage
+      widget: object
+      collapsed: false
+      fields:
+      - label: Hero override
+        name: hero
+        widget: object
+        collapsed: false
+        fields:
+        - {label: Headline, name: headline, widget: string}
+        - {label: Emphasized line, name: emphasis, widget: string}
+        - {label: Description, name: description, widget: text}
+      - label: Why Practice Matters override
+        name: practices
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Subhead, name: subhead, widget: string}
+        - {label: Lead — bold sentence, name: lead_bold, widget: text}
+        - {label: Lead — body, name: lead_body, widget: text}
+        - {label: Goal — bold lead, name: goal_bold, widget: string}
+        - {label: Goal — body, name: goal_body, widget: text}
+      - label: Churches & Communities homepage section
+        name: partner
+        widget: object
+        collapsed: false
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Lead, name: lead, widget: text}
+        - {label: Body, name: body, widget: text}
+        - {label: Callout, name: callout, widget: text}
+        - {label: Closing line, name: after, widget: text}
+        - label: Three steps
+          name: steps
+          widget: list
+          allow_add: false
+          allow_delete: false
+          allow_reorder: false
+          fields:
+          - {label: Number, name: number, widget: string}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+        - {label: Primary CTA, name: primary_label, widget: string}
+        - {label: Secondary CTA, name: secondary_label, widget: string}
+        - {label: Meta line, name: meta, widget: string}
+    - label: Churches & Communities page
+      name: churches
+      widget: object
+      collapsed: false
+      fields:
+      - label: Search & sharing
+        name: meta
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Browser title, name: title, widget: string}
+        - {label: Search description, name: description, widget: text}
+      - label: Hero
+        name: hero
+        widget: object
+        collapsed: false
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Lead, name: lead, widget: text}
+        - {label: Primary CTA, name: primary_label, widget: string}
+        - {label: Secondary CTA, name: secondary_label, widget: string}
+        - {label: Meta line, name: meta, widget: string}
+      - label: What your people experience
+        name: experience
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - label: Experience cards
+          name: items
+          widget: list
+          allow_add: false
+          allow_delete: false
+          fields:
+          - {label: Number, name: number, widget: string}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+      - label: How Homeward fits
+        name: fit
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Lead, name: lead, widget: text}
+        - {label: Body, name: body, widget: text}
+        - {label: Emphasis, name: emphasis, widget: text}
+      - label: Why practice matters
+        name: practice
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Lead, name: lead, widget: text}
+        - {label: Body, name: body, widget: text}
+        - {label: Callout — bold lead, name: callout_bold, widget: string}
+        - {label: Callout — body, name: callout_body, widget: text}
+        - {label: Closing, name: closing, widget: text}
+        - {label: Benefits eyebrow, name: benefits_eyebrow, widget: string}
+        - label: Benefits
+          name: benefits
+          widget: list
+          fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+      - label: Pastor & leader renewal
+        name: renewal
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - {label: Body, name: body, widget: text}
+        - label: Renewal points
+          name: points
+          widget: list
+          fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+      - label: Four-week pilot
+        name: pilot
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - label: Pilot facts
+          name: facts
+          widget: list
+          fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+        - {label: Body, name: body, widget: text}
+        - {label: Emphasis, name: emphasis, widget: text}
+      - label: After four weeks
+        name: after
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - label: Options
+          name: items
+          widget: list
+          fields:
+          - {label: Number, name: number, widget: string}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+      - label: Participant to facilitator
+        name: leadership
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Intro, name: intro, widget: text}
+        - label: Steps
+          name: items
+          widget: list
+          fields:
+          - {label: Number, name: number, widget: string}
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: text}
+      - label: Our posture
+        name: posture
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Lead, name: lead, widget: text}
+        - {label: Body, name: body, widget: text}
+      - label: Common questions
+        name: faq
+        widget: object
+        collapsed: true
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - label: Questions
+          name: items
+          widget: list
+          fields:
+          - {label: Question, name: question, widget: string}
+          - {label: Answer, name: answer, widget: text}
+      - label: Pilot interest invitation & form
+        name: interest
+        widget: object
+        collapsed: false
+        fields:
+        - {label: Eyebrow, name: eyebrow, widget: string}
+        - {label: Heading, name: heading, widget: string}
+        - {label: Body, name: body, widget: text}
+        - {label: Reassurance — bold lead, name: reassurance_bold, widget: string}
+        - {label: Reassurance — body, name: reassurance_body, widget: text}
+        - {label: Secondary link, name: secondary_link, widget: string}
+        - {label: Hidden interest value, name: hidden_interest, widget: string}
+        - label: Form labels
+          name: form
+          widget: object
+          fields:
+          - {label: First name, name: first_name_label, widget: string}
+          - {label: Last name, name: last_name_label, widget: string}
+          - {label: Email, name: email_label, widget: string}
+          - {label: Organization label, name: organization_label, widget: string}
+          - {label: Organization placeholder, name: organization_placeholder, widget: string}
+          - {label: Role label, name: role_label, widget: string}
+          - {label: Role placeholder, name: role_placeholder, widget: string}
+          - {label: ZIP label, name: zip_label, widget: string}
+          - {label: Exploration question, name: draw_label, widget: string}
+          - {label: Exploration placeholder, name: draw_placeholder, widget: text}
+          - {label: Newsletter label, name: newsletter_label, widget: string}
+          - {label: Submit button, name: submit_label, widget: string}
+          - {label: Privacy note, name: privacy, widget: string}
