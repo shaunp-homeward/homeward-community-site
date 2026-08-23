@@ -17,7 +17,7 @@ const esc = (value) => String(value ?? '')
 let html = await fs.readFile(filePath, 'utf8');
 
 if (!html.includes('/assets/v9-churches-cleanup-review.css')) {
-  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=2">\n</head>');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/v9-churches-cleanup-review.css?v=3">\n</head>');
 }
 
 const locateSection = (marker) => {
@@ -71,7 +71,7 @@ replaceSectionContaining('class="partner-hero"', `
       </div>
       <p class="partner-meta">${esc(c.hero.meta)}</p>
     </div>
-    <figure class="partner-hero-review-media"><img src="/assets/circle-community-v6.webp" alt="A small Homeward Circle gathered in conversation"/></figure>
+    <figure class="partner-hero-review-media"><img src="/assets/circle-community.jpg" alt="A small Homeward Circle gathered in warm conversation"/></figure>
   </div>
 </section>`);
 
@@ -117,7 +117,7 @@ replaceSectionContaining(c.renewal.eyebrow, `
           <p>${esc(c.renewal.body)}</p>
           <p class="leader-renewal-review-cta"><a class="button-outline-light" href="#partner-interest">Explore a Circle for Your Leaders</a></p>
         </div>
-        <figure class="leader-renewal-review-media"><img src="/assets/remembering-community-v62.webp" alt="People listening and participating together in community"/></figure>
+        <figure class="leader-renewal-review-media"><img src="/assets/remembering-community.jpg" alt="A leader receiving, listening, and participating in community"/></figure>
       </div>
       <div class="leader-renewal-points">${renewalPoints}</div>
     </div>
@@ -145,26 +145,30 @@ replaceSectionContaining(c.pilot.eyebrow, `
   </div>
 </section>`);
 
-const communityItems = c.after.items.filter((item) => item.title.toLowerCase() !== 'lead').map((item) => `<div><span class="number">${esc(item.number)}</span><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`).join('');
-const leaderItems = c.leadership.items.map((item) => `<div><span class="number">${esc(item.number)}</span><strong>${esc(item.title)}</strong><span>${esc(item.description)}</span></div>`).join('');
 replaceSectionContaining(c.after.eyebrow, `
 <section class="partner-section alt">
   <div class="shell">
     <div class="section-heading centered">
-      <p class="eyebrow">IF IT BEARS FRUIT</p>
-      <h2>There’s a path forward—without pressure.</h2>
-      <p><strong>${esc(c.after.heading)}</strong> The church and participants decide what happens next.</p>
+      <p class="eyebrow">AFTER FOUR WEEKS</p>
+      <h2>Keep what helps. Build on what comes alive.</h2>
+      <p>Every participant leaves with practices they can carry into ordinary life and ministry. From there, the next step can stay simple.</p>
     </div>
-    <div class="fruitful-grid">
-      <article class="fruitful-path">
-        <p class="eyebrow">FOR THE COMMUNITY</p>
-        <div class="fruitful-community-list">${communityItems}</div>
+    <div class="after-four-grid">
+      <article class="after-four-card">
+        <p class="eyebrow">CARRY IT FORWARD</p>
+        <h3>Bring the practices into what you already do.</h3>
+        <p>Use them personally or weave them naturally into staff gatherings, existing groups, retreats, pastoral care, prayer, and everyday life.</p>
       </article>
-      <article class="fruitful-path">
-        <p class="eyebrow">FOR A POTENTIAL LEADER</p>
-        <p><strong>${esc(c.leadership.intro)}</strong></p>
-        <div class="leader-path-compact">${leaderItems}</div>
+      <article class="after-four-card">
+        <p class="eyebrow">CONTINUE TOGETHER</p>
+        <h3>When there’s energy for more, keep going.</h3>
+        <p>A group can continue into another Homeward season or host another Circle when people genuinely want to keep practicing together.</p>
       </article>
+    </div>
+    <div class="leader-invitation">
+      <p class="eyebrow">FOR PEOPLE DRAWN TO LEAD</p>
+      <h3>Experience it first. Then learn to lead.</h3>
+      <p>Some participants will feel drawn to create this kind of space for others. Homeward can help them learn the simple facilitation rhythm, practices, and guardrails needed to lead a Circle in a way that stays participatory, grounded, and Jesus-centered.</p>
     </div>
   </div>
 </section>`);
@@ -202,4 +206,4 @@ replaceSectionContaining(c.faq.eyebrow, `
 </section>`);
 
 await fs.writeFile(filePath, html, 'utf8');
-console.log('Applied V9 Churches & Communities cleanup review overlay.');
+console.log('Applied V9 Churches & Communities cleanup review v4 overlay.');
