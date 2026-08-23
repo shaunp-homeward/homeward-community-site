@@ -22,12 +22,12 @@ const addChurchNav = (html, isChurchPage = false) => {
     new RegExp(`(<nav\\b[^>]*class=["'][^"']*\\b${navClass}\\b[^"']*["'][^>]*>)([\\s\\S]*?)(<\\/nav>)`, 'i'),
     (match, open, inner, close) => {
       if (inner.includes('/churches.html')) return match;
-      const practicesLink = /(<a\\b[^>]*href=["']\\/practices\\.html["'][^>]*>[\\s\\S]*?<\\/a>)/i;
+      const practicesLink = /(<a\b[^>]*href=["']\/practices\.html["'][^>]*>[\s\S]*?<\/a>)/i;
       if (practicesLink.test(inner)) {
         return `${open}${inner.replace(practicesLink, `$1${link}`)}${close}`;
       }
       if (inner.includes('v8-mobile-actions')) {
-        return `${open}${inner.replace(/(<div\\b[^>]*class=["'][^"']*\\bv8-mobile-actions\\b)/i, `${link}$1`)}${close}`;
+        return `${open}${inner.replace(/(<div\b[^>]*class=["'][^"']*\bv8-mobile-actions\b)/i, `${link}$1`)}${close}`;
       }
       return `${open}${inner}${link}${close}`;
     },
