@@ -1,10 +1,8 @@
-.partner-page .partner-hero-review-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:44px;align-items:center}
-.partner-page .partner-hero-review-copy{min-width:0}
-.partner-page .partner-hero-review-media{margin:0;border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.16);min-height:360px;background:#e9e0d2}
-.partner-page .partner-hero-review-media img{width:100%;height:100%;min-height:360px;display:block;object-fit:cover;object-position:66% center}
 .partner-page .partner-section-cta,.partner-page .practice-review-cta,.partner-page .pilot-review-actions{display:flex;justify-content:center;gap:14px;align-items:center;flex-wrap:wrap;margin-top:28px}
 .partner-page .practice-review-cta{justify-content:flex-start;margin-top:24px}
 .partner-page .partner-section-cta .button,.partner-page .practice-review-cta .button,.partner-page .pilot-review-actions .button{min-width:0}
+.partner-page .partner-visual-break{margin:34px 0 0;border-radius:22px;overflow:hidden;box-shadow:0 14px 36px rgba(21,58,46,.12);background:#e9e0d2;max-height:430px}
+.partner-page .partner-visual-break img{width:100%;height:100%;min-height:320px;max-height:430px;display:block;object-fit:cover;object-position:center 48%}
 .partner-page .leader-renewal-review-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:34px;align-items:center}
 .partner-page .leader-renewal-review-copy{min-width:0}
 .partner-page .leader-renewal-review-media{margin:0;border-radius:18px;overflow:hidden;min-height:300px;background:#243c32}
@@ -13,34 +11,29 @@
 .partner-page .leader-renewal-review-cta{margin-top:24px}
 .partner-page .button-outline-light{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(250,246,239,.58);color:#FAF6EF;background:rgba(250,246,239,.03);border-radius:999px;padding:12px 18px;text-decoration:none;font-weight:700;transition:.2s ease}
 .partner-page .button-outline-light:hover{background:rgba(250,246,239,.1);border-color:rgba(250,246,239,.85)}
-.partner-page .after-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px;border-top:1px solid rgba(21,58,46,.14);border-bottom:1px solid rgba(21,58,46,.14)}
-.partner-page .after-option{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:26px 24px}
-.partner-page .after-option+ .after-option{border-left:1px solid rgba(21,58,46,.14)}
-.partner-page .after-option .number{color:#B53A2A;font-weight:700;font-size:.78rem;letter-spacing:.1em;padding-top:5px}
-.partner-page .after-option h3{font-family:Georgia,'Times New Roman',serif;color:#153A2E;font-size:1.42rem;line-height:1.18;margin:0 0 8px}
-.partner-page .after-option p{color:#555;line-height:1.58;margin:0}
+.partner-page .after-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}
+.partner-page .after-card{height:100%}
+.partner-page .after-card h3{margin-top:10px}
 .partner-page .leader-two-step{max-width:920px;margin:34px auto 0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:22px;align-items:stretch}
 .partner-page .leader-two-step article{background:#FAF6EF;border:1px solid rgba(21,58,46,.13);border-radius:20px;padding:28px}
 .partner-page .leader-two-step .number{display:block;color:#B53A2A;font-size:.8rem;letter-spacing:.1em;font-weight:700;margin-bottom:9px}
 .partner-page .leader-two-step h3{font-family:Georgia,'Times New Roman',serif;color:#153A2E;font-size:1.6rem;line-height:1.15;margin:0 0 10px}
 .partner-page .leader-two-step p{color:#555;line-height:1.62;margin:0}
 .partner-page .leader-arrow{align-self:center;color:#B53A2A;font-size:1.7rem;font-weight:700}
-.partner-page .partner-final-talk-button{margin-top:10px}
+.partner-page .partner-final-talk-button{margin-top:12px}
+.partner-page .partner-final-cta .button-outline{background:rgba(250,246,239,.72)}
 @media(max-width:980px){
-  .partner-page .partner-hero-review-grid,.partner-page .leader-renewal-review-grid{grid-template-columns:1fr}
-  .partner-page .partner-hero-review-media,.partner-page .partner-hero-review-media img{min-height:320px}
+  .partner-page .leader-renewal-review-grid{grid-template-columns:1fr}
   .partner-page .leader-renewal-review-media,.partner-page .leader-renewal-review-media img{min-height:280px}
-  .partner-page .after-options{grid-template-columns:1fr}
-  .partner-page .after-option+ .after-option{border-left:0;border-top:1px solid rgba(21,58,46,.14)}
+  .partner-page .after-card-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .partner-page .leader-two-step{grid-template-columns:1fr}
   .partner-page .leader-arrow{transform:rotate(90deg);justify-self:center}
 }
 @media(max-width:620px){
-  .partner-page .partner-hero-review-grid{gap:28px}
-  .partner-page .partner-hero-review-media,.partner-page .partner-hero-review-media img{min-height:250px}
+  .partner-page .partner-visual-break{border-radius:16px;margin-top:28px}
+  .partner-page .partner-visual-break img{min-height:230px}
   .partner-page .partner-section-cta,.partner-page .practice-review-cta,.partner-page .pilot-review-actions{justify-content:flex-start}
-  .partner-page .after-option{padding:22px 12px}
   .partner-page .leader-two-step article{padding:22px}
 }
