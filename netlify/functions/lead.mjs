@@ -1,17 +1,12 @@
 // Homeward website lead capture -> Airtable Homeward CRM (Contacts table)
-// Required Netlify environment variables:
-// AIRTABLE_TOKEN, AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID
-// RESEND_API_KEY, HOMEWARD_FROM_EMAIL
-// Optional email variables:
-// HOMEWARD_REPLY_TO, HOMEWARD_NOTIFICATION_EMAIL, ALLOW_PREVIEW_EMAIL, PREVIEW_EMAIL_RECIPIENTS
+// Required: AIRTABLE_TOKEN, AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID, RESEND_API_KEY, HOMEWARD_FROM_EMAIL
 
 export default async (req) => {
   if (req.method !== "POST") return json({ ok: false, error: "method-not-allowed" }, 405);
 
   let data = {};
-  const contentType = req.headers.get("content-type") || "";
   try {
-    if (contentType.includes("application/json")) data = await req.json();
+    if ((req.headers.get("content-type") || "").includes("application/json")) data = await req.json();
     else {
       const form = await req.formData();
       form.forEach((value, key) => { data[key] = typeof value === "string" ? value : String(value); });
@@ -27,54 +22,12 @@ export default async (req) => {
   if (!email) return json({ ok: false, error: "email-required" }, 400);
 
   const name = [first, last].filter(Boolean).join(" ") || email.split("@")[0] || "Website Lead";
-  const suppliedCity = clean(data.city); // Backward compatibility with older form versions.
+  const suppliedCity = clean(data.city);
   const zip = normalizeZip(data.zip || data.postal_code);
   const interestChoice = clean(data.interest);
   const draw = clean(data.draw);
   const formType = clean(data.form_type) || "interest";
   const assessmentStage = clean(data.assessment_stage);
-  const guideMap = {
-    "Inherited Faith": {
-      title: "Inherited Faith",
-      subtitle: "Receiving the gift, making it your own",
-      page: "/journey/inherited-faith",
-      pdf: "/downloads/Homeward_Inherited_Faith_Guide.pdf",
-    },
-    "Honest Questions": {
-      title: "Honest Questions",
-      subtitle: "Making room for what is true",
-      page: "/journey/honest-questions",
-      pdf: "/downloads/Homeward_Honest_Questions_Guide.pdf",
-    },
-    "Sacred Search": {
-      title: "The Sacred Search",
-      subtitle: "Seeking with open hands",
-      page: "/journey/sacred-search",
-      pdf: "/downloads/Homeward_Sacred_Search_Guide.pdf",
-    },
-    "New Foundations": {
-      title: "New Foundations",
-      subtitle: "Rebuilding with humility and hope",
-      page: "/journey/new-foundations",
-      pdf: "/downloads/Homeward_New_Foundations_Guide.pdf",
-    },
-    "Embodied Faith": {
-      title: "Embodied Faith",
-      subtitle: "Letting faith become a way of life",
-      page: "/journey/embodied-faith",
-      pdf: "/downloads/Homeward_Embodied_Faith_Guide.pdf",
-    },
-    "Living Awake": {
-      title: "Living Awake",
-      subtitle: "Present to God, available to love",
-      page: "/journey/living-awake",
-      pdf: "/downloads/Homeward_Living_Awake_Guide.pdf",
-    },
-  };
-  const guide = guideMap[assessmentStage] || null;
-  const requestOrigin = new URL(req.url).origin;
-  const guideUrl = guide ? new URL(guide.page, requestOrigin).href : "";
-  const guidePdfUrl = guide ? new URL(guide.pdf, requestOrigin).href : "";
   const season = clean(data.season);
   const movingToward = clean(data.moving_toward);
   const assessmentGathering = clean(data.gathering);
@@ -85,8 +38,20 @@ export default async (req) => {
   const newsletter = clean(data.newsletter).toLowerCase() === "yes";
   const conversationRequested = /conversation|talk about|talk with|speak with/i.test(interestChoice);
 
-  // Deploy previews and local development should not create live CRM records.
-  // Set ALLOW_PREVIEW_AIRTABLE=true only when an intentional end-to-end test is needed.
+  const guides = {
+    "Inherited Faith": ["Inherited Faith", "Receiving the gift, making it your own", "inherited-faith", "Homeward_Inherited_Faith_Guide.pdf"],
+    "Honest Questions": ["Honest Questions", "Making room for what is true", "honest-questions", "Homeward_Honest_Questions_Guide.pdf"],
+    "Sacred Search": ["The Sacred Search", "Seeking with open hands", "sacred-search", "Homeward_Sacred_Search_Guide.pdf"],
+    "New Foundations": ["New Foundations", "Rebuilding with humility and hope", "new-foundations", "Homeward_New_Foundations_Guide.pdf"],
+    "Embodied Faith": ["Embodied Faith", "Letting faith become a way of life", "embodied-faith", "Homeward_Embodied_Faith_Guide.pdf"],
+    "Living Awake": ["Living Awake", "Present to God, available to love", "living-awake", "Homeward_Living_Awake_Guide.pdf"],
+  };
+  const guideParts = guides[assessmentStage];
+  const guide = guideParts ? { title: guideParts[0], subtitle: guideParts[1], page: `/journey/${guideParts[2]}`, pdf: `/downloads/${guideParts[3]}` } : null;
+  const requestOrigin = new URL(req.url).origin;
+  const guideUrl = guide ? new URL(guide.page, requestOrigin).href : "";
+  const guidePdfUrl = guide ? new URL(guide.pdf, requestOrigin).href : "";
+
   const deployContext = clean(Netlify.env.get("CONTEXT"));
   const requestHost = new URL(req.url).hostname;
   const previewHost = /localhost|127\.0\.0\.1|deploy-preview|--/.test(requestHost);
@@ -94,25 +59,16 @@ export default async (req) => {
   const branchName = clean(Netlify.env.get("BRANCH"));
   const isStagingBranch = /^staging--homeward-community-dfw\.netlify\.app$/i.test(requestHost)
     || (deployContext === "branch-deploy" && branchName.toLowerCase() === "staging");
-  // The named staging branch is an intentional end-to-end environment: it writes to
-  // the Homeward CRM and sends email. Temporary deploy previews remain sandboxed.
   const allowPreviewWrite = isStagingBranch
     || clean(Netlify.env.get("ALLOW_PREVIEW_AIRTABLE")).toLowerCase() === "true";
 
   const zipLocation = zip ? await lookupUsZip(zip) : null;
   const city = suppliedCity || (zipLocation ? zipLocation.city : "");
   const gathering = normalizeGatheringPreference(assessmentGathering || gatheringChoice, zip);
-
   const attribution = {
-    source: clean(data.utm_source).toLowerCase(),
-    medium: clean(data.utm_medium),
-    campaign: clean(data.utm_campaign),
-    term: clean(data.utm_term),
-    content: clean(data.utm_content),
-    gclid: clean(data.gclid),
-    fbclid: clean(data.fbclid),
-    landing: clean(data.landing_page),
-    referrer: clean(data.referrer),
+    source: clean(data.utm_source).toLowerCase(), medium: clean(data.utm_medium), campaign: clean(data.utm_campaign),
+    term: clean(data.utm_term), content: clean(data.utm_content), gclid: clean(data.gclid), fbclid: clean(data.fbclid),
+    landing: clean(data.landing_page), referrer: clean(data.referrer),
   };
 
   let interested = [];
@@ -132,8 +88,7 @@ export default async (req) => {
   let source = "Other";
   if (/meta|facebook|fb|instagram|ig/.test(attribution.source) || attribution.fbclid) source = "Social / Meta Ad";
 
-  const notes = [];
-  notes.push(formType === "assessment" ? "Website — Journey Reflection" : "Website — Interest form");
+  const notes = [formType === "assessment" ? "Website — Journey Reflection" : "Website — Interest form"];
   if (isStagingBranch) notes.push("Environment: staging branch test");
   if (interestChoice) notes.push(`Selected: ${interestChoice}`);
   if (conversationRequested) notes.push("Conversation requested: yes");
@@ -155,44 +110,30 @@ export default async (req) => {
   if (attribution.landing) notes.push(`Original landing page: ${attribution.landing}`);
   if (attribution.referrer) notes.push(`Original referrer: ${attribution.referrer}`);
 
+  const validStages = ["Inherited Faith", "Honest Questions", "Sacred Search", "New Foundations", "Embodied Faith", "Living Awake"];
+  const validGathering = ["DFW — open to in person", "DFW — prefer online", "Outside DFW — online"];
   const fields = {
-    "Name": name,
-    "Email": email,
-    "Source": source,
-    "Stage": "New Lead",
-    "Email Consent": true,
-    "Newsletter Opt-in": newsletter,
-    "Conversation Requested": conversationRequested,
-    "Notes": notes.join("\n"),
-    "Date Added": new Date().toISOString().slice(0, 10),
+    Name: name, Email: email, Source: source, Stage: "New Lead", "Email Consent": true,
+    "Newsletter Opt-in": newsletter, "Conversation Requested": conversationRequested,
+    Notes: notes.join("\n"), "Date Added": new Date().toISOString().slice(0, 10),
   };
-  if (zip) fields["ZIP"] = zip;
-  if (city) fields["City"] = city;
+  if (zip) fields.ZIP = zip;
+  if (city) fields.City = city;
   if (interested.length) fields["Interested In"] = interested;
   if (contactTypes.length) fields["Contact Type"] = contactTypes;
-
-  const validStages = ["Inherited Faith", "Honest Questions", "Sacred Search", "New Foundations", "Embodied Faith", "Living Awake"];
   if (validStages.includes(assessmentStage)) fields["Assessment Stage"] = assessmentStage;
-  const validGathering = ["DFW — open to in person", "DFW — prefer online", "Outside DFW — online"];
   if (validGathering.includes(gathering)) fields["Gathering Preference"] = gathering;
 
   if (isPreview && !allowPreviewWrite) {
     const previewEmailAllowed = canSendPreviewEmail(email);
     let emailSent = false;
     let notificationSent = false;
-    if (previewEmailAllowed && formType === "assessment" && guide && email) {
+    if (previewEmailAllowed && formType === "assessment" && guide) {
       emailSent = await sendGuideEmail({ email, firstName: first, guide, guideUrl, guidePdfUrl });
+      notificationSent = await sendAssessmentNotification({ name, email, assessmentStage, movingToward, intent, longings, gathering: assessmentGathering || gathering, openNote, existingContact: false, preview: true });
+    } else if (previewEmailAllowed && formType === "interest") {
+      notificationSent = await sendInterestNotification({ name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice, draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"), preview: true });
     }
-    if (previewEmailAllowed && formType === "interest") {
-      notificationSent = await sendInterestNotification({
-        name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
-        draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"),
-        recordId: "", baseId: "", tableId: "", preview: true,
-      });
-    }
-    console.log("Homeward preview lead captured without Airtable write", {
-      formType, interestChoice, conversationRequested, previewEmailAllowed, emailSent, notificationSent,
-    });
     return json({ ok: true, preview: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent }, 200);
   }
 
@@ -202,108 +143,135 @@ export default async (req) => {
   if (!token || !baseId || !tableId) return json({ ok: false, error: "airtable-not-configured" }, 503);
 
   try {
-    const response = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
-      method: "POST",
-      headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ records: [{ fields }], typecast: true }),
-    });
-    if (!response.ok) {
-      const detail = await response.text();
-      console.error("Airtable error", response.status, detail);
-      return json({ ok: false, error: "airtable-write-failed" }, 502);
+    const tableUrl = `https://api.airtable.com/v0/${baseId}/${tableId}`;
+    const existingRecord = await findContact(tableUrl, token, email);
+    const existingContact = Boolean(existingRecord?.id);
+    let recordId = existingRecord?.id || "";
+
+    if (existingContact) {
+      const update = {};
+      if (validStages.includes(assessmentStage)) update["Assessment Stage"] = assessmentStage;
+      if (validGathering.includes(gathering) && blank(existingRecord.fields?.["Gathering Preference"])) update["Gathering Preference"] = gathering;
+      const datedBlock = `[${new Date().toISOString().slice(0, 10)}] ${notes.join("\n")}`;
+      update.Notes = [datedBlock, String(existingRecord.fields?.Notes || "").trim()].filter(Boolean).join("\n\n");
+      const response = await fetch(`${tableUrl}/${encodeURIComponent(recordId)}`, {
+        method: "PATCH", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ fields: update, typecast: true }),
+      });
+      if (!response.ok) return airtableError(response, "update");
+    } else {
+      const response = await fetch(tableUrl, {
+        method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ records: [{ fields }], typecast: true }),
+      });
+      if (!response.ok) return airtableError(response, "create");
+      const payload = await response.json().catch(() => ({}));
+      recordId = payload?.records?.[0]?.id || "";
     }
-    const airtablePayload = await response.json().catch(() => ({}));
-    const recordId = airtablePayload?.records?.[0]?.id || "";
+
     let emailSent = false;
     let notificationSent = false;
-    if (formType === "assessment" && guide && email) {
-      emailSent = await sendGuideEmail({
-        email,
-        firstName: first,
-        guide,
-        guideUrl,
-        guidePdfUrl,
-        preview: isStagingBranch,
+    if (formType === "assessment") {
+      if (guide) emailSent = await sendGuideEmail({ email, firstName: first, guide, guideUrl, guidePdfUrl, preview: isStagingBranch });
+      notificationSent = await sendAssessmentNotification({
+        name, email, assessmentStage, movingToward, intent, longings, gathering: assessmentGathering || gathering,
+        openNote, recordId, baseId, tableId, existingContact, preview: isStagingBranch,
       });
-    }
-    if (formType === "interest") {
+    } else if (formType === "interest") {
       notificationSent = await sendInterestNotification({
-        name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
-        draw, newsletter, conversationRequested, attribution, notes: notes.join("\n"),
-        recordId, baseId, tableId, preview: isStagingBranch,
+        name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice, draw, newsletter,
+        conversationRequested, attribution, notes: notes.join("\n"), recordId, baseId, tableId, preview: isStagingBranch,
       });
     }
-    return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent }, 200);
+    return json({ ok: true, conversationRequested, guideUrl, guidePdfUrl, emailSent, notificationSent, existingContact }, 200);
   } catch (error) {
     console.error("Airtable fetch failed", error);
     return json({ ok: false, error: "airtable-fetch-failed" }, 502);
   }
 };
 
+async function findContact(tableUrl, token, email) {
+  const escaped = String(email).replaceAll("\\", "\\\\").replaceAll("'", "\\'");
+  const query = new URLSearchParams({ filterByFormula: `LOWER({Email})=LOWER('${escaped}')`, maxRecords: "1" });
+  query.append("fields[]", "Notes");
+  query.append("fields[]", "Gathering Preference");
+  const response = await fetch(`${tableUrl}?${query}`, { method: "GET", headers: { Authorization: `Bearer ${token}` } });
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Airtable lookup failed (${response.status}): ${detail.slice(0, 500)}`);
+  }
+  const payload = await response.json().catch(() => ({}));
+  return payload.records?.[0] || null;
+}
+
+async function airtableError(response, action) {
+  const detail = await response.text();
+  console.error(`Airtable ${action} error`, response.status, detail);
+  return json({ ok: false, error: "airtable-write-failed" }, 502);
+}
+
+function blank(value) {
+  return Array.isArray(value) ? value.length === 0 : value == null || String(value).trim() === "";
+}
+
+function airtableLink(recordId, baseId, tableId) {
+  return recordId && baseId && tableId ? `https://airtable.com/${encodeURIComponent(baseId)}/${encodeURIComponent(tableId)}/${encodeURIComponent(recordId)}` : "";
+}
+
 async function sendGuideEmail({ email, firstName, guide, guideUrl, guidePdfUrl, preview = false }) {
   const config = getEmailConfig();
   if (!config.apiKey || !config.from) return false;
-
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
   const subject = `${preview ? "[STAGING TEST] " : ""}Your Homeward guide: ${guide.title}`;
-  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · JOURNEY OF FAITH</div><h1 style="font-family:Georgia,serif;font-size:34px;margin:12px 0 4px">${escapeHtml(guide.title)}</h1><div style="font-family:Georgia,serif;font-style:italic;color:#F1D8CB;font-size:19px">${escapeHtml(guide.subtitle || "A guide for your season")}</div></div><div style="background:white;padding:30px;border-radius:0 0 12px 12px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p style="margin:26px 0"><a href="${escapeHtml(guideUrl)}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Read your guide online</a></p><p><a href="${escapeHtml(guidePdfUrl)}" style="color:#153A2E;font-weight:700">Download the printable PDF →</a></p><p style="color:#6D7D6A;font-size:14px;margin-top:28px">A mirror, not a box. Faith moves in a spiral, and you may revisit familiar questions from deeper places.</p><p style="margin-top:28px">Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333;font-family:Arial,sans-serif"><div style="max-width:620px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:32px"><h1 style="font-family:Georgia,serif">${escapeHtml(guide.title)}</h1><div>${escapeHtml(guide.subtitle)}</div></div><div style="background:white;padding:30px"><p>${greeting}</p><p>Thank you for taking the Homeward Journey Reflection. Your complete guide is ready.</p><p><a href="${escapeHtml(guideUrl)}">Read your guide online</a></p><p><a href="${escapeHtml(guidePdfUrl)}">Download the printable PDF →</a></p><p>Journeying Toward God. Together.<br><strong>Homeward</strong></p></div></div></body></html>`;
   const text = `${firstName ? `Hi ${firstName},` : "Hello,"}\n\nThank you for taking the Homeward Journey Reflection. Your complete ${guide.title.replace(/^The\s+/i, "")} guide is ready.\n\nRead online: ${guideUrl}\nDownload the PDF: ${guidePdfUrl}\n\nJourneying Toward God. Together.\nHomeward`;
+  return sendViaResend({ to: email, subject, html, text, replyTo: config.replyTo, logLabel: "assessment guide" });
+}
 
-  return sendViaResend({
-    to: email,
-    subject,
-    html,
-    text,
-    replyTo: config.replyTo,
-    logLabel: "assessment guide",
+async function sendAssessmentNotification({ name, email, assessmentStage, movingToward, intent, longings, gathering, openNote, recordId, baseId, tableId, existingContact, preview }) {
+  const config = getEmailConfig();
+  if (!config.apiKey || !config.from || !config.notificationTo) return false;
+  const status = existingContact ? "Existing contact" : "New lead";
+  const link = airtableLink(recordId, baseId, tableId);
+  const rows = [
+    ["Contact status", status], ["Name", name], ["Email", email], ["Stage", assessmentStage || "Not provided"],
+    ["Moving toward", movingToward || "Not provided"], ["Wants", intent || "Not provided"],
+    ["Longings", longings || "Not provided"], ["Gathering", gathering || "Not provided"], ["Their open note", openNote || "None"],
+  ];
+  return sendNotification({
+    config, email, preview, subject: `Homeward Journey Reflection — ${status.toLowerCase()} — ${name}`,
+    heading: "HOMEWARD · JOURNEY REFLECTION", intro: `${status} submitted the Homeward Journey Reflection.`, rows, link,
+    logLabel: "assessment notification",
   });
 }
 
-async function sendInterestNotification({
-  name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice,
-  draw, newsletter, conversationRequested, attribution, notes, recordId, baseId, tableId, preview,
-}) {
+async function sendInterestNotification({ name, email, zip, city, zipLocation, gatheringChoice, gathering, interestChoice, draw, newsletter, conversationRequested, attribution, notes, recordId, baseId, tableId, preview }) {
   const config = getEmailConfig();
   if (!config.apiKey || !config.from || !config.notificationTo) return false;
-
   const location = [city, zipLocation?.state, zip].filter(Boolean).join(", ") || "Not provided";
-  const preferredFormat = gatheringChoice || gathering || "Not provided";
-  const subjectPrefix = preview ? "[STAGING TEST] " : "";
-  const subject = `${subjectPrefix}New Homeward interest: ${name}`;
-  const airtableUrl = recordId && baseId && tableId
-    ? `https://airtable.com/${encodeURIComponent(baseId)}/${encodeURIComponent(tableId)}/${encodeURIComponent(recordId)}`
-    : "";
   const rows = [
-    ["Name", name],
-    ["Email", email],
-    ["Location", location],
-    ["Preferred format", preferredFormat],
-    ["Interested in", interestChoice || "Not provided"],
-    ["What they hope to find", draw || "Not provided"],
-    ["Conversation requested", conversationRequested ? "Yes" : "No"],
-    ["Newsletter opt-in", newsletter ? "Yes" : "No"],
-    ["Source", attribution?.source || "Direct / unknown"],
-    ["Campaign", attribution?.campaign || "None"],
+    ["Name", name], ["Email", email], ["Location", location], ["Preferred format", gatheringChoice || gathering || "Not provided"],
+    ["Interested in", interestChoice || "Not provided"], ["What they hope to find", draw || "Not provided"],
+    ["Conversation requested", conversationRequested ? "Yes" : "No"], ["Newsletter opt-in", newsletter ? "Yes" : "No"],
+    ["Source", attribution?.source || "Direct / unknown"], ["Campaign", attribution?.campaign || "None"],
   ];
-  const rowHtml = rows.map(([label, value]) => `<tr><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;font-weight:700;color:#153A2E;vertical-align:top;width:180px">${escapeHtml(label)}</td><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;vertical-align:top">${escapeHtml(value)}</td></tr>`).join("");
-  const replyButton = email
-    ? `<p style="margin:26px 0"><a href="mailto:${escapeHtml(email)}" style="display:inline-block;background:#B53A2A;color:white;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700">Reply to ${escapeHtml(name)}</a></p>`
-    : "";
-  const airtableButton = airtableUrl
-    ? `<p><a href="${escapeHtml(airtableUrl)}" style="color:#153A2E;font-weight:700">Open the Airtable contact →</a></p>`
-    : "";
-  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333333;font-family:Arial,sans-serif"><div style="max-width:680px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:28px 30px;border-radius:12px 12px 0 0"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">HOMEWARD · WEBSITE INTEREST</div><h1 style="font-family:Georgia,serif;font-size:31px;margin:10px 0 0">${escapeHtml(name)}</h1></div><div style="background:white;padding:28px 30px;border-radius:0 0 12px 12px"><p>A new person submitted the Homeward interest form${preview ? " on staging" : ""}.</p><table role="presentation" style="width:100%;border-collapse:collapse;margin-top:18px">${rowHtml}</table>${replyButton}${airtableButton}<details style="margin-top:24px"><summary style="cursor:pointer;color:#6D7D6A">Submission notes</summary><pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:13px;color:#555">${escapeHtml(notes || "")}</pre></details></div></div></body></html>`;
-  const textRows = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
-  const text = `A new person submitted the Homeward interest form${preview ? " on staging" : ""}.\n\n${textRows}${airtableUrl ? `\n\nAirtable: ${airtableUrl}` : ""}\n\nSubmission notes:\n${notes || ""}`;
-
-  return sendViaResend({
-    to: config.notificationTo,
-    subject,
-    html,
-    text,
-    replyTo: email || config.replyTo,
+  return sendNotification({
+    config, email, preview, subject: `New Homeward interest: ${name}`, heading: "HOMEWARD · WEBSITE INTEREST",
+    intro: "A new person submitted the Homeward interest form.", rows, link: airtableLink(recordId, baseId, tableId), notes,
     logLabel: "interest notification",
   });
+}
+
+async function sendNotification({ config, email, preview, subject, heading, intro, rows, link, notes = "", logLabel }) {
+  const prefixedSubject = `${preview ? "[STAGING TEST] " : ""}${subject}`;
+  const rowHtml = rows.map(([label, value]) => `<tr><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;font-weight:700;color:#153A2E;vertical-align:top;width:180px">${escapeHtml(label)}</td><td style="padding:9px 12px;border-bottom:1px solid #E7E0D5;vertical-align:top">${escapeHtml(value)}</td></tr>`).join("");
+  const reply = email ? `<p><a href="mailto:${escapeHtml(email)}">Reply to ${escapeHtml(rows.find(([label]) => label === "Name")?.[1] || "this person")}</a></p>` : "";
+  const airtable = link ? `<p><a href="${escapeHtml(link)}">Open the Airtable contact →</a></p>` : "";
+  const details = notes ? `<details><summary>Submission notes</summary><pre style="white-space:pre-wrap">${escapeHtml(notes)}</pre></details>` : "";
+  const html = `<!doctype html><html><body style="margin:0;background:#FAF6EF;color:#333;font-family:Arial,sans-serif"><div style="max-width:680px;margin:auto;padding:34px 24px"><div style="background:#153A2E;color:#FAF6EF;padding:28px 30px"><div style="font-size:12px;letter-spacing:.18em;color:#E0A443;font-weight:700">${escapeHtml(heading)}</div></div><div style="background:white;padding:28px 30px"><p>${escapeHtml(intro)}${preview ? " (staging)" : ""}</p><table style="width:100%;border-collapse:collapse">${rowHtml}</table>${reply}${airtable}${details}</div></div></body></html>`;
+  const textRows = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
+  const text = `${intro}${preview ? " (staging)" : ""}\n\n${textRows}${link ? `\n\nAirtable: ${link}` : ""}${notes ? `\n\nSubmission notes:\n${notes}` : ""}`;
+  return sendViaResend({ to: config.notificationTo, subject: prefixedSubject, html, text, replyTo: email || config.replyTo, logLabel });
 }
 
 function getEmailConfig() {
@@ -316,13 +284,8 @@ function getEmailConfig() {
 }
 
 function canSendPreviewEmail(submittedEmail) {
-  const enabled = String(Netlify.env.get("ALLOW_PREVIEW_EMAIL") || "").trim().toLowerCase() === "true";
-  if (!enabled) return false;
-  const allowed = String(Netlify.env.get("PREVIEW_EMAIL_RECIPIENTS") || "")
-    .split(",")
-    .map((item) => item.trim().toLowerCase())
-    .filter(Boolean);
-  return allowed.includes(String(submittedEmail || "").trim().toLowerCase());
+  if (String(Netlify.env.get("ALLOW_PREVIEW_EMAIL") || "").trim().toLowerCase() !== "true") return false;
+  return String(Netlify.env.get("PREVIEW_EMAIL_RECIPIENTS") || "").split(",").map((item) => item.trim().toLowerCase()).filter(Boolean).includes(String(submittedEmail || "").trim().toLowerCase());
 }
 
 async function sendViaResend({ to, subject, html, text, replyTo, logLabel }) {
@@ -331,16 +294,9 @@ async function sendViaResend({ to, subject, html, text, replyTo, logLabel }) {
   try {
     const payload = { from: config.from, to: Array.isArray(to) ? to : [to], subject, html, text };
     if (replyTo) payload.reply_to = replyTo;
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    const response = await fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify(payload) });
     const responseText = await response.text();
-    if (!response.ok) {
-      console.error(`${logLabel || "Email"} failed`, response.status, responseText);
-      return false;
-    }
+    if (!response.ok) { console.error(`${logLabel || "Email"} failed`, response.status, responseText); return false; }
     console.log(`${logLabel || "Email"} sent`, responseText);
     return true;
   } catch (error) {
@@ -353,12 +309,10 @@ function normalizeZip(value) {
   const match = String(value || "").trim().match(/\b(\d{5})(?:-\d{4})?\b/);
   return match ? match[1] : "";
 }
-
 function isLikelyDfwZip(zip) {
   const prefix = Number(String(zip || "").slice(0, 3));
   return (prefix >= 750 && prefix <= 754) || (prefix >= 760 && prefix <= 762);
 }
-
 function normalizeGatheringPreference(value, zip) {
   const raw = String(value || "").trim();
   if (["DFW — open to in person", "DFW — prefer online", "Outside DFW — online"].includes(raw)) return raw;
@@ -368,12 +322,10 @@ function normalizeGatheringPreference(value, zip) {
   if (/online/i.test(raw)) return outsideDfw ? "Outside DFW — online" : "DFW — prefer online";
   return "";
 }
-
 async function lookupUsZip(zip) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 2500);
   try {
-    // Zippopotam.us is a free postal-code lookup service. Failure never blocks the form.
     const response = await fetch(`https://api.zippopotam.us/us/${encodeURIComponent(zip)}`, { signal: controller.signal });
     if (!response.ok) return null;
     const payload = await response.json();
@@ -383,27 +335,15 @@ async function lookupUsZip(zip) {
     const state = String(place["state abbreviation"] || place.state || "").trim();
     return city ? { city, state } : null;
   } catch (error) {
-    console.warn("ZIP lookup skipped", String(error && error.message || error));
+    console.warn("ZIP lookup skipped", String(error?.message || error));
     return null;
-  } finally {
-    clearTimeout(timeout);
-  }
+  } finally { clearTimeout(timeout); }
 }
-
 function escapeHtml(value) {
-  return String(value || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+  return String(value || "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
 }
-
 function json(payload, status) {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: { "content-type": "application/json", "cache-control": "no-store" },
-  });
+  return new Response(JSON.stringify(payload), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 }
 
 export const config = { path: "/api/lead" };
