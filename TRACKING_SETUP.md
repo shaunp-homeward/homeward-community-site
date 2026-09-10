@@ -8,6 +8,7 @@ Tracked events include:
 
 - `hero_feels_like_me`
 - `journey_reflection_start`
+- `journey_reflection_result`
 - `journey_reflection_complete`
 - `practice_view`
 - `practice_start`
@@ -22,6 +23,8 @@ Tracked events include:
 - `interest_prompt_dismiss`
 - `talk_with_shaun_click`
 - `calendar_open`
+
+`journey_reflection_result` fires when the result screen renders and includes only `assessment_stage`; it contains no personally identifiable information. `journey_reflection_complete` remains the successful-submit event.
 
 ## Meta Pixel
 
