@@ -263,9 +263,9 @@ await write('sacred-listening.html', sacred);
 const css = `
 /* v4 staging: existing-group positioning + shared Sacred Listening header */
 .hw-recognition-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;max-width:1040px;margin:34px auto 0!important}
-.hw-recognition-grid article{min-width:0!important;padding:24px 26px!important;height:auto!important}
-.hw-recognition-grid article p{margin:0!important;line-height:1.55!important}
-.hw-recognition-grid article strong{display:inline!important}
+.hw-recognition-grid article{display:block!important;grid-template-columns:1fr!important;min-width:0!important;width:100%!important;padding:24px 26px!important;height:auto!important}
+.hw-recognition-grid article p{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;line-height:1.55!important;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important;text-align:left!important}
+.hw-recognition-grid article strong{display:inline!important;width:auto!important;max-width:none!important;white-space:normal!important;word-break:normal!important}
 .hero-icon-row{display:none!important}
 .sl4-tight-triad{align-items:start!important;gap:14px!important}
 .sl4-tight-triad .sl2-card{min-height:0!important;height:auto!important;padding:18px 22px!important}
@@ -300,6 +300,8 @@ const css = `
 }
 @media(max-width:720px){
   .hw-recognition-grid{grid-template-columns:1fr!important}
+  .hw-recognition-grid article{display:block!important;width:100%!important;padding:22px 20px!important}
+  .hw-recognition-grid article p{display:block!important;width:100%!important;max-width:none!important;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important}
   .hw-group-weeks{grid-template-columns:1fr}
   .hw-group-weeks article{grid-template-columns:46px 1fr;padding:22px}
   .hw-group-weeks article>span{width:42px;height:42px}
