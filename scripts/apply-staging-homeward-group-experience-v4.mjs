@@ -102,10 +102,79 @@ const groupExperience = `
   </div>
 </section>`;
 
+
+const groupRecognition = `
+<section class="recognition section hw-recognition">
+  <div class="shell narrow-wide">
+    <div class="section-heading centered recognition-heading">
+      <p class="eyebrow">WHEN A GOOD GROUP WANTS TO GO DEEPER</p>
+      <h2>Your group may not need more content.<br/>It may need more practice.</h2>
+      <p>Many groups already have good teaching, caring people, and meaningful conversation. What can be harder is creating room to slow down, experience God together, listen deeply, and carry spiritual practices into ordinary life.</p>
+    </div>
+    <div class="recognition-grid recognition-grid-four hw-recognition-grid">
+      <article><p><strong>You talk about prayer</strong>, but rarely have time to experience silence, Centering Prayer, or contemplative prayer together.</p></article>
+      <article><p><strong>Your conversations are meaningful</strong>, but can drift toward advice, fixing, or the same few voices carrying the room.</p></article>
+      <article><p><strong>You want something fresh</strong>, but not another curriculum, another permanent program, or another group to manage.</p></article>
+      <article><p><strong>You want formation that travels</strong>—simple practices people can actually carry into Monday, family life, work, and relationships.</p></article>
+    </div>
+    <p class="recognition-close">Homeward comes alongside the group you already have and adds guided practice, deeper listening, and a few new rhythms you can keep.</p>
+  </div>
+</section>`;
+
+const groupFit = `
+<section class="fit section-tight hw-fit">
+  <div class="shell fit-intro">
+    <p class="eyebrow">COULD HOMEWARD HELP YOUR GROUP?</p>
+    <h2>A good fit for groups that want to practice—not just discuss.</h2>
+    <p>Homeward works best when a group already has relationships and a rhythm together, and wants a guided way to deepen prayer, presence, and conversation.</p>
+  </div>
+  <div class="shell fit-shell">
+    <div class="fit-column fit-yes">
+      <h2>This may be a strong fit if…</h2>
+      <ul>
+        <li>Your group wants a four-week experience rather than another ongoing program.</li>
+        <li>You are open to silence, contemplative prayer, Centering Prayer, Scripture, and reflection.</li>
+        <li>People are willing to participate and practice—not simply listen to a teacher.</li>
+        <li>You want tools and rhythms the group can continue using after Homeward steps out.</li>
+      </ul>
+    </div>
+    <div class="fit-column fit-no">
+      <h2>It may not be the right fit if…</h2>
+      <ul>
+        <li>Your group is mainly looking for a lecture, sermon series, or content-heavy Bible study.</li>
+        <li>The primary goal is doctrinal debate, persuasion, or getting everyone to the same answer.</li>
+        <li>There is little room for silence, participation, reflection, or honest conversation.</li>
+        <li>You are looking for Homeward to permanently take over leadership of the group.</li>
+      </ul>
+    </div>
+  </div>
+</section>`;
+
+const founderReframe = `
+<section class="founder founder-feature section" id="founder">
+  <div class="shell founder-row">
+    <div class="founder-image"><img src="/assets/founder-headshot.jpg" alt="Shaun, founder of Homeward"/></div>
+    <div class="founder-copy">
+      <p class="eyebrow">WHY HOMEWARD EXISTS</p>
+      <h2>I found practices that changed my spiritual life. I kept wondering why they were so hard to find in ordinary community.</h2>
+      <p>After years of spiritual study, retreats, monasteries, and contemplative practice, I kept returning to Jesus—and to practices that helped me experience God more deeply. But many of those experiences lived outside everyday church and small-group life.</p>
+      <p class="founder-second">Homeward grew from a simple question: <strong>What if we could bring some of these practices into communities that already exist?</strong> Not asking people to leave their church. Not creating another program to maintain. Just helping groups experience new ways to pray, listen, reflect, and become more available to God and one another.</p>
+      <p class="founder-trust">Religious Studies + Anthropology · decades of contemplative practice · husband, father, and business leader</p>
+      <a class="text-link" href="/about.html">Read Shaun’s Story <span>→</span></a>
+    </div>
+  </div>
+</section>`;
+
 let home = injectCss(await read('index.html'));
 
 // Remove standalone-Circle framing and related legacy blocks.
 for (const cls of ['circle-different','season-wrap','v9-interest']) home = removeSection(home, cls);
+const oldRecognition = getSection(home, 'recognition');
+if (oldRecognition) home = home.replace(oldRecognition, groupRecognition);
+const oldFit = getSection(home, 'fit');
+if (oldFit) home = home.replace(oldFit, groupFit);
+const oldFounder = getSection(home, 'founder-feature');
+if (oldFounder) home = home.replace(oldFounder, founderReframe);
 
 // Replace hero Circle language with broader current offer.
 home = home.replace(
@@ -128,6 +197,28 @@ else {
 // Tighten Sacred Listening homepage cards.
 home = home.replaceAll('class="sl2-triad sl3-triad"', 'class="sl2-triad sl3-triad sl4-tight-triad"');
 
+// The current offer should appear before the explanation of why practices matter.
+home = removeSection(home, 'hw-group-experience');
+const practiceSection = getSection(home, 'home-practices');
+if (practiceSection) home = home.replace(practiceSection, `${groupExperience}\n${practiceSection}`);
+
+// Clean up remaining standalone-Circle language in the homepage shell.
+home = home
+  .replace(/<div class="hero-icon-row"[\\s\\S]*?<\\/div>/i, '')
+  .replace(/<p class="hero-note">[\\s\\S]*?<\\/p>/i, '')
+  .replace('Homeward is forming as a Jesus-centered spiritual community, beginning with Circles. You do not need to leave an existing church, and you do not need previous church involvement to participate.',
+    'Homeward is a Jesus-centered spiritual formation initiative that comes alongside existing groups through workshops, guided practices, and short formation experiences. The aim is to deepen the community you already have—not ask people to leave it.')
+  .replace('Why is a conversation required before joining a Circle?', 'How does Homeward work with an existing group?')
+  .replace('The conversation gives you a chance to ask questions and understand the experience before committing. It also helps us learn what you are seeking, confirm that the Circle posture is a good fit, and thoughtfully match people into groups. We are looking for openness and a desire to grow—not doctrinal certainty.',
+    'We begin with a short conversation with the group leader to understand the people, rhythm, and needs of the group. Then we shape a simple four-week experience that introduces practices without replacing the group’s identity, leadership, or existing relationships.')
+  .replace('<h4>Fall 2026</h4><p>Finding Home begins this fall in Fort Worth and online—the first four-week season in an ongoing Homeward journey.</p>',
+    '<h4>FOR EXISTING GROUPS</h4><p>Bring a four-week Homeward experience into the community you already have—guided practice, deeper conversation, and tools your group can keep.</p>');
+
+// Lock the new narrative order.
+const orderedClasses = ['hero','recognition','hw-group-experience','home-practices','sl2-home','founder-feature','fit','journey','faq'];
+const orderedSections = orderedClasses.map((className) => getSection(home, className)).filter(Boolean);
+home = home.replace(/<main id="top">[\\s\\S]*?<\\/main>/i, `<main id="top">\n${orderedSections.join('\n')}\n</main>`);
+
 await write('index.html', home);
 
 let sacred = injectCss(await read('sacred-listening.html'));
@@ -149,10 +240,11 @@ await write('sacred-listening.html', sacred);
 
 const css = `
 /* v4 staging: existing-group positioning + shared Sacred Listening header */
-.sl4-tight-triad .sl2-card{min-height:0!important;padding:22px 24px!important}
-.sl4-tight-triad .sl3-card-head{margin-bottom:12px!important}
-.sl4-tight-triad .sl3-card-head .sl2-icon{width:48px!important;height:48px!important;flex-basis:48px!important;font-size:23px!important}
-.sl4-tight-triad .sl3-card-head h3{font-size:1.72rem!important}
+.sl4-tight-triad{align-items:start!important;gap:14px!important}
+.sl4-tight-triad .sl2-card{min-height:0!important;height:auto!important;padding:18px 22px!important}
+.sl4-tight-triad .sl3-card-head{margin-bottom:8px!important}
+.sl4-tight-triad .sl3-card-head .sl2-icon{width:44px!important;height:44px!important;flex-basis:44px!important;font-size:21px!important}
+.sl4-tight-triad .sl3-card-head h3{font-size:1.58rem!important}
 .sl4-tight-triad .sl2-card>p:last-child{margin:0!important;line-height:1.5!important}
 .hw-group-experience{background:#fff}
 .hw-group-heading{display:grid;grid-template-columns:.82fr 1.18fr;gap:64px;align-items:start;margin-bottom:42px}
