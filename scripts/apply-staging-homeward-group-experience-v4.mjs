@@ -237,7 +237,7 @@ sacred = sacred.replace(/<body([^>]*)>/i, (match, attrs) => {
 
 sacred = sacred
   .replace('A SPIRITUAL COMMUNITY', 'SPIRITUAL FORMATION FOR GROUPS')
-  .replace(/(<a[^>]*href="\\/circles\\.html"[^>]*>)Circles(<\\/a>)/g, '$1For Groups$2')
+  .replace(/(<a[^>]*href="\/circles\.html"[^>]*>)Circles(<\/a>)/g, '$1For Groups$2')
   .replace('Sacred Listening is a <strong>three-session experiential workshop</strong> that combines contemplative practice with practical listening skills. Participants don\'t simply learn about presence and listening—they practice them with one another, notice what happens, and learn tools they can carry into real conversations.',
     'Sacred Listening is a <strong>three-session experiential workshop for Christian groups, care teams, and leaders</strong> that combines contemplative presence with practical listening skills. Participants do not simply learn techniques—they practice with one another, notice what creates safety and connection, and leave with tools they can use in ministry and everyday relationships.')
   .replace('<a class="button button-outline sl2-light-outline" href="/#interest">I’m Interested</a>',
