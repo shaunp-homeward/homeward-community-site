@@ -25,11 +25,11 @@ const workshopHeader = `
   <div class="v8-header-inner">
     <a class="v8-brand" href="/" aria-label="Homeward home">
       <img class="v8-brand-mark" src="/assets/mark-forest.png" alt="">
-      <span class="v8-brand-copy"><strong>HOMEWARD</strong><small>A SPIRITUAL COMMUNITY</small></span>
+      <span class="v8-brand-copy"><strong>HOMEWARD</strong><small>SPIRITUAL FORMATION FOR GROUPS</small></span>
     </a>
     <nav class="v8-desktop-nav" aria-label="Primary navigation">
       <a href="/">Home</a>
-      <a href="/circles.html">Circles</a>
+      <a href="/circles.html">For Groups</a>
       <a href="/practices.html">Practices</a>
       <a href="/sacred-listening.html" class="is-active" aria-current="page">Sacred Listening</a>
       <a href="/#journey">Journey</a>
@@ -41,7 +41,7 @@ const workshopHeader = `
   </div>
   <nav class="v8-mobile-nav" aria-label="Mobile navigation" data-v8-mobile-menu hidden>
     <a href="/">Home</a>
-    <a href="/circles.html">Circles</a>
+    <a href="/circles.html">For Groups</a>
     <a href="/practices.html">Practices</a>
     <a href="/sacred-listening.html" class="is-active" aria-current="page">Sacred Listening</a>
     <a href="/#journey">Journey</a>
@@ -62,8 +62,8 @@ const groupExperience = `
         <h2>Keep your group.<br/><em>Deepen the experience.</em></h2>
       </div>
       <div class="hw-group-intro">
-        <p class="lead">Homeward can join an existing church small group, care group, or community for a four-week guided experience—introducing contemplative practices and new ways of listening, reflecting, and talking together.</p>
-        <p>You do not need to start another program or recruit a new community. We come alongside the group you already have, help people experience a few practices together, and leave the group with tools it can continue using on its own.</p>
+        <p class="lead">Give your group four weeks to slow down, experience God in new ways, and deepen the way you pray and listen together.</p>
+        <p>Homeward comes alongside the community you already have with guided contemplative practices, meaningful conversation, and simple tools your group can continue using on its own.</p>
       </div>
     </div>
 
@@ -74,11 +74,11 @@ const groupExperience = `
       </article>
       <article>
         <span>02</span>
-        <div><p class="eyebrow">PRAY DIFFERENTLY</p><h3>Practice silence & Centering Prayer</h3><p>Explore Centering Prayer, breath prayer, silence, and other Christian contemplative practices in a guided, approachable way.</p></div>
+        <div><p class="eyebrow">DEEPEN PRAYER</p><h3>Discover silence, Centering Prayer & breath prayer</h3><p>Experience time-tested Christian practices that create space to listen, receive, and rest in God rather than only speak.</p></div>
       </article>
       <article>
         <span>03</span>
-        <div><p class="eyebrow">LISTEN DEEPLY</p><h3>Change the conversation</h3><p>Practice Sacred Listening and learn how curiosity, reflection, and less fixing can create safer and more meaningful group conversations.</p></div>
+        <div><p class="eyebrow">LISTEN WITH LOVE</p><h3>Help people feel seen, heard, and known</h3><p>Practice Sacred Listening and discover how curiosity, reflection, and less fixing can transform the quality of a group’s conversations.</p></div>
       </article>
       <article>
         <span>04</span>
@@ -112,10 +112,10 @@ const groupRecognition = `
       <p>Many groups already have good teaching, caring people, and meaningful conversation. What can be harder is creating room to slow down, experience God together, listen deeply, and carry spiritual practices into ordinary life.</p>
     </div>
     <div class="recognition-grid recognition-grid-four hw-recognition-grid">
-      <article><p><strong>You talk about prayer</strong>, but rarely have time to experience silence, Centering Prayer, or contemplative prayer together.</p></article>
-      <article><p><strong>Your conversations are meaningful</strong>, but can drift toward advice, fixing, or the same few voices carrying the room.</p></article>
-      <article><p><strong>You want something fresh</strong>, but not another curriculum, another permanent program, or another group to manage.</p></article>
-      <article><p><strong>You want formation that travels</strong>—simple practices people can actually carry into Monday, family life, work, and relationships.</p></article>
+      <article><p><strong>You talk about prayer.</strong> What if your group could actually practice silence, contemplation, and listening together?</p></article>
+      <article><p><strong>Your conversations are meaningful.</strong> What if more people left feeling deeply heard instead of quickly advised?</p></article>
+      <article><p><strong>You want something fresh.</strong> But not another curriculum, program, or commitment to manage.</p></article>
+      <article><p><strong>You want something that lasts.</strong> Practices people can carry into Monday, relationships, work, and ordinary life.</p></article>
     </div>
     <p class="recognition-close">Homeward comes alongside the group you already have and adds guided practice, deeper listening, and a few new rhythms you can keep.</p>
   </div>
@@ -235,10 +235,27 @@ sacred = sacred.replace(/<body([^>]*)>/i, (match, attrs) => {
   return `<body${attrs} class="v8-shared-shell sacred-listening-page">`;
 });
 
+sacred = sacred
+  .replace('A SPIRITUAL COMMUNITY', 'SPIRITUAL FORMATION FOR GROUPS')
+  .replace(/(<a[^>]*href="\\/circles\\.html"[^>]*>)Circles(<\\/a>)/g, '$1For Groups$2')
+  .replace('Sacred Listening is a <strong>three-session experiential workshop</strong> that combines contemplative practice with practical listening skills. Participants don\'t simply learn about presence and listening—they practice them with one another, notice what happens, and learn tools they can carry into real conversations.',
+    'Sacred Listening is a <strong>three-session experiential workshop for Christian groups, care teams, and leaders</strong> that combines contemplative presence with practical listening skills. Participants do not simply learn techniques—they practice with one another, notice what creates safety and connection, and leave with tools they can use in ministry and everyday relationships.')
+  .replace('<a class="button button-outline sl2-light-outline" href="/#interest">I’m Interested</a>',
+    '<a class="button button-outline sl2-light-outline" href="/connect.html">Have a Conversation</a>')
+  .replace('FOR CHURCHES, CARE GROUPS & LEADERS', 'FOR CHRISTIAN GROUPS, CARE TEAMS & LEADERS')
+  .replace('A workshop people can use on Tuesday.', 'A workshop that changes how people show up for one another.')
+  .replace('Sacred Listening can strengthen the relational life already happening inside a church or community without requiring a new program or structure.',
+    'Bring Sacred Listening into a community that already exists. The workshop strengthens the way people listen, care, and respond without asking the church or group to adopt another ongoing program.')
+  .replace('Homeward can facilitate the workshop for an existing church, staff team, care group, small group, or community.',
+    'Homeward facilitates the workshop inside the community you already have—small groups, care teams, staff teams, recovery ministries, and other Christian communities.');
 await write('sacred-listening.html', sacred);
 
 const css = `
 /* v4 staging: existing-group positioning + shared Sacred Listening header */
+.hw-recognition-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;max-width:1040px;margin:34px auto 0!important}
+.hw-recognition-grid article{min-width:0!important;padding:24px 26px!important;height:auto!important}
+.hw-recognition-grid article p{margin:0!important;line-height:1.55!important}
+.hw-recognition-grid article strong{display:inline!important}
 .hero-icon-row{display:none!important}
 .sl4-tight-triad{align-items:start!important;gap:14px!important}
 .sl4-tight-triad .sl2-card{min-height:0!important;height:auto!important;padding:18px 22px!important}
@@ -272,6 +289,7 @@ const css = `
   .sacred-listening-page .v8-desktop-nav{display:none}
 }
 @media(max-width:720px){
+  .hw-recognition-grid{grid-template-columns:1fr!important}
   .hw-group-weeks{grid-template-columns:1fr}
   .hw-group-weeks article{grid-template-columns:46px 1fr;padding:22px}
   .hw-group-weeks article>span{width:42px;height:42px}
