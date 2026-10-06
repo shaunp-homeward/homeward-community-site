@@ -1,56 +1,65 @@
 {
   "hero": {
     "eyebrow": "Our Story",
-    "heading": "A community born from a shared longing.",
-    "lead": "Homeward began with people who love God, remain drawn to the life and teachings of Jesus, and want room for honest questions, deeper practice, and real friendship."
+    "heading": "Helping Christian groups practice the life they already believe in.",
+    "lead": "Homeward grew out of a simple conviction: many Christian communities do not need another program. They need space to slow down, experience God together, listen deeply, and practice the way of Jesus in ways that carry into everyday life."
   },
   "origin": {
-    "image": "assets/formation-archive.jpg",
-    "image_alt": "Friends and teachers gathered during a season of spiritual formation",
-    "caption": "A long spiritual search helped shape the questions behind Homeward.",
+    "image": "assets/founder-headshot.jpg",
+    "image_alt": "Shaun Pennington, founder of Homeward",
+    "caption": "Shaun Pennington — husband, father, business leader, and founder of Homeward.",
     "eyebrow": "Why Homeward began",
-    "heading": "Many of us were looking for the same thing.",
-    "lead": "A faith deep enough for our questions. Practices that help us experience God—not only think about God. Friendships where we can be honest, grow, laugh, and become more loving together.",
+    "heading": "I kept finding life-giving practices that rarely made it into ordinary group life.",
+    "lead": "For more than thirty years, I have been exploring prayer, contemplation, Scripture, spiritual formation, and the question of how people actually become more loving—not simply more informed.",
     "paragraphs": [
-      "Homeward is being built as a place where Christian meditation, contemplative prayer, Scripture, meaningful conversation, and shared life can belong together.",
-      "Wherever you are in your understanding of God, you are welcome to begin honestly."
+      "That journey included retreats, contemplative communities, Christian meditation, Centering Prayer, breath prayer, spiritual study, and learning from wise teachers both inside and outside my own tradition. Those experiences did not pull me away from Jesus. They kept bringing me back to him—with a deeper desire to practice his way of presence, compassion, surrender, and love.",
+      "Homeward grew from wondering what would happen if some of those practices became easier to experience inside the Christian communities people already love. Not a replacement for church. Not another spiritual community to maintain. A way to come alongside existing groups and help them pray, listen, reflect, and grow together.",
+      "The goal is simple: create experiences that are faithful, practical, human, and usable on Monday—not only meaningful while we are in the room."
     ]
   },
   "formation": {
-    "eyebrow": "How the work is being built",
-    "heading": "Practical experience. Contemplative formation.",
-    "lead": "Homeward was initiated by Shaun Pennington, whose background brings together organizational leadership and decades of contemplative practice. That experience helps make the vision both spiritually grounded and practically buildable.",
+    "eyebrow": "The experience behind the work",
+    "heading": "Spiritual formation. Leadership development. Real life.",
+    "lead": "If I am invited into an existing Christian group, I believe trust matters. My background brings together decades of contemplative formation, organizational leadership, coaching and facilitation, and the ordinary formation of marriage, parenting, work, and community.",
     "cards": [
       {
-        "title": "Building something durable",
+        "title": "Spiritual formation",
         "items": [
-          "Twenty-five years helping lead a fourth-generation manufacturing company.",
-          "Experience building culture, teams, systems, and sustainable economics.",
-          "A commitment to develop leaders and build beyond any one personality."
+          "More than thirty years of contemplative study, retreat, prayer, meditation, and spiritual practice.",
+          "Ongoing practice with Centering Prayer, breath prayer, contemplative Scripture, silence, reflection, and Sacred Listening.",
+          "Academic background in Religious Studies and Anthropology, with a continuing focus on Jesus and the Christian contemplative tradition."
         ]
       },
       {
-        "title": "Making room for transformation",
+        "title": "Leadership & facilitation",
         "items": [
-          "Thirty years of contemplative study, retreat, and practice.",
-          "Formation across Christian and Buddhist contemplative traditions.",
-          "A return to a deeper life rooted in the teachings and way of Jesus."
+          "Twenty-five years helping lead a fourth-generation manufacturing business and developing leaders, teams, culture, and systems.",
+          "Formation and leadership development through Stagen, ACE Coaching, HeartMath certification, and TED certification.",
+          "Experience with high-trust mastermind and forum practices informed by YPO and Vistage—confidentiality, honest reflection, peer learning, and conversations that go beneath the surface."
+        ]
+      },
+      {
+        "title": "Family & everyday life",
+        "items": [
+          "Together with my wife, Lorraine, for twenty years and married for sixteen.",
+          "Father of two teenagers and deeply shaped by the everyday work of marriage, parenting, friendship, and responsibility.",
+          "Homeward is built for real life. The practices have to work at the dinner table, at work, in conflict, in uncertainty, and in the ordinary moments where love is actually lived."
         ]
       }
     ]
   },
   "community": {
-    "eyebrow": "The community comes first",
-    "heading": "Homeward is meant to develop many voices.",
-    "lead": "Participants become contributors. Leaders are developed. People help one another remember what matters, grow in love, and carry that life into the world.",
+    "eyebrow": "How I hope to serve",
+    "heading": "Come alongside your group. Strengthen what is already there.",
+    "lead": "I am not looking to replace your pastor, your theology, your leadership, or your community. Homeward is designed to serve existing Christian groups with short, experiential formation that adds contemplative practice, deeper listening, and honest conversation—then leaves the group with tools it can continue using on its own.",
     "button": "Have a Conversation",
     "button_url": "calendar"
   },
   "meta": {
     "title": "Our Story — Homeward",
-    "description": "Learn why Homeward began: a shared longing for deeper faith, honest questions, contemplative practice, and authentic spiritual community.",
+    "description": "Meet Shaun Pennington and learn how decades of Christian contemplative practice, leadership development, facilitation, and family life shaped Homeward’s work with existing Christian groups.",
     "og_title": "Our Story — Homeward",
-    "og_description": "Learn why Homeward began: a shared longing for deeper faith, honest questions, contemplative practice, and authentic spiritual community.",
-    "og_image": "assets/hero-community.jpg"
+    "og_description": "Spiritual formation, leadership development, and real-life experience behind Homeward’s work with existing Christian groups.",
+    "og_image": "assets/founder-headshot.jpg"
   }
 }
