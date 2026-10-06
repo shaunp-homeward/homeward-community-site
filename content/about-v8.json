@@ -1,100 +1,155 @@
 {
-  "version": "8.1.1",
+  "version": "8.2.0",
   "hero": {
     "eyebrow": "OUR STORY · WHY HOMEWARD EXISTS",
-    "heading": "I went looking for a faith I could actually live.",
-    "lead": "For years, I carried questions about God, salvation, other religions, and the Christianity I had inherited that I couldn’t seem to resolve. I wanted answers that could hold together both intellectually and spiritually—but I couldn’t find them.",
-    "question": "If God is love, is everyone who doesn’t believe exactly what I believe really going to hell?",
-    "support": "I could not find answers that satisfied both my mind and my heart. So I kept asking. Then I went looking.",
-    "after_support": "That search eventually led through years of study, monasteries, retreat centers, extended silent practice, and contemplative communities across traditions—and, unexpectedly, back toward Christ.",
+    "heading": "I want to help good Christian groups go deeper.",
+    "lead": "Homeward grew out of more than thirty years of spiritual practice, leadership development, and a simple conviction: many Christian communities do not need another program. They need space to slow down, experience God together, listen deeply, and practice the way of Jesus in ways that carry into everyday life.",
+    "question": "What if the practices that help us become more present to God were easier to experience inside the groups we already have?",
+    "support": "That question is at the heart of Homeward.",
+    "after_support": "Rather than build a competing community, I want to come alongside existing Christian groups for a short season—helping people pray, reflect, listen, and grow together, then leaving the group with practices it can continue on its own.",
     "images": [
-      {"src": "/assets/founder-headshot.jpg", "alt": "Shaun Pennington", "class": "founder"},
-      {"src": "/assets/our-story/group-wide.webp", "alt": "Shaun with monks and fellow retreat participants during a season of spiritual exploration", "class": "group"},
-      {"src": "/assets/our-story/laurence-freeman.webp", "alt": "Father Laurence Freeman during Shaun's contemplative journey", "class": "teacher"},
-      {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during a season of spiritual formation", "class": "archive"}
+      {
+        "src": "/assets/founder-headshot.jpg",
+        "alt": "Shaun Pennington",
+        "class": "founder"
+      },
+      {
+        "src": "/assets/churches-circle-warm-v9.webp",
+        "alt": "A Christian small group gathered in warm conversation",
+        "class": "group"
+      },
+      {
+        "src": "/assets/churches-pastor-renewal-v9.webp",
+        "alt": "A Christian leader participating in a reflective group experience",
+        "class": "teacher"
+      },
+      {
+        "src": "/assets/circle-community.jpg",
+        "alt": "People gathered around a table in meaningful conversation",
+        "class": "archive"
+      }
     ]
   },
   "questions": {
-    "eyebrow": "THE QUESTIONS BEGAN EARLY",
-    "heading": "I loved Jesus. I wasn’t sure what to do with the answers I was given.",
+    "eyebrow": "THE CONVICTION BEHIND HOMEWARD",
+    "heading": "Information matters. Formation takes practice.",
     "paragraphs": [
-      "I grew up evangelical. There was much in that world I still value: Scripture, prayer, service, the person of Jesus, and the conviction that faith should matter.",
-      "But some questions would not leave me alone. What happens to people in other religions? Is fear really the center of salvation? Why did a God of love sometimes sound so unlike the Jesus I encountered in the Gospels?",
-      "I wasn’t trying to lose my faith. I was trying to be honest about the questions I already had—and to find a way of faith I could live truthfully."
+      "I grew up in the Christian faith and have remained deeply drawn to Jesus, Scripture, prayer, service, and the conviction that faith should shape the way we actually live.",
+      "Over time I became increasingly interested in a practical question: what helps a person become more present, less reactive, more compassionate, more grounded in God, and more capable of love?",
+      "Teaching matters. Theology matters. But I have also learned that transformation usually requires practice—repeated ways of praying, listening, reflecting, and showing up differently with God and with one another."
     ]
   },
   "search": {
-    "eyebrow": "SO I WENT LOOKING",
-    "heading": "I wanted to know what actually changes a human life.",
+    "eyebrow": "A LONG FORMATION JOURNEY",
+    "heading": "I have spent decades learning what helps people actually change.",
     "paragraphs": [
-      "Over the years I spent months in retreat environments—monasteries, retreat centers, extended silent practice, and communities shaped by Christian meditation, Buddhist mindfulness, contemplative prayer, and other traditions. This wasn’t casual curiosity. I wanted to understand what sustained practice actually does to a life."
+      "For more than thirty years I have studied and practiced prayer, meditation, silence, Scripture, spiritual reflection, retreat, and contemplative formation. That has included Christian meditation, Centering Prayer, breath prayer, contemplative Scripture, extended retreat, and learning from experienced teachers and communities.",
+      "Along the way I also learned from contemplative teachers outside Christianity. I value what was useful without pretending every tradition teaches the same thing. Homeward itself is intentionally Jesus-centered and rooted in Christian spiritual formation."
     ],
     "photos": [
-      {"src": "/assets/our-story/personal-hall.webp", "alt": "A large meditation hall during Shaun's years of retreat practice", "caption": "Extended retreat environments taught me what repetition, silence, and community can do once practice becomes real.", "contain": true},
-      {"src": "/assets/our-story/personal-sitting.webp", "alt": "Shaun seated in meditation during a retreat", "caption": "The search was experiential: learning with people, practicing, and asking what actually transforms us.", "contain": true},
-      {"src": "/assets/formation-archive.jpg", "alt": "Friends and teachers gathered during spiritual formation", "caption": "I learned across traditions without pretending that every tradition teaches the same thing.", "contain": false},
-      {"src": "/assets/our-story/laurence-freeman.webp", "alt": "Father Laurence Freeman", "caption": "Christian contemplative teachers helped me rediscover silence and meditation within Christianity itself.", "contain": false}
+      {
+        "src": "/assets/founder-headshot.jpg",
+        "alt": "Shaun Pennington",
+        "caption": "Homeward is shaped by decades of spiritual practice, study, leadership, and ordinary life.",
+        "contain": false
+      },
+      {
+        "src": "/assets/churches-circle-warm-v9.webp",
+        "alt": "A Christian small group in conversation",
+        "caption": "The goal is not to create another community, but to deepen the one people already have.",
+        "contain": false
+      },
+      {
+        "src": "/assets/churches-pastor-renewal-v9.webp",
+        "alt": "A ministry leader in reflective conversation",
+        "caption": "I am especially interested in experiences that help leaders participate, not only facilitate.",
+        "contain": false
+      },
+      {
+        "src": "/assets/circle-community.jpg",
+        "alt": "A group gathered around a table",
+        "caption": "Practice, honest conversation, and trusted relationships can reinforce one another.",
+        "contain": false
+      }
     ],
-    "note": "You don’t need any of this experience to begin. One reason I’m building Homeward is so people can taste the depth of these practices in ordinary life. No meditation experience or theological expertise is required. Start where you are."
+    "note": "You do not need retreat experience, contemplative training, or theological expertise to participate. Homeward is designed to make these practices approachable inside ordinary Christian group life."
   },
   "return": {
-    "eyebrow": "THE RETURN",
-    "heading": "My heart kept coming back to Christ.",
+    "eyebrow": "WHAT I KEPT COMING BACK TO",
+    "heading": "The life and way of Jesus remained the center.",
     "paragraphs": [
-      "Through all of it, I never really stopped praying to Jesus. My old framework for Christianity changed, but the person and way of Christ remained the deepest gravitational center of my spiritual life.",
-      "Then I read Richard Rohr’s The Universal Christ. It was a pivotal moment for me. His expansive, Christ-centered reframing gave me a vision of Christianity I had been missing—spacious enough for mystery and honest questions, yet deeply rooted in Christ.",
-      "The practices I encountered elsewhere did not replace Christ for me. They helped me return with a more open heart."
+      "Through years of study and practice, the person of Jesus remained the deepest center of my spiritual life. The more I explored presence, surrender, compassion, forgiveness, and love, the more I found myself returning to the Gospels and to the way Jesus actually lived with people.",
+      "The Christian contemplative tradition helped me discover that silence, meditation, and deep interior prayer do not have to sit outside Christianity. They are part of our own history and can help people experience faith rather than only discuss it.",
+      "That is the spirit behind Homeward: Jesus-centered, practice-based, open to honest questions, and oriented toward becoming more available to God and more loving toward other people."
     ],
-    "book_eyebrow": "A TURNING POINT",
-    "book_title": "The Universal Christ",
-    "book_body": "It gave me Christian language for a vision of Christ, creation, salvation, and divine love that felt both deeply rooted and radically open.",
-    "quote": "If I had heard Christianity framed this way earlier, I’m not sure I would have felt I needed to leave it to find depth."
+    "book_eyebrow": "THE CHRISTIAN CONTEMPLATIVE TRADITION",
+    "book_title": "Prayer that becomes a way of life",
+    "book_body": "Practices such as Centering Prayer, breath prayer, contemplative Scripture, silence, and reflection can help move prayer from something we occasionally do into a way of becoming more receptive to God.",
+    "quote": "The goal is not to escape ordinary life. It is to become more available to God and more capable of love within it."
   },
   "missing": {
-    "eyebrow": "THE MISSING PIECE",
-    "heading": "I came home with practices. I didn’t have people to practice with.",
+    "eyebrow": "THE OPPORTUNITY I KEPT SEEING",
+    "heading": "Many churches already have community. What if we helped those communities practice?",
     "paragraphs": [
-      "A retreat can open something in you. Then you come home, the phone rings, work starts, the kids need something, traffic happens—and the practice can quietly disappear.",
-      "What I wanted was remarkably simple: a few people who wanted to keep going. A place to practice together, explore Scripture honestly, carry something into the week, come back and talk about what actually happened, and support one another with gentle accountability.",
-      "Retreat can deepen a practice. Community helps you live it. Homeward is meant to be that home base—a place to return to, whether you are just beginning or eventually want to go deeper."
+      "Churches already have small groups, care teams, recovery communities, staff teams, and people who know and trust one another. I became less interested in asking people to join one more thing and more interested in serving the communities that are already there.",
+      "That is why Homeward now begins with short, experiential offerings: a four-week group experience and a three-session Sacred Listening workshop. We come in, facilitate the experience, help people try new practices together, and leave the group with tools it can continue using.",
+      "The goal is not to replace a pastor, a church, a small-group leader, or a theological tradition. It is to add a layer of formation that helps people slow down, listen more deeply, and carry their faith into ordinary life."
     ],
-    "signature": "That is why I’m starting Homeward."
+    "signature": "That is the work I want Homeward to do."
   },
   "trust": {
-    "eyebrow": "A LITTLE ABOUT ME",
-    "heading": "Study. Practice. Ordinary life.",
-    "lead": "Homeward is new, and I think it matters that you know something about the person starting it.",
+    "eyebrow": "WHY I FEEL PREPARED TO SERVE A GROUP",
+    "heading": "Spiritual formation. Leadership development. Real life.",
+    "lead": "If I am invited into someone else’s group, I believe trust matters. My background brings together spiritual formation, organizational leadership, coaching and facilitation, and the ordinary formation of marriage, parenting, work, and community.",
     "cards": [
-      {"title": "Study", "body": "Religious Studies and Anthropology at UC Santa Barbara, followed by continued theological and spiritual study."},
-      {"title": "Practice", "body": "Decades of meditation, contemplation, retreats, monasteries, teachers, and communities."},
-      {"title": "Ordinary life", "body": "I’m a husband, father, and business leader. Homeward is built for real life because that is where I need these practices too."}
+      {
+        "title": "Spiritual formation",
+        "body": "More than thirty years of contemplative study, prayer, meditation, retreat, and practice; Religious Studies and Anthropology; and ongoing work with Centering Prayer, breath prayer, contemplative Scripture, silence, reflection, and Sacred Listening."
+      },
+      {
+        "title": "Leadership & facilitation",
+        "body": "Twenty-five years of business leadership, with formation through Stagen, ACE Coaching, HeartMath certification, TED certification, and high-trust mastermind and forum practices informed by YPO and Vistage."
+      },
+      {
+        "title": "Family & ordinary life",
+        "body": "Together with my wife, Lorraine, for twenty years and married for sixteen; father of two teenagers; and deeply shaped by the everyday work of marriage, parenting, friendship, responsibility, and leadership."
+      }
     ],
     "linkedin_label": "View Shaun on LinkedIn ↗",
     "linkedin_url": "https://www.linkedin.com/in/shaun-pennington-740a7417/",
     "founder_image": "/assets/founder-headshot.jpg",
     "founder_alt": "Shaun Pennington",
-    "founder_eyebrow": "WHY I FEEL CALLED TO DO THIS",
-    "founder_heading": "What I received, I want to pass on.",
+    "founder_eyebrow": "HOW I HOPE TO SHOW UP",
+    "founder_heading": "Prepared enough to lead. Humble enough to listen.",
     "founder_paragraphs": [
-      "So much of what has shaped my life was freely given to me by teachers, mentors, retreat leaders, spiritual communities, and people who made space for me to learn.",
-      "Over time I began to feel that simply keeping all of that for myself would miss something important. The best way I know to honor the people who taught me is to pass forward what I can of what they gave me.",
-      "My hope is to open a doorway into practices that can sometimes feel hidden away in monasteries or retreat centers—and help people carry them into ordinary life."
+      "I have spent much of my professional life building teams, developing leaders, facilitating difficult conversations, and trying to create cultures where people can be both honest and accountable.",
+      "The best groups I have experienced—spiritual, professional, and personal—share some of the same qualities: trust, confidentiality, curiosity, personal responsibility, good questions, and enough structure for real conversation to happen.",
+      "That is what I want to bring into Homeward: not expertise from above, but thoughtful facilitation that helps people experience something together and discover what is already emerging within the group."
     ],
-    "founder_quote": "Homeward is one expression of that gratitude.",
-    "summary": "Homeward is Jesus-centered, practice-centered, and built for honest conversation—not agreement on every question. Circles are currently offered at no cost.",
-    "disclaimer": "The retreat centers, traditions, books, and teachers referenced here are part of my personal spiritual history. Their inclusion does not imply endorsement of Homeward."
+    "founder_quote": "The point of my background is not to make Homeward about me. It is to help me serve your group well.",
+    "summary": "Homeward is Jesus-centered, experiential, and designed to strengthen existing Christian communities through guided practice, deeper listening, and honest conversation.",
+    "disclaimer": "The programs, certifications, organizations, teachers, and communities referenced here describe my personal formation and experience. Their inclusion does not imply formal sponsorship or endorsement of Homeward."
   },
   "final": {
-    "eyebrow": "IF SOMETHING HERE FEELS FAMILIAR",
-    "heading": "Start where you are.",
-    "lead": "Maybe your faith has changed. Maybe you have questions you haven’t known where to bring. Or maybe you simply want to experience God more deeply. You do not need to have the answers settled to begin.",
+    "eyebrow": "FOR CHRISTIAN GROUP LEADERS",
+    "heading": "Keep your group. Deepen the experience.",
+    "lead": "If you lead a small group, care team, staff team, recovery community, or other Christian group and want to introduce contemplative practice in a grounded, approachable way, Homeward is designed to come alongside what you are already doing.",
     "steps": [
-      {"title": "Learn a practice.", "body": "Begin simply. No meditation experience required."},
-      {"title": "Practice with others.", "body": "Make room for honest conversation about what you notice and experience."},
-      {"title": "Carry it into daily life.", "body": "Take the practice into work, family, relationships, joy, difficulty, and ordinary days."}
+      {
+        "title": "Begin with four weeks.",
+        "body": "Give your existing group a guided taste of contemplative prayer, Centering Prayer, Sacred Listening, reflection, and everyday practice."
+      },
+      {
+        "title": "Or focus on Sacred Listening.",
+        "body": "Use a three-session workshop to help people become more present, listen with compassion, and help others feel seen, heard, and loved."
+      },
+      {
+        "title": "Keep what serves your people.",
+        "body": "Homeward steps back after the experience. Your group keeps its relationships, leadership, identity, and the practices that were useful."
+      }
     ],
-    "primary_label": "Tell Us You’re Interested",
-    "primary_url": "/#interest",
+    "primary_label": "Explore the 4-Week Group Experience",
+    "primary_url": "/circles.html",
     "secondary_label": "Have a Conversation",
     "secondary_url": "/connect.html"
   }
