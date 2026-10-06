@@ -1,14 +1,14 @@
 {
   "brand": {
     "name": "HOMEWARD",
-    "subline": "A SPIRITUAL COMMUNITY",
+    "subline": "SPIRITUAL FORMATION FOR GROUPS",
     "footer_description": "Rooted in the life and way of Jesus, Homeward is open to all who genuinely seek God in love. We welcome faith, questions, hope, doubt, and uncertainty.",
     "mission": "Journeying Toward God. Together.",
     "copyright": "© 2026 Homeward Community · Belong. Grow. Become."
   },
   "navigation": {
     "home": "Home",
-    "circles": "Circles",
+    "circles": "For Groups",
     "practices": "Practices",
     "journey": "Journey Reflection",
     "story": "Our Story",
@@ -18,7 +18,7 @@
   },
   "footer": {
     "explore_heading": "Explore",
-    "circles": "Homeward Circles",
+    "circles": "4-Week Group Experience",
     "practices": "Practices",
     "journey": "Journey Reflection",
     "resources": "Resources",
@@ -32,8 +32,8 @@
   },
   "interest_prompt": {
     "aria_label": "Homeward interest invitation",
-    "heading": "Does Homeward resonate with you?",
-    "text": "Let us know what interests you. No commitment required.",
+    "heading": "Could Homeward help your group go deeper?",
+    "text": "Explore a four-week group experience or a Sacred Listening workshop. No pressure.",
     "interest_button": "Tell Us You’re Interested",
     "conversation_button": "Have a Conversation",
     "dismiss_label": "Dismiss"
