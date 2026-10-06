@@ -1,5 +1,5 @@
 {
-  "version": "8.3.0",
+  "version": "8.3.1",
   "hero": {
     "eyebrow": "OUR STORY · WHY HOMEWARD EXISTS",
     "heading": "I want to help good Christian groups go deeper.",
@@ -66,10 +66,10 @@
         "contain": false
       },
       {
-        "src": "/assets/circle-community.jpg",
-        "alt": "A small group gathered in conversation",
-        "caption": "The question became less 'Where can I find another retreat?' and more 'How can these practices live inside ordinary Christian community?'",
-        "contain": false
+        "src": "/assets/our-story/group-wide.webp",
+        "alt": "Shaun with a community of fellow retreat participants",
+        "caption": "The question became less “Where can I find another retreat?” and more “How can practices like these live inside ordinary Christian community?”",
+        "contain": true
       }
     ],
     "note": "You do not need retreat experience, contemplative training, or theological expertise to participate. One reason Homeward exists is to make these practices approachable inside ordinary Christian group life."
@@ -129,7 +129,12 @@
     ],
     "founder_quote": "The point of my background is not to make Homeward about me. It is to help me serve your group well.",
     "summary": "Homeward is Jesus-centered, experiential, and designed to strengthen existing Christian communities through guided practice, deeper listening, and honest conversation.",
-    "disclaimer": "The programs, organizations, teachers, and communities referenced here describe my personal formation and experience. Their inclusion does not imply formal sponsorship or endorsement of Homeward."
+    "disclaimer": "The programs, organizations, teachers, and communities referenced here describe my personal formation and experience. Their inclusion does not imply formal sponsorship or endorsement of Homeward.",
+    "family_image": "/assets/our-story/homeward-family.jpg",
+    "family_alt": "Shaun and Lorraine Pennington with their two children",
+    "family_eyebrow": "FAMILY & ORDINARY LIFE",
+    "family_heading": "The practices have to work at home too.",
+    "family_body": "Lorraine and I have been together for twenty years and married for sixteen, and we are raising two teenagers. Marriage, parenting, work, conflict, responsibility, and ordinary family life have been some of my deepest places of formation. Homeward is meant for that world—not only the retreat center."
   },
   "final": {
     "eyebrow": "FOR CHRISTIAN GROUP LEADERS",
