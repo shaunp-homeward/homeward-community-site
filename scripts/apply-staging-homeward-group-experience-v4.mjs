@@ -186,7 +186,7 @@ home = home.replace(
 );
 home = home.replace(
   /<div class="hero-actions">[\s\S]*?<\/div>/i,
-  '<div class="hero-actions"><a class="button button-copper" href="/sacred-listening.html">Explore Sacred Listening</a><a class="button button-outline" href="#group-experience">4-Week Group Experience</a></div>'
+  '<div class="hero-actions"><a class="button button-copper" href="#group-experience">4-Week Group Experience</a><a class="button button-outline" href="/sacred-listening.html">Explore Sacred Listening</a></div>'
 );
 
 // Insert the new group experience just before Sacred Listening.
