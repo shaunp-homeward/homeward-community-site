@@ -204,7 +204,6 @@ if (practiceSection) home = home.replace(practiceSection, `${groupExperience}\n$
 
 // Clean up remaining standalone-Circle language in the homepage shell.
 home = home
-  .replace(/<div class="hero-icon-row"[\\s\\S]*?<\\/div>/i, '')
   .replace(/<p class="hero-note">[\\s\\S]*?<\\/p>/i, '')
   .replace('Homeward is forming as a Jesus-centered spiritual community, beginning with Circles. You do not need to leave an existing church, and you do not need previous church involvement to participate.',
     'Homeward is a Jesus-centered spiritual formation initiative that comes alongside existing groups through workshops, guided practices, and short formation experiences. The aim is to deepen the community you already have—not ask people to leave it.')
@@ -240,6 +239,7 @@ await write('sacred-listening.html', sacred);
 
 const css = `
 /* v4 staging: existing-group positioning + shared Sacred Listening header */
+.hero-icon-row{display:none!important}
 .sl4-tight-triad{align-items:start!important;gap:14px!important}
 .sl4-tight-triad .sl2-card{min-height:0!important;height:auto!important;padding:18px 22px!important}
 .sl4-tight-triad .sl3-card-head{margin-bottom:8px!important}
