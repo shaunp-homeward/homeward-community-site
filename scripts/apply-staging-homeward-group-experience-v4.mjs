@@ -204,7 +204,7 @@ if (practiceSection) home = home.replace(practiceSection, `${groupExperience}\n$
 
 // Clean up remaining standalone-Circle language in the homepage shell.
 home = home
-  .replace(/<p class="hero-note">[\\s\\S]*?<\\/p>/i, '')
+  .replace(/<p class="hero-note">[\s\S]*?<\/p>/i, '')
   .replace('Homeward is forming as a Jesus-centered spiritual community, beginning with Circles. You do not need to leave an existing church, and you do not need previous church involvement to participate.',
     'Homeward is a Jesus-centered spiritual formation initiative that comes alongside existing groups through workshops, guided practices, and short formation experiences. The aim is to deepen the community you already have—not ask people to leave it.')
   .replace('Why is a conversation required before joining a Circle?', 'How does Homeward work with an existing group?')
