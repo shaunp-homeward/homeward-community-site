@@ -216,7 +216,7 @@ home = home
 // Lock the new narrative order.
 const orderedClasses = ['hero','recognition','hw-group-experience','home-practices','sl2-home','founder-feature','fit','journey','faq'];
 const orderedSections = orderedClasses.map((className) => getSection(home, className)).filter(Boolean);
-home = home.replace(/<main id="top">[\\s\\S]*?<\\/main>/i, `<main id="top">\n${orderedSections.join('\n')}\n</main>`);
+home = home.replace(/<main id="top">[\s\S]*?<\/main>/i, `<main id="top">\n${orderedSections.join('\n')}\n</main>`);
 
 await write('index.html', home);
 
