@@ -1,5 +1,5 @@
 {
-  "version": "8.4.1",
+  "version": "8.4.2",
   "hero": {
     "eyebrow": "OUR STORY · WHY HOMEWARD EXISTS",
     "heading": "I want to help good Christian groups go deeper.",
@@ -140,8 +140,8 @@
         "class": "small"
       },
       {
-        "src": "/assets/our-story/homeward-family.jpg",
-        "alt": "The Pennington family together at home",
+        "src": "/assets/our-story/family-heart.jpg",
+        "alt": "The Pennington family together on a family trip",
         "class": "small"
       }
     ]
