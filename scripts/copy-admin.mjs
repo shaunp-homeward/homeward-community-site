@@ -10,7 +10,8 @@ await fs.rm(dist, { recursive: true, force: true });
 await fs.cp(source, dist, { recursive: true });
 
 const configPath = path.join(dist, 'config.yml');
-let config = await fs.readFile(configPath, 'utf8');
+const readYaml = async (file) => (await fs.readFile(file, 'utf8')).replace(/\r\n/g, '\n');
+let config = await readYaml(configPath);
 config = config.replace(/editor:\n  preview: false/, 'editor:\n  preview: true');
 
 config = config
@@ -19,7 +20,7 @@ config = config
   .replace('label: Additional Page Copy', 'label: Other Pages (legacy structured editor)');
 
 const v8CollectionPath = path.join(source, 'v8-collection.yml');
-let v8Collection = await fs.readFile(v8CollectionPath, 'utf8');
+let v8Collection = await readYaml(v8CollectionPath);
 v8Collection = v8Collection.replace('label: Homepage (V8)', 'label: Homepage (V8) — EDIT THIS');
 v8Collection = v8Collection.replace(
   '      - label: Homepage section order\n        name: section_order\n        widget: list\n        collapsed: false',
@@ -52,10 +53,10 @@ const makeRich = (text) => text.split('\n').flatMap((line) => {
 v8Collection = makeRich(v8Collection);
 
 const v8GlobalCollectionPath = path.join(source, 'v8-global-collection.yml');
-let v8GlobalCollection = makeRich(await fs.readFile(v8GlobalCollectionPath, 'utf8'));
+let v8GlobalCollection = makeRich(await readYaml(v8GlobalCollectionPath));
 
 const v8PagesCollectionPath = path.join(source, 'v8-pages-collection.yml');
-let v8PagesCollection = await fs.readFile(v8PagesCollectionPath, 'utf8');
+let v8PagesCollection = await readYaml(v8PagesCollectionPath);
 
 // Retired Circles fields remain recoverable in source JSON/backups but stay out of the active editor.
 v8PagesCollection = v8PagesCollection
@@ -74,10 +75,10 @@ v8PagesCollection = v8PagesCollection.replace(/\n  - name: about_v8[\s\S]*$/, ''
 v8PagesCollection = makeRich(v8PagesCollection);
 
 const v8AboutCollectionPath = path.join(source, 'v8-about-collection.yml');
-let v8AboutCollection = makeRich(await fs.readFile(v8AboutCollectionPath, 'utf8'));
+let v8AboutCollection = makeRich(await readYaml(v8AboutCollectionPath));
 
 const v9LiveCollectionPath = path.join(source, 'v9-live-collection.yml');
-let v9LiveCollection = makeRich(await fs.readFile(v9LiveCollectionPath, 'utf8'));
+let v9LiveCollection = makeRich(await readYaml(v9LiveCollectionPath));
 
 if (!config.includes('name: v8_front_door')) {
   config = config.replace(
