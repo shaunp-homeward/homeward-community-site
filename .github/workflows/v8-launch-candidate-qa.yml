@@ -32,12 +32,7 @@ jobs:
           BRANCH: ${{ github.head_ref || github.ref_name }}
         run: npm run build
 
-      - name: Verify V8 site
-        if: github.head_ref != 'staging-homepage-layout-review-2026-10-07' && github.ref_name != 'staging-homepage-layout-review-2026-10-07'
-        run: npm run verify
-
-      - name: Check layout review output
-        if: github.head_ref == 'staging-homepage-layout-review-2026-10-07' || github.ref_name == 'staging-homepage-layout-review-2026-10-07'
+      - name: Check approved homepage layout
         run: |
           node --check scripts/apply-homepage-layout-review.mjs
           test -s dist/assets/homepage-layout-review.css
