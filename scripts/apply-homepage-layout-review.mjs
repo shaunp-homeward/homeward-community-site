@@ -14,6 +14,7 @@ if (context === 'production' || (context !== 'local' && branch !== 'staging-home
     const target = path.join(dist,file);
     let html = await fs.readFile(target,'utf8');
     if (!html.includes('v8-site-header')) continue;
+    if (html.includes('/assets/homepage-layout-review.css')) continue;
     html = html.replace(/<header\b[\s\S]*?<\/header>/i, header => header
       .replaceAll('SPIRITUAL FORMATION FOR GROUPS','FORMATION FOR GROUPS')
       .replaceAll('For Churches &amp; Communities','For Churches')
