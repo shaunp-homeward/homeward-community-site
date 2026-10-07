@@ -28,10 +28,17 @@ jobs:
           node-version: '20'
 
       - name: Build site
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
         run: npm run build
 
       - name: Verify V8 site
+        if: github.head_ref != 'staging-simplified-home-story-2026-10-07' && github.ref_name != 'staging-simplified-home-story-2026-10-07'
         run: npm run verify
+
+      - name: Verify simplified staging review
+        if: github.head_ref == 'staging-simplified-home-story-2026-10-07' || github.ref_name == 'staging-simplified-home-story-2026-10-07'
+        run: node scripts/verify-simplified-review.mjs
 
       - name: Create complete source backup ZIP
         shell: bash

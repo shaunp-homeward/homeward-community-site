@@ -89,7 +89,7 @@ if (!config.includes('name: v8_front_door')) {
 await fs.writeFile(configPath, config);
 
 const context = process.env.CONTEXT || '';
-const requestedBranch = process.env.BRANCH || '';
+const requestedBranch = process.env.HEAD || process.env.BRANCH || '';
 const cmsBranch = context === 'production' || requestedBranch === 'main'
   ? 'main'
   : (requestedBranch || 'v8-four-week-front-door');

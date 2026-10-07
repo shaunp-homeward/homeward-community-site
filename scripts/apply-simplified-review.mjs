@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const branch = process.env.BRANCH || '';
+const branch = process.env.HEAD || process.env.BRANCH || '';
 const context = process.env.CONTEXT || 'local';
 const reviewBranch = 'staging-simplified-home-story-2026-10-07';
 // Defense in depth: this overlay must never run in a production build.
