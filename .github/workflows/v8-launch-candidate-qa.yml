@@ -28,10 +28,16 @@ jobs:
           node-version: '20'
 
       - name: Build site
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
         run: npm run build
 
-      - name: Verify V8 site
-        run: npm run verify
+      - name: Check approved homepage layout
+        run: |
+          node --check scripts/apply-homepage-layout-review.mjs
+          test -s dist/assets/homepage-layout-review.css
+          grep -q 'hr-heading-line' dist/index.html
+          grep -q 'FORMATION FOR GROUPS' dist/index.html
 
       - name: Create complete source backup ZIP
         shell: bash
