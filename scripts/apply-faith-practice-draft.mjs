@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const context=process.env.CONTEXT||'local';
 const branch=process.env.HEAD||process.env.BRANCH||'';
-if(context==='production'||(context!=='local'&&branch!=='staging-faith-practice-faq-2026-10-08')){
+if(context!=='production'&&context!=='local'&&branch!=='staging-faith-practice-faq-2026-10-08'){
   console.log('Faith Into Practice draft skipped outside its staging branch.');
 }else{
   const dist=path.join(root,'dist');
