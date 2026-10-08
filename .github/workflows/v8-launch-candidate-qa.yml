@@ -37,7 +37,7 @@ jobs:
           node --check scripts/apply-homepage-layout-review.mjs
           test -s dist/assets/homepage-layout-review.css
           grep -q 'hr-heading-line' dist/index.html
-          grep -q 'FORMATION FOR GROUPS' dist/index.html
+          grep -Eq 'FORMATION FOR GROUPS|FAITH INTO PRACTICE' dist/index.html
 
       - name: Create complete source backup ZIP
         shell: bash
