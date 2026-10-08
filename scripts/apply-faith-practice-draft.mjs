@@ -15,9 +15,12 @@ if(context==='production'||(context!=='local'&&branch!=='staging-faith-practice-
     let html=await fs.readFile(target,'utf8');
     if(!html.includes('v8-site-header')||html.includes('/assets/faith-practice-draft.css'))continue;
     html=html.replace(/<header\b[\s\S]*?<\/header>/i,header=>header.replaceAll('FORMATION FOR GROUPS','FAITH INTO PRACTICE'));
+    html=html.replace(/<footer\b[\s\S]*?<\/footer>/i,footer=>footer.replaceAll('A SPIRITUAL COMMUNITY','FAITH INTO PRACTICE'));
     html=html.replace(/<body\b([^>]*)>/i,(tag,attrs)=>attrs.includes('class=')?tag.replace(/class="([^"]*)"/,(_,c)=>`class="${c} faith-practice-draft"`):`<body${attrs} class="faith-practice-draft">`);
     html=html.replace('</head>','<link rel="stylesheet" href="/assets/faith-practice-draft.css?v=1"></head>');
     if(page==='index.html'){
+      html=html.replace('Homeward is a Jesus-centered spiritual community in Fort Worth and online, offering guided Circles, contemplative practices, honest conversation, and a path for everyday spiritual life.','Homeward helps existing Christian groups put faith into practice through a four-week group experience and Sacred Listening. Jesus-centered. No charge.');
+      html=html.replace('aria-label="Homeward Circle basics"','aria-label="Homeward experience basics"').replace('Online<br/>Circles','Online<br/>gatherings');
       const pattern=/<section\b[^>]*class="[^"]*\bfaq\b[^"]*"[^>]*>[\s\S]*?<\/section>/i;
       if(!pattern.test(html))throw new Error('Current FAQ section missing');
       html=html.replace(pattern,faq);
