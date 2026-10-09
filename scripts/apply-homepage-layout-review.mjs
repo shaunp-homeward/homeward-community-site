@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const branch = process.env.HEAD || process.env.BRANCH || '';
 const context = process.env.CONTEXT || 'local';
-if (context !== 'production' && context !== 'local' && !['staging-homepage-layout-review-2026-10-07','staging-faith-practice-faq-2026-10-08'].includes(branch)) {
+if (context !== 'production' && context !== 'local' && !['staging-homepage-layout-review-2026-10-07','staging-faith-practice-faq-2026-10-08','staging-churches-realignment-2026-10-08'].includes(branch)) {
   console.log('Homepage layout review skipped outside its staging branch.');
 } else {
   const dist = path.join(root,'dist');
