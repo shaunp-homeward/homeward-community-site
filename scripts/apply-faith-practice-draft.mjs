@@ -15,7 +15,7 @@ if(context!=='production'&&context!=='local'&&branch!=='staging-faith-practice-f
     let html=await fs.readFile(target,'utf8');
     if(!html.includes('v8-site-header')||html.includes('/assets/faith-practice-draft.css'))continue;
     html=html.replace(/<header\b[\s\S]*?<\/header>/i,header=>header.replaceAll('FORMATION FOR GROUPS','FAITH INTO PRACTICE'));
-    html=html.replace(/<footer\b[\s\S]*?<\/footer>/i,footer=>footer.replaceAll('A SPIRITUAL COMMUNITY','FAITH INTO PRACTICE'));
+    html=html.replace(/<footer\b[\s\S]*?<\/footer>/i,footer=>footer.replaceAll('A SPIRITUAL COMMUNITY','FAITH INTO PRACTICE').replaceAll('SPIRITUAL FORMATION FOR GROUPS','FAITH INTO PRACTICE').replaceAll('FORMATION FOR GROUPS','FAITH INTO PRACTICE'));
     html=html.replace(/<body\b([^>]*)>/i,(tag,attrs)=>attrs.includes('class=')?tag.replace(/class="([^"]*)"/,(_,c)=>`class="${c} faith-practice-draft"`):`<body${attrs} class="faith-practice-draft">`);
     html=html.replace('</head>','<link rel="stylesheet" href="/assets/faith-practice-draft.css?v=1"></head>');
     if(page==='index.html'){
