@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 const branch=process.env.HEAD||process.env.BRANCH||'';
-if(process.env.CONTEXT==='production'||(process.env.CONTEXT&&process.env.CONTEXT!=='local'&&branch!=='staging-churches-realignment-2026-10-08')){console.log('Churches draft skipped.');}else{
+if(process.env.CONTEXT&&process.env.CONTEXT!=='production'&&process.env.CONTEXT!=='local'&&branch!=='staging-churches-realignment-2026-10-08'){console.log('Churches draft skipped.');}else{
 let h=await fs.readFile('dist/churches.html','utf8');
 const form=h.match(/<section class="partner-final-cta"[\s\S]*?<\/section>/)?.[0];
 if(!form)throw Error('Church interest form missing');
