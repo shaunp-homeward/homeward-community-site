@@ -2,3 +2,7 @@ dist/
 node_modules/
 .netlify/
 artifacts/
+
+dist-v17/
+dist-v17-production/
+dist-v17-preview/
