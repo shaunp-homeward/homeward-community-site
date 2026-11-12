@@ -1,0 +1,31 @@
+{
+  "heading": "Small practices. Room for your whole life.",
+  "introduction": "We begin with a desire to know God more deeply. These are invitations to explore, not promises of a particular outcome.",
+  "panels": [
+    {
+      "title": "Prayer & spiritual practice",
+      "theme": "amber",
+      "heading": "Make room for God.",
+      "description": "Bring your attention, questions, gratitude, and ordinary life into prayer. Begin gently and notice what helps you return."
+    },
+    {
+      "title": "Happiness & well-being",
+      "theme": "green",
+      "heading": "Notice the good.",
+      "description": "Explore gratitude, quiet, and attention to everyday life. Make room to notice what is meaningful without requiring yourself to feel a certain way."
+    },
+    {
+      "title": "Relationships",
+      "theme": "rose",
+      "heading": "Practice being present.",
+      "description": "Listen without rushing to fix. Ask an open question, make room for another person’s experience, and reflect on how to respond with care."
+    },
+    {
+      "title": "Mental health",
+      "theme": "blue",
+      "heading": "Care for your whole self.",
+      "description": "Attend to how a practice meets your life. Spiritual practice is not a substitute for mental health care; seek qualified support when you need it."
+    }
+  ],
+  "note": "Prayer, mindfulness, and gratitude are distinct practices. Research about one does not establish the effects of another. Homeward does not promise numerical improvements in health or well-being."
+}

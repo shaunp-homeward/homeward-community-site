@@ -1,0 +1,72 @@
+[
+  {
+    "file": "assets/image-01.jpg",
+    "sha256": "2af71dae3bf4adcca73f4f20f5ccd633f6388463ae18ef695be071ee58155038",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-02.jpg",
+    "sha256": "ab19037e1b011b6925462363a448dab25a4c45e95fd2ea176b5a0017c0269df2",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-03.jpg",
+    "sha256": "586fc962da7bcbc3a0f9ab2f7662376325133b1043027a865e15f4b65b75464e",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-04.jpg",
+    "sha256": "5d6ebee482e5b3dfcf7a6b3146fa2214331d3c207e6a6e8a6f264df28f1eb1b4",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-05.jpg",
+    "sha256": "26be4058d8bbc77b7ac08a3603a2ba1e7995d3c35ed173b406637651bc50a340",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-06.jpg",
+    "sha256": "23f5e4f6beb814604c540657e5f6d521b5021b7548287622ae3981135f9bac27",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-07.jpg",
+    "sha256": "73bebfd236c69c1281a1b5b800d1febb787abf9a15d684484b5bc11e98253abb",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-08.jpg",
+    "sha256": "009f7860fad2e7588d342ee5d6ed33f0089577d5b44c7be77718c02b8fd7e77b",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-09.jpg",
+    "sha256": "efa302eab9d66686546f93128b98d822b893eab29462fb3685ae257f0fe698fc",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-10.jpg",
+    "sha256": "a5c640c003e82e8205a39c7cc623d38860a7bf2cfe6244aa2e35d846dc52d51f",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-11.jpg",
+    "sha256": "d4b1ef3cf8278fabebda7faecef391036846273892a4ba0fdaf7ce8496439b98",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-12.jpg",
+    "sha256": "749ac3f102b46a28461ac7a4efb1eec9f15455240bbc6d7ce10f2f47879d716e",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-13.jpg",
+    "sha256": "a9a7dbf05c8c3ada6f3ba09a7ae0eeb698689b1fa83635f3de01c4d384ed8d10",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  },
+  {
+    "file": "assets/image-14.png",
+    "sha256": "8e6ac78f3028681c9f9f059cbd2324cc0849526c1efa70e4ff35a2b2e35c9466",
+    "source": "v1.7 embedded asset; original logo/portrait plus AI-generated illustrative scenes"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "title": "Talk | Homeward Charities",
+  "description": "Let’s explore what could serve your team.",
+  "copy": [
+    {
+      "key": "copy_0",
+      "label": "Let’s explore what could serve your team.",
+      "html": "Let’s explore what could<br/>serve your team."
+    },
+    {
+      "key": "copy_1",
+      "label": "Share your hopes, ask your questions, and explore a workshop together. Every experien",
+      "html": "Share your hopes, ask your questions, and explore a workshop together. Every experience is offered at no charge."
+    },
+    {
+      "key": "copy_2",
+      "label": "Calendar not loading? Open the scheduling page .",
+      "html": "Calendar not loading? <a href=\"https://calendly.com/shaunpennington/30min\" rel=\"noopener\" target=\"_blank\">Open the scheduling page</a>."
+    },
+    {
+      "key": "copy_3",
+      "label": "A few things to think about before we meet",
+      "html": "A few things to think about before we meet"
+    },
+    {
+      "key": "copy_4",
+      "label": "No formal preparation needed—just bring your questions. It may help to consider:",
+      "html": "No formal preparation needed—just bring your questions. It may help to consider:"
+    },
+    {
+      "key": "copy_5",
+      "label": "What would you love to make more room for in your team or community?",
+      "html": "What would you love to make more room for in your team or community?"
+    },
+    {
+      "key": "copy_6",
+      "label": "Who might take part, and what is their experience with these practices?",
+      "html": "Who might take part, and what is their experience with these practices?"
+    },
+    {
+      "key": "copy_7",
+      "label": "Would a team workshop, a short series, or a retreat be a helpful starting point?",
+      "html": "Would a team workshop, a short series, or a retreat be a helpful starting point?"
+    },
+    {
+      "key": "copy_8",
+      "label": "Are there any timing, accessibility, or practical needs we should know about?",
+      "html": "Are there any timing, accessibility, or practical needs we should know about?"
+    },
+    {
+      "key": "copy_9",
+      "label": "We’ll listen, explore possibilities, and decide together whether there’s a useful nex",
+      "html": "We’ll listen, explore possibilities, and decide together whether there’s a useful next step."
+    }
+  ],
+  "images": []
+}
