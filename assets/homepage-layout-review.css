@@ -1,0 +1,49 @@
+/* Screenshot-directed layout refinements; loaded only on the review branch. */
+body.homepage-layout-review .hw-recognition,body.homepage-layout-review .hw-group-experience{scroll-margin-top:110px}
+body.homepage-layout-review .v8-header-inner{width:min(1340px,calc(100% - 48px));gap:24px}
+body.homepage-layout-review .v8-brand{min-width:218px;flex-shrink:0}
+body.homepage-layout-review .v8-desktop-nav{gap:20px;font-size:.84rem}
+body.homepage-layout-review .v8-brand-copy small{font-size:.53rem;letter-spacing:.12em}
+body.homepage-layout-review .hw-recognition .recognition-heading h2{max-width:1100px;margin:0 auto 24px;font-size:clamp(2.35rem,4.1vw,4.1rem);line-height:1.12;text-wrap:balance}
+body.homepage-layout-review .hw-recognition .recognition-heading h2 .hr-heading-line{display:block}
+body.homepage-layout-review .hw-recognition-grid{gap:20px!important;margin-top:36px!important}
+body.homepage-layout-review .hw-recognition-grid article{background:#FAF6EF;border:1px solid rgba(21,58,46,.14);border-radius:12px;box-shadow:0 4px 16px rgba(21,58,46,.025);padding:28px 30px!important;text-align:left;min-height:142px!important}
+body.homepage-layout-review .hw-recognition-grid article strong{color:#153A2E}
+body.homepage-layout-review .hw-recognition-grid article p{font-size:1rem!important;line-height:1.65!important}
+body.homepage-layout-review .hw-recognition .recognition-close{max-width:940px;margin:30px auto 0;font-size:1.15rem;line-height:1.6;text-align:center}
+body.homepage-layout-review .hw-group-heading{display:block;text-align:center;margin:0 auto 38px;max-width:1020px}
+body.homepage-layout-review .hw-group-heading h2{font-size:clamp(2.6rem,4.3vw,4.25rem);line-height:1.12;margin:8px auto 24px;text-wrap:balance}
+body.homepage-layout-review .hw-group-heading h2 em{display:block}
+body.homepage-layout-review .hw-group-intro{max-width:820px;margin:0 auto}
+body.homepage-layout-review .hw-group-intro .lead{font-size:1.25rem;line-height:1.65;margin:0 0 14px}
+body.homepage-layout-review .hw-group-intro p:last-child{font-size:1rem;line-height:1.7;margin-bottom:0}
+body.homepage-layout-review .hw-group-weeks{gap:20px}
+body.homepage-layout-review .hw-group-weeks article{padding:28px;gap:20px}
+body.homepage-layout-review .hw-group-weeks h3{font-size:1.42rem;line-height:1.25}
+body.homepage-layout-review .hw-group-weeks article div>p:last-child{font-size:1rem;line-height:1.65}
+body.homepage-layout-review .hw-group-bottom{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;padding-top:34px;margin-top:30px}
+body.homepage-layout-review .hw-group-bottom>div:first-child{max-width:720px}
+body.homepage-layout-review .hw-group-bottom strong{font-size:1.18rem;line-height:1.5}
+body.homepage-layout-review .hw-group-bottom p{font-size:1rem;line-height:1.7;margin:10px 0 0}
+body.homepage-layout-review .hw-group-benefits{justify-content:center;gap:10px}
+body.homepage-layout-review .hw-group-benefits span{padding:8px 13px;font-size:.76rem}
+body.homepage-layout-review .hw-group-bottom .sl2-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin:0}
+body.homepage-layout-review .hw-group-bottom .button{font-size:.94rem;min-height:48px;padding:14px 22px}
+@media(max-width:1240px){
+  body.homepage-layout-review .v8-header-inner{grid-template-columns:minmax(0,1fr) auto auto;height:78px;gap:10px}
+  body.homepage-layout-review .v8-desktop-nav,body.homepage-layout-review .v8-header-cta-desktop{display:none}
+  body.homepage-layout-review .v8-header-cta-mobile,body.homepage-layout-review .v8-menu-button{display:inline-flex}
+  body.homepage-layout-review .v8-mobile-nav[data-open='true']{display:block}
+}
+@media(max-width:720px){
+  body.homepage-layout-review .v8-header-inner{width:calc(100% - 24px);gap:7px}
+  body.homepage-layout-review .v8-brand{min-width:0}
+  body.homepage-layout-review .v8-brand-copy small{font-size:.49rem;letter-spacing:.06em}
+  body.homepage-layout-review .hw-recognition .recognition-heading h2{font-size:clamp(2rem,7.2vw,2.7rem);line-height:1.15}
+  body.homepage-layout-review .hw-recognition-grid article{min-height:0!important;padding:24px!important}
+  body.homepage-layout-review .hw-group-heading h2{font-size:2.65rem}
+  body.homepage-layout-review .hw-group-intro .lead{font-size:1.12rem}
+  body.homepage-layout-review .hw-group-weeks article{padding:24px 20px;gap:16px}
+  body.homepage-layout-review .hw-group-bottom .sl2-actions{flex-direction:column;width:min(100%,360px)}
+  body.homepage-layout-review .hw-group-bottom .button{width:100%}
+}

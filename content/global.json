@@ -42,8 +42,8 @@
     "modal_label": "Schedule a short Homeward conversation",
     "iframe_title": "Schedule a 30-minute Homeward conversation",
     "close_label": "Close calendar",
-    "embed_url": "https://calendly.com/s-pennington/30-min-discovery-call?embed_domain=homewardcommunity.com&embed_type=Inline&hide_event_type_details=1&background_color=faf6ef&text_color=153a2e&primary_color=b53a2a",
-    "external_url": "https://calendly.com/s-pennington/30-min-discovery-call"
+    "embed_url": "https://calendly.com/shaunpennington?embed_domain=homewardcommunity.com&embed_type=Inline&hide_event_type_details=1&background_color=faf6ef&text_color=153a2e&primary_color=b53a2a",
+    "external_url": "https://calendly.com/shaunpennington"
   },
   "lightbox": {
     "dialog_label": "Future vision image viewer",

@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const target = path.join(root, 'dist', 'assessment.html');
 
-let html = await fs.readFile(target, 'utf8');
+let html = (await fs.readFile(target, 'utf8')).replace(/\r\n/g, '\n');
 if (html.includes("gtag('event','journey_reflection_result'")) {
   console.log('Journey Reflection result analytics already present.');
   process.exit(0);

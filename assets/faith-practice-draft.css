@@ -1,0 +1,10 @@
+.faith-practice-draft .v8-brand-copy small{letter-spacing:.14em;font-size:.54rem}
+.faith-practice-draft .fp-invitation{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.75rem,3vw,2.6rem);line-height:1.2;letter-spacing:-.02em;color:#153A2E;font-weight:600}
+.faith-practice-draft .fp-reassurance{background:#FAF6EF;border:1px solid rgba(21,58,46,.14);border-radius:10px;padding:18px 24px;margin:22px auto 0;max-width:760px;font-size:1rem;line-height:1.65;color:#153A2E;text-align:center}
+.faith-practice-draft .fp-reassurance strong{font-weight:700}
+.faith-practice-draft .faq-list summary{font-size:1rem;line-height:1.6;padding:3px 0}
+.faith-practice-draft .faq-list details{padding:20px 0}
+.faith-practice-draft .faq-list details p{font-size:1rem;line-height:1.75;margin:16px 0 0}
+.faith-practice-draft .faq-list a{color:#153A2E;text-underline-offset:4px;font-weight:600}
+.faith-practice-draft .faq-list summary:focus-visible{outline:2px solid #B53A2A;outline-offset:5px}
+@media(max-width:720px){.faith-practice-draft .v8-brand-copy small{font-size:.5rem;letter-spacing:.08em}.faith-practice-draft .fp-reassurance{padding:18px;font-size:.95rem;margin-left:18px;margin-right:18px}}

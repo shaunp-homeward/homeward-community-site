@@ -1,0 +1,38 @@
+[
+  {
+    "id": "home",
+    "route": "/"
+  },
+  {
+    "id": "leaders",
+    "route": "/for-leaders/"
+  },
+  {
+    "id": "experiences",
+    "route": "/experiences/"
+  },
+  {
+    "id": "prayer",
+    "route": "/prayer-and-presence/"
+  },
+  {
+    "id": "listening",
+    "route": "/sacred-listening/"
+  },
+  {
+    "id": "retreat",
+    "route": "/half-day-retreat/"
+  },
+  {
+    "id": "practices",
+    "route": "/practices/"
+  },
+  {
+    "id": "story",
+    "route": "/our-story/"
+  },
+  {
+    "id": "talk",
+    "route": "/lets-talk/"
+  }
+]
