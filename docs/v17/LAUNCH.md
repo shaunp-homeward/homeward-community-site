@@ -1,5 +1,10 @@
 # v1.7 launch preparation
 
+**Status:** released at https://homewardcommunity.com . Netlify authorization
+completed and PR #44 merged. See DEPLOYMENT.md for the verified release receipt,
+tests, rollback target and exact outstanding GoDaddy DNS edits. The .org
+transition and authenticated CMS editing are not claimed complete.
+
 Shaun authorized work needed to go live in this chat. This document records the
 concrete target, tested preparation, access still needed, and rollback.
 

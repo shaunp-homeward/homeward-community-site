@@ -4,7 +4,10 @@
 `homeward-command-center` repository is the Airtable CRM app, not an older copy
 of this site.
 
-**v1.7 candidate:** implementation is on `feature/homeward-v17`.
+**v1.7 is live at [homewardcommunity.com](https://homewardcommunity.com).**
+The intended .org address is prepared in Netlify and awaits GoDaddy DNS changes.
+See the [deployment receipt and remaining domain steps](docs/v17/DEPLOYMENT.md).
+Implementation was merged through PR #44; CMS edits target `staging`.
 Use Node 22+, `npm run build:v17:preview`, `npm run verify:v17:preview`, and
 `npm run test:v17` for the release preview in `dist-v17-preview/`.
 Use `npm run build:v17:release` and `npm run verify:v17:release` for production
