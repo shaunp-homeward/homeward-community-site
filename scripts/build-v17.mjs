@@ -7,7 +7,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const production = process.argv.includes('--production');
 const releasePreview = process.argv.includes('--release-preview');
 const release = production || releasePreview;
-const origin = 'https://homewardcharities.org';
+const origin = (process.env.HOMEWARD_SITE_URL || 'https://homewardcharities.org').replace(/\/$/, '');
+if (!['https://homewardcharities.org', 'https://homewardcommunity.com'].includes(origin)) {
+  throw new Error('HOMEWARD_SITE_URL must be an approved Homeward HTTPS domain.');
+}
 const out = path.join(root, production ? 'dist-v17-production' : releasePreview ? 'dist-v17-preview' : 'dist-v17');
 const read = (p) => fs.readFile(path.join(root, p), 'utf8');
 const json = async (p) => JSON.parse(await read(p));

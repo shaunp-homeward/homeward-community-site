@@ -8,6 +8,7 @@ const routes = JSON.parse(await fs.readFile(path.join(root, 'src/v17/routes.json
 const production = process.argv.includes('--production');
 const releasePreview = process.argv.includes('--release-preview');
 const release = production || releasePreview;
+const origin = (process.env.HOMEWARD_SITE_URL || 'https://homewardcharities.org').replace(/\/$/, '');
 const out = path.join(root, production ? 'dist-v17-production' : releasePreview ? 'dist-v17-preview' : 'dist-v17');
 let links = 0;
 for (const { id, route } of routes) {
@@ -16,7 +17,7 @@ for (const { id, route } of routes) {
   assert(!html.includes('{{'), `${id}: unresolved content`);
   assert(!/data-page=|page-choice|page-review|history.replaceState/.test(html), `${id}: prototype navigation removed`);
   assert(html.includes(production ? 'content="index,follow"' : 'content="noindex,nofollow"'), `${id}: correct index policy`);
-  if (production) assert(html.includes(`rel="canonical" href="https://homewardcharities.org${route}"`), `${id}: canonical URL`);
+  if (production) assert(html.includes(`rel="canonical" href="${origin}${route}"`), `${id}: canonical URL`);
   if (release) {
     assert(!/Not approved for publication|Review draft|reference-status/.test(html), `${id}: reference-only content excluded`);
   }
@@ -48,7 +49,7 @@ assert.equal(config.publish_mode, 'editorial_workflow');
 assert.equal(config.collections[0].files.length, 9);
 if (production) {
   const sitemap = await fs.readFile(path.join(out, 'sitemap.xml'), 'utf8');
-  for (const { route } of routes) assert(sitemap.includes(`https://homewardcharities.org${route}</loc>`), 'Sitemap route missing');
+  for (const { route } of routes) assert(sitemap.includes(`${origin}${route}</loc>`), 'Sitemap route missing');
   const headers = await fs.readFile(path.join(out, '_headers'), 'utf8');
   assert(!headers.split('/admin/')[0].includes('noindex'), 'Production must not be noindexed');
 }

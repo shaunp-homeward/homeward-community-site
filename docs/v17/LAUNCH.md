@@ -10,6 +10,13 @@ concrete target, tested preparation, access still needed, and rollback.
 - Existing Netlify site from repository documentation and matching public page:
   `homeward-community-dfw` / `homeward-community-dfw.netlify.app`.
 - Intended primary website: `https://homewardcharities.org`.
+- First production release can use the verified existing domain
+  `https://homewardcommunity.com` while GoDaddy .org DNS access is pending.
+  Set the nonsecret build variable `HOMEWARD_SITE_URL` to that current HTTPS
+  address so canonical URLs and sitemap stay correct. After .org DNS/TLS is
+  verified, change it to `https://homewardcharities.org`, rebuild, and enable
+  path-preserving old-domain redirects. Never canonicalize a working production
+  site to the currently unconfigured .org domain.
 - Keep `homewardcommunity.com` and its mail delivery. Redirect its web URLs
   only after the new domain serves the verified release over HTTPS.
 - No extra plugin or paid service is required for the current implementation.
