@@ -67,3 +67,6 @@ h1 br,h2 br,h3 br{display:initial!important}.giving-lines span{display:block;whi
 .policy-page>.wrap{max-width:850px}.policy-page h1{font-size:clamp(32px,5vw,48px);margin-bottom:24px}.policy-page h2{font-size:27px;margin:30px 0 14px}.policy-page p{margin:15px 0}.policy-page a{color:#923122;text-underline-offset:3px}
 #main:focus{outline:none}.navlinks a{min-height:24px;padding-top:4px;padding-bottom:4px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Opaque text backing makes photograph captions readable across image crops. */
+.photo-copy{background:rgba(13,38,28,.94);width:100%}
