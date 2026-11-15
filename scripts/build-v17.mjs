@@ -25,13 +25,15 @@ await fs.cp(path.join(root, 'assets/v17'), path.join(out, 'assets/v17'), { recur
 await fs.copyFile(path.join(root, 'src/v17/site.css'), path.join(out, 'assets/v17/site.css'));
 await fs.copyFile(path.join(root, 'src/v17/site.js'), path.join(out, 'assets/v17/site.js'));
 await fs.cp(path.join(root, 'downloads'), path.join(out, 'downloads'), { recursive: true, filter: (p) => !p.endsWith('desktop.ini') });
-// Retain the existing published privacy policy; update navigation only.
-const privacy = (await read('privacy.html'))
-  .replace('href="index.html#interest"', 'href="/lets-talk/"')
-  .replace('contact form on our website', 'contact page on our website')
-  .replaceAll('href="index.html#interest"', 'href="/lets-talk/"')
-  .replace('<script defer="" src="edit-mode.js"></script>', '');
-await fs.writeFile(path.join(out, 'privacy.html'), privacy);
+// Policies use the same accessible navigation and typography as the public site.
+const policyPages = await json('content/v17/policies.json');
+for (const policy of policyPages) {
+  const canonical = production ? `<link rel="canonical" href="${origin}${policy.route}">` : '<meta name="robots" content="noindex,nofollow">';
+  const page = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${canonical}<title>${escape(policy.title)} | Homeward Charities</title><meta name="description" content="${escape(policy.description)}"><link rel="stylesheet" href="/assets/v17/site.css"><script defer src="/assets/v17/site.js"></script></head><body><a class="skip-link" href="#main">Skip to content</a>${shared.header}<main id="main" tabindex="-1" class="section policy-page"><div class="wrap"><h1>${escape(policy.title)}</h1>${policy.html}</div></main>${shared.footer}</body></html>`;
+  const dest = path.join(out, policy.route.endsWith('/') ? `${policy.route}index.html` : policy.route);
+  await fs.mkdir(path.dirname(dest), { recursive: true });
+  await fs.writeFile(dest, page);
+}
 await fs.mkdir(path.join(out, 'img'), { recursive: true });
 for (const image of ['icon-forest.png', 'logo-ivory.png']) await fs.copyFile(path.join(root, 'img', image), path.join(out, 'img', image));
 
@@ -64,7 +66,7 @@ for (const { id, route } of routes) {
   body = body.replace('loading="lazy"', 'loading="eager" fetchpriority="high"');
   const header = shared.header.replaceAll(`href="${route}"`, `href="${route}" aria-current="page"`).replace('loading="lazy"', 'loading="eager"');
   const indexing = production ? `<meta name="robots" content="index,follow"><link rel="canonical" href="${origin}${route}"><meta property="og:type" content="website"><meta property="og:url" content="${origin}${route}"><meta property="og:title" content="${escape(content.title)}"><meta property="og:description" content="${escape(content.description)}">` : '<meta name="robots" content="noindex,nofollow">';
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${indexing}<title>${escape(content.title)}</title><meta name="description" content="${escape(content.description)}"><link rel="icon" href="/assets/v17/image-14.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"><link rel="stylesheet" href="/assets/v17/site.css"><script defer src="/assets/v17/site.js"></script></head><body><a href="#main" class="skip-link">Skip to content</a>${header}<main id="main">${body}</main>${shared.footer}<p class="illustration-note">Workshop images are AI-generated illustrations. Homeward’s original logo and Shaun’s original portrait are retained. <a href="/privacy.html">Privacy</a></p></body></html>`;
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${indexing}<title>${escape(content.title)}</title><meta name="description" content="${escape(content.description)}"><link rel="icon" href="/assets/v17/image-14.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"><link rel="stylesheet" href="/assets/v17/site.css"><script defer src="/assets/v17/site.js"></script></head><body><a href="#main" class="skip-link">Skip to content</a>${header}<main id="main" tabindex="-1">${body}</main>${shared.footer}<p class="illustration-note">Workshop images are AI-generated illustrations. Homeward’s original logo and Shaun’s original portrait are retained. <a href="/privacy.html">Privacy</a></p></body></html>`;
   const dest = path.join(out, route, 'index.html');
   await fs.mkdir(path.dirname(dest), { recursive: true });
   await fs.writeFile(dest, html);
@@ -74,7 +76,9 @@ await fs.writeFile(path.join(out, '404.html'), '<!doctype html><html lang="en"><
 await fs.writeFile(path.join(out, 'robots.txt'), production ? `User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ${origin}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
 if (production) await fs.writeFile(path.join(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(({ route }) => `<url><loc>${origin}${route}</loc></url>`).join('')}</urlset>`);
 await fs.writeFile(path.join(out, '_headers'), `/*\n${production ? '' : '  X-Robots-Tag: noindex, nofollow\n'}  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n/admin/*\n  X-Robots-Tag: noindex, nofollow\n  Cache-Control: no-store\n`);
-await fs.writeFile(path.join(out, '_redirects'), '/api/lead /.netlify/functions/lead 200\n/m/* /.netlify/functions/redirect 200\n/about /our-story/ 301\n/about.html /our-story/ 301\n/churches.html /for-leaders/ 301\n/connect /lets-talk/ 301\n/connect.html /lets-talk/ 301\n/circles /experiences/ 301\n/circles.html /experiences/ 301\n/practices.html /practices/ 301\n/vision /our-story/ 301\n/vision.html /our-story/ 301\n/resources /practices/ 301\n/resources.html /practices/ 301\n/* /404.html 404\n');
+const domainRedirects = production && origin === 'https://homewardcharities.org'
+  ? ['https://homewardcommunity.com/* https://homewardcharities.org/:splat 301!', 'https://www.homewardcommunity.com/* https://homewardcharities.org/:splat 301!', 'https://www.homewardcharities.org/* https://homewardcharities.org/:splat 301!'].join('\n') + '\n' : '';
+await fs.writeFile(path.join(out, '_redirects'), domainRedirects + '/api/lead /.netlify/functions/lead 200\n/m/* /.netlify/functions/redirect 200\n/about /our-story/ 301\n/about.html /our-story/ 301\n/churches.html /for-leaders/ 301\n/connect /lets-talk/ 301\n/connect.html /lets-talk/ 301\n/circles /experiences/ 301\n/circles.html /experiences/ 301\n/practices.html /practices/ 301\n/vision /our-story/ 301\n/vision.html /our-story/ 301\n/resources /practices/ 301\n/resources.html /practices/ 301\n/* /404.html 404\n');
 
 const fields = [
   { name: 'title', label: 'Search title', widget: 'string' },

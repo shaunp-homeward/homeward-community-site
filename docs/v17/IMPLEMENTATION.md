@@ -2,6 +2,11 @@
 
 Prepared by Marty (Codex engineering role), 2026-11-11. Local candidate only.
 
+**Released subsequently:** v1.7 is live at https://homewardcommunity.com .
+See DEPLOYMENT.md for production evidence and the outstanding .org DNS work.
+The initial preparation sections below are historical and do not describe
+the latest production status.
+
 ## Latest launch preparation
 
 Shaun authorized work needed to go live. Production and release-preview builds
