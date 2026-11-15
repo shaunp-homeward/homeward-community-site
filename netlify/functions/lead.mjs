@@ -68,7 +68,7 @@ export default async (req) => {
   const attribution = {
     source: clean(data.utm_source).toLowerCase(), medium: clean(data.utm_medium), campaign: clean(data.utm_campaign),
     term: clean(data.utm_term), content: clean(data.utm_content), gclid: clean(data.gclid), fbclid: clean(data.fbclid),
-    landing: clean(data.landing_page), referrer: clean(data.referrer),
+    landing: safeAttributionUrl(data.landing_page), referrer: safeAttributionUrl(data.referrer),
   };
 
   let interested = [];
@@ -113,7 +113,7 @@ export default async (req) => {
   const validStages = ["Inherited Faith", "Honest Questions", "Sacred Search", "New Foundations", "Embodied Faith", "Living Awake"];
   const validGathering = ["DFW — open to in person", "DFW — prefer online", "Outside DFW — online"];
   const fields = {
-    Name: name, Email: email, Source: source, Stage: "New Lead", "Email Consent": true,
+    Name: name, Email: email, Source: source, Stage: "New Lead", "Email Consent": newsletter,
     "Newsletter Opt-in": newsletter, "Conversation Requested": conversationRequested,
     Notes: notes.join("\n"), "Date Added": new Date().toISOString().slice(0, 10),
   };
@@ -347,3 +347,9 @@ function json(payload, status) {
 }
 
 export const config = { path: "/api/lead" };
+
+// Retain the referring page without storing query/fragment assessment answers or identifiers.
+function safeAttributionUrl(value) {
+  try { const url = new URL(String(value || '')); return ['https:', 'http:'].includes(url.protocol) ? url.origin + url.pathname : ''; }
+  catch { return ''; }
+}
