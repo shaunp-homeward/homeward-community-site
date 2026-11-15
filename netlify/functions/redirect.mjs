@@ -5,7 +5,7 @@
 
 export default async (req, context) => {
   // Fallback lands on the live site (swap to homewardcommunity.com once the domain is connected).
-  const FALLBACK = "https://homewardcommunity.com/";
+  const FALLBACK = "https://homewardcharities.org/";
 
   // Read the slug from context.params, falling back to parsing the URL path directly.
   let slug = "";
